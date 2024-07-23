@@ -6,8 +6,15 @@
     <description>Recent content in Posts on 技术写作练习：写得越多，写得越开心</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jul 2024 10:21:34 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jul 2024 10:52:24 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>002 好奇先生四处打量Lisp</title>
+      <link>http://localhost:1313/posts/002-curious-looking-around/</link>
+      <pubDate>Tue, 23 Jul 2024 10:52:24 +0800</pubDate>
+      <guid>http://localhost:1313/posts/002-curious-looking-around/</guid>
+      <description>Lisp是什么？ Lisp是一种编程语言。Lisp是一种很古老的编程语言。Lisp是一种很优雅的编程语言。 好奇先生是个问题宝宝</description>
+    </item>
     <item>
       <title>001 粗鲁先生Lisp再出发</title>
       <link>http://localhost:1313/posts/001-rude-start-application/</link>
@@ -16,88 +23,11 @@
       <description>目标和梦想 目标和梦想是最近考虑的一个问题。什么是目标？什么是梦想？梦想可以激励改变，目标才能实现改变。 开始这个部分的时候，我的梦想是什么？我</description>
     </item>
     <item>
-      <title>Lisp计划开始</title>
+      <title>000 中年人与Lisp</title>
       <link>http://localhost:1313/posts/lisp-plan/</link>
       <pubDate>Tue, 23 Jul 2024 09:47:44 +0800</pubDate>
       <guid>http://localhost:1313/posts/lisp-plan/</guid>
       <description>中年人与Lisp Lisp实际上已经是我的老朋友。 大学的时候就开始看Lisp，很有意思也很有力的7个构成部分形成整个LISP大厦，非常震撼。 断</description>
-    </item>
-    <item>
-      <title>写作练习开始</title>
-      <link>http://localhost:1313/posts/intro/</link>
-      <pubDate>Tue, 23 Jul 2024 08:56:16 +0800</pubDate>
-      <guid>http://localhost:1313/posts/intro/</guid>
-      <description>写作，不停写作 写作是跟自己对话。 生命不止，写作不息 这是一个学习的机会，也是一个自我慰藉的过程。</description>
-    </item>
-    <item>
-      <title>Test Markdown</title>
-      <link>http://localhost:1313/posts/test-markdown/</link>
-      <pubDate>Sun, 01 Jan 2023 10:28:10 +0800</pubDate>
-      <guid>http://localhost:1313/posts/test-markdown/</guid>
-      <description>Markdown Test Page Headings Paragraphs Blockquotes Lists Horizontal rule Table Code Inline elements Headings Heading one Sint sit cillum pariatur eiusmod nulla pariatur ipsum. Sit laborum anim qui mollit tempor pariatur nisi minim dolor. Aliquip et adipisicing sit sit fugiat commodo id sunt.&#xA;Heading two Aute officia nulla deserunt do deserunt cillum velit magna. Officia veniam culpa anim minim dolore labore pariatur voluptate id ad est duis quis velit dolor pariatur enim.</description>
-    </item>
-    <item>
-      <title>Test CJK</title>
-      <link>http://localhost:1313/posts/test-cjk/</link>
-      <pubDate>Fri, 26 Aug 2022 22:30:10 +0800</pubDate>
-      <guid>http://localhost:1313/posts/test-cjk/</guid>
-      <description>1. 简体中文测试 秋，夜，王趺坐收银台前，篝灯如吠。明灭之际有兽前来采购：鹿角虎爪，云雾缭绕，眼睛碧绿如同玻璃；店中不见生人已久。坐，齿轮捻动，</description>
-    </item>
-    <item>
-      <title>Test Highlight</title>
-      <link>http://localhost:1313/posts/test-highlight/</link>
-      <pubDate>Fri, 26 Aug 2022 22:29:10 +0800</pubDate>
-      <guid>http://localhost:1313/posts/test-highlight/</guid>
-      <description>Test for C #define UNICODE #include &amp;lt;windows.h&amp;gt; int main(int argc, char **argv) { int speed = 0, speed1 = 0, speed2 = 0; // 1-20 printf(&amp;#34;Set Mouse Speed by Maverick\n&amp;#34;); SystemParametersInfo(SPI_GETMOUSESPEED, 0, &amp;amp;speed, 0); printf(&amp;#34;Current speed: %2d\n&amp;#34;, speed); if (argc == 1) return 0; if (argc &amp;gt;= 2) sscanf(argv[1], &amp;#34;%d&amp;#34;, &amp;amp;speed1); if (argc &amp;gt;= 3) sscanf(argv[2], &amp;#34;%d&amp;#34;, &amp;amp;speed2); if (argc == 2) // set speed to first value speed = speed1; else if (speed == speed1 || speed == speed2) // alternate speed = speed1 + speed2 - speed; else speed = speed1; // start with first value SystemParametersInfo(SPI_SETMOUSESPEED, 0, speed, 0); SystemParametersInfo(SPI_GETMOUSESPEED, 0, &amp;amp;speed, 0); printf(&amp;#34;New speed: %2d\n&amp;#34;, speed); return 0; } Test for Java import java.</description>
-    </item>
-    <item>
-      <title>Test Tex</title>
-      <link>http://localhost:1313/posts/test-tex/</link>
-      <pubDate>Fri, 26 Aug 2022 22:28:10 +0800</pubDate>
-      <guid>http://localhost:1313/posts/test-tex/</guid>
-      <description>Inline math: \(\varphi\)&#xD;Displayed math: $$\begin{aligned}&#xD;\varphi &amp;amp;\Rightarrow \psi \\&#xD;\varnothing &amp;amp;\rightarrow A&#xD;\end{aligned}$$&#xD;$$ R_{\mu \nu} - {1 \over 2}g_{\mu \nu},R + g_{\mu \nu} \Lambda = {8 \pi G \over c^4} T_{\mu \nu} $$&#xA;The equation $$(x_i \cdot x_j)^2$$ is called kernel function and is often written as $$k(x_i, x_j)$$.&#xA;$$ \arg\max_\alpha \sum_j \alpha_j - \frac{1}{2} \sum_{j,k} \alpha_j, \alpha_k y_j y_k (x_j \cdot x_k) $$&#xA;$$ f(X) = \frac{1}{(2\pi)^{\frac{n}{2} |\Sigma|^{\frac{1}{2}}}} e^{ - \frac{1}{2} (X - \mu)^T \Sigma^{-1} (X - \mu)} $$</description>
-    </item>
-    <item>
-      <title>headings and toc</title>
-      <link>http://localhost:1313/posts/2020-07-09-post-example-with-headings-and-toc/</link>
-      <pubDate>Thu, 09 Jul 2020 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-07-09-post-example-with-headings-and-toc/</guid>
-      <description>Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Nunc a egestas tortor, sed feugiat leo.&#xA;Table of contents Table of contents The start The middle The end Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum. Donec scelerisque lacus libero, eu dignissim sem venenatis at. Nunc a egestas tortor, sed feugiat leo. Vestibulum porta tincidunt tellus, vitae ornare tortor.</description>
-    </item>
-    <item>
-      <title>hr</title>
-      <link>http://localhost:1313/posts/2020-07-09-post-example-with-hr/</link>
-      <pubDate>Thu, 09 Jul 2020 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-07-09-post-example-with-hr/</guid>
-      <description>Lorem ipsum1 dolor sit amet, consectetur adipiscing elit. Pellentesque vel lacinia neque. Praesent nulla quam, ullamcorper in sollicitudin ac, molestie sed justo. Cras aliquam, sapien id consectetur accumsan, augue magna faucibus ex, ut ultricies turpis tortor vel ante. In at rutrum tellus. Nullam vestibulum metus eu purus malesuada, volutpat mattis leo facilisis. Sed consectetur, nisl et semper laoreet, velit augue congue nunc, eget eleifend odio erat eu sapien. Phasellus dictum efficitur dapibus.</description>
-    </item>
-    <item>
-      <title>Language Tests</title>
-      <link>http://localhost:1313/posts/2020-07-08-language-tests/</link>
-      <pubDate>Wed, 08 Jul 2020 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-07-08-language-tests/</guid>
-      <description>Note: I took this test post from moving, which is another Jekyll theme which is better that this one so I should not have linked it because now you will decide to use it instead of mine. 1. 日本語テスト This is a Japanese test post to show you how japanese is displayed. 私は昨日ついにその助力家と</description>
-    </item>
-    <item>
-      <title>very very very long title and very very very short content</title>
-      <link>http://localhost:1313/posts/2020-07-08-very-very-very-long-title-and-very-very-very-short-content/</link>
-      <pubDate>Wed, 08 Jul 2020 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-07-08-very-very-very-long-title-and-very-very-very-short-content/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel lacinia neque. Praesent nulla quam, ullamcorper in sollicitudin ac, molestie sed justo. Cras aliquam, sapien id consectetur accumsan, augue magna faucibus ex, ut ultricies turpis tortor vel ante. In at rutrum tellus. Nullam vestibulum metus eu purus malesuada, volutpat mattis leo facilisis.</description>
-    </item>
-    <item>
-      <title>overview</title>
-      <link>http://localhost:1313/posts/2020-07-07-overview-post/</link>
-      <pubDate>Tue, 07 Jul 2020 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-07-07-overview-post/</guid>
-      <description>Lorem ipsum1 dolor sit amet, consectetur adipiscing elit. Pellentesque vel lacinia neque. Praesent nulla quam, ullamcorper in sollicitudin ac, molestie sed justo. Cras aliquam, sapien id consectetur accumsan, augue magna faucibus ex, ut ultricies turpis tortor vel ante. In at rutrum tellus.&#xA;Sample heading 1 Sample heading 2 Sample heading 3 Sample heading 4 Sample heading 5 Sample heading 6 Mauris viverra dictum ultricies. Vestibulum quis ipsum euismod, facilisis metus sed, varius ipsum.</description>
-    </item>
-    <item>
-      <title>strange post with custom js</title>
-      <link>http://localhost:1313/posts/2020-07-06-strange-post/</link>
-      <pubDate>Mon, 06 Jul 2020 00:00:00 +0800</pubDate>
-      <guid>http://localhost:1313/posts/2020-07-06-strange-post/</guid>
-      <description>This post is strange. It also has some custom js.</description>
     </item>
   </channel>
 </rss>
