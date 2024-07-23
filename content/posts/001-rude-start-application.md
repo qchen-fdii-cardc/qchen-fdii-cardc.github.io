@@ -3,6 +3,7 @@ title = '001 粗鲁先生Lisp再出发'
 date = 2024-07-23T10:21:34+08:00
 draft = false
 mathjax = true
+categories = ['lisp', 'programming-language']
 +++
 
 

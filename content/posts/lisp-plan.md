@@ -1,8 +1,8 @@
 +++
-title = 'Lisp计划开始'
+title = '000 中年人与Lisp'
 date = 2024-07-23T09:47:44+08:00
 draft = false
-categories = ['Lisp']
+categories = ['lisp', 'plan']
 mathjax = true
 +++
 
@@ -22,4 +22,5 @@ Lisp实际上已经是我的老朋友。
 
 ## 文章列表
 
-1. [001 粗鲁先生Lisp再出发](/posts/001-rude-start-application/)
+1. [粗鲁先生Lisp再出发](/posts/001-rude-start-application/)
+2. [好奇先生四处打量Lisp](/posts/002-curious-looking-around/)
