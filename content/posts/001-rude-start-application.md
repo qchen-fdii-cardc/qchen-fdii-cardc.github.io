@@ -1,13 +1,12 @@
 +++
-title = '001 Rude Start Application'
+title = '001 粗鲁先生Lisp再出发'
 date = 2024-07-23T10:21:34+08:00
 draft = false
-layout = archive
 mathjax = true
 +++
 
 
-## 粗鲁先生Lisp再出发
+## 目标和梦想
 
 目标和梦想是最近考虑的一个问题。什么是目标？什么是梦想？梦想可以激励改变，目标才能实现改变。
 

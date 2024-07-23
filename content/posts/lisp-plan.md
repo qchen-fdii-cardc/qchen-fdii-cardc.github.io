@@ -1,5 +1,5 @@
 +++
-title = 'Lisp Plan'
+title = 'Lisp计划开始'
 date = 2024-07-23T09:47:44+08:00
 draft = false
 categories = ['Lisp']
@@ -7,23 +7,19 @@ mathjax = true
 +++
 
 
-## working on Lisp
+## 中年人与Lisp
+Lisp实际上已经是我的老朋友。
 
-It's a fresh (not that fresh) start on Lisp.
+大学的时候就开始看Lisp，很有意思也很有力的7个构成部分形成整个LISP大厦，非常震撼。
 
-I'm not sure where is the end, and what is the goal. But I will try to enjoy the process.
+断断续续看了很多Lisp的书和帖子。这次又准备再来一次，经过20年之后，我的能力和认知肯定已经发生巨大变化。说不定，这一次，有好玩的。
 
-My history with Lisp goes back to 2003, when I was working for my master degree. 
-When things were not going well, I turned to Lisp for distraction.
-It worked, 7 little pieces hold the great power of Lisp.
-
-
-## Plan
+## 计划
 
 1. 随意地写几篇找找感觉；
 2. 感觉好的话，再写几篇；
 3. 等写10篇再考虑是不是做一个规划。
 
-## 2024-07-23
+## 文章列表
 
-1. []
+1. [001 粗鲁先生Lisp再出发](/posts/001-rude-start-application/)
