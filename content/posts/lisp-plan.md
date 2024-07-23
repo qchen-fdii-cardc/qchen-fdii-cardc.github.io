@@ -3,7 +3,7 @@ title = '000 中年人与Lisp'
 date = 2024-07-23T09:47:44+08:00
 draft = false
 categories = ['lisp', 'plan']
-mathjax = true
+mathjax = false
 +++
 
 

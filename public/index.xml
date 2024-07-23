@@ -6,15 +6,8 @@
     <description>Recent content on 技术写作练习：写得越多，写得越开心</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jul 2024 10:52:24 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jul 2024 10:21:34 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>002 好奇先生四处打量Lisp</title>
-      <link>http://localhost:1313/posts/002-curious-looking-around/</link>
-      <pubDate>Tue, 23 Jul 2024 10:52:24 +0800</pubDate>
-      <guid>http://localhost:1313/posts/002-curious-looking-around/</guid>
-      <description>Lisp是什么？ Lisp是一种编程语言。Lisp是一种很古老的编程语言。Lisp是一种很优雅的编程语言。 好奇先生是个问题宝宝</description>
-    </item>
     <item>
       <title>001 粗鲁先生Lisp再出发</title>
       <link>http://localhost:1313/posts/001-rude-start-application/</link>
