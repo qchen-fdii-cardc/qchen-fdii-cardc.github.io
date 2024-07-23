@@ -2,6 +2,7 @@
 title = '写作练习开始'
 date = 2024-07-23T08:56:16+08:00
 draft = true
+categories = ['写作']
 +++
 
 ## 写作，不停写作
@@ -12,10 +13,4 @@ draft = true
 ## 生命不止，写作不息
 这是一个学习的机会，也是一个自我慰藉的过程。
 
-\[
-\int_{a}^{b} f(x) \, dx
-\]
 
-```python
-print('Hello World')
-```

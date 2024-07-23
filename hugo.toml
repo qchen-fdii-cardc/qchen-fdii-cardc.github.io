@@ -4,16 +4,10 @@ defaultContentLanguage = 'zh'
 hasCJKLanguage = true
 title = 'Tech Writing Practice: Writing More, Writing Better'
 author = 'Qin Chen, Ph.D. qchen2015@hotmail.com'
-theme = 'ananke'
+theme = "nostyleplease"
 
 
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.extensions]
-      [markup.goldmark.extensions.passthrough]
-        enable = true
-        [markup.goldmark.extensions.passthrough.delimiters]
-          block = [['\[', '\]'], ['$$', '$$']]
-          inline = [['\(', '\)']]
 [params]
-  math = true
+  toc = true
+  tocBorder = true
+  show_reading_time = true
