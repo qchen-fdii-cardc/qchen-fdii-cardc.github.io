@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 技术写作练习：写得越多，写得越开心</title>
-    <link>http://localhost:1313/posts/</link>
+    <link>https://qchen-fdii-cardc.github.io/posts/</link>
     <description>Recent content in Posts on 技术写作练习：写得越多，写得越开心</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 23 Jul 2024 10:21:34 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://qchen-fdii-cardc.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>001 粗鲁先生Lisp再出发</title>
-      <link>http://localhost:1313/posts/001-rude-start-application/</link>
+      <link>https://qchen-fdii-cardc.github.io/posts/001-rude-start-application/</link>
       <pubDate>Tue, 23 Jul 2024 10:21:34 +0800</pubDate>
-      <guid>http://localhost:1313/posts/001-rude-start-application/</guid>
+      <guid>https://qchen-fdii-cardc.github.io/posts/001-rude-start-application/</guid>
       <description>目标和梦想 目标和梦想是最近考虑的一个问题。什么是目标？什么是梦想？梦想可以激励改变，目标才能实现改变。 开始这个部分的时候，我的梦想是什么？我</description>
     </item>
     <item>
       <title>000 中年人与Lisp</title>
-      <link>http://localhost:1313/posts/lisp-plan/</link>
+      <link>https://qchen-fdii-cardc.github.io/posts/lisp-plan/</link>
       <pubDate>Tue, 23 Jul 2024 09:47:44 +0800</pubDate>
-      <guid>http://localhost:1313/posts/lisp-plan/</guid>
+      <guid>https://qchen-fdii-cardc.github.io/posts/lisp-plan/</guid>
       <description>中年人与Lisp Lisp实际上已经是我的老朋友。 大学的时候就开始看Lisp，很有意思也很有力的7个构成部分形成整个LISP大厦，非常震撼。 断</description>
     </item>
   </channel>
