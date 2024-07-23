@@ -14,10 +14,10 @@
     codeFences = true
     guessSyntax = true
     hl_Lines = ''
-    hl_inline = true
+    hl_inline = false
     lineAnchors = ''
-    lineNoStart = 1
-    lineNos = true
+    linenostart = 1
+    linenos = true
     lineNumbersInTable = false
     noClasses = true
     noHl = false
@@ -25,11 +25,11 @@
     tabWidth = 4
   [markup.tableOfContents]
     startLevel = 2
-    endLevel = 3
-    ordered = false
+    endLevel = 4
+    ordered = true
 
 [params]
   [params.theme_config]
-    appearance = "auto"
-    back_home_text = ".."
+    appearance = "light"
+    back_home_text = "<-- Home"
     date_format = "2006-01-02"

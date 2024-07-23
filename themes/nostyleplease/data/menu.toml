@@ -18,12 +18,6 @@ url = "categories"
     category = "lisp"
 
 
-  [[entries.entries]]
-  title = "程序设计语言"
-  url = "categories/programming-language"
-    [entries.entries.post_list] 
-    category = "programming-language"
-
 [[entries]]
 title = "rss"
 url = "index.xml"
