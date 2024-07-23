@@ -2,7 +2,7 @@ baseURL = 'https://qchen-fdii-cardc.github.io/'
 languageCode = 'en-us'
 defaultContentLanguage = 'zh'
 hasCJKLanguage = true
-title = 'Tech Writing Practice: Writing More, Writing Better'
+title = '技术写作练习：写得越多，写得越开心'
 author = 'Qin Chen, Ph.D. qchen2015@hotmail.com'
 theme = "nostyleplease"
 

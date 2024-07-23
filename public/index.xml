@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tech Writing Practice: Writing More, Writing Better</title>
+    <title>技术写作练习：写得越多，写得越开心</title>
     <link>http://localhost:1313/</link>
-    <description>Recent content on Tech Writing Practice: Writing More, Writing Better</description>
+    <description>Recent content on 技术写作练习：写得越多，写得越开心</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jul 2024 09:47:44 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jul 2024 10:21:34 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Lisp Plan</title>
+      <title>001 粗鲁先生Lisp再出发</title>
+      <link>http://localhost:1313/posts/001-rude-start-application/</link>
+      <pubDate>Tue, 23 Jul 2024 10:21:34 +0800</pubDate>
+      <guid>http://localhost:1313/posts/001-rude-start-application/</guid>
+      <description>目标和梦想 目标和梦想是最近考虑的一个问题。什么是目标？什么是梦想？梦想可以激励改变，目标才能实现改变。 开始这个部分的时候，我的梦想是什么？我</description>
+    </item>
+    <item>
+      <title>Lisp计划开始</title>
       <link>http://localhost:1313/posts/lisp-plan/</link>
       <pubDate>Tue, 23 Jul 2024 09:47:44 +0800</pubDate>
       <guid>http://localhost:1313/posts/lisp-plan/</guid>
-      <description>working on Lisp It&amp;rsquo;s a fresh (not that fresh) start on Lisp. I&amp;rsquo;m not sure where is the end, and what is the goal. But I will try to enjoy the process. My history with Lisp goes back to 2003, when I was working for my master degree. When things were not going well, I turned to Lisp for distraction. It worked, 7 little pieces hold the great power of</description>
+      <description>中年人与Lisp Lisp实际上已经是我的老朋友。 大学的时候就开始看Lisp，很有意思也很有力的7个构成部分形成整个LISP大厦，非常震撼。 断</description>
     </item>
     <item>
       <title>写作练习开始</title>
