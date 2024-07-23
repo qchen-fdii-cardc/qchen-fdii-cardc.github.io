@@ -6,15 +6,8 @@
     <description>Recent content in Posts on 技术写作练习：写得越多，写得越开心</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jul 2024 10:52:24 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 Jul 2024 10:21:34 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>002 好奇先生四处打量Lisp</title>
-      <link>http://localhost:1313/posts/002-curious-looking-around/</link>
-      <pubDate>Tue, 23 Jul 2024 10:52:24 +0800</pubDate>
-      <guid>http://localhost:1313/posts/002-curious-looking-around/</guid>
-      <description>鲁莽先生什么都不管 鲁莽先生打开电脑，安装一堆东西，噼里啪啦敲了一堆代码，叽里呱啦说了一堆话，然后累了就回家睡觉了。 这可把好奇先生的兴趣勾起来</description>
-    </item>
     <item>
       <title>001 粗鲁先生Lisp再出发</title>
       <link>http://localhost:1313/posts/001-rude-start-application/</link>
