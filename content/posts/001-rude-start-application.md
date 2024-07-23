@@ -75,6 +75,7 @@ sudo apt-get install sbcl
 
 安装好之后，可以考虑把SBCL的路径加到环境变量里面。之后就能在任意地方打开终端，输入`sbcl`，就能进入SBCL的REPL了。
 
+```
     This is SBCL 2.4.6, an implementation of ANSI Common Lisp.
     More information about SBCL is available at <http://www.sbcl.org/>.
 
@@ -83,6 +84,7 @@ sudo apt-get install sbcl
     BSD-style licenses.  See the CREDITS and COPYING files in the
     distribution for more information.
     *
+```
 
 这就是成功安装的标志。在这个星号后面，就可以输入Lisp代码了。比如输入`(print "Hello, World!")`，然后回车，就会输出`"Hello, World!"`。输入`(quit)`或者`(exit)`，就会退出SBCL的REPL。后面还有一堆需要在这个REPL里面输入的命令。每次看到REPL，那就是说的这个东西。
 
@@ -249,12 +251,14 @@ Alive插件的安装就很简单了，直接在VSCode的插件市场搜索安装
 lc.exe
 ```
 
+```
     (base) PS C:\lisp-revisit> lc
     C:/lisp-revisit/compile-helloworld.lisp: 5
     C:/lisp-revisit/compile-lc.lisp: 5
     C:/lisp-revisit/helloworld.lisp: 17
     C:/lisp-revisit/lc.lisp: 39
     Total: 66
+```
 
 这也挺不错的不是吗？这个跟`lc *.lisp`效果是一样的。
 
@@ -264,6 +268,7 @@ lc.exe
 lc **/*.lisp
 ```
 
+```
     (base) PS C:\lisp-revisit> lc **/*.lisp
     C:/lisp-revisit/.vscode/alive/fasl/tmp.lisp: 5
     C:/lisp-revisit/compile-helloworld.lisp: 5
@@ -271,6 +276,7 @@ lc **/*.lisp
     C:/lisp-revisit/helloworld.lisp: 17
     C:/lisp-revisit/lc.lisp: 39
     Total: 71
+```
 
 这个效果在windows的PowerShell和cmd上都可以使用。
 

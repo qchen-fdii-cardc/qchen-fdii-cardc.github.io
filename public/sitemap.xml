@@ -2,43 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://qchen-fdii-cardc.github.io/posts/</loc>
+    <loc>http://localhost:1313/posts/</loc>
     <lastmod>2024-07-23T10:52:24+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/posts/001-rude-start-application/</loc>
+    <loc>http://localhost:1313/posts/001-rude-start-application/</loc>
     <lastmod>2024-07-23T10:21:34+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/tags/alive-lsp/</loc>
+    <loc>http://localhost:1313/tags/alive-lsp/</loc>
     <lastmod>2024-07-23T10:21:34+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
     <lastmod>2024-07-23T10:21:34+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/tags/lisp/</loc>
+    <loc>http://localhost:1313/tags/lisp/</loc>
     <lastmod>2024-07-23T10:21:34+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/categories/lisp/</loc>
+    <loc>http://localhost:1313/categories/lisp/</loc>
     <lastmod>2024-07-23T10:21:34+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/tags/programming/</loc>
+    <loc>http://localhost:1313/tags/programming/</loc>
     <lastmod>2024-07-23T10:21:34+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/categories/programming-language/</loc>
+    <loc>http://localhost:1313/categories/programming-language/</loc>
     <lastmod>2024-07-23T10:21:34+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-07-23T10:21:34+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/tags/vscode/</loc>
+    <loc>http://localhost:1313/tags/vscode/</loc>
     <lastmod>2024-07-23T10:21:34+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/posts/lisp-plan/</loc>
+    <loc>http://localhost:1313/posts/lisp-plan/</loc>
     <lastmod>2024-07-23T09:47:44+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/categories/plan/</loc>
+    <loc>http://localhost:1313/categories/plan/</loc>
     <lastmod>2024-07-23T09:47:44+08:00</lastmod>
   </url><url>
-    <loc>https://qchen-fdii-cardc.github.io/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2022-08-25T21:30:04+08:00</lastmod>
   </url>
 </urlset>
