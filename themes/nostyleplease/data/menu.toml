@@ -1,0 +1,43 @@
+[[entries]]
+title = "所有写作练习"
+
+  [entries.post_list]
+  limit = 5
+  show_more = true
+  show_more_text = "See archive..."
+  show_more_url = "posts"
+
+[[entries]]
+title = "分类写作练习"
+url = "categories"
+  [[entries.entries]]
+  title = "Lisp相关"
+  url = "categories/lisp"
+
+    [entries.entries.post_list] 
+    category = "lisp"
+
+
+  [[entries.entries]]
+  title = "程序设计语言"
+  url = "categories/programming-language"
+    [entries.entries.post_list] 
+    category = "programming-language"
+
+[[entries]]
+title = "rss"
+url = "index.xml"
+
+
+[[entries]]
+title = "Hugo模版no-style-please信息"
+
+  [[entries.entries]]
+  title = "a (nearly) no-CSS, fast, minimalist Hugo theme ported from <a href='https://github.com/riggraz/no-style-please'>riggraz/no-style-please</a>."
+
+  [[entries.entries]]
+  title = "github repo"
+  url = "https://github.com/riggraz/no-style-please"
+
+  [[entries.entries]]
+  title = "used by <a href='https://riggraz.dev'>riggraz.dev</a> and <a href='https://github.com/riggraz/no-style-please/network/dependents'>many others</a>"
