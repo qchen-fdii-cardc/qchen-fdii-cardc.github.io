@@ -20,4 +20,10 @@ It worked, 7 little pieces hold the great power of Lisp.
 
 ## Plan
 
-$$ \lambda x . x $$
+1. 随意地写几篇找找感觉；
+2. 感觉好的话，再写几篇；
+3. 等写10篇再考虑是不是做一个规划。
+
+## 2024-07-23
+
+1. []
