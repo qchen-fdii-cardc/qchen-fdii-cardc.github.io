@@ -1,0 +1,19 @@
+baseURL = 'https://qchen-fdii-cardc.github.io/'
+languageCode = 'en-us'
+defaultContentLanguage = 'zh'
+hasCJKLanguage = true
+title = 'Tech Writing Practice: Writing More, Writing Better'
+author = 'Qin Chen, Ph.D. qchen2015@hotmail.com'
+theme = 'ananke'
+
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
+[params]
+  math = true

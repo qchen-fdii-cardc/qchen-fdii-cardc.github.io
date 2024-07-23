@@ -1,0 +1,6 @@
+[submodule "themes/dream"]
+	path = themes/dream
+	url = https://gitee.com/zhang_xiao_shuai/hugo-theme.git
+[submodule "themes/ananke"]
+	path = themes/ananke
+	url = https://github.com/theNewDynamic/gohugo-theme-ananke.git
