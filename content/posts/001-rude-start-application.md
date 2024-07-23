@@ -5,6 +5,8 @@ draft = false
 mathjax = false
 categories = ['lisp', 'programming-language']
 tags = ['lisp', 'programming', 'alive-lsp', 'vscode']
+toc = true
+tocBorder = true
 +++
 
 
@@ -75,7 +77,7 @@ sudo apt-get install sbcl
 
 安装好之后，可以考虑把SBCL的路径加到环境变量里面。之后就能在任意地方打开终端，输入`sbcl`，就能进入SBCL的REPL了。
 
-```
+```shell
 This is SBCL 2.4.6, an implementation of ANSI Common Lisp.
 More information about SBCL is available at <http://www.sbcl.org/>.
 
@@ -251,7 +253,7 @@ Alive插件的安装就很简单了，直接在VSCode的插件市场搜索安装
 lc.exe
 ```
 
-```
+```shell
 (base) PS C:\lisp-revisit> lc
 C:/lisp-revisit/compile-helloworld.lisp: 5
 C:/lisp-revisit/compile-lc.lisp: 5
@@ -268,7 +270,7 @@ Total: 66
 lc **/*.lisp
 ```
 
-```
+```shell
 (base) PS C:\lisp-revisit> lc **/*.lisp
 C:/lisp-revisit/.vscode/alive/fasl/tmp.lisp: 5
 C:/lisp-revisit/compile-helloworld.lisp: 5

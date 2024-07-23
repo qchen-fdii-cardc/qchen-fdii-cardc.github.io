@@ -4,6 +4,9 @@ date = 2024-07-23T10:52:24+08:00
 draft = true
 mathjax = false
 categories = ['lisp', 'programming-language']
+tags = ['lisp', 'programming', 'syntax', 'lisp-objects']
+toc = true
+tocBorder = true
 +++
 
 
@@ -23,15 +26,17 @@ categories = ['lisp', 'programming-language']
 
 好奇先生按照鲁莽先生的说明，安装SBCL，然后打开REPL，输入了一行代码：
 
-    This is SBCL 2.4.6, an implementation of ANSI Common Lisp.
-    More information about SBCL is available at <http://www.sbcl.org/>.
+```shell
+This is SBCL 2.4.6, an implementation of ANSI Common Lisp.
+More information about SBCL is available at <http://www.sbcl.org/>.
 
-    SBCL is free software, provided as is, with absolutely no warranty.
-    It is mostly in the public domain; some portions are provided under
-    BSD-style licenses.  See the CREDITS and COPYING files in the
-    distribution for more information.
-    * (+ 1 2)
-    3
+SBCL is free software, provided as is, with absolutely no warranty.
+It is mostly in the public domain; some portions are provided under
+BSD-style licenses.  See the CREDITS and COPYING files in the
+distribution for more information.
+* (+ 1 2)
+3
+```
 
 好的，这下可以做加法啦！实际上，Lisp的加法可以加多个数：
 
@@ -117,5 +122,7 @@ $1 + 2 * 3 + (4 - 5) = 6$ ，结果是6。其实很直观！
 那么，跟C中间每个量实际上都是一块内存区域是否一样呢？好奇先生不停地问出新问题。
 
 
+啊，问题太多了，太多啦！好奇先生觉得自己的好奇心已经被点燃了，他决定继续研究，继续探索，继续学习。
 
+## 好奇先生工具箱
 
