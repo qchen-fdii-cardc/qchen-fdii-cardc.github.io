@@ -1,7 +1,7 @@
 +++
 title = '002 懒惰先生的Lisp开发流程'
 date = 2024-08-05T10:28:00+08:00
-draft = flse
+draft = false
 mathjax = false
 categories = ['lisp', 'programming-language']
 tags = ['lisp', 'quickproject', 'project', 'template']
@@ -93,10 +93,10 @@ Quicklisp是一个软件包管理工具，提供了软件包的下载和管理�
 
 ```shell
 helloworld/
-├── helloworld.asd
-|── helloworld.lisp
-|── package.lisp
-├── README.md
+    ├── helloworld.asd
+    ├── helloworld.lisp
+    ├── package.lisp
+    ├── README.md
 ```
 
 其中，`helloworld.asd`是项目的定义文件，`helloworld.lisp`是项目的主文件，`package.lisp`是项目的包文件，`README.md`是项目的说明文件。

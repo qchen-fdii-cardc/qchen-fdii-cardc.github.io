@@ -1,5 +1,5 @@
 +++
-title = '002 好奇先生四处打量Lisp'
+title = '00x 好奇先生四处打量Lisp'
 date = 2024-07-23T10:52:24+08:00
 draft = true
 mathjax = false
