@@ -4,7 +4,7 @@ date = 2024-08-05T10:28:00+08:00
 draft = false
 mathjax = false
 categories = ['lisp', 'programming-language']
-tags = ['lisp', 'quickproject', 'project', 'template']
+tags = ['lisp','编程','实用主义', '入门', '教程', 'quickproject', 'project', 'template']
 toc = true
 tocBorder = true
 +++
