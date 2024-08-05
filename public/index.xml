@@ -6,8 +6,15 @@
     <description>Recent content on 技术写作练习：写得越多，写得越开心</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 23 Jul 2024 10:52:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jul 2024 08:00:28 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>000 新书计划</title>
+      <link>http://localhost:1313/posts/newbook/book-idea/</link>
+      <pubDate>Fri, 26 Jul 2024 08:00:28 +0800</pubDate>
+      <guid>http://localhost:1313/posts/newbook/book-idea/</guid>
+      <description>时间期限 退休之前。 感觉 只是感觉想要写一个书，大概的想法就是把风洞设计与数据、信息化、计算机技术结合起来，在《高低速风洞气动结构设计》和风洞总</description>
+    </item>
     <item>
       <title>002 好奇先生四处打量Lisp</title>
       <link>http://localhost:1313/posts/002-curious-looking-around/</link>

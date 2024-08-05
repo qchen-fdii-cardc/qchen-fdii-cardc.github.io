@@ -2,10 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/002-curious-looking-around/</loc>
-    <lastmod>2024-07-23T10:52:24+08:00</lastmod>
+    <loc>http://localhost:1313/posts/newbook/book-idea/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/book/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/book/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/computing/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/computing/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/data/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/data/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/design/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/design/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/idea/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/information/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/information/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/plan/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/plan/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/python/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/wind-tunnel/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/writing/</loc>
+    <lastmod>2024-07-26T08:00:28+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/002-curious-looking-around/</loc>
     <lastmod>2024-07-23T10:52:24+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/lisp/</loc>
@@ -17,9 +74,6 @@
     <loc>http://localhost:1313/tags/lisp-objects/</loc>
     <lastmod>2024-07-23T10:52:24+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2024-07-23T10:52:24+08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/programming/</loc>
     <lastmod>2024-07-23T10:52:24+08:00</lastmod>
   </url><url>
@@ -27,9 +81,6 @@
     <lastmod>2024-07-23T10:52:24+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/syntax/</loc>
-    <lastmod>2024-07-23T10:52:24+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-07-23T10:52:24+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/001-rude-start-application/</loc>
@@ -45,12 +96,6 @@
     <lastmod>2024-07-23T09:47:44+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/life/</loc>
-    <lastmod>2024-07-23T09:47:44+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/plan/</loc>
-    <lastmod>2024-07-23T09:47:44+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/categories/plan/</loc>
     <lastmod>2024-07-23T09:47:44+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
