@@ -1,7 +1,7 @@
 +++
 title = 'Pandas plan'
 date = 2024-08-07T15:30:52+08:00
-draft = true
+draft = false
 mathjax = false
 categories = ['python', 'plan']
 tags = ['pandas', 'python', 'data-science', 'data-analysis', 'plan']
