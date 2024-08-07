@@ -1,6 +1,6 @@
 +++
 title = '003 颠倒先生的数学表达式'
-date = 2024-08-05T12:51:40+08:00
+date = 2024-08-07T12:51:40+08:00
 draft = false
 mathjax = false
 categories = ['lisp', 'programming-language']
@@ -198,7 +198,7 @@ Day started at noon."
 (find-package :infix-math)
 ;; #<PACKAGE "INFIX-MATH/INFIX-MATH">
 
-(package-nickname (find-package :infix-math/infix-math))
+(package-nicknames (find-package :infix-math/infix-math))
 ;; ("INFIX-MATH")
 ```
 
