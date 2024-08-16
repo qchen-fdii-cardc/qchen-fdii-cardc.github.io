@@ -10,8 +10,6 @@ tocBorder = true
 +++
 
 
-![Logo](https://i-blog.csdnimg.cn/direct/98eb27a8a0db4dbeb472846b6064dce2.jpeg)
-
 ## Lisp程序
 
 粗鲁先生、懒惰先生、颠倒先生都对Lisp很满意：
