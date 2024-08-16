@@ -682,12 +682,13 @@ cons是Lisp中最基本的数据结构，它是一个二元组，第一个元素
 
 ```lisp
 (load "point24.lisp")
+(setf *random-state* (make-random-state t))
 (random-gen-puzzle)
 ```
 
 一个文件就出现在当前目录：
 
-```
+```lisp
 ;; (9 5 4 7)
 ;; Generated: 08:41:56 of Friday, 8/16/2024 (GMT+8)
 ;; Total solutions: 11
