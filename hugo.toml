@@ -7,7 +7,7 @@ email = 'qchen2015@hotmail.com'
 github_username =  'qchen-fdii-cardc'
 author = 'Qin Chen, Ph.D. qchen2015@hotmail.com'
 theme = "nostyleplease"
-
+staticDir = ["static"]
 
 
 [taxonomies]
