@@ -1,7 +1,7 @@
 +++
 title = '005 用Lisp来探索Lisp'
 date = 2024-08-22T10:32:31+08:00
-draft = true
+draft = false
 mathjax = false
 categories = ['lisp', 'programming-language']
 tags = ['lisp', 'programming', 'syntax', 'lisp-objects']
