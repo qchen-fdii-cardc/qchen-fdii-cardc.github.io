@@ -2,3 +2,5 @@
 /.vscode/
 */public/
 /scratchs/
+*/.idea/*
+*/.vscode/*
