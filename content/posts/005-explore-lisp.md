@@ -1,5 +1,5 @@
 +++
-title = '005 用Lisp来探索Lisp'
+title = '005 好奇先生用Lisp来探索Lisp'
 date = 2024-08-22T10:32:31+08:00
 draft = false
 mathjax = false
@@ -584,6 +584,39 @@ Common Lisp中的包（package）是一种组织符号的方式，可以把符�
 35. [*PRINT-GENSYM*](#*PRINT-GENSYM*)
 
 ...
+
+##  `YES-OR-NO-P`
+
+COMMON-LISP:YES-OR-NO-P
+  [symbol]
+
+YES-OR-NO-P names a compiled function:
+  Lambda-list: (&OPTIONAL FORMAT-STRING &REST ARGUMENTS)
+  Declared type: (FUNCTION
+                  (&OPTIONAL (OR STRING NULL FUNCTION) &REST T)
+                  (VALUES BOOLEAN &OPTIONAL))
+  Derived type: (FUNCTION (&OPTIONAL T &REST T)
+                 (VALUES BOOLEAN &OPTIONAL))
+  Documentation:
+    YES-OR-NO-P is similar to Y-OR-N-P, except that it clears the
+       input buffer, beeps, and uses READ-LINE to get the strings
+       YES or NO.
+  Source file: SYS:SRC;CODE;QUERY.LISP
+
+##  `ZEROP`
+
+COMMON-LISP:ZEROP
+  [symbol]
+
+ZEROP names a compiled function:
+  Lambda-list: (NUMBER)
+  Declared type: (FUNCTION (NUMBER) (VALUES BOOLEAN &OPTIONAL))
+  Derived type: (FUNCTION (T) (VALUES BOOLEAN &OPTIONAL))
+  Documentation:
+    Is this number zero?
+  Known attributes: foldable, flushable, unsafely-flushable, movable
+  Source file: SYS:SRC;CODE;NUMBERS.LISP
+
 ```
 
 这个文件实在太长了，只能每个人都产生了在自己电脑上查看。
