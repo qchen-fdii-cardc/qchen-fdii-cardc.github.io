@@ -49,7 +49,7 @@ distribution for more information.
 
 ```mermaid
 graph TD
-    +[+] --> 1[1]
+    +[+add] --> 1[1]
     + --> 2[2]
     + --> 3[3]
     + --> 4[4]
@@ -67,11 +67,11 @@ graph TD
 
 ```mermaid
 graph TD
-    +[+] --> 1[1]
-    + --> *[*]
+    +[+add] --> 1[1]
+    + --> *[*times]
     * --> 2[2]
     * --> 3[3]
-    + --> -[-]
+    + --> -[-minus]
     - --> 4[4]
     - --> 5[5]
 ```
