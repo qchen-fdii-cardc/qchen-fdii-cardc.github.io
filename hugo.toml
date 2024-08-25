@@ -1,4 +1,4 @@
-baseURL = 'https://www.windtunnel.cn/'
+baseURL = 'https://qchen-fdii-cardc.github.io/'
 languageCode = 'en-us'
 defaultContentLanguage = 'zh'
 hasCJKLanguage = true
