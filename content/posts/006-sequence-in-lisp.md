@@ -1,7 +1,7 @@
 +++
 title = '006 好奇先生在Lisp的花园里挖呀挖呀挖'
 date = 2024-08-26T09:30:54+08:00
-draft = true
+draft = false
 mathjax = false
 categories = ['lisp', 'tutorial', 'common-lisp', 'programming']
 tags = ['lisp', 'development', 'sequence', 'common-lisp', 'programming']
@@ -12,11 +12,13 @@ tocBorder = true
 
 ## 好奇先生Lisp探索工具`explore-lisp`
 
-好奇先生学会了懒惰先生交给他的Package开发和管理流程，[quickproject管理package](/posts/002-lazy-process)。好奇先生一步一步的定义了一个叫做`explore-lisp`的package，这个包提供了探索包的工具，并且提供了把探索的结果输出成`markdown`文档的方法。
+好奇先生学会了懒惰先生交给他的Package开发和管理流程，[quickproject管理package](/posts/002-lazy-process)。好奇先生一步一步定义了一个叫做`explore-lisp`的package，这个包提供了探索Lisp的工具，并且提供了把探索结果输出成`markdown`文档的方法。
 
 这个工程的地址在[explore-lisp](https://github.com/qchen-fdii-cardc/explore-lisp)。当把这个源代码下载（clone）到本地之后，可以通过`quicklisp`的`quickload`函数加载这个包。
 
-在安装之前，记得要把文件克隆到`quicklisp`的本地目录下，比如`~/quicklisp/local-projects`。或者还有一个办法，克隆到任何地方，除了利用修改变量`asdf:*central-registry*`方式，还可以直接在`quicklisp`的`local-projects`目录下建立一个软链接，指向这个包的目录。
+在安装之前，记得要把文件克隆到`quicklisp`的本地目录下，比如`~/quicklisp/local-projects`。
+
+或者还有一个办法，克隆到任何地方，除了利用修改变量`asdf:*central-registry*`方式，还可以直接在`quicklisp`的`local-projects`目录下建立一个软链接，指向这个包的目录。
 
 ```shell
 mklink /D ~/quicklisp/local-projects/explore-lisp  /path/to/explore-lisp 
@@ -61,11 +63,11 @@ DIR names a compiled function:
 - 文档字符串，这个字符串描述了这个函数的功能
 - 函数的源代码文件
 
-好奇先生运行了`(el:export-all-external-symbols 'el :fn "docs.md" :start-level 2)`，这个函数的功能是把`el`包的所有外部符号都导出来，这样就可以在REPL中直接调用这个包的函数了。哇啦，一个文件`docs.md`就生成了，里面包含了这个包的所有外部符号的文档。
+好奇先生运行了`(el:export-all-external-symbols 'el :fn "docs.md" :start-level 2)`，这个函数的功能是把`el`包的所有外部符号都导出来，哇啦，一个文件`docs.md`就生成了，里面包含了这个包的所有外部符号的文档。
 
 ## 挖一下`explore-lisp`
 
-下面的文档主题部分，都是通过好奇先生的探索工具集生成的。真的是太好玩，好奇先生可以玩一整天。
+下面的文档主体部分，都是通过好奇先生的探索工具集生成的。真的是太好玩，好奇先生可以玩一整天。
 
 
 1. [DESCRIBE-SYMBOL](#describe-symbol)
@@ -217,16 +219,16 @@ SEARCH-SYMBOLS names a compiled function:
 
 ## 挖一下`string`
 
-好奇先生的探索工具集合非常简单，每个函数的功能都很单一。并且，在`(ql:quickload 'explore-lisp)`之后，如果对功能不满意或者发现运行不符合预期，
+好奇先生探索工具非常简单，每个函数功能都很单一。并且，在`(ql:quickload 'explore-lisp)`之后，如果对功能不满意或者发现运行不符合预期，
 
-- 可以在源代码所在位置（`describe`一下就知道）修改，然后重新加载，`(require 'explore-lisp)`。
-- 直接在VSCode中打开一个任意新文件，`(in-package :explore-lisp)`，编写函数的定义，然后运行一下，也能达到效果。
+- 可以在源代码所在位置（`describe`一下任意一个函数就知道）修改，然后重新加载，`(require 'explore-lisp)`。
+- 直接在VSCode中打开一个任意新文件，`(in-package :explore-lisp)`，编写函数新定义，然后运行一下，也能达到效果。
 
-这就是Lisp的动态开发理念，与传统的“编译-运行-调试”不同，Lisp把当前REPL中的所有符号都当作一个整体，可以随时修改，随时调试，随时运行。
+这就是Lisp的动态开发理念，与传统的“编译-运行-调试”不同，Lisp把当前REPL中的所有符号都当作一个整体，可以随时修改，随时调试，随时运行。并且，Lisp的函数绑定都是动态的，这就鼓励各种运行时修改的开发模式。
 
 另外，好奇先生觉得最后这个函数实在是太好玩了……他太好奇了。
 
-好奇先生应该回家了，但是他就是忍不住，又在REPL中敲了一个命令：
+好奇先生应该睡觉，但是他就是忍不住，又在REPL中敲一个命令：
 
 ```lisp
 (el:search-symbols "string" :common-lisp)
@@ -322,7 +324,7 @@ classDiagram
 
 真是完美，好奇先生的好奇心又双叒叕被点燃了。这里有很多操作，比如`concatenate`、`copy-seq`、`count`、`count-if`、`count-if-not`、`delete`、`delete-duplicates`、`delete-if`、`delete-if-not`、`elt`、`every`、`fill`、`find`、`find-if`、`find-if-not`、`length`、`list`、`make-sequence`、`map`、`map-into`、`maphash`、`merge`、`mismatch`、`notany`、`notevery`、`nreverse`、`nsubstitute`、`nsubstitute-if`、`nsubstitute-if-not`、`null`、`position`、`position-if`、`position-if-not`、`read-sequence`、`reduce`、`remove`、`remove-duplicates`、`remove-if`、`remove-if-not`、`replace`、`reverse`、`search`、`sequence`、`sort`、`stable-sort`、`string`、`string-left-trim`、`string-right-trim`、`string-trim`、`subseq`、`substitute`、`substitute-if`、`substitute-if-not`、`the`、`type-error`、`vector`、`with-hash-table-iterator`、`write-sequence`。
 
-好奇先生是没法睡觉饿了……
+好奇先生是没法睡觉了……
 
 ## 附录A: Sequence相关的函数附加中文说明和例子
 
