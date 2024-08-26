@@ -8,8 +8,13 @@
     color: $--link-color;
     text-decoration: none;
 
-    &:visited { color: $--visited-link-color; }
-    &:hover { text-decoration: underline; }
+    &:visited {
+      color: $--visited-link-color;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   code:not(pre > code) {
@@ -17,7 +22,9 @@
     color: $--bg-color;
   }
 
-  figcaption { color: $--secondary-text-color; }
+  figcaption {
+    color: $--secondary-text-color;
+  }
 }
 
 @mixin dark-appearance {
@@ -28,21 +35,32 @@
   @include theme(#ffffff, #212121, #666666, #1e70bf, #921292);
 }
 
-body[a="dark"] { @include dark-appearance; }
-body[a="light"] { @include light-appearance; }
+body[a="dark"] {
+  @include dark-appearance;
+}
+
+body[a="light"] {
+  @include light-appearance;
+}
 
 
 @media (prefers-color-scheme: dark) {
-  body[a="auto"] { @include dark-appearance; }
+  body[a="auto"] {
+    @include dark-appearance;
+  }
 }
 
 @media (prefers-color-scheme: light) {
-  body[a="auto"] { @include light-appearance; }
+  body[a="auto"] {
+    @include light-appearance;
+  }
 }
 
 // -------------------------------------------- //
 
-html { height: 100%; }
+html {
+  height: 100%;
+}
 
 body {
   font-family: monospace;
@@ -53,17 +71,33 @@ body {
   overflow-wrap: break-word;
 }
 
-.post-meta { text-align: right; }
+.post-meta {
+  text-align: right;
+}
 
-h2, h3, h4, h5, h6 { margin-top: 3rem; }
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 3rem;
+}
 
-hr { margin: 2rem 0; }
+hr {
+  margin: 2rem 0;
+}
 
-p { margin: 1rem 0; }
+p {
+  margin: 1rem 0;
+}
 
-li { margin: 0.4rem 0; }
+li {
+  margin: 0.4rem 0;
+}
 
-*:target { background: yellow; }
+*:target {
+  background: yellow;
+}
 
 .w {
   max-width: 640px;
@@ -80,19 +114,29 @@ hr {
   text-align: center;
   border: 0;
 
-  &:before { content: '/////' }
-  &:after { content: attr(data-content) '/////' }
+  &:before {
+    content: '/////'
+  }
+
+  &:after {
+    content: attr(data-content) '/////'
+  }
 }
 
 pre {
-  background: black;
+  background: rgb(213, 222, 225);
   padding: 1em;
-  overflow-x: auto; /* Fix pre content overflowing parent without scroll bar */
+  overflow-x: auto;
+  /* Fix pre content overflowing parent without scroll bar */
 }
 
-table { width: 100%; }
+table {
+  width: 100%;
+}
 
-table, th, td {
+table,
+th,
+td {
   border: thin solid black;
   border-collapse: collapse;
   padding: 0.4rem;
@@ -115,7 +159,9 @@ blockquote {
   border: thin solid black;
   padding: 1rem;
 
-  p { margin: 0; }
+  p {
+    margin: 0;
+  }
 }
 
 img {
@@ -132,39 +178,60 @@ figcaption {
 
 
 // auto number
-h1 { counter-reset: h2counter; text-align: center;}
-h2 { counter-reset: h3counter; }
-h3 { counter-reset: h4counter; }
-h4 { counter-reset: h5counter; }
-h5 { counter-reset: h6counter; }
-h6 { }
+h1 {
+  counter-reset: h2counter;
+  text-align: center;
+}
+
+h2 {
+  counter-reset: h3counter;
+}
+
+h3 {
+  counter-reset: h4counter;
+}
+
+h4 {
+  counter-reset: h5counter;
+}
+
+h5 {
+  counter-reset: h6counter;
+}
+
+h6 {}
+
 h2:before {
   counter-increment: h2counter;
   content: counter(h2counter) "\0000a0";
 }
+
 h3:before {
   counter-increment: h3counter;
   content: counter(h2counter) "."
-            counter(h3counter) "\0000a0";
+    counter(h3counter) "\0000a0";
 }
+
 h4:before {
   counter-increment: h4counter;
   content: counter(h2counter) "."
-            counter(h3counter) "."
-            counter(h4counter) "\0000a0";
+    counter(h3counter) "."
+    counter(h4counter) "\0000a0";
 }
+
 h5:before {
   counter-increment: h5counter;
   content: counter(h2counter) "."
-            counter(h3counter) "."
-            counter(h4counter) "."
-            counter(h5counter) "\0000a0";
+    counter(h3counter) "."
+    counter(h4counter) "."
+    counter(h5counter) "\0000a0";
 }
+
 h6:before {
   counter-increment: h6counter;
   content: counter(h2counter) "."
-            counter(h3counter) "."
-            counter(h4counter) "."
-            counter(h5counter) "."
-            counter(h6counter) "\0000a0";
+    counter(h3counter) "."
+    counter(h4counter) "."
+    counter(h5counter) "."
+    counter(h6counter) "\0000a0";
 }
