@@ -5,3 +5,10 @@
 */.idea/*
 */.vscode/*
 /resources/
+*/resources/*
+*/.git/*
+*/.gitignore/*
+*/.gitattributes/*
+*/.gitmodules/*
+*/.gitconfig/*
+*/.gitkeep
