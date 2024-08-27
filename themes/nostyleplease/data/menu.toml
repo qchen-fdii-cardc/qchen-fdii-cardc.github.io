@@ -20,7 +20,7 @@ url = "categories"
   title = "计划规划"
   url = "categories/plan"
   [[entries.entries]]
-  title = "Manscripts"
+  title = "Manuscripts"
   url = "categories/book"
 
 
