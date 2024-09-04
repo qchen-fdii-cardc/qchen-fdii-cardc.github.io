@@ -1,7 +1,12 @@
-(defpackage expression-tutorial
-  (:use :cl :cl-who :hunchentoot :parenscript))
+;;;; xiaoxiao-expression.lisp
+;; 表达式1
+(defpackage :xiaoxiao-expression
+  (:nicknames :xx :xiaoxiao)
+  (:use :cl :explore-lisp))
 
-(in-package #:expression-tutorial)
+;; 表达式2
+(in-package :xiaoxiao-expression)
 
-;; 7 atoms of lisp
-; car, cdr, cons, eq, atom, cond, lambda
+;; 表达式3
+(defun hello-xiaoxiao ()
+  (format t "Hello, Xiaoxiao!~%"))
