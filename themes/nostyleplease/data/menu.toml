@@ -17,8 +17,8 @@ url = "categories"
   title = "Python相关"
   url = "categories/python"
   [[entries.entries]]
-  title = "计划规划"
-  url = "categories/plan"
+  title = "Matlab相关"
+  url = "categories/matlab"
   [[entries.entries]]
   title = "Manuscripts"
   url = "categories/book"
