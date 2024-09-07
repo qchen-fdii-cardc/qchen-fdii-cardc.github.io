@@ -1,5 +1,5 @@
 +++
-title = '008 Real Web App挠痒痒先生建网站记'
+title = '008 挠痒痒先生建网站记'
 date = 2024-09-07T22:48:52+08:00
 draft = false
 mathjax = false
