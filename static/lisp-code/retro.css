@@ -1,0 +1,31 @@
+/* set logo image */
+.logo {
+    width: auto;
+    height: 30px;
+}
+
+.strapline {
+    font-family: 'Retro', sans-serif;
+    font-size: 2em;
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
+}
+
+/* set list with id chart */
+/* list item style */
+#chart {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .li {
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid #fff;
+        background-color: #000;
+        color: #fff;
+        font-family: 'Retro', sans-serif;
+        font-size: 1.5em;
+        text-shadow: 2px 2px 2px #000;
+    }
+}
