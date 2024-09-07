@@ -1,5 +1,5 @@
 +++
-title = 'Functions in Matlab函数漫谈'
+title = 'Functions in Matlab中的函数约定'
 date = 2024-09-04T14:31:59+08:00
 draft = false
 mathjax = true
