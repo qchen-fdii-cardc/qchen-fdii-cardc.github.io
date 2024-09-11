@@ -1,10 +1,10 @@
 [[entries]]
-title = "所有写作练习"
+title = "近期写作练习"
 
   [entries.post_list]
   limit = 5
   show_more = true
-  show_more_text = "See archive..."
+  show_more_text = "全部写作练习..."
   show_more_url = "posts"
 
 [[entries]]
@@ -17,11 +17,8 @@ url = "categories"
   title = "Python相关"
   url = "categories/python"
   [[entries.entries]]
-  title = "计划规划"
-  url = "categories/plan"
-  [[entries.entries]]
-  title = "Manuscripts"
-  url = "categories/book"
+  title = "Matlab相关"
+  url = "categories/matlab"
 
 
 

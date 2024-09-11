@@ -2,6 +2,8 @@
 /.vscode/
 */public/
 /scratchs/
+**/.idea/*
+**/.vscode/*
 */.idea/*
 */.vscode/*
 /resources/
