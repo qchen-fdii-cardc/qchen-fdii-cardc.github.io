@@ -1,6 +1,6 @@
 +++
-title = '009 吝啬先生的Lisp表达式'
-date = 2024-09-15T21:10:07+08:00
+title = '009 小小先生学习Lisp表达式'
+date = 2024-09-14T21:10:07+08:00
 draft = false
 mathjax = false
 categories = ['lisp', 'tutorial', 'expression', 'value', 'programming']
