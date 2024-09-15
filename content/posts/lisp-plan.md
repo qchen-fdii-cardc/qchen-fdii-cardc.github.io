@@ -23,5 +23,15 @@ Lisp实际上已经是我的老朋友。
 
 ## 文章列表
 
-1. [粗鲁先生Lisp再出发](/posts/001-rude-start-application/)
-<!-- 2. [好奇先生四处打量Lisp](/posts/002-curious-looking-around/) -->
+1. [001 粗鲁先生Lisp再出发](/posts/001-rude-start-application/)
+2. [002 懒惰先生的Lisp开发流程](/posts/002-lazy-process/)
+3. [003 颠倒先生的数学表达式](/posts/003-lazy-process/)
+4. [004 完美先生的完美Lisp](/posts/004-perfect/)
+5. [005 好奇先生用Lisp来探索Lisp](/posts/005-explore-lisp/)
+6. [006 好奇先生在Lisp的花园里挖呀挖呀挖](/posts/006-sequence-in-lisp/)
+7. [007 挑剔先生给出终止迭代的条件](/posts/007-recursive-eq/)
+8. [008 挠痒痒先生建网站记](/posts/008-real-app/)
+9. [009 小小先生学习Lisp表达式](/posts/009-expression/)
+
+
+
