@@ -10,7 +10,7 @@ tocBorder = true
 +++
 
 ## 学习路线
-
+gi
 下面这个是Matlab的基本使用途径.从能够找到Matlab的快捷方式和运行方式开始.
 
 
