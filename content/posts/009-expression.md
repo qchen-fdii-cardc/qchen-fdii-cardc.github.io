@@ -1,10 +1,10 @@
 +++
-title = '009 吝啬先生的Lisp表达式'
-date = 2024-08-28T21:10:07+08:00
-draft = true
+title = '009 小小先生学习Lisp表达式'
+date = 2024-09-14T23:10:07+08:00
+draft = false
 mathjax = false
-categories = ['lisp', 'tutorial', 'expression', 'value', 'programming']
-tags = ['lisp', 'tutorial', 'expression', 'value', 'programming']
+categories = ['lisp']
+tags = ['lisp', '入门', '表达式', '可替代', '程序设计语言', '教程']
 toc = true
 tocBorder = true
 +++
@@ -254,32 +254,112 @@ NIL
 
 ## 更好玩的对称
 
-好奇先生告诉小小先生，Lisp的对称不仅仅是括号，还有很多对称的地方。一个特别好玩的就是，Lisp中的输入输出函数，是对称的。
+好奇先生告诉小小先生，Lisp的对称不仅仅是括号，还有很多对称的地方。就比如`reader`和`printer`，`reader`是Lisp中的输入函数，`printer`是Lisp中的输出函数。这两个函数是对称的，一个函数的输出，可以作为另一个函数的输入。
 
 
-`write, prin1, print, pprint, princ `这些函数，可以将任何值转换成字符串，然后输出到流中。这些函数的对应的输入函数，可以将这些字符串转换回原来的值。
+> Lisp reader n. Trad. the procedure that parses character representations of objects from a stream, producing objects. (This procedure is implemented by the function read.)
 
-`write-to-string, prin1-to-string, princ-to-string`这些函数，可以将任何值转换成字符串，然后返回这个字符串。
+> Lisp printer n. Trad. the procedure that prints the character representation of an object onto a stream. (This procedure is implemented by the function write.)
 
+这两族函数的对称性是很明显的，也多次出现在Common Lisp的Specification（CLHS）中。前者，读入字符串，返回Lisp对象（或者说Lisp值）；后者，将Lisp对象（或者说Lisp值）输出成其字符串表现形式。
 
+```mermaid
+stateDiagram
+    字符串 --> Lisp对象: Lisp Reader
+    Lisp对象 --> 字符串: Lisp Printer
+```
 
+我们整个Lisp的REPL环境，就是一个`reader`和`printer`的交互过程。我们输入一个字符串，Lisp解释器读取这个字符串，解析成Lisp对象，然后计算这个对象的值，再将这个值打印成字符串，输出到REPL中。
 
+### Reader
 
-比如，Lisp中的`prin1`函数，可以打印任何值，而且这个值可以是任何类型的值。这个打印出来的字符串，可以通过`read`函数，转换回原来的值。
+这个功能包括`read`和`read-from-string`函数。`read`函数从流中读取下一个Lisp值，`read-from-string`函数从字符串中读取Lisp值。
 
 ```lisp
-(read-from-string (prin1-to-string '(+ 1 2 3)))
-
+(read-from-string "(+ 1 2 3)")
 ;; 返回值是 (+ 1 2 3)
 ```
 
-注意，这里我们没有写到文件中，而是通过`(el:serch-symbols "prin1" :cl)`，找到这个输出到字符串的函数，并通过`describe`确认这个函数与`prin1`函数的关系。
+### Printer
 
-这里的`read`和`read-from-string`函数，是Lisp中的输入输出函数，帮助文档说的是：
+这个功能实现的基础函数是`write`，这个函数有非常多的参数和选项。
 
-```text
-Read the next Lisp value from STREAM, and return it.
+```lisp
+(describe 'write)
+COMMON-LISP:WRITE
+  [symbol]
+WRITE names a compiled function:
+  Lambda-list: (OBJECT &KEY STREAM
+                ((ESCAPE *PRINT-ESCAPE*) *PRINT-ESCAPE*)
+                ((RADIX *PRINT-RADIX*) *PRINT-RADIX*)
+                ((BASE *PRINT-BASE*) *PRINT-BASE*)
+                ((CIRCLE *PRINT-CIRCLE*) *PRINT-CIRCLE*)
+                ((PRETTY *PRINT-PRETTY*) *PRINT-PRETTY*)
+                ((LEVEL *PRINT-LEVEL*) *PRINT-LEVEL*)
+                ((LENGTH *PRINT-LENGTH*) *PRINT-LENGTH*)
+                ((CASE *PRINT-CASE*) *PRINT-CASE*)
+                ((ARRAY *PRINT-ARRAY*) *PRINT-ARRAY*)
+                ((GENSYM *PRINT-GENSYM*) *PRINT-GENSYM*)
+                ((READABLY *PRINT-READABLY*) *PRINT-READABLY*)
+                ((RIGHT-MARGIN *PRINT-RIGHT-MARGIN*)
+                 *PRINT-RIGHT-MARGIN*)
+                ((MISER-WIDTH *PRINT-MISER-WIDTH*) *PRINT-MISER-WIDTH*)
+                ((LINES *PRINT-LINES*) *PRINT-LINES*)
+                ((PPRINT-DISPATCH *PRINT-PPRINT-DISPATCH*)
+                 *PRINT-PPRINT-DISPATCH*)
+                ((SUPPRESS-ERRORS *SUPPRESS-PRINT-ERRORS*)
+                 *SUPPRESS-PRINT-ERRORS*))
+  Declared type: (FUNCTION
+                  (T &KEY (:STREAM (OR STREAM BOOLEAN)) (:ESCAPE T)
+                   (:RADIX T) (:BASE (INTEGER 2 36)) (:CIRCLE T)
+                   (:PRETTY T) (:READABLY T)
+                   (:LEVEL (OR UNSIGNED-BYTE NULL))
+                   (:LENGTH (OR UNSIGNED-BYTE NULL)) (:CASE T)
+                   (:ARRAY T) (:GENSYM T)
+                   (:LINES (OR UNSIGNED-BYTE NULL))
+                   (:RIGHT-MARGIN (OR UNSIGNED-BYTE NULL))
+                   (:MISER-WIDTH (OR UNSIGNED-BYTE NULL))
+                   (:PPRINT-DISPATCH T) (:SUPPRESS-ERRORS T))
+                  (VALUES T &OPTIONAL))
+  Derived type: (FUNCTION
+                 (T &KEY (:STREAM . #1=(T)) (:ESCAPE . #1#)
+                  (:RADIX . #1#) (:BASE (INTEGER 2 36)) (:CIRCLE . #1#)
+                  (:PRETTY . #1#)
+                  (:LEVEL . #2=((OR UNSIGNED-BYTE NULL)))
+                  (:LENGTH . #2#)
+                  (:CASE (MEMBER :CAPITALIZE :DOWNCASE :UPCASE))
+                  (:ARRAY . #1#) (:GENSYM . #1#) (:READABLY . #1#)
+                  (:RIGHT-MARGIN . #2#) (:MISER-WIDTH . #2#)
+                  (:LINES . #2#)
+                  (:PPRINT-DISPATCH SB-PRETTY:PPRINT-DISPATCH-TABLE)
+                  (:SUPPRESS-ERRORS . #1#))
+                 (VALUES T &OPTIONAL))
+  Documentation:
+    Output OBJECT to the specified stream, defaulting to *STANDARD-OUTPUT*.
+  Known attributes: unwind, any
+  Source file: SYS:SRC;CODE;PRINT.LISP
+NIL
 ```
-从流中读取下一个Lisp值，并返回这个值。
+
+看看帮助就知道，为了适应使用的需要，按照不同的选项，CL提供了几个函数，比如`prin1`，`princ`，`print`,`pprint`。
+
+- `prin1`函数，输出一个对象，这个对象非常适合作为`read`的输入。
+- `princ`函数，输出一个对象，它不包括转义字符，这个函数的输出已经适合人类阅读。
+- `print`函数，输出一个对象，跟`princ`函数类似，但是会输出一个换行符在前，一个空格在后。
+- `pprint`函数，输出一个对象，这个函数会根据对象的类型，输出稍微更加漂亮的格式。
+
+只有前两个函数有对应的`prin1-to-string`和`princ-to-string`函数，这两个函数的作用是将对象输出成字符串。这个也是可以理解的，因为`print`和`pprint`函数的输出，是带有换行符的，可能并不适合作为字符串来处理。
+
+一定要试一下，看看这些函数的效果。
+
+此外，前三个函数`prin1`，`princ`，`print`，还返回一个值，最后的`pprint`函数，返回的是`NIL`。
+
+
+
+## 总结
+
+1. Lisp中的一切都是值，一切都可以替换。
+2. Lisp中的表达式是值，值是表达式。
+3. 一致性和对称性是Lisp的特点。
 
 

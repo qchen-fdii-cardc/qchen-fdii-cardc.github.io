@@ -34,3 +34,17 @@
 
 ;; stop hunchentoot server
 (start-server)
+
+
+(defun test-readtable-case-reading ()
+  (let ((*readtable* (copy-readtable nil)))
+    (format t "READTABLE-CASE  Input   Symbol-name~%---------------------------------~%")
+    (dolist (readtable-case '(:upcase :downcase :preserve :invert))
+      (setf (readtable-case *readtable*) readtable-case)
+      (dolist (input '("ZEBRA" "Zebra" "zebra"))
+        (format t "~&:~A~16T~A~24T~A"
+          (string-upcase readtable-case)
+          input
+          (symbol-name (read-from-string input)))))))
+
+(test-readtable-case-reading)
