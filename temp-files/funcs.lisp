@@ -20,6 +20,11 @@
 (el:export-descriptions (el:search-symbols "special form" :cl :doc-string t) "temp-files/special-forms.md")
 
 
+(describe #'floor)
+
+
+(el:describe-symbol #'floor)
+
 ; special variable
 ; compiled function
 ; generic function
@@ -42,6 +47,17 @@
         (string= (subseq str (- slength elength)) ending)
         nil)))
 
+;;
+(let ((tfn "temp-files/all-external-symbols.md"))
+  (el:export-all-external-symbols :cl :fn tfn)
+  (with-open-file (fn tfn)
+    ;; read line by line
+    (loop for line = (read-line fn nil)
+          while line
+          do (when (and (search " names a " line) (string-ends-with-p line ":"))
+                   (format t "~a~%" line)))))
+
+
 (let ((tfn "temp-files/all-external-symbols.md"))
   (el:export-all-external-symbols :cl :fn tfn)
   (with-open-file (fn tfn)
@@ -53,7 +69,7 @@
                           (symbol (first parts))
                           (type-string (second parts))
                           (type-name (trim-string type-string ":")))
-                     (add-symbol-with-type type-name symbol)
+                     ;  (add-symbol-with-type type-name symbol)
                      (format t "~a:~A~%" type-name symbol))))))
 
 
