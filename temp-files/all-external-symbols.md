@@ -1038,7 +1038,7 @@ COMMON-LISP:*
 * names a special variable:
   Declared type: T
   Declared always-bound.
-  Value: (1 2.0)
+  Value: NIL
   Documentation:
     the value of the most recent top level EVAL
 
@@ -1060,7 +1060,7 @@ COMMON-LISP:**
 ** names a special variable:
   Declared type: T
   Declared always-bound.
-  Value: 1
+  Value: NIL
   Documentation:
     the previous value of *
 ```
@@ -1073,7 +1073,7 @@ COMMON-LISP:***
 *** names a special variable:
   Declared type: T
   Declared always-bound.
-  Value: 1
+  Value: NIL
   Documentation:
     the previous value of **
 ```
@@ -1169,7 +1169,7 @@ COMMON-LISP:*DEBUGGER-HOOK*
   Declared always-bound.
   Value: #<FUNCTION (LAMBDA (ALIVE/SESSION::C ALIVE/SESSION::H)
                       :IN
-                      ALIVE/SESSION::RUN-FN) {10038E7C5B}>
+                      ALIVE/SESSION::RUN-FN) {1003B501BB}>
   Documentation:
     This is either NIL or a function of two arguments, a condition and the value
        of *DEBUGGER-HOOK*. This function can either handle the condition or return
@@ -1197,7 +1197,7 @@ COMMON-LISP:*ERROR-OUTPUT*
 *ERROR-OUTPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {10038F8223}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003B48223}>
   Documentation:
     error output stream
 ```
@@ -1231,7 +1231,7 @@ COMMON-LISP:*GENSYM-COUNTER*
 *GENSYM-COUNTER* names a special variable:
   Declared type: UNSIGNED-BYTE
   Declared always-bound.
-  Value: 2993
+  Value: 3358
   Documentation:
     counter for generating unique GENSYM symbols
 ```
@@ -1545,7 +1545,7 @@ COMMON-LISP:*QUERY-IO*
 *QUERY-IO* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {10038F8143}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003B48143}>
   Documentation:
     query I/O stream
 ```
@@ -1948,7 +1948,7 @@ COMMON-LISP:*STANDARD-INPUT*
 *STANDARD-INPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {10038F8143}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003B48143}>
   Documentation:
     default input stream
 ```
@@ -1961,7 +1961,7 @@ COMMON-LISP:*STANDARD-OUTPUT*
 *STANDARD-OUTPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {10038F8143}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003B48143}>
   Documentation:
     default output stream
 ```
@@ -1987,7 +1987,7 @@ COMMON-LISP:*TRACE-OUTPUT*
 *TRACE-OUTPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {10038F81B3}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003B481B3}>
   Documentation:
     trace output stream
 ```
