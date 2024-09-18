@@ -233,6 +233,10 @@ compiled function:ZEROP
 
 结果也相当可爱:[Appendix 001: Common Lisp Symbols分类参考](/posts/010-appendix-cl-symbols/). 有一个完整的Common Lisp的符号分类参考.
 
+
+所有代码都在一个文件里面, [产生符号分类文档](/lisp-code/mr-smart-make-references-cl.lisp), 不过使用这个文件必须要有最新的`explore-lisp`工具包. 因为聪明先生偷偷更新过一个函数.
+
+
 ## Common Lisp 符号分类参考
 
 聪明先生觉得这个分类参考非常有用, 他决定把这个参考放到自己的网站上, 以便随时查看.
