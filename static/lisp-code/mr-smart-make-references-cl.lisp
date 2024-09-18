@@ -44,20 +44,6 @@
         "")))
 
 
-(let ((tfn "temp-files/all-external-symbols.md"))
-  (el:export-all-external-symbols :cl :fn tfn)
-  (with-open-file (fn tfn)
-    ;; read line by line
-    (loop for line = (read-line fn nil)
-          while line
-          do (when (and (search " names a " line) (string-ends-with-p line ":") (not-start-with-p line "(setf "))
-                   (let* ((parts (split-string-by-substring line " names a "))
-                          (symbol (first parts))
-                          (type-string (second parts))
-                          (type-name (trim-string type-string ":")))
-                     (add-symbol-with-type type-name symbol)
-                     (format t "~a:~A~%" type-name symbol))))))
-
 ;;; make type-symbols hash table
 (defparameter *symbol-types* (make-hash-table :test 'equalp))
 
@@ -66,8 +52,10 @@
     (if (not (member symbol symbols))
         (setf (gethash type *symbol-types*) (cons symbol symbols)))))
 
+
+;; using a temporary file to store all external symbols
 (temporary-file:with-open-temporary-file (s :direction :io :if-exists :supersede)
-  (el:export-all-external-symbols-to-stream :cl s)
+  (el:export-all-external-symbols-to-stream :cl s) ;; with updated explore-lisp package
   (finish-output s)
   (file-position s 0)
   (loop for line = (read-line s nil)
