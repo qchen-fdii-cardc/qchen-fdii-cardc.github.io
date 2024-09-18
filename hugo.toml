@@ -15,4 +15,8 @@ staticDir = ["static"]
   tag = "tags"
 
 
-
+[markup]
+  [markup.tableOfContents]
+    endLevel = 2
+    startLevel = 2
+    ordered = true
