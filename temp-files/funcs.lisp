@@ -69,7 +69,7 @@
                           (symbol (first parts))
                           (type-string (second parts))
                           (type-name (trim-string type-string ":")))
-                     ;  (add-symbol-with-type type-name symbol)
+                     (add-symbol-with-type type-name symbol)
                      (format t "~a:~A~%" type-name symbol))))))
 
 
@@ -123,7 +123,7 @@
 
   (loop for key being the hash-keys of *symbol-types*
         do (let* ((symbols-string (gethash key *symbol-types*))
-                  (symbols (mapcar #'intern symbols-string)))
+                  (symbols (nreverse (mapcar #'intern symbols-string))))
              ;; print documents for each symbol
              (format fn "~%## ~a~%~%" key)
              (format fn "#~a" (el:format-descriptions symbols 2)))))
