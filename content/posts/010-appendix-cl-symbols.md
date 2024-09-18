@@ -10,10 +10,6 @@ tocBorder = true
 +++
 
 
-
-
-
-
 ## special variable
 
 ### Symbol list
