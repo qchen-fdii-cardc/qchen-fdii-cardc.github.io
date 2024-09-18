@@ -1169,7 +1169,7 @@ COMMON-LISP:*DEBUGGER-HOOK*
   Declared always-bound.
   Value: #<FUNCTION (LAMBDA (ALIVE/SESSION::C ALIVE/SESSION::H)
                       :IN
-                      ALIVE/SESSION::RUN-FN) {1003B501BB}>
+                      ALIVE/SESSION::RUN-FN) {1003F4750B}>
   Documentation:
     This is either NIL or a function of two arguments, a condition and the value
        of *DEBUGGER-HOOK*. This function can either handle the condition or return
@@ -1197,7 +1197,7 @@ COMMON-LISP:*ERROR-OUTPUT*
 *ERROR-OUTPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003B48223}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003F60223}>
   Documentation:
     error output stream
 ```
@@ -1231,7 +1231,7 @@ COMMON-LISP:*GENSYM-COUNTER*
 *GENSYM-COUNTER* names a special variable:
   Declared type: UNSIGNED-BYTE
   Declared always-bound.
-  Value: 3358
+  Value: 3494
   Documentation:
     counter for generating unique GENSYM symbols
 ```
@@ -1545,7 +1545,7 @@ COMMON-LISP:*QUERY-IO*
 *QUERY-IO* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003B48143}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003F60143}>
   Documentation:
     query I/O stream
 ```
@@ -1948,7 +1948,7 @@ COMMON-LISP:*STANDARD-INPUT*
 *STANDARD-INPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003B48143}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003F60143}>
   Documentation:
     default input stream
 ```
@@ -1961,7 +1961,7 @@ COMMON-LISP:*STANDARD-OUTPUT*
 *STANDARD-OUTPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003B48143}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003F60143}>
   Documentation:
     default output stream
 ```
@@ -1987,7 +1987,7 @@ COMMON-LISP:*TRACE-OUTPUT*
 *TRACE-OUTPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003B481B3}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003F601B3}>
   Documentation:
     trace output stream
 ```

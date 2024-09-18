@@ -57,6 +57,13 @@
           do (when (and (search " names a " line) (string-ends-with-p line ":"))
                    (format t "~a~%" line)))))
 
+(defun not-start-with-p (str start)
+  "Return t if str does not start with start."
+  (let ((slen (length start))
+        (strlen (length str)))
+    (if (>= strlen slen)
+        (not (equalp (subseq str 0 slen) start))
+        t)))
 
 (let ((tfn "temp-files/all-external-symbols.md"))
   (el:export-all-external-symbols :cl :fn tfn)
@@ -64,7 +71,7 @@
     ;; read line by line
     (loop for line = (read-line fn nil)
           while line
-          do (when (and (search " names a " line) (string-ends-with-p line ":"))
+          do (when (and (search " names a " line) (string-ends-with-p line ":") (not-start-with-p line "(setf "))
                    (let* ((parts (split-string-by-substring line " names a "))
                           (symbol (first parts))
                           (type-string (second parts))

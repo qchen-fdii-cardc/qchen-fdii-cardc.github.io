@@ -217,7 +217,7 @@ COMMON-LISP:*DEBUGGER-HOOK*
   Declared always-bound.
   Value: #<FUNCTION (LAMBDA (ALIVE/SESSION::C ALIVE/SESSION::H)
                       :IN
-                      ALIVE/SESSION::RUN-FN) {1003EE01DB}>
+                      ALIVE/SESSION::RUN-FN) {1002F2819B}>
   Documentation:
     This is either NIL or a function of two arguments, a condition and the value
        of *DEBUGGER-HOOK*. This function can either handle the condition or return
@@ -249,7 +249,7 @@ COMMON-LISP:*ERROR-OUTPUT*
 *ERROR-OUTPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003EE8223}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1002F20223}>
   Documentation:
     error output stream
 
@@ -287,7 +287,7 @@ COMMON-LISP:*GENSYM-COUNTER*
 *GENSYM-COUNTER* names a special variable:
   Declared type: UNSIGNED-BYTE
   Declared always-bound.
-  Value: 3395
+  Value: 3507
   Documentation:
     counter for generating unique GENSYM symbols
 
@@ -647,7 +647,7 @@ COMMON-LISP:*QUERY-IO*
 *QUERY-IO* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003EE8143}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1002F20143}>
   Documentation:
     query I/O stream
 
@@ -1064,7 +1064,7 @@ COMMON-LISP:*STANDARD-INPUT*
 *STANDARD-INPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003EE8143}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1002F20143}>
   Documentation:
     default input stream
 
@@ -1079,7 +1079,7 @@ COMMON-LISP:*STANDARD-OUTPUT*
 *STANDARD-OUTPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003EE8143}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1002F20143}>
   Documentation:
     default output stream
 
@@ -1109,7 +1109,7 @@ COMMON-LISP:*TRACE-OUTPUT*
 *TRACE-OUTPUT* names a special variable:
   Declared type: STREAM
   Declared always-bound.
-  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1003EE81B3}>
+  Value: #<ALIVE/SBCL/STREAMS:IO-STREAM {1002F201B3}>
   Documentation:
     trace output stream
 
@@ -1255,987 +1255,613 @@ COMMON-LISP:///
 ## compiled function
 
 ### Symbol list
-- [special variable](#special-variable)
-  - [Symbol list](#symbol-list)
-  - [`*`](#)
-  - [`**`](#-1)
-  - [`***`](#-2)
-  - [`*BREAK-ON-SIGNALS*`](#break-on-signals)
-  - [`*COMPILE-FILE-PATHNAME*`](#compile-file-pathname)
-  - [`*COMPILE-FILE-TRUENAME*`](#compile-file-truename)
-  - [`*COMPILE-PRINT*`](#compile-print)
-  - [`*COMPILE-VERBOSE*`](#compile-verbose)
-  - [`*DEBUG-IO*`](#debug-io)
-  - [`*DEBUGGER-HOOK*`](#debugger-hook)
-  - [`*DEFAULT-PATHNAME-DEFAULTS*`](#default-pathname-defaults)
-  - [`*ERROR-OUTPUT*`](#error-output)
-  - [`*FEATURES*`](#features)
-  - [`*GENSYM-COUNTER*`](#gensym-counter)
-  - [`*LOAD-PATHNAME*`](#load-pathname)
-  - [`*LOAD-PRINT*`](#load-print)
-  - [`*LOAD-TRUENAME*`](#load-truename)
-  - [`*LOAD-VERBOSE*`](#load-verbose)
-  - [`*MACROEXPAND-HOOK*`](#macroexpand-hook)
-  - [`*MODULES*`](#modules)
-  - [`*PACKAGE*`](#package)
-  - [`*PRINT-ARRAY*`](#print-array)
-  - [`*PRINT-BASE*`](#print-base)
-  - [`*PRINT-CASE*`](#print-case)
-  - [`*PRINT-CIRCLE*`](#print-circle)
-  - [`*PRINT-ESCAPE*`](#print-escape)
-  - [`*PRINT-GENSYM*`](#print-gensym)
-  - [`*PRINT-LENGTH*`](#print-length)
-  - [`*PRINT-LEVEL*`](#print-level)
-  - [`*PRINT-LINES*`](#print-lines)
-  - [`*PRINT-MISER-WIDTH*`](#print-miser-width)
-  - [`*PRINT-PPRINT-DISPATCH*`](#print-pprint-dispatch)
-  - [`*PRINT-PRETTY*`](#print-pretty)
-  - [`*PRINT-RADIX*`](#print-radix)
-  - [`*PRINT-READABLY*`](#print-readably)
-  - [`*PRINT-RIGHT-MARGIN*`](#print-right-margin)
-  - [`*QUERY-IO*`](#query-io)
-  - [`*RANDOM-STATE*`](#random-state)
-  - [`*READ-BASE*`](#read-base)
-  - [`*READ-DEFAULT-FLOAT-FORMAT*`](#read-default-float-format)
-  - [`*READ-EVAL*`](#read-eval)
-  - [`*READ-SUPPRESS*`](#read-suppress)
-  - [`*READTABLE*`](#readtable)
-  - [`*STANDARD-INPUT*`](#standard-input)
-  - [`*STANDARD-OUTPUT*`](#standard-output)
-  - [`*TERMINAL-IO*`](#terminal-io)
-  - [`*TRACE-OUTPUT*`](#trace-output)
-  - [`+`](#-3)
-  - [`++`](#-4)
-  - [`+++`](#-5)
-  - [`-`](#-)
-  - [`/`](#-6)
-  - [`//`](#-7)
-  - [`///`](#-8)
-- [compiled function](#compiled-function)
-  - [Symbol list](#symbol-list-1)
-  - [`*`](#-9)
-  - [`+`](#-10)
-  - [`-`](#--1)
-  - [`/`](#-11)
-  - [`/=`](#-12)
-  - [`1+`](#1)
-  - [`1-`](#1-)
-  - [`<`](#-13)
-  - [`<=`](#-14)
-  - [`=`](#-15)
-  - [`>`](#-16)
-  - [`>=`](#-17)
-  - [`ABORT`](#abort)
-  - [`ABS`](#abs)
-  - [`ACONS`](#acons)
-  - [`ACOS`](#acos)
-  - [`ACOSH`](#acosh)
-  - [`ADJOIN`](#adjoin)
-  - [`ADJUST-ARRAY`](#adjust-array)
-  - [`ADJUSTABLE-ARRAY-P`](#adjustable-array-p)
-  - [`ALPHA-CHAR-P`](#alpha-char-p)
-  - [`ALPHANUMERICP`](#alphanumericp)
-  - [`APPEND`](#append)
-  - [`APPLY`](#apply)
-  - [`APROPOS`](#apropos)
-  - [`APROPOS-LIST`](#apropos-list)
-  - [`AREF`](#aref)
-  - [`(SETF AREF)`](#setf-aref)
-  - [`ARITHMETIC-ERROR-OPERANDS`](#arithmetic-error-operands)
-  - [`ARITHMETIC-ERROR-OPERATION`](#arithmetic-error-operation)
-  - [`ARRAY-DIMENSION`](#array-dimension)
-  - [`ARRAY-DIMENSIONS`](#array-dimensions)
-  - [`ARRAY-DISPLACEMENT`](#array-displacement)
-  - [`ARRAY-ELEMENT-TYPE`](#array-element-type)
-  - [`ARRAY-HAS-FILL-POINTER-P`](#array-has-fill-pointer-p)
-  - [`ARRAY-IN-BOUNDS-P`](#array-in-bounds-p)
-  - [`ARRAY-RANK`](#array-rank)
-  - [`ARRAY-ROW-MAJOR-INDEX`](#array-row-major-index)
-  - [`ARRAY-TOTAL-SIZE`](#array-total-size)
-  - [`ARRAYP`](#arrayp)
-  - [`ASH`](#ash)
-  - [`ASIN`](#asin)
-  - [`ASINH`](#asinh)
-  - [`ASSOC`](#assoc)
-  - [`ASSOC-IF`](#assoc-if)
-  - [`ASSOC-IF-NOT`](#assoc-if-not)
-  - [`ATAN`](#atan)
-  - [`ATANH`](#atanh)
-  - [`ATOM`](#atom)
-  - [`BIT`](#bit)
-  - [`(SETF BIT)`](#setf-bit)
-  - [`BIT-AND`](#bit-and)
-  - [`BIT-ANDC1`](#bit-andc1)
-  - [`BIT-ANDC2`](#bit-andc2)
-  - [`BIT-EQV`](#bit-eqv)
-  - [`BIT-IOR`](#bit-ior)
-  - [`BIT-NAND`](#bit-nand)
-  - [`BIT-NOR`](#bit-nor)
-  - [`BIT-NOT`](#bit-not)
-  - [`BIT-ORC1`](#bit-orc1)
-  - [`BIT-ORC2`](#bit-orc2)
-  - [`BIT-VECTOR-P`](#bit-vector-p)
-  - [`BIT-XOR`](#bit-xor)
-  - [`BOOLE`](#boole)
-  - [`BOTH-CASE-P`](#both-case-p)
-  - [`BOUNDP`](#boundp)
-  - [`BREAK`](#break)
-  - [`BROADCAST-STREAM-STREAMS`](#broadcast-stream-streams)
-  - [`BUTLAST`](#butlast)
-  - [`BYTE`](#byte)
-  - [`BYTE-POSITION`](#byte-position)
-  - [`BYTE-SIZE`](#byte-size)
-  - [`CAAAAR`](#caaaar)
-  - [`(SETF CAAAAR)`](#setf-caaaar)
-  - [`CAAADR`](#caaadr)
-  - [`(SETF CAAADR)`](#setf-caaadr)
-  - [`CAAAR`](#caaar)
-  - [`(SETF CAAAR)`](#setf-caaar)
-  - [`CAADAR`](#caadar)
-  - [`(SETF CAADAR)`](#setf-caadar)
-  - [`CAADDR`](#caaddr)
-  - [`(SETF CAADDR)`](#setf-caaddr)
-  - [`CAADR`](#caadr)
-  - [`(SETF CAADR)`](#setf-caadr)
-  - [`CAAR`](#caar)
-  - [`(SETF CAAR)`](#setf-caar)
-  - [`CADAAR`](#cadaar)
-  - [`(SETF CADAAR)`](#setf-cadaar)
-  - [`CADADR`](#cadadr)
-  - [`(SETF CADADR)`](#setf-cadadr)
-  - [`CADAR`](#cadar)
-  - [`(SETF CADAR)`](#setf-cadar)
-  - [`CADDAR`](#caddar)
-  - [`(SETF CADDAR)`](#setf-caddar)
-  - [`CADDDR`](#cadddr)
-  - [`(SETF CADDDR)`](#setf-cadddr)
-  - [`CADDR`](#caddr)
-  - [`(SETF CADDR)`](#setf-caddr)
-  - [`CADR`](#cadr)
-  - [`(SETF CADR)`](#setf-cadr)
-  - [`CAR`](#car)
-  - [`(SETF CAR)`](#setf-car)
-  - [`CDAAAR`](#cdaaar)
-  - [`(SETF CDAAAR)`](#setf-cdaaar)
-  - [`CDAADR`](#cdaadr)
-  - [`(SETF CDAADR)`](#setf-cdaadr)
-  - [`CDAAR`](#cdaar)
-  - [`(SETF CDAAR)`](#setf-cdaar)
-  - [`CDADAR`](#cdadar)
-  - [`(SETF CDADAR)`](#setf-cdadar)
-  - [`CDADDR`](#cdaddr)
-  - [`(SETF CDADDR)`](#setf-cdaddr)
-  - [`CDADR`](#cdadr)
-  - [`(SETF CDADR)`](#setf-cdadr)
-  - [`CDAR`](#cdar)
-  - [`(SETF CDAR)`](#setf-cdar)
-  - [`CDDAAR`](#cddaar)
-  - [`(SETF CDDAAR)`](#setf-cddaar)
-  - [`CDDADR`](#cddadr)
-  - [`(SETF CDDADR)`](#setf-cddadr)
-  - [`CDDAR`](#cddar)
-  - [`(SETF CDDAR)`](#setf-cddar)
-  - [`CDDDAR`](#cdddar)
-  - [`(SETF CDDDAR)`](#setf-cdddar)
-  - [`CDDDDR`](#cddddr)
-  - [`(SETF CDDDDR)`](#setf-cddddr)
-  - [`CDDDR`](#cdddr)
-  - [`(SETF CDDDR)`](#setf-cdddr)
-  - [`CDDR`](#cddr)
-  - [`(SETF CDDR)`](#setf-cddr)
-  - [`CDR`](#cdr)
-  - [`(SETF CDR)`](#setf-cdr)
-  - [`CEILING`](#ceiling)
-  - [`CELL-ERROR-NAME`](#cell-error-name)
-  - [`CERROR`](#cerror)
-  - [`CHAR`](#char)
-  - [`(SETF CHAR)`](#setf-char)
-  - [`CHAR-CODE`](#char-code)
-  - [`CHAR-DOWNCASE`](#char-downcase)
-  - [`CHAR-EQUAL`](#char-equal)
-  - [`CHAR-GREATERP`](#char-greaterp)
-  - [`CHAR-INT`](#char-int)
-  - [`CHAR-LESSP`](#char-lessp)
-  - [`CHAR-NAME`](#char-name)
-  - [`CHAR-NOT-EQUAL`](#char-not-equal)
-  - [`CHAR-NOT-GREATERP`](#char-not-greaterp)
-  - [`CHAR-NOT-LESSP`](#char-not-lessp)
-  - [`CHAR-UPCASE`](#char-upcase)
-  - [`CHAR/=`](#char-1)
-  - [`CHAR<`](#char-2)
-  - [`CHAR<=`](#char-3)
-  - [`CHAR=`](#char-4)
-  - [`CHAR>`](#char-5)
-  - [`CHAR>=`](#char-6)
-  - [`CHARACTER`](#character)
-  - [`CHARACTERP`](#characterp)
-  - [`CIS`](#cis)
-  - [`CLASS-OF`](#class-of)
-  - [`CLEAR-INPUT`](#clear-input)
-  - [`CLEAR-OUTPUT`](#clear-output)
-  - [`CLRHASH`](#clrhash)
-  - [`CODE-CHAR`](#code-char)
-  - [`COERCE`](#coerce)
-  - [`COMPILE`](#compile)
-  - [`COMPILE-FILE`](#compile-file)
-  - [`COMPILE-FILE-PATHNAME`](#compile-file-pathname-1)
-  - [`COMPILED-FUNCTION-P`](#compiled-function-p)
-  - [`COMPILER-MACRO-FUNCTION`](#compiler-macro-function)
-  - [`(SETF COMPILER-MACRO-FUNCTION)`](#setf-compiler-macro-function)
-  - [`COMPLEMENT`](#complement)
-  - [`COMPLEX`](#complex)
-  - [`COMPLEXP`](#complexp)
-  - [`COMPUTE-RESTARTS`](#compute-restarts)
-  - [`CONCATENATE`](#concatenate)
-  - [`CONCATENATED-STREAM-STREAMS`](#concatenated-stream-streams)
-  - [`CONJUGATE`](#conjugate)
-  - [`CONS`](#cons)
-  - [`CONSP`](#consp)
-  - [`CONSTANTLY`](#constantly)
-  - [`CONSTANTP`](#constantp)
-  - [`CONTINUE`](#continue)
-  - [`COPY-ALIST`](#copy-alist)
-  - [`COPY-LIST`](#copy-list)
-  - [`COPY-PPRINT-DISPATCH`](#copy-pprint-dispatch)
-  - [`COPY-READTABLE`](#copy-readtable)
-  - [`COPY-SEQ`](#copy-seq)
-  - [`COPY-STRUCTURE`](#copy-structure)
-  - [`COPY-SYMBOL`](#copy-symbol)
-  - [`COPY-TREE`](#copy-tree)
-  - [`COS`](#cos)
-  - [`COSH`](#cosh)
-  - [`COUNT`](#count)
-  - [`COUNT-IF`](#count-if)
-  - [`COUNT-IF-NOT`](#count-if-not)
-  - [`DECODE-FLOAT`](#decode-float)
-  - [`DECODE-UNIVERSAL-TIME`](#decode-universal-time)
-  - [`DELETE`](#delete)
-  - [`DELETE-DUPLICATES`](#delete-duplicates)
-  - [`DELETE-FILE`](#delete-file)
-  - [`DELETE-IF`](#delete-if)
-  - [`DELETE-IF-NOT`](#delete-if-not)
-  - [`DELETE-PACKAGE`](#delete-package)
-  - [`DENOMINATOR`](#denominator)
-  - [`DEPOSIT-FIELD`](#deposit-field)
-  - [`DESCRIBE`](#describe)
-  - [`DIGIT-CHAR`](#digit-char)
-  - [`DIGIT-CHAR-P`](#digit-char-p)
-  - [`DIRECTORY`](#directory)
-  - [`DIRECTORY-NAMESTRING`](#directory-namestring)
-  - [`DISASSEMBLE`](#disassemble)
-  - [`DPB`](#dpb)
-  - [`DRIBBLE`](#dribble)
-  - [`ECHO-STREAM-INPUT-STREAM`](#echo-stream-input-stream)
-  - [`ECHO-STREAM-OUTPUT-STREAM`](#echo-stream-output-stream)
-  - [`ED`](#ed)
-  - [`EIGHTH`](#eighth)
-  - [`(SETF EIGHTH)`](#setf-eighth)
-  - [`ELT`](#elt)
-  - [`(SETF ELT)`](#setf-elt)
-  - [`ENCODE-UNIVERSAL-TIME`](#encode-universal-time)
-  - [`ENDP`](#endp)
-  - [`ENOUGH-NAMESTRING`](#enough-namestring)
-  - [`ENSURE-DIRECTORIES-EXIST`](#ensure-directories-exist)
-  - [`ENSURE-GENERIC-FUNCTION`](#ensure-generic-function)
-  - [`EQ`](#eq)
-  - [`EQL`](#eql)
-  - [`EQUAL`](#equal)
-  - [`EQUALP`](#equalp)
-  - [`ERROR`](#error)
-  - [`EVAL`](#eval)
-  - [`EVENP`](#evenp)
-  - [`EVERY`](#every)
-  - [`EXP`](#exp)
-  - [`EXPORT`](#export)
-  - [`EXPT`](#expt)
-  - [`FBOUNDP`](#fboundp)
-  - [`FCEILING`](#fceiling)
-  - [`FDEFINITION`](#fdefinition)
-  - [`(SETF FDEFINITION)`](#setf-fdefinition)
-  - [`FFLOOR`](#ffloor)
-  - [`FIFTH`](#fifth)
-  - [`(SETF FIFTH)`](#setf-fifth)
-  - [`FILE-AUTHOR`](#file-author)
-  - [`FILE-ERROR-PATHNAME`](#file-error-pathname)
-  - [`FILE-LENGTH`](#file-length)
-  - [`FILE-NAMESTRING`](#file-namestring)
-  - [`FILE-POSITION`](#file-position)
-  - [`FILE-STRING-LENGTH`](#file-string-length)
-  - [`FILE-WRITE-DATE`](#file-write-date)
-  - [`FILL`](#fill)
-  - [`FILL-POINTER`](#fill-pointer)
-  - [`(SETF FILL-POINTER)`](#setf-fill-pointer)
-  - [`FIND`](#find)
-  - [`FIND-ALL-SYMBOLS`](#find-all-symbols)
-  - [`FIND-CLASS`](#find-class)
-  - [`(SETF FIND-CLASS)`](#setf-find-class)
-  - [`FIND-IF`](#find-if)
-  - [`FIND-IF-NOT`](#find-if-not)
-  - [`FIND-PACKAGE`](#find-package)
-  - [`FIND-RESTART`](#find-restart)
-  - [`FIND-SYMBOL`](#find-symbol)
-  - [`FINISH-OUTPUT`](#finish-output)
-  - [`FIRST`](#first)
-  - [`(SETF FIRST)`](#setf-first)
-  - [`FLOAT`](#float)
-  - [`FLOAT-DIGITS`](#float-digits)
-  - [`FLOAT-PRECISION`](#float-precision)
-  - [`FLOAT-RADIX`](#float-radix)
-  - [`FLOAT-SIGN`](#float-sign)
-  - [`FLOATP`](#floatp)
-  - [`FLOOR`](#floor)
-  - [`FMAKUNBOUND`](#fmakunbound)
-  - [`FORCE-OUTPUT`](#force-output)
-  - [`FORMAT`](#format)
-  - [`FOURTH`](#fourth)
-  - [`(SETF FOURTH)`](#setf-fourth)
-  - [`FRESH-LINE`](#fresh-line)
-  - [`FROUND`](#fround)
-  - [`FTRUNCATE`](#ftruncate)
-  - [`FUNCALL`](#funcall)
-  - [`FUNCTION-LAMBDA-EXPRESSION`](#function-lambda-expression)
-  - [`FUNCTIONP`](#functionp)
-  - [`GCD`](#gcd)
-  - [`GENSYM`](#gensym)
-  - [`GENTEMP`](#gentemp)
-  - [`GET`](#get)
-  - [`GET-DECODED-TIME`](#get-decoded-time)
-  - [`GET-DISPATCH-MACRO-CHARACTER`](#get-dispatch-macro-character)
-  - [`GET-INTERNAL-REAL-TIME`](#get-internal-real-time)
-  - [`GET-INTERNAL-RUN-TIME`](#get-internal-run-time)
-  - [`GET-MACRO-CHARACTER`](#get-macro-character)
-  - [`GET-OUTPUT-STREAM-STRING`](#get-output-stream-string)
-  - [`GET-PROPERTIES`](#get-properties)
-  - [`GET-SETF-EXPANSION`](#get-setf-expansion)
-  - [`GET-UNIVERSAL-TIME`](#get-universal-time)
-  - [`GETF`](#getf)
-  - [`GETHASH`](#gethash)
-  - [`(SETF GETHASH)`](#setf-gethash)
-  - [`GRAPHIC-CHAR-P`](#graphic-char-p)
-  - [`HASH-TABLE-COUNT`](#hash-table-count)
-  - [`HASH-TABLE-P`](#hash-table-p)
-  - [`HASH-TABLE-REHASH-SIZE`](#hash-table-rehash-size)
-  - [`HASH-TABLE-REHASH-THRESHOLD`](#hash-table-rehash-threshold)
-  - [`HASH-TABLE-SIZE`](#hash-table-size)
-  - [`HASH-TABLE-TEST`](#hash-table-test)
-  - [`HOST-NAMESTRING`](#host-namestring)
-  - [`IDENTITY`](#identity)
-  - [`IMAGPART`](#imagpart)
-  - [`IMPORT`](#import)
-  - [`INSPECT`](#inspect)
-  - [`INTEGER-DECODE-FLOAT`](#integer-decode-float)
-  - [`INTEGER-LENGTH`](#integer-length)
-  - [`INTEGERP`](#integerp)
-  - [`INTERN`](#intern)
-  - [`INTERSECTION`](#intersection)
-  - [`INVALID-METHOD-ERROR`](#invalid-method-error)
-  - [`INVOKE-DEBUGGER`](#invoke-debugger)
-  - [`INVOKE-RESTART`](#invoke-restart)
-  - [`INVOKE-RESTART-INTERACTIVELY`](#invoke-restart-interactively)
-  - [`ISQRT`](#isqrt)
-  - [`KEYWORDP`](#keywordp)
-  - [`LAST`](#last)
-  - [`LCM`](#lcm)
-  - [`LDB`](#ldb)
-  - [`LDB-TEST`](#ldb-test)
-  - [`LDIFF`](#ldiff)
-  - [`LENGTH`](#length)
-  - [`LISP-IMPLEMENTATION-TYPE`](#lisp-implementation-type)
-  - [`LISP-IMPLEMENTATION-VERSION`](#lisp-implementation-version)
-  - [`LIST`](#list)
-  - [`LIST*`](#list-1)
-  - [`LIST-ALL-PACKAGES`](#list-all-packages)
-  - [`LIST-LENGTH`](#list-length)
-  - [`LISTEN`](#listen)
-  - [`LISTP`](#listp)
-  - [`LOAD`](#load)
-  - [`LOAD-LOGICAL-PATHNAME-TRANSLATIONS`](#load-logical-pathname-translations)
-  - [`LOG`](#log)
-  - [`LOGAND`](#logand)
-  - [`LOGANDC1`](#logandc1)
-  - [`LOGANDC2`](#logandc2)
-  - [`LOGBITP`](#logbitp)
-  - [`LOGCOUNT`](#logcount)
-  - [`LOGEQV`](#logeqv)
-  - [`LOGICAL-PATHNAME`](#logical-pathname)
-  - [`LOGICAL-PATHNAME-TRANSLATIONS`](#logical-pathname-translations)
-  - [`(SETF LOGICAL-PATHNAME-TRANSLATIONS)`](#setf-logical-pathname-translations)
-  - [`LOGIOR`](#logior)
-  - [`LOGNAND`](#lognand)
-  - [`LOGNOR`](#lognor)
-  - [`LOGNOT`](#lognot)
-  - [`LOGORC1`](#logorc1)
-  - [`LOGORC2`](#logorc2)
-  - [`LOGTEST`](#logtest)
-  - [`LOGXOR`](#logxor)
-  - [`LONG-SITE-NAME`](#long-site-name)
-  - [`LOWER-CASE-P`](#lower-case-p)
-  - [`MACHINE-INSTANCE`](#machine-instance)
-  - [`MACHINE-TYPE`](#machine-type)
-  - [`MACHINE-VERSION`](#machine-version)
-  - [`MACRO-FUNCTION`](#macro-function)
-  - [`(SETF MACRO-FUNCTION)`](#setf-macro-function)
-  - [`MACROEXPAND`](#macroexpand)
-  - [`MACROEXPAND-1`](#macroexpand-1)
-  - [`MAKE-ARRAY`](#make-array)
-  - [`MAKE-BROADCAST-STREAM`](#make-broadcast-stream)
-  - [`MAKE-CONCATENATED-STREAM`](#make-concatenated-stream)
-  - [`MAKE-CONDITION`](#make-condition)
-  - [`MAKE-DISPATCH-MACRO-CHARACTER`](#make-dispatch-macro-character)
-  - [`MAKE-ECHO-STREAM`](#make-echo-stream)
-  - [`MAKE-HASH-TABLE`](#make-hash-table)
-  - [`MAKE-LIST`](#make-list)
-  - [`MAKE-LOAD-FORM-SAVING-SLOTS`](#make-load-form-saving-slots)
-  - [`MAKE-PACKAGE`](#make-package)
-  - [`MAKE-PATHNAME`](#make-pathname)
-  - [`MAKE-RANDOM-STATE`](#make-random-state)
-  - [`MAKE-SEQUENCE`](#make-sequence)
-  - [`MAKE-STRING`](#make-string)
-  - [`MAKE-STRING-INPUT-STREAM`](#make-string-input-stream)
-  - [`MAKE-STRING-OUTPUT-STREAM`](#make-string-output-stream)
-  - [`MAKE-SYMBOL`](#make-symbol)
-  - [`MAKE-SYNONYM-STREAM`](#make-synonym-stream)
-  - [`MAKE-TWO-WAY-STREAM`](#make-two-way-stream)
-  - [`MAKUNBOUND`](#makunbound)
-  - [`MAP`](#map)
-  - [`MAP-INTO`](#map-into)
-  - [`MAPC`](#mapc)
-  - [`MAPCAN`](#mapcan)
-  - [`MAPCAR`](#mapcar)
-  - [`MAPCON`](#mapcon)
-  - [`MAPHASH`](#maphash)
-  - [`MAPL`](#mapl)
-  - [`MAPLIST`](#maplist)
-  - [`MASK-FIELD`](#mask-field)
-  - [`MAX`](#max)
-  - [`MEMBER`](#member)
-  - [`MEMBER-IF`](#member-if)
-  - [`MEMBER-IF-NOT`](#member-if-not)
-  - [`MERGE`](#merge)
-  - [`MERGE-PATHNAMES`](#merge-pathnames)
-  - [`METHOD-COMBINATION-ERROR`](#method-combination-error)
-  - [`MIN`](#min)
-  - [`MINUSP`](#minusp)
-  - [`MISMATCH`](#mismatch)
-  - [`MOD`](#mod)
-  - [`MUFFLE-WARNING`](#muffle-warning)
-  - [`NAME-CHAR`](#name-char)
-  - [`NAMESTRING`](#namestring)
-  - [`NBUTLAST`](#nbutlast)
-  - [`NCONC`](#nconc)
-  - [`NINTERSECTION`](#nintersection)
-  - [`NINTH`](#ninth)
-  - [`(SETF NINTH)`](#setf-ninth)
-  - [`NOT`](#not)
-  - [`NOTANY`](#notany)
-  - [`NOTEVERY`](#notevery)
-  - [`NRECONC`](#nreconc)
-  - [`NREVERSE`](#nreverse)
-  - [`NSET-DIFFERENCE`](#nset-difference)
-  - [`NSET-EXCLUSIVE-OR`](#nset-exclusive-or)
-  - [`NSTRING-CAPITALIZE`](#nstring-capitalize)
-  - [`NSTRING-DOWNCASE`](#nstring-downcase)
-  - [`NSTRING-UPCASE`](#nstring-upcase)
-  - [`NSUBLIS`](#nsublis)
-  - [`NSUBST`](#nsubst)
-  - [`NSUBST-IF`](#nsubst-if)
-  - [`NSUBST-IF-NOT`](#nsubst-if-not)
-  - [`NSUBSTITUTE`](#nsubstitute)
-  - [`NSUBSTITUTE-IF`](#nsubstitute-if)
-  - [`NSUBSTITUTE-IF-NOT`](#nsubstitute-if-not)
-  - [`NTH`](#nth)
-  - [`(SETF NTH)`](#setf-nth)
-  - [`NTHCDR`](#nthcdr)
-  - [`NULL`](#null)
-  - [`NUMBERP`](#numberp)
-  - [`NUMERATOR`](#numerator)
-  - [`NUNION`](#nunion)
-  - [`ODDP`](#oddp)
-  - [`OPEN`](#open)
-  - [`PACKAGE-ERROR-PACKAGE`](#package-error-package)
-  - [`PACKAGE-NAME`](#package-name)
-  - [`PACKAGE-NICKNAMES`](#package-nicknames)
-  - [`PACKAGE-SHADOWING-SYMBOLS`](#package-shadowing-symbols)
-  - [`PACKAGE-USE-LIST`](#package-use-list)
-  - [`PACKAGE-USED-BY-LIST`](#package-used-by-list)
-  - [`PACKAGEP`](#packagep)
-  - [`PAIRLIS`](#pairlis)
-  - [`PARSE-INTEGER`](#parse-integer)
-  - [`PARSE-NAMESTRING`](#parse-namestring)
-  - [`PATHNAME`](#pathname)
-  - [`PATHNAME-DEVICE`](#pathname-device)
-  - [`PATHNAME-DIRECTORY`](#pathname-directory)
-  - [`PATHNAME-HOST`](#pathname-host)
-  - [`PATHNAME-MATCH-P`](#pathname-match-p)
-  - [`PATHNAME-NAME`](#pathname-name)
-  - [`PATHNAME-TYPE`](#pathname-type)
-  - [`PATHNAME-VERSION`](#pathname-version)
-  - [`PATHNAMEP`](#pathnamep)
-  - [`PEEK-CHAR`](#peek-char)
-  - [`PHASE`](#phase)
-  - [`PLUSP`](#plusp)
-  - [`POSITION`](#position)
-  - [`POSITION-IF`](#position-if)
-  - [`POSITION-IF-NOT`](#position-if-not)
-  - [`PPRINT`](#pprint)
-  - [`PPRINT-DISPATCH`](#pprint-dispatch)
-  - [`PPRINT-FILL`](#pprint-fill)
-  - [`PPRINT-INDENT`](#pprint-indent)
-  - [`PPRINT-LINEAR`](#pprint-linear)
-  - [`PPRINT-NEWLINE`](#pprint-newline)
-  - [`PPRINT-TAB`](#pprint-tab)
-  - [`PPRINT-TABULAR`](#pprint-tabular)
-  - [`PRIN1`](#prin1)
-  - [`PRIN1-TO-STRING`](#prin1-to-string)
-  - [`PRINC`](#princ)
-  - [`PRINC-TO-STRING`](#princ-to-string)
-  - [`PRINT`](#print)
-  - [`PRINT-NOT-READABLE-OBJECT`](#print-not-readable-object)
-  - [`PROBE-FILE`](#probe-file)
-  - [`PROCLAIM`](#proclaim)
-  - [`PROVIDE`](#provide)
-  - [`RANDOM`](#random)
-  - [`RANDOM-STATE-P`](#random-state-p)
-  - [`RASSOC`](#rassoc)
-  - [`RASSOC-IF`](#rassoc-if)
-  - [`RASSOC-IF-NOT`](#rassoc-if-not)
-  - [`RATIONAL`](#rational)
-  - [`RATIONALIZE`](#rationalize)
-  - [`RATIONALP`](#rationalp)
-  - [`READ`](#read)
-  - [`READ-BYTE`](#read-byte)
-  - [`READ-CHAR`](#read-char)
-  - [`READ-CHAR-NO-HANG`](#read-char-no-hang)
-  - [`READ-DELIMITED-LIST`](#read-delimited-list)
-  - [`READ-FROM-STRING`](#read-from-string)
-  - [`READ-LINE`](#read-line)
-  - [`READ-PRESERVING-WHITESPACE`](#read-preserving-whitespace)
-  - [`READ-SEQUENCE`](#read-sequence)
-  - [`READTABLE-CASE`](#readtable-case)
-  - [`(SETF READTABLE-CASE)`](#setf-readtable-case)
-  - [`READTABLEP`](#readtablep)
-  - [`REALP`](#realp)
-  - [`REALPART`](#realpart)
-  - [`REDUCE`](#reduce)
-  - [`REM`](#rem)
-  - [`REMHASH`](#remhash)
-  - [`REMOVE`](#remove)
-  - [`REMOVE-DUPLICATES`](#remove-duplicates)
-  - [`REMOVE-IF`](#remove-if)
-  - [`REMOVE-IF-NOT`](#remove-if-not)
-  - [`REMPROP`](#remprop)
-  - [`RENAME-FILE`](#rename-file)
-  - [`RENAME-PACKAGE`](#rename-package)
-  - [`REPLACE`](#replace)
-  - [`REQUIRE`](#require)
-  - [`REST`](#rest)
-  - [`(SETF REST)`](#setf-rest)
-  - [`RESTART-NAME`](#restart-name)
-  - [`REVAPPEND`](#revappend)
-  - [`REVERSE`](#reverse)
-  - [`ROOM`](#room)
-  - [`ROUND`](#round)
-  - [`ROW-MAJOR-AREF`](#row-major-aref)
-  - [`(SETF ROW-MAJOR-AREF)`](#setf-row-major-aref)
-  - [`RPLACA`](#rplaca)
-  - [`RPLACD`](#rplacd)
-  - [`SBIT`](#sbit)
-  - [`(SETF SBIT)`](#setf-sbit)
-  - [`SCALE-FLOAT`](#scale-float)
-  - [`SCHAR`](#schar)
-  - [`(SETF SCHAR)`](#setf-schar)
-  - [`SEARCH`](#search)
-  - [`SECOND`](#second)
-  - [`(SETF SECOND)`](#setf-second)
-  - [`SET`](#set)
-  - [`SET-DIFFERENCE`](#set-difference)
-  - [`SET-DISPATCH-MACRO-CHARACTER`](#set-dispatch-macro-character)
-  - [`SET-EXCLUSIVE-OR`](#set-exclusive-or)
-  - [`SET-MACRO-CHARACTER`](#set-macro-character)
-  - [`SET-PPRINT-DISPATCH`](#set-pprint-dispatch)
-  - [`SET-SYNTAX-FROM-CHAR`](#set-syntax-from-char)
-  - [`SEVENTH`](#seventh)
-  - [`(SETF SEVENTH)`](#setf-seventh)
-  - [`SHADOW`](#shadow)
-  - [`SHADOWING-IMPORT`](#shadowing-import)
-  - [`SHORT-SITE-NAME`](#short-site-name)
-  - [`SIGNAL`](#signal)
-  - [`SIGNUM`](#signum)
-  - [`SIMPLE-BIT-VECTOR-P`](#simple-bit-vector-p)
-  - [`SIMPLE-CONDITION-FORMAT-ARGUMENTS`](#simple-condition-format-arguments)
-  - [`SIMPLE-CONDITION-FORMAT-CONTROL`](#simple-condition-format-control)
-  - [`SIMPLE-STRING-P`](#simple-string-p)
-  - [`SIMPLE-VECTOR-P`](#simple-vector-p)
-  - [`SIN`](#sin)
-  - [`SINH`](#sinh)
-  - [`SIXTH`](#sixth)
-  - [`(SETF SIXTH)`](#setf-sixth)
-  - [`SLEEP`](#sleep)
-  - [`SLOT-BOUNDP`](#slot-boundp)
-  - [`SLOT-EXISTS-P`](#slot-exists-p)
-  - [`SLOT-MAKUNBOUND`](#slot-makunbound)
-  - [`SLOT-VALUE`](#slot-value)
-  - [`(SETF SLOT-VALUE)`](#setf-slot-value)
-  - [`SOFTWARE-TYPE`](#software-type)
-  - [`SOFTWARE-VERSION`](#software-version)
-  - [`SOME`](#some)
-  - [`SORT`](#sort)
-  - [`SPECIAL-OPERATOR-P`](#special-operator-p)
-  - [`SQRT`](#sqrt)
-  - [`STABLE-SORT`](#stable-sort)
-  - [`STANDARD-CHAR-P`](#standard-char-p)
-  - [`STORE-VALUE`](#store-value)
-  - [`STREAM-ERROR-STREAM`](#stream-error-stream)
-  - [`STREAM-EXTERNAL-FORMAT`](#stream-external-format)
-  - [`STREAMP`](#streamp)
-  - [`STRING`](#string)
-  - [`STRING-CAPITALIZE`](#string-capitalize)
-  - [`STRING-DOWNCASE`](#string-downcase)
-  - [`STRING-EQUAL`](#string-equal)
-  - [`STRING-GREATERP`](#string-greaterp)
-  - [`STRING-LEFT-TRIM`](#string-left-trim)
-  - [`STRING-LESSP`](#string-lessp)
-  - [`STRING-NOT-EQUAL`](#string-not-equal)
-  - [`STRING-NOT-GREATERP`](#string-not-greaterp)
-  - [`STRING-NOT-LESSP`](#string-not-lessp)
-  - [`STRING-RIGHT-TRIM`](#string-right-trim)
-  - [`STRING-TRIM`](#string-trim)
-  - [`STRING-UPCASE`](#string-upcase)
-  - [`STRING/=`](#string-1)
-  - [`STRING<`](#string-2)
-  - [`STRING<=`](#string-3)
-  - [`STRING=`](#string-4)
-  - [`STRING>`](#string-5)
-  - [`STRING>=`](#string-6)
-  - [`STRINGP`](#stringp)
-  - [`SUBLIS`](#sublis)
-  - [`SUBSEQ`](#subseq)
-  - [`SUBSETP`](#subsetp)
-  - [`SUBST`](#subst)
-  - [`SUBST-IF`](#subst-if)
-  - [`SUBST-IF-NOT`](#subst-if-not)
-  - [`SUBSTITUTE`](#substitute)
-  - [`SUBSTITUTE-IF`](#substitute-if)
-  - [`SUBSTITUTE-IF-NOT`](#substitute-if-not)
-  - [`SUBTYPEP`](#subtypep)
-  - [`SVREF`](#svref)
-  - [`(SETF SVREF)`](#setf-svref)
-  - [`SXHASH`](#sxhash)
-  - [`SYMBOL-FUNCTION`](#symbol-function)
-  - [`(SETF SYMBOL-FUNCTION)`](#setf-symbol-function)
-  - [`SYMBOL-NAME`](#symbol-name)
-  - [`SYMBOL-PACKAGE`](#symbol-package)
-  - [`SYMBOL-PLIST`](#symbol-plist)
-  - [`(SETF SYMBOL-PLIST)`](#setf-symbol-plist)
-  - [`SYMBOL-VALUE`](#symbol-value)
-  - [`(SETF SYMBOL-VALUE)`](#setf-symbol-value)
-  - [`SYMBOLP`](#symbolp)
-  - [`SYNONYM-STREAM-SYMBOL`](#synonym-stream-symbol)
-  - [`TAILP`](#tailp)
-  - [`TAN`](#tan)
-  - [`TANH`](#tanh)
-  - [`TENTH`](#tenth)
-  - [`(SETF TENTH)`](#setf-tenth)
-  - [`TERPRI`](#terpri)
-  - [`THIRD`](#third)
-  - [`(SETF THIRD)`](#setf-third)
-  - [`TRANSLATE-LOGICAL-PATHNAME`](#translate-logical-pathname)
-  - [`TRANSLATE-PATHNAME`](#translate-pathname)
-  - [`TREE-EQUAL`](#tree-equal)
-  - [`TRUENAME`](#truename)
-  - [`TRUNCATE`](#truncate)
-  - [`TWO-WAY-STREAM-INPUT-STREAM`](#two-way-stream-input-stream)
-  - [`TWO-WAY-STREAM-OUTPUT-STREAM`](#two-way-stream-output-stream)
-  - [`TYPE-ERROR-DATUM`](#type-error-datum)
-  - [`TYPE-ERROR-EXPECTED-TYPE`](#type-error-expected-type)
-  - [`TYPE-OF`](#type-of)
-  - [`TYPEP`](#typep)
-  - [`UNBOUND-SLOT-INSTANCE`](#unbound-slot-instance)
-  - [`UNEXPORT`](#unexport)
-  - [`UNINTERN`](#unintern)
-  - [`UNION`](#union)
-  - [`UNREAD-CHAR`](#unread-char)
-  - [`UNUSE-PACKAGE`](#unuse-package)
-  - [`UPGRADED-ARRAY-ELEMENT-TYPE`](#upgraded-array-element-type)
-  - [`UPGRADED-COMPLEX-PART-TYPE`](#upgraded-complex-part-type)
-  - [`UPPER-CASE-P`](#upper-case-p)
-  - [`USE-PACKAGE`](#use-package)
-  - [`USE-VALUE`](#use-value)
-  - [`USER-HOMEDIR-PATHNAME`](#user-homedir-pathname)
-  - [`VALUES`](#values)
-  - [`VALUES-LIST`](#values-list)
-  - [`VECTOR`](#vector)
-  - [`VECTOR-POP`](#vector-pop)
-  - [`VECTOR-PUSH`](#vector-push)
-  - [`VECTOR-PUSH-EXTEND`](#vector-push-extend)
-  - [`VECTORP`](#vectorp)
-  - [`WARN`](#warn)
-  - [`WILD-PATHNAME-P`](#wild-pathname-p)
-  - [`WRITE`](#write)
-  - [`WRITE-BYTE`](#write-byte)
-  - [`WRITE-CHAR`](#write-char)
-  - [`WRITE-LINE`](#write-line)
-  - [`WRITE-SEQUENCE`](#write-sequence)
-  - [`WRITE-STRING`](#write-string)
-  - [`WRITE-TO-STRING`](#write-to-string)
-  - [`Y-OR-N-P`](#y-or-n-p)
-  - [`YES-OR-NO-P`](#yes-or-no-p)
-  - [`ZEROP`](#zerop)
-- [generic function](#generic-function)
-  - [Symbol list](#symbol-list-2)
-  - [`ADD-METHOD`](#add-method)
-  - [`ALLOCATE-INSTANCE`](#allocate-instance)
-  - [`CHANGE-CLASS`](#change-class)
-  - [`CLASS-NAME`](#class-name)
-  - [`(SETF CLASS-NAME)`](#setf-class-name)
-  - [`CLOSE`](#close)
-  - [`COMPUTE-APPLICABLE-METHODS`](#compute-applicable-methods)
-  - [`DESCRIBE-OBJECT`](#describe-object)
-  - [`DOCUMENTATION`](#documentation)
-  - [`(SETF DOCUMENTATION)`](#setf-documentation)
-  - [`FIND-METHOD`](#find-method)
-  - [`FUNCTION-KEYWORDS`](#function-keywords)
-  - [`INITIALIZE-INSTANCE`](#initialize-instance)
-  - [`INPUT-STREAM-P`](#input-stream-p)
-  - [`INTERACTIVE-STREAM-P`](#interactive-stream-p)
-  - [`MAKE-INSTANCE`](#make-instance)
-  - [`MAKE-INSTANCES-OBSOLETE`](#make-instances-obsolete)
-  - [`MAKE-LOAD-FORM`](#make-load-form)
-  - [`METHOD-QUALIFIERS`](#method-qualifiers)
-  - [`NO-APPLICABLE-METHOD`](#no-applicable-method)
-  - [`NO-NEXT-METHOD`](#no-next-method)
-  - [`OPEN-STREAM-P`](#open-stream-p)
-  - [`OUTPUT-STREAM-P`](#output-stream-p)
-  - [`PRINT-OBJECT`](#print-object)
-  - [`REINITIALIZE-INSTANCE`](#reinitialize-instance)
-  - [`REMOVE-METHOD`](#remove-method)
-  - [`SHARED-INITIALIZE`](#shared-initialize)
-  - [`SLOT-MISSING`](#slot-missing)
-  - [`SLOT-UNBOUND`](#slot-unbound)
-  - [`STREAM-ELEMENT-TYPE`](#stream-element-type)
-  - [`UPDATE-INSTANCE-FOR-DIFFERENT-CLASS`](#update-instance-for-different-class)
-  - [`UPDATE-INSTANCE-FOR-REDEFINED-CLASS`](#update-instance-for-redefined-class)
-- [macro](#macro)
-  - [Symbol list](#symbol-list-3)
-  - [`AND`](#and)
-  - [`ASSERT`](#assert)
-  - [`CALL-METHOD`](#call-method)
-  - [`CASE`](#case)
-  - [`CCASE`](#ccase)
-  - [`CHECK-TYPE`](#check-type)
-  - [`COND`](#cond)
-  - [`CTYPECASE`](#ctypecase)
-  - [`DECF`](#decf)
-  - [`DECLAIM`](#declaim)
-  - [`DEFCLASS`](#defclass)
-  - [`DEFCONSTANT`](#defconstant)
-  - [`DEFGENERIC`](#defgeneric)
-  - [`DEFINE-COMPILER-MACRO`](#define-compiler-macro)
-  - [`DEFINE-CONDITION`](#define-condition)
-  - [`DEFINE-METHOD-COMBINATION`](#define-method-combination)
-  - [`DEFINE-MODIFY-MACRO`](#define-modify-macro)
-  - [`DEFINE-SETF-EXPANDER`](#define-setf-expander)
-  - [`DEFINE-SYMBOL-MACRO`](#define-symbol-macro)
-  - [`DEFMACRO`](#defmacro)
-  - [`DEFMETHOD`](#defmethod)
-  - [`DEFPACKAGE`](#defpackage)
-  - [`DEFPARAMETER`](#defparameter)
-  - [`DEFSETF`](#defsetf)
-  - [`DEFSTRUCT`](#defstruct)
-  - [`DEFTYPE`](#deftype)
-  - [`DEFUN`](#defun)
-  - [`DEFVAR`](#defvar)
-  - [`DESTRUCTURING-BIND`](#destructuring-bind)
-  - [`DO`](#do)
-  - [`DO*`](#do-1)
-  - [`DO-ALL-SYMBOLS`](#do-all-symbols)
-  - [`DO-EXTERNAL-SYMBOLS`](#do-external-symbols)
-  - [`DO-SYMBOLS`](#do-symbols)
-  - [`DOLIST`](#dolist)
-  - [`DOTIMES`](#dotimes)
-  - [`ECASE`](#ecase)
-  - [`ETYPECASE`](#etypecase)
-  - [`FORMATTER`](#formatter)
-  - [`HANDLER-BIND`](#handler-bind)
-  - [`HANDLER-CASE`](#handler-case)
-  - [`IGNORE-ERRORS`](#ignore-errors)
-  - [`IN-PACKAGE`](#in-package)
-  - [`INCF`](#incf)
-  - [`LAMBDA`](#lambda)
-  - [`LOOP`](#loop)
-  - [`LOOP-FINISH`](#loop-finish)
-  - [`MULTIPLE-VALUE-BIND`](#multiple-value-bind)
-  - [`MULTIPLE-VALUE-LIST`](#multiple-value-list)
-  - [`MULTIPLE-VALUE-SETQ`](#multiple-value-setq)
-  - [`NTH-VALUE`](#nth-value)
-  - [`OR`](#or)
-  - [`POP`](#pop)
-  - [`PPRINT-EXIT-IF-LIST-EXHAUSTED`](#pprint-exit-if-list-exhausted)
-  - [`PPRINT-LOGICAL-BLOCK`](#pprint-logical-block)
-  - [`PPRINT-POP`](#pprint-pop)
-  - [`PRINT-UNREADABLE-OBJECT`](#print-unreadable-object)
-  - [`PROG`](#prog)
-  - [`PROG*`](#prog-1)
-  - [`PROG1`](#prog1)
-  - [`PROG2`](#prog2)
-  - [`PSETF`](#psetf)
-  - [`PSETQ`](#psetq)
-  - [`PUSH`](#push)
-  - [`PUSHNEW`](#pushnew)
-  - [`REMF`](#remf)
-  - [`RESTART-BIND`](#restart-bind)
-  - [`RESTART-CASE`](#restart-case)
-  - [`RETURN`](#return)
-  - [`ROTATEF`](#rotatef)
-  - [`SETF`](#setf)
-  - [`SHIFTF`](#shiftf)
-  - [`STEP`](#step)
-  - [`TIME`](#time)
-  - [`TRACE`](#trace)
-  - [`TYPECASE`](#typecase)
-  - [`UNLESS`](#unless)
-  - [`UNTRACE`](#untrace)
-  - [`WHEN`](#when)
-  - [`WITH-ACCESSORS`](#with-accessors)
-  - [`WITH-COMPILATION-UNIT`](#with-compilation-unit)
-  - [`WITH-CONDITION-RESTARTS`](#with-condition-restarts)
-  - [`WITH-HASH-TABLE-ITERATOR`](#with-hash-table-iterator)
-  - [`WITH-INPUT-FROM-STRING`](#with-input-from-string)
-  - [`WITH-OPEN-FILE`](#with-open-file)
-  - [`WITH-OPEN-STREAM`](#with-open-stream)
-  - [`WITH-OUTPUT-TO-STRING`](#with-output-to-string)
-  - [`WITH-PACKAGE-ITERATOR`](#with-package-iterator)
-  - [`WITH-SIMPLE-RESTART`](#with-simple-restart)
-  - [`WITH-SLOTS`](#with-slots)
-  - [`WITH-STANDARD-IO-SYNTAX`](#with-standard-io-syntax)
-- [primitive type-specifier](#primitive-type-specifier)
-  - [Symbol list](#symbol-list-4)
-  - [`ARRAY`](#array)
-  - [`ATOM`](#atom-1)
-  - [`BASE-CHAR`](#base-char)
-  - [`BASE-STRING`](#base-string)
-  - [`BIT`](#bit-1)
-  - [`BIT-VECTOR`](#bit-vector)
-  - [`COMPILED-FUNCTION`](#compiled-function-1)
-  - [`COMPLEX`](#complex-1)
-  - [`CONS`](#cons-1)
-  - [`DOUBLE-FLOAT`](#double-float)
-  - [`EXTENDED-CHAR`](#extended-char)
-  - [`FLOAT`](#float-1)
-  - [`FUNCTION`](#function)
-  - [`INTEGER`](#integer)
-  - [`KEYWORD`](#keyword)
-  - [`LONG-FLOAT`](#long-float)
-  - [`RATIONAL`](#rational-1)
-  - [`REAL`](#real)
-  - [`SHORT-FLOAT`](#short-float)
-  - [`SIMPLE-ARRAY`](#simple-array)
-  - [`SIMPLE-BASE-STRING`](#simple-base-string)
-  - [`SIMPLE-BIT-VECTOR`](#simple-bit-vector)
-  - [`SIMPLE-STRING`](#simple-string)
-  - [`SIMPLE-VECTOR`](#simple-vector)
-  - [`SINGLE-FLOAT`](#single-float)
-  - [`STANDARD-CHAR`](#standard-char)
-  - [`STRING`](#string-7)
-  - [`VECTOR`](#vector-1)
-- [constant variable](#constant-variable)
-  - [Symbol list](#symbol-list-5)
-  - [`ARRAY-DIMENSION-LIMIT`](#array-dimension-limit)
-  - [`ARRAY-RANK-LIMIT`](#array-rank-limit)
-  - [`ARRAY-TOTAL-SIZE-LIMIT`](#array-total-size-limit)
-  - [`BOOLE-1`](#boole-1)
-  - [`BOOLE-2`](#boole-2)
-  - [`BOOLE-AND`](#boole-and)
-  - [`BOOLE-ANDC1`](#boole-andc1)
-  - [`BOOLE-ANDC2`](#boole-andc2)
-  - [`BOOLE-C1`](#boole-c1)
-  - [`BOOLE-C2`](#boole-c2)
-  - [`BOOLE-CLR`](#boole-clr)
-  - [`BOOLE-EQV`](#boole-eqv)
-  - [`BOOLE-IOR`](#boole-ior)
-  - [`BOOLE-NAND`](#boole-nand)
-  - [`BOOLE-NOR`](#boole-nor)
-  - [`BOOLE-ORC1`](#boole-orc1)
-  - [`BOOLE-ORC2`](#boole-orc2)
-  - [`BOOLE-SET`](#boole-set)
-  - [`BOOLE-XOR`](#boole-xor)
-  - [`CALL-ARGUMENTS-LIMIT`](#call-arguments-limit)
-  - [`CHAR-CODE-LIMIT`](#char-code-limit)
-  - [`DOUBLE-FLOAT-EPSILON`](#double-float-epsilon)
-  - [`DOUBLE-FLOAT-NEGATIVE-EPSILON`](#double-float-negative-epsilon)
-  - [`INTERNAL-TIME-UNITS-PER-SECOND`](#internal-time-units-per-second)
-  - [`LAMBDA-LIST-KEYWORDS`](#lambda-list-keywords)
-  - [`LAMBDA-PARAMETERS-LIMIT`](#lambda-parameters-limit)
-  - [`LEAST-NEGATIVE-DOUBLE-FLOAT`](#least-negative-double-float)
-  - [`LEAST-NEGATIVE-LONG-FLOAT`](#least-negative-long-float)
-  - [`LEAST-NEGATIVE-NORMALIZED-DOUBLE-FLOAT`](#least-negative-normalized-double-float)
-  - [`LEAST-NEGATIVE-NORMALIZED-LONG-FLOAT`](#least-negative-normalized-long-float)
-  - [`LEAST-NEGATIVE-NORMALIZED-SHORT-FLOAT`](#least-negative-normalized-short-float)
-  - [`LEAST-NEGATIVE-NORMALIZED-SINGLE-FLOAT`](#least-negative-normalized-single-float)
-  - [`LEAST-NEGATIVE-SHORT-FLOAT`](#least-negative-short-float)
-  - [`LEAST-NEGATIVE-SINGLE-FLOAT`](#least-negative-single-float)
-  - [`LEAST-POSITIVE-DOUBLE-FLOAT`](#least-positive-double-float)
-  - [`LEAST-POSITIVE-LONG-FLOAT`](#least-positive-long-float)
-  - [`LEAST-POSITIVE-NORMALIZED-DOUBLE-FLOAT`](#least-positive-normalized-double-float)
-  - [`LEAST-POSITIVE-NORMALIZED-LONG-FLOAT`](#least-positive-normalized-long-float)
-  - [`LEAST-POSITIVE-NORMALIZED-SHORT-FLOAT`](#least-positive-normalized-short-float)
-  - [`LEAST-POSITIVE-NORMALIZED-SINGLE-FLOAT`](#least-positive-normalized-single-float)
-  - [`LEAST-POSITIVE-SHORT-FLOAT`](#least-positive-short-float)
-  - [`LEAST-POSITIVE-SINGLE-FLOAT`](#least-positive-single-float)
-  - [`LONG-FLOAT-EPSILON`](#long-float-epsilon)
-  - [`LONG-FLOAT-NEGATIVE-EPSILON`](#long-float-negative-epsilon)
-  - [`MOST-NEGATIVE-DOUBLE-FLOAT`](#most-negative-double-float)
-  - [`MOST-NEGATIVE-FIXNUM`](#most-negative-fixnum)
-  - [`MOST-NEGATIVE-LONG-FLOAT`](#most-negative-long-float)
-  - [`MOST-NEGATIVE-SHORT-FLOAT`](#most-negative-short-float)
-  - [`MOST-NEGATIVE-SINGLE-FLOAT`](#most-negative-single-float)
-  - [`MOST-POSITIVE-DOUBLE-FLOAT`](#most-positive-double-float)
-  - [`MOST-POSITIVE-FIXNUM`](#most-positive-fixnum)
-  - [`MOST-POSITIVE-LONG-FLOAT`](#most-positive-long-float)
-  - [`MOST-POSITIVE-SHORT-FLOAT`](#most-positive-short-float)
-  - [`MOST-POSITIVE-SINGLE-FLOAT`](#most-positive-single-float)
-  - [`MULTIPLE-VALUES-LIMIT`](#multiple-values-limit)
-  - [`NIL`](#nil)
-  - [`PI`](#pi)
-  - [`SHORT-FLOAT-EPSILON`](#short-float-epsilon)
-  - [`SHORT-FLOAT-NEGATIVE-EPSILON`](#short-float-negative-epsilon)
-  - [`SINGLE-FLOAT-EPSILON`](#single-float-epsilon)
-  - [`SINGLE-FLOAT-NEGATIVE-EPSILON`](#single-float-negative-epsilon)
-  - [`T`](#t)
-- [special operator](#special-operator)
-  - [Symbol list](#symbol-list-6)
-  - [`BLOCK`](#block)
-  - [`CATCH`](#catch)
-  - [`EVAL-WHEN`](#eval-when)
-  - [`FLET`](#flet)
-  - [`FUNCTION`](#function-1)
-  - [`GO`](#go)
-  - [`IF`](#if)
-  - [`LABELS`](#labels)
-  - [`LET`](#let)
-  - [`LET*`](#let-1)
-  - [`LOAD-TIME-VALUE`](#load-time-value)
-  - [`LOCALLY`](#locally)
-  - [`MACROLET`](#macrolet)
-  - [`MULTIPLE-VALUE-CALL`](#multiple-value-call)
-  - [`MULTIPLE-VALUE-PROG1`](#multiple-value-prog1)
-  - [`PROGN`](#progn)
-  - [`PROGV`](#progv)
-  - [`QUOTE`](#quote)
-  - [`RETURN-FROM`](#return-from)
-  - [`SETQ`](#setq)
-  - [`SYMBOL-MACROLET`](#symbol-macrolet)
-  - [`TAGBODY`](#tagbody)
-  - [`THE`](#the)
-  - [`THROW`](#throw)
-  - [`UNWIND-PROTECT`](#unwind-protect)
-- [type-specifier](#type-specifier)
-  - [Symbol list](#symbol-list-7)
-  - [`BOOLEAN`](#boolean)
-  - [`EQL`](#eql-1)
-  - [`MOD`](#mod-1)
-  - [`SIGNED-BYTE`](#signed-byte)
-  - [`UNSIGNED-BYTE`](#unsigned-byte)
+
+1. [*](#*)
+2. [+](#+)
+3. [-](#-)
+4. [/](#/)
+5. [/=](#/=)
+6. [1+](#1+)
+7. [1-](#1-)
+8. [<](#<)
+9. [<=](#<=)
+10. [=](#=)
+11. [>](#>)
+12. [>=](#>=)
+13. [ABORT](#abort)
+14. [ABS](#abs)
+15. [ACONS](#acons)
+16. [ACOS](#acos)
+17. [ACOSH](#acosh)
+18. [ADJOIN](#adjoin)
+19. [ADJUST-ARRAY](#adjust-array)
+20. [ADJUSTABLE-ARRAY-P](#adjustable-array-p)
+21. [ALPHA-CHAR-P](#alpha-char-p)
+22. [ALPHANUMERICP](#alphanumericp)
+23. [APPEND](#append)
+24. [APPLY](#apply)
+25. [APROPOS](#apropos)
+26. [APROPOS-LIST](#apropos-list)
+27. [AREF](#aref)
+28. [ARITHMETIC-ERROR-OPERANDS](#arithmetic-error-operands)
+29. [ARITHMETIC-ERROR-OPERATION](#arithmetic-error-operation)
+30. [ARRAY-DIMENSION](#array-dimension)
+31. [ARRAY-DIMENSIONS](#array-dimensions)
+32. [ARRAY-DISPLACEMENT](#array-displacement)
+33. [ARRAY-ELEMENT-TYPE](#array-element-type)
+34. [ARRAY-HAS-FILL-POINTER-P](#array-has-fill-pointer-p)
+35. [ARRAY-IN-BOUNDS-P](#array-in-bounds-p)
+36. [ARRAY-RANK](#array-rank)
+37. [ARRAY-ROW-MAJOR-INDEX](#array-row-major-index)
+38. [ARRAY-TOTAL-SIZE](#array-total-size)
+39. [ARRAYP](#arrayp)
+40. [ASH](#ash)
+41. [ASIN](#asin)
+42. [ASINH](#asinh)
+43. [ASSOC](#assoc)
+44. [ASSOC-IF](#assoc-if)
+45. [ASSOC-IF-NOT](#assoc-if-not)
+46. [ATAN](#atan)
+47. [ATANH](#atanh)
+48. [ATOM](#atom)
+49. [BIT](#bit)
+50. [BIT-AND](#bit-and)
+51. [BIT-ANDC1](#bit-andc1)
+52. [BIT-ANDC2](#bit-andc2)
+53. [BIT-EQV](#bit-eqv)
+54. [BIT-IOR](#bit-ior)
+55. [BIT-NAND](#bit-nand)
+56. [BIT-NOR](#bit-nor)
+57. [BIT-NOT](#bit-not)
+58. [BIT-ORC1](#bit-orc1)
+59. [BIT-ORC2](#bit-orc2)
+60. [BIT-VECTOR-P](#bit-vector-p)
+61. [BIT-XOR](#bit-xor)
+62. [BOOLE](#boole)
+63. [BOTH-CASE-P](#both-case-p)
+64. [BOUNDP](#boundp)
+65. [BREAK](#break)
+66. [BROADCAST-STREAM-STREAMS](#broadcast-stream-streams)
+67. [BUTLAST](#butlast)
+68. [BYTE](#byte)
+69. [BYTE-POSITION](#byte-position)
+70. [BYTE-SIZE](#byte-size)
+71. [CAAAAR](#caaaar)
+72. [CAAADR](#caaadr)
+73. [CAAAR](#caaar)
+74. [CAADAR](#caadar)
+75. [CAADDR](#caaddr)
+76. [CAADR](#caadr)
+77. [CAAR](#caar)
+78. [CADAAR](#cadaar)
+79. [CADADR](#cadadr)
+80. [CADAR](#cadar)
+81. [CADDAR](#caddar)
+82. [CADDDR](#cadddr)
+83. [CADDR](#caddr)
+84. [CADR](#cadr)
+85. [CAR](#car)
+86. [CDAAAR](#cdaaar)
+87. [CDAADR](#cdaadr)
+88. [CDAAR](#cdaar)
+89. [CDADAR](#cdadar)
+90. [CDADDR](#cdaddr)
+91. [CDADR](#cdadr)
+92. [CDAR](#cdar)
+93. [CDDAAR](#cddaar)
+94. [CDDADR](#cddadr)
+95. [CDDAR](#cddar)
+96. [CDDDAR](#cdddar)
+97. [CDDDDR](#cddddr)
+98. [CDDDR](#cdddr)
+99. [CDDR](#cddr)
+100. [CDR](#cdr)
+101. [CEILING](#ceiling)
+102. [CELL-ERROR-NAME](#cell-error-name)
+103. [CERROR](#cerror)
+104. [CHAR](#char)
+105. [CHAR-CODE](#char-code)
+106. [CHAR-DOWNCASE](#char-downcase)
+107. [CHAR-EQUAL](#char-equal)
+108. [CHAR-GREATERP](#char-greaterp)
+109. [CHAR-INT](#char-int)
+110. [CHAR-LESSP](#char-lessp)
+111. [CHAR-NAME](#char-name)
+112. [CHAR-NOT-EQUAL](#char-not-equal)
+113. [CHAR-NOT-GREATERP](#char-not-greaterp)
+114. [CHAR-NOT-LESSP](#char-not-lessp)
+115. [CHAR-UPCASE](#char-upcase)
+116. [CHAR/=](#char/=)
+117. [CHAR<](#char<)
+118. [CHAR<=](#char<=)
+119. [CHAR=](#char=)
+120. [CHAR>](#char>)
+121. [CHAR>=](#char>=)
+122. [CHARACTER](#character)
+123. [CHARACTERP](#characterp)
+124. [CIS](#cis)
+125. [CLASS-OF](#class-of)
+126. [CLEAR-INPUT](#clear-input)
+127. [CLEAR-OUTPUT](#clear-output)
+128. [CLRHASH](#clrhash)
+129. [CODE-CHAR](#code-char)
+130. [COERCE](#coerce)
+131. [COMPILE](#compile)
+132. [COMPILE-FILE](#compile-file)
+133. [COMPILE-FILE-PATHNAME](#compile-file-pathname)
+134. [COMPILED-FUNCTION-P](#compiled-function-p)
+135. [COMPILER-MACRO-FUNCTION](#compiler-macro-function)
+136. [COMPLEMENT](#complement)
+137. [COMPLEX](#complex)
+138. [COMPLEXP](#complexp)
+139. [COMPUTE-RESTARTS](#compute-restarts)
+140. [CONCATENATE](#concatenate)
+141. [CONCATENATED-STREAM-STREAMS](#concatenated-stream-streams)
+142. [CONJUGATE](#conjugate)
+143. [CONS](#cons)
+144. [CONSP](#consp)
+145. [CONSTANTLY](#constantly)
+146. [CONSTANTP](#constantp)
+147. [CONTINUE](#continue)
+148. [COPY-ALIST](#copy-alist)
+149. [COPY-LIST](#copy-list)
+150. [COPY-PPRINT-DISPATCH](#copy-pprint-dispatch)
+151. [COPY-READTABLE](#copy-readtable)
+152. [COPY-SEQ](#copy-seq)
+153. [COPY-STRUCTURE](#copy-structure)
+154. [COPY-SYMBOL](#copy-symbol)
+155. [COPY-TREE](#copy-tree)
+156. [COS](#cos)
+157. [COSH](#cosh)
+158. [COUNT](#count)
+159. [COUNT-IF](#count-if)
+160. [COUNT-IF-NOT](#count-if-not)
+161. [DECODE-FLOAT](#decode-float)
+162. [DECODE-UNIVERSAL-TIME](#decode-universal-time)
+163. [DELETE](#delete)
+164. [DELETE-DUPLICATES](#delete-duplicates)
+165. [DELETE-FILE](#delete-file)
+166. [DELETE-IF](#delete-if)
+167. [DELETE-IF-NOT](#delete-if-not)
+168. [DELETE-PACKAGE](#delete-package)
+169. [DENOMINATOR](#denominator)
+170. [DEPOSIT-FIELD](#deposit-field)
+171. [DESCRIBE](#describe)
+172. [DIGIT-CHAR](#digit-char)
+173. [DIGIT-CHAR-P](#digit-char-p)
+174. [DIRECTORY](#directory)
+175. [DIRECTORY-NAMESTRING](#directory-namestring)
+176. [DISASSEMBLE](#disassemble)
+177. [DPB](#dpb)
+178. [DRIBBLE](#dribble)
+179. [ECHO-STREAM-INPUT-STREAM](#echo-stream-input-stream)
+180. [ECHO-STREAM-OUTPUT-STREAM](#echo-stream-output-stream)
+181. [ED](#ed)
+182. [EIGHTH](#eighth)
+183. [ELT](#elt)
+184. [ENCODE-UNIVERSAL-TIME](#encode-universal-time)
+185. [ENDP](#endp)
+186. [ENOUGH-NAMESTRING](#enough-namestring)
+187. [ENSURE-DIRECTORIES-EXIST](#ensure-directories-exist)
+188. [ENSURE-GENERIC-FUNCTION](#ensure-generic-function)
+189. [EQ](#eq)
+190. [EQL](#eql)
+191. [EQUAL](#equal)
+192. [EQUALP](#equalp)
+193. [ERROR](#error)
+194. [EVAL](#eval)
+195. [EVENP](#evenp)
+196. [EVERY](#every)
+197. [EXP](#exp)
+198. [EXPORT](#export)
+199. [EXPT](#expt)
+200. [FBOUNDP](#fboundp)
+201. [FCEILING](#fceiling)
+202. [FDEFINITION](#fdefinition)
+203. [FFLOOR](#ffloor)
+204. [FIFTH](#fifth)
+205. [FILE-AUTHOR](#file-author)
+206. [FILE-ERROR-PATHNAME](#file-error-pathname)
+207. [FILE-LENGTH](#file-length)
+208. [FILE-NAMESTRING](#file-namestring)
+209. [FILE-POSITION](#file-position)
+210. [FILE-STRING-LENGTH](#file-string-length)
+211. [FILE-WRITE-DATE](#file-write-date)
+212. [FILL](#fill)
+213. [FILL-POINTER](#fill-pointer)
+214. [FIND](#find)
+215. [FIND-ALL-SYMBOLS](#find-all-symbols)
+216. [FIND-CLASS](#find-class)
+217. [FIND-IF](#find-if)
+218. [FIND-IF-NOT](#find-if-not)
+219. [FIND-PACKAGE](#find-package)
+220. [FIND-RESTART](#find-restart)
+221. [FIND-SYMBOL](#find-symbol)
+222. [FINISH-OUTPUT](#finish-output)
+223. [FIRST](#first)
+224. [FLOAT](#float)
+225. [FLOAT-DIGITS](#float-digits)
+226. [FLOAT-PRECISION](#float-precision)
+227. [FLOAT-RADIX](#float-radix)
+228. [FLOAT-SIGN](#float-sign)
+229. [FLOATP](#floatp)
+230. [FLOOR](#floor)
+231. [FMAKUNBOUND](#fmakunbound)
+232. [FORCE-OUTPUT](#force-output)
+233. [FORMAT](#format)
+234. [FOURTH](#fourth)
+235. [FRESH-LINE](#fresh-line)
+236. [FROUND](#fround)
+237. [FTRUNCATE](#ftruncate)
+238. [FUNCALL](#funcall)
+239. [FUNCTION-LAMBDA-EXPRESSION](#function-lambda-expression)
+240. [FUNCTIONP](#functionp)
+241. [GCD](#gcd)
+242. [GENSYM](#gensym)
+243. [GENTEMP](#gentemp)
+244. [GET](#get)
+245. [GET-DECODED-TIME](#get-decoded-time)
+246. [GET-DISPATCH-MACRO-CHARACTER](#get-dispatch-macro-character)
+247. [GET-INTERNAL-REAL-TIME](#get-internal-real-time)
+248. [GET-INTERNAL-RUN-TIME](#get-internal-run-time)
+249. [GET-MACRO-CHARACTER](#get-macro-character)
+250. [GET-OUTPUT-STREAM-STRING](#get-output-stream-string)
+251. [GET-PROPERTIES](#get-properties)
+252. [GET-SETF-EXPANSION](#get-setf-expansion)
+253. [GET-UNIVERSAL-TIME](#get-universal-time)
+254. [GETF](#getf)
+255. [GETHASH](#gethash)
+256. [GRAPHIC-CHAR-P](#graphic-char-p)
+257. [HASH-TABLE-COUNT](#hash-table-count)
+258. [HASH-TABLE-P](#hash-table-p)
+259. [HASH-TABLE-REHASH-SIZE](#hash-table-rehash-size)
+260. [HASH-TABLE-REHASH-THRESHOLD](#hash-table-rehash-threshold)
+261. [HASH-TABLE-SIZE](#hash-table-size)
+262. [HASH-TABLE-TEST](#hash-table-test)
+263. [HOST-NAMESTRING](#host-namestring)
+264. [IDENTITY](#identity)
+265. [IMAGPART](#imagpart)
+266. [IMPORT](#import)
+267. [INSPECT](#inspect)
+268. [INTEGER-DECODE-FLOAT](#integer-decode-float)
+269. [INTEGER-LENGTH](#integer-length)
+270. [INTEGERP](#integerp)
+271. [INTERN](#intern)
+272. [INTERSECTION](#intersection)
+273. [INVALID-METHOD-ERROR](#invalid-method-error)
+274. [INVOKE-DEBUGGER](#invoke-debugger)
+275. [INVOKE-RESTART](#invoke-restart)
+276. [INVOKE-RESTART-INTERACTIVELY](#invoke-restart-interactively)
+277. [ISQRT](#isqrt)
+278. [KEYWORDP](#keywordp)
+279. [LAST](#last)
+280. [LCM](#lcm)
+281. [LDB](#ldb)
+282. [LDB-TEST](#ldb-test)
+283. [LDIFF](#ldiff)
+284. [LENGTH](#length)
+285. [LISP-IMPLEMENTATION-TYPE](#lisp-implementation-type)
+286. [LISP-IMPLEMENTATION-VERSION](#lisp-implementation-version)
+287. [LIST](#list)
+288. [LIST*](#list*)
+289. [LIST-ALL-PACKAGES](#list-all-packages)
+290. [LIST-LENGTH](#list-length)
+291. [LISTEN](#listen)
+292. [LISTP](#listp)
+293. [LOAD](#load)
+294. [LOAD-LOGICAL-PATHNAME-TRANSLATIONS](#load-logical-pathname-translations)
+295. [LOG](#log)
+296. [LOGAND](#logand)
+297. [LOGANDC1](#logandc1)
+298. [LOGANDC2](#logandc2)
+299. [LOGBITP](#logbitp)
+300. [LOGCOUNT](#logcount)
+301. [LOGEQV](#logeqv)
+302. [LOGICAL-PATHNAME](#logical-pathname)
+303. [LOGICAL-PATHNAME-TRANSLATIONS](#logical-pathname-translations)
+304. [LOGIOR](#logior)
+305. [LOGNAND](#lognand)
+306. [LOGNOR](#lognor)
+307. [LOGNOT](#lognot)
+308. [LOGORC1](#logorc1)
+309. [LOGORC2](#logorc2)
+310. [LOGTEST](#logtest)
+311. [LOGXOR](#logxor)
+312. [LONG-SITE-NAME](#long-site-name)
+313. [LOWER-CASE-P](#lower-case-p)
+314. [MACHINE-INSTANCE](#machine-instance)
+315. [MACHINE-TYPE](#machine-type)
+316. [MACHINE-VERSION](#machine-version)
+317. [MACRO-FUNCTION](#macro-function)
+318. [MACROEXPAND](#macroexpand)
+319. [MACROEXPAND-1](#macroexpand-1)
+320. [MAKE-ARRAY](#make-array)
+321. [MAKE-BROADCAST-STREAM](#make-broadcast-stream)
+322. [MAKE-CONCATENATED-STREAM](#make-concatenated-stream)
+323. [MAKE-CONDITION](#make-condition)
+324. [MAKE-DISPATCH-MACRO-CHARACTER](#make-dispatch-macro-character)
+325. [MAKE-ECHO-STREAM](#make-echo-stream)
+326. [MAKE-HASH-TABLE](#make-hash-table)
+327. [MAKE-LIST](#make-list)
+328. [MAKE-LOAD-FORM-SAVING-SLOTS](#make-load-form-saving-slots)
+329. [MAKE-PACKAGE](#make-package)
+330. [MAKE-PATHNAME](#make-pathname)
+331. [MAKE-RANDOM-STATE](#make-random-state)
+332. [MAKE-SEQUENCE](#make-sequence)
+333. [MAKE-STRING](#make-string)
+334. [MAKE-STRING-INPUT-STREAM](#make-string-input-stream)
+335. [MAKE-STRING-OUTPUT-STREAM](#make-string-output-stream)
+336. [MAKE-SYMBOL](#make-symbol)
+337. [MAKE-SYNONYM-STREAM](#make-synonym-stream)
+338. [MAKE-TWO-WAY-STREAM](#make-two-way-stream)
+339. [MAKUNBOUND](#makunbound)
+340. [MAP](#map)
+341. [MAP-INTO](#map-into)
+342. [MAPC](#mapc)
+343. [MAPCAN](#mapcan)
+344. [MAPCAR](#mapcar)
+345. [MAPCON](#mapcon)
+346. [MAPHASH](#maphash)
+347. [MAPL](#mapl)
+348. [MAPLIST](#maplist)
+349. [MASK-FIELD](#mask-field)
+350. [MAX](#max)
+351. [MEMBER](#member)
+352. [MEMBER-IF](#member-if)
+353. [MEMBER-IF-NOT](#member-if-not)
+354. [MERGE](#merge)
+355. [MERGE-PATHNAMES](#merge-pathnames)
+356. [METHOD-COMBINATION-ERROR](#method-combination-error)
+357. [MIN](#min)
+358. [MINUSP](#minusp)
+359. [MISMATCH](#mismatch)
+360. [MOD](#mod)
+361. [MUFFLE-WARNING](#muffle-warning)
+362. [NAME-CHAR](#name-char)
+363. [NAMESTRING](#namestring)
+364. [NBUTLAST](#nbutlast)
+365. [NCONC](#nconc)
+366. [NINTERSECTION](#nintersection)
+367. [NINTH](#ninth)
+368. [NOT](#not)
+369. [NOTANY](#notany)
+370. [NOTEVERY](#notevery)
+371. [NRECONC](#nreconc)
+372. [NREVERSE](#nreverse)
+373. [NSET-DIFFERENCE](#nset-difference)
+374. [NSET-EXCLUSIVE-OR](#nset-exclusive-or)
+375. [NSTRING-CAPITALIZE](#nstring-capitalize)
+376. [NSTRING-DOWNCASE](#nstring-downcase)
+377. [NSTRING-UPCASE](#nstring-upcase)
+378. [NSUBLIS](#nsublis)
+379. [NSUBST](#nsubst)
+380. [NSUBST-IF](#nsubst-if)
+381. [NSUBST-IF-NOT](#nsubst-if-not)
+382. [NSUBSTITUTE](#nsubstitute)
+383. [NSUBSTITUTE-IF](#nsubstitute-if)
+384. [NSUBSTITUTE-IF-NOT](#nsubstitute-if-not)
+385. [NTH](#nth)
+386. [NTHCDR](#nthcdr)
+387. [NULL](#null)
+388. [NUMBERP](#numberp)
+389. [NUMERATOR](#numerator)
+390. [NUNION](#nunion)
+391. [ODDP](#oddp)
+392. [OPEN](#open)
+393. [PACKAGE-ERROR-PACKAGE](#package-error-package)
+394. [PACKAGE-NAME](#package-name)
+395. [PACKAGE-NICKNAMES](#package-nicknames)
+396. [PACKAGE-SHADOWING-SYMBOLS](#package-shadowing-symbols)
+397. [PACKAGE-USE-LIST](#package-use-list)
+398. [PACKAGE-USED-BY-LIST](#package-used-by-list)
+399. [PACKAGEP](#packagep)
+400. [PAIRLIS](#pairlis)
+401. [PARSE-INTEGER](#parse-integer)
+402. [PARSE-NAMESTRING](#parse-namestring)
+403. [PATHNAME](#pathname)
+404. [PATHNAME-DEVICE](#pathname-device)
+405. [PATHNAME-DIRECTORY](#pathname-directory)
+406. [PATHNAME-HOST](#pathname-host)
+407. [PATHNAME-MATCH-P](#pathname-match-p)
+408. [PATHNAME-NAME](#pathname-name)
+409. [PATHNAME-TYPE](#pathname-type)
+410. [PATHNAME-VERSION](#pathname-version)
+411. [PATHNAMEP](#pathnamep)
+412. [PEEK-CHAR](#peek-char)
+413. [PHASE](#phase)
+414. [PLUSP](#plusp)
+415. [POSITION](#position)
+416. [POSITION-IF](#position-if)
+417. [POSITION-IF-NOT](#position-if-not)
+418. [PPRINT](#pprint)
+419. [PPRINT-DISPATCH](#pprint-dispatch)
+420. [PPRINT-FILL](#pprint-fill)
+421. [PPRINT-INDENT](#pprint-indent)
+422. [PPRINT-LINEAR](#pprint-linear)
+423. [PPRINT-NEWLINE](#pprint-newline)
+424. [PPRINT-TAB](#pprint-tab)
+425. [PPRINT-TABULAR](#pprint-tabular)
+426. [PRIN1](#prin1)
+427. [PRIN1-TO-STRING](#prin1-to-string)
+428. [PRINC](#princ)
+429. [PRINC-TO-STRING](#princ-to-string)
+430. [PRINT](#print)
+431. [PRINT-NOT-READABLE-OBJECT](#print-not-readable-object)
+432. [PROBE-FILE](#probe-file)
+433. [PROCLAIM](#proclaim)
+434. [PROVIDE](#provide)
+435. [RANDOM](#random)
+436. [RANDOM-STATE-P](#random-state-p)
+437. [RASSOC](#rassoc)
+438. [RASSOC-IF](#rassoc-if)
+439. [RASSOC-IF-NOT](#rassoc-if-not)
+440. [RATIONAL](#rational)
+441. [RATIONALIZE](#rationalize)
+442. [RATIONALP](#rationalp)
+443. [READ](#read)
+444. [READ-BYTE](#read-byte)
+445. [READ-CHAR](#read-char)
+446. [READ-CHAR-NO-HANG](#read-char-no-hang)
+447. [READ-DELIMITED-LIST](#read-delimited-list)
+448. [READ-FROM-STRING](#read-from-string)
+449. [READ-LINE](#read-line)
+450. [READ-PRESERVING-WHITESPACE](#read-preserving-whitespace)
+451. [READ-SEQUENCE](#read-sequence)
+452. [READTABLE-CASE](#readtable-case)
+453. [READTABLEP](#readtablep)
+454. [REALP](#realp)
+455. [REALPART](#realpart)
+456. [REDUCE](#reduce)
+457. [REM](#rem)
+458. [REMHASH](#remhash)
+459. [REMOVE](#remove)
+460. [REMOVE-DUPLICATES](#remove-duplicates)
+461. [REMOVE-IF](#remove-if)
+462. [REMOVE-IF-NOT](#remove-if-not)
+463. [REMPROP](#remprop)
+464. [RENAME-FILE](#rename-file)
+465. [RENAME-PACKAGE](#rename-package)
+466. [REPLACE](#replace)
+467. [REQUIRE](#require)
+468. [REST](#rest)
+469. [RESTART-NAME](#restart-name)
+470. [REVAPPEND](#revappend)
+471. [REVERSE](#reverse)
+472. [ROOM](#room)
+473. [ROUND](#round)
+474. [ROW-MAJOR-AREF](#row-major-aref)
+475. [RPLACA](#rplaca)
+476. [RPLACD](#rplacd)
+477. [SBIT](#sbit)
+478. [SCALE-FLOAT](#scale-float)
+479. [SCHAR](#schar)
+480. [SEARCH](#search)
+481. [SECOND](#second)
+482. [SET](#set)
+483. [SET-DIFFERENCE](#set-difference)
+484. [SET-DISPATCH-MACRO-CHARACTER](#set-dispatch-macro-character)
+485. [SET-EXCLUSIVE-OR](#set-exclusive-or)
+486. [SET-MACRO-CHARACTER](#set-macro-character)
+487. [SET-PPRINT-DISPATCH](#set-pprint-dispatch)
+488. [SET-SYNTAX-FROM-CHAR](#set-syntax-from-char)
+489. [SEVENTH](#seventh)
+490. [SHADOW](#shadow)
+491. [SHADOWING-IMPORT](#shadowing-import)
+492. [SHORT-SITE-NAME](#short-site-name)
+493. [SIGNAL](#signal)
+494. [SIGNUM](#signum)
+495. [SIMPLE-BIT-VECTOR-P](#simple-bit-vector-p)
+496. [SIMPLE-CONDITION-FORMAT-ARGUMENTS](#simple-condition-format-arguments)
+497. [SIMPLE-CONDITION-FORMAT-CONTROL](#simple-condition-format-control)
+498. [SIMPLE-STRING-P](#simple-string-p)
+499. [SIMPLE-VECTOR-P](#simple-vector-p)
+500. [SIN](#sin)
+501. [SINH](#sinh)
+502. [SIXTH](#sixth)
+503. [SLEEP](#sleep)
+504. [SLOT-BOUNDP](#slot-boundp)
+505. [SLOT-EXISTS-P](#slot-exists-p)
+506. [SLOT-MAKUNBOUND](#slot-makunbound)
+507. [SLOT-VALUE](#slot-value)
+508. [SOFTWARE-TYPE](#software-type)
+509. [SOFTWARE-VERSION](#software-version)
+510. [SOME](#some)
+511. [SORT](#sort)
+512. [SPECIAL-OPERATOR-P](#special-operator-p)
+513. [SQRT](#sqrt)
+514. [STABLE-SORT](#stable-sort)
+515. [STANDARD-CHAR-P](#standard-char-p)
+516. [STORE-VALUE](#store-value)
+517. [STREAM-ERROR-STREAM](#stream-error-stream)
+518. [STREAM-EXTERNAL-FORMAT](#stream-external-format)
+519. [STREAMP](#streamp)
+520. [STRING](#string)
+521. [STRING-CAPITALIZE](#string-capitalize)
+522. [STRING-DOWNCASE](#string-downcase)
+523. [STRING-EQUAL](#string-equal)
+524. [STRING-GREATERP](#string-greaterp)
+525. [STRING-LEFT-TRIM](#string-left-trim)
+526. [STRING-LESSP](#string-lessp)
+527. [STRING-NOT-EQUAL](#string-not-equal)
+528. [STRING-NOT-GREATERP](#string-not-greaterp)
+529. [STRING-NOT-LESSP](#string-not-lessp)
+530. [STRING-RIGHT-TRIM](#string-right-trim)
+531. [STRING-TRIM](#string-trim)
+532. [STRING-UPCASE](#string-upcase)
+533. [STRING/=](#string/=)
+534. [STRING<](#string<)
+535. [STRING<=](#string<=)
+536. [STRING=](#string=)
+537. [STRING>](#string>)
+538. [STRING>=](#string>=)
+539. [STRINGP](#stringp)
+540. [SUBLIS](#sublis)
+541. [SUBSEQ](#subseq)
+542. [SUBSETP](#subsetp)
+543. [SUBST](#subst)
+544. [SUBST-IF](#subst-if)
+545. [SUBST-IF-NOT](#subst-if-not)
+546. [SUBSTITUTE](#substitute)
+547. [SUBSTITUTE-IF](#substitute-if)
+548. [SUBSTITUTE-IF-NOT](#substitute-if-not)
+549. [SUBTYPEP](#subtypep)
+550. [SVREF](#svref)
+551. [SXHASH](#sxhash)
+552. [SYMBOL-FUNCTION](#symbol-function)
+553. [SYMBOL-NAME](#symbol-name)
+554. [SYMBOL-PACKAGE](#symbol-package)
+555. [SYMBOL-PLIST](#symbol-plist)
+556. [SYMBOL-VALUE](#symbol-value)
+557. [SYMBOLP](#symbolp)
+558. [SYNONYM-STREAM-SYMBOL](#synonym-stream-symbol)
+559. [TAILP](#tailp)
+560. [TAN](#tan)
+561. [TANH](#tanh)
+562. [TENTH](#tenth)
+563. [TERPRI](#terpri)
+564. [THIRD](#third)
+565. [TRANSLATE-LOGICAL-PATHNAME](#translate-logical-pathname)
+566. [TRANSLATE-PATHNAME](#translate-pathname)
+567. [TREE-EQUAL](#tree-equal)
+568. [TRUENAME](#truename)
+569. [TRUNCATE](#truncate)
+570. [TWO-WAY-STREAM-INPUT-STREAM](#two-way-stream-input-stream)
+571. [TWO-WAY-STREAM-OUTPUT-STREAM](#two-way-stream-output-stream)
+572. [TYPE-ERROR-DATUM](#type-error-datum)
+573. [TYPE-ERROR-EXPECTED-TYPE](#type-error-expected-type)
+574. [TYPE-OF](#type-of)
+575. [TYPEP](#typep)
+576. [UNBOUND-SLOT-INSTANCE](#unbound-slot-instance)
+577. [UNEXPORT](#unexport)
+578. [UNINTERN](#unintern)
+579. [UNION](#union)
+580. [UNREAD-CHAR](#unread-char)
+581. [UNUSE-PACKAGE](#unuse-package)
+582. [UPGRADED-ARRAY-ELEMENT-TYPE](#upgraded-array-element-type)
+583. [UPGRADED-COMPLEX-PART-TYPE](#upgraded-complex-part-type)
+584. [UPPER-CASE-P](#upper-case-p)
+585. [USE-PACKAGE](#use-package)
+586. [USE-VALUE](#use-value)
+587. [USER-HOMEDIR-PATHNAME](#user-homedir-pathname)
+588. [VALUES](#values)
+589. [VALUES-LIST](#values-list)
+590. [VECTOR](#vector)
+591. [VECTOR-POP](#vector-pop)
+592. [VECTOR-PUSH](#vector-push)
+593. [VECTOR-PUSH-EXTEND](#vector-push-extend)
+594. [VECTORP](#vectorp)
+595. [WARN](#warn)
+596. [WILD-PATHNAME-P](#wild-pathname-p)
+597. [WRITE](#write)
+598. [WRITE-BYTE](#write-byte)
+599. [WRITE-CHAR](#write-char)
+600. [WRITE-LINE](#write-line)
+601. [WRITE-SEQUENCE](#write-sequence)
+602. [WRITE-STRING](#write-string)
+603. [WRITE-TO-STRING](#write-to-string)
+604. [Y-OR-N-P](#y-or-n-p)
+605. [YES-OR-NO-P](#yes-or-no-p)
+606. [ZEROP](#zerop)
 
 
 ### `*`
@@ -2790,14 +2416,6 @@ AREF names a compiled function:
 
 ```
 
-### `(SETF AREF)`
-
-```lisp
-COMMON-LISP-USER::|(SETF AREF)|
-  [symbol]
-
-```
-
 ### `ARITHMETIC-ERROR-OPERANDS`
 
 ```lisp
@@ -3211,14 +2829,6 @@ BIT names a compiled function:
 
 BIT names a primitive type-specifier:
   Lambda-list: ()
-
-```
-
-### `(SETF BIT)`
-
-```lisp
-COMMON-LISP-USER::|(SETF BIT)|
-  [symbol]
 
 ```
 
@@ -3663,14 +3273,6 @@ CAAAAR names a compiled function:
 
 ```
 
-### `(SETF CAAAAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CAAAAR)|
-  [symbol]
-
-```
-
 ### `CAAADR`
 
 ```lisp
@@ -3695,14 +3297,6 @@ CAAADR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CAAADR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CAAADR)|
-  [symbol]
 
 ```
 
@@ -3733,14 +3327,6 @@ CAAAR names a compiled function:
 
 ```
 
-### `(SETF CAAAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CAAAR)|
-  [symbol]
-
-```
-
 ### `CAADAR`
 
 ```lisp
@@ -3765,14 +3351,6 @@ CAADAR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CAADAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CAADAR)|
-  [symbol]
 
 ```
 
@@ -3803,14 +3381,6 @@ CAADDR names a compiled function:
 
 ```
 
-### `(SETF CAADDR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CAADDR)|
-  [symbol]
-
-```
-
 ### `CAADR`
 
 ```lisp
@@ -3835,14 +3405,6 @@ CAADR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CAADR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CAADR)|
-  [symbol]
 
 ```
 
@@ -3873,14 +3435,6 @@ CAAR names a compiled function:
 
 ```
 
-### `(SETF CAAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CAAR)|
-  [symbol]
-
-```
-
 ### `CADAAR`
 
 ```lisp
@@ -3905,14 +3459,6 @@ CADAAR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CADAAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CADAAR)|
-  [symbol]
 
 ```
 
@@ -3943,14 +3489,6 @@ CADADR names a compiled function:
 
 ```
 
-### `(SETF CADADR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CADADR)|
-  [symbol]
-
-```
-
 ### `CADAR`
 
 ```lisp
@@ -3975,14 +3513,6 @@ CADAR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CADAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CADAR)|
-  [symbol]
 
 ```
 
@@ -4013,14 +3543,6 @@ CADDAR names a compiled function:
 
 ```
 
-### `(SETF CADDAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CADDAR)|
-  [symbol]
-
-```
-
 ### `CADDDR`
 
 ```lisp
@@ -4045,14 +3567,6 @@ CADDDR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CADDDR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CADDDR)|
-  [symbol]
 
 ```
 
@@ -4083,14 +3597,6 @@ CADDR names a compiled function:
 
 ```
 
-### `(SETF CADDR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CADDR)|
-  [symbol]
-
-```
-
 ### `CADR`
 
 ```lisp
@@ -4118,14 +3624,6 @@ CADR names a compiled function:
 
 ```
 
-### `(SETF CADR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CADR)|
-  [symbol]
-
-```
-
 ### `CAR`
 
 ```lisp
@@ -4147,14 +3645,6 @@ CAR names a compiled function:
   Source file: SYS:SRC;CODE;SETF-FUNS.LISP
 
 (SETF CAR) has setf-expansion: SB-KERNEL:%RPLACA
-
-```
-
-### `(SETF CAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CAR)|
-  [symbol]
 
 ```
 
@@ -4185,14 +3675,6 @@ CDAAAR names a compiled function:
 
 ```
 
-### `(SETF CDAAAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDAAAR)|
-  [symbol]
-
-```
-
 ### `CDAADR`
 
 ```lisp
@@ -4217,14 +3699,6 @@ CDAADR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CDAADR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDAADR)|
-  [symbol]
 
 ```
 
@@ -4255,14 +3729,6 @@ CDAAR names a compiled function:
 
 ```
 
-### `(SETF CDAAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDAAR)|
-  [symbol]
-
-```
-
 ### `CDADAR`
 
 ```lisp
@@ -4287,14 +3753,6 @@ CDADAR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CDADAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDADAR)|
-  [symbol]
 
 ```
 
@@ -4325,14 +3783,6 @@ CDADDR names a compiled function:
 
 ```
 
-### `(SETF CDADDR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDADDR)|
-  [symbol]
-
-```
-
 ### `CDADR`
 
 ```lisp
@@ -4357,14 +3807,6 @@ CDADR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CDADR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDADR)|
-  [symbol]
 
 ```
 
@@ -4395,14 +3837,6 @@ CDAR names a compiled function:
 
 ```
 
-### `(SETF CDAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDAR)|
-  [symbol]
-
-```
-
 ### `CDDAAR`
 
 ```lisp
@@ -4427,14 +3861,6 @@ CDDAAR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CDDAAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDDAAR)|
-  [symbol]
 
 ```
 
@@ -4465,14 +3891,6 @@ CDDADR names a compiled function:
 
 ```
 
-### `(SETF CDDADR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDDADR)|
-  [symbol]
-
-```
-
 ### `CDDAR`
 
 ```lisp
@@ -4497,14 +3915,6 @@ CDDAR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CDDAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDDAR)|
-  [symbol]
 
 ```
 
@@ -4535,14 +3945,6 @@ CDDDAR names a compiled function:
 
 ```
 
-### `(SETF CDDDAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDDDAR)|
-  [symbol]
-
-```
-
 ### `CDDDDR`
 
 ```lisp
@@ -4567,14 +3969,6 @@ CDDDDR names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF CDDDDR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDDDDR)|
-  [symbol]
 
 ```
 
@@ -4605,14 +3999,6 @@ CDDDR names a compiled function:
 
 ```
 
-### `(SETF CDDDR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDDDR)|
-  [symbol]
-
-```
-
 ### `CDDR`
 
 ```lisp
@@ -4640,14 +4026,6 @@ CDDR names a compiled function:
 
 ```
 
-### `(SETF CDDR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDDR)|
-  [symbol]
-
-```
-
 ### `CDR`
 
 ```lisp
@@ -4669,14 +4047,6 @@ CDR names a compiled function:
   Source file: SYS:SRC;CODE;SETF-FUNS.LISP
 
 (SETF CDR) has setf-expansion: SB-KERNEL:%RPLACD
-
-```
-
-### `(SETF CDR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CDR)|
-  [symbol]
 
 ```
 
@@ -4757,14 +4127,6 @@ CHAR names a compiled function:
   Source file: SYS:SRC;CODE;SETF-FUNS.LISP
 
 (SETF CHAR) has setf-expansion: SB-KERNEL:%CHARSET
-
-```
-
-### `(SETF CHAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CHAR)|
-  [symbol]
 
 ```
 
@@ -5432,14 +4794,6 @@ COMPILER-MACRO-FUNCTION names a compiled function:
                  ((OR NULL FUNCTION) (OR CONS SYMBOL) &OPTIONAL T)
                  (VALUES (OR NULL FUNCTION) &OPTIONAL))
   Source file: SYS:SRC;CODE;MACROEXPAND.LISP
-
-```
-
-### `(SETF COMPILER-MACRO-FUNCTION)`
-
-```lisp
-COMMON-LISP-USER::|(SETF COMPILER-MACRO-FUNCTION)|
-  [symbol]
 
 ```
 
@@ -6462,14 +5816,6 @@ EIGHTH names a compiled function:
 
 ```
 
-### `(SETF EIGHTH)`
-
-```lisp
-COMMON-LISP-USER::|(SETF EIGHTH)|
-  [symbol]
-
-```
-
 ### `ELT`
 
 ```lisp
@@ -6494,14 +5840,6 @@ ELT names a compiled function:
   Source file: SYS:SRC;CODE;SETF-FUNS.LISP
 
 (SETF ELT) has setf-expansion: SB-KERNEL:%SETELT
-
-```
-
-### `(SETF ELT)`
-
-```lisp
-COMMON-LISP-USER::|(SETF ELT)|
-  [symbol]
 
 ```
 
@@ -6949,14 +6287,6 @@ FDEFINITION names a compiled function:
 
 ```
 
-### `(SETF FDEFINITION)`
-
-```lisp
-COMMON-LISP-USER::|(SETF FDEFINITION)|
-  [symbol]
-
-```
-
 ### `FFLOOR`
 
 ```lisp
@@ -7000,14 +6330,6 @@ FIFTH names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF FIFTH)`
-
-```lisp
-COMMON-LISP-USER::|(SETF FIFTH)|
-  [symbol]
 
 ```
 
@@ -7178,14 +6500,6 @@ FILL-POINTER names a compiled function:
 
 ```
 
-### `(SETF FILL-POINTER)`
-
-```lisp
-COMMON-LISP-USER::|(SETF FILL-POINTER)|
-  [symbol]
-
-```
-
 ### `FIND`
 
 ```lisp
@@ -7251,14 +6565,6 @@ FIND-CLASS has a compiler-macro:
   Lambda-list: (NEW-VALUE NAME &OPTIONAL ERRORP ENVIRONMENT)
   Derived type: (FUNCTION (T T &OPTIONAL T T) (VALUES T &OPTIONAL))
   Source file: SYS:SRC;PCL;MACROS.LISP
-
-```
-
-### `(SETF FIND-CLASS)`
-
-```lisp
-COMMON-LISP-USER::|(SETF FIND-CLASS)|
-  [symbol]
 
 ```
 
@@ -7430,14 +6736,6 @@ FIRST names a compiled function:
   Source file: SYS:SRC;CODE;SETF-FUNS.LISP
 
 (SETF FIRST) has setf-expansion: SB-KERNEL:%RPLACA
-
-```
-
-### `(SETF FIRST)`
-
-```lisp
-COMMON-LISP-USER::|(SETF FIRST)|
-  [symbol]
 
 ```
 
@@ -7683,14 +6981,6 @@ FOURTH names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF FOURTH)`
-
-```lisp
-COMMON-LISP-USER::|(SETF FOURTH)|
-  [symbol]
 
 ```
 
@@ -8094,14 +7384,6 @@ GETHASH names a compiled function:
   Lambda-list: (KEY HASHTABLE &OPTIONAL DEFAULT)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF GETHASH)`
-
-```lisp
-COMMON-LISP-USER::|(SETF GETHASH)|
-  [symbol]
 
 ```
 
@@ -9035,14 +8317,6 @@ LOGICAL-PATHNAME-TRANSLATIONS names a compiled function:
 
 ```
 
-### `(SETF LOGICAL-PATHNAME-TRANSLATIONS)`
-
-```lisp
-COMMON-LISP-USER::|(SETF LOGICAL-PATHNAME-TRANSLATIONS)|
-  [symbol]
-
-```
-
 ### `LOGIOR`
 
 ```lisp
@@ -9290,14 +8564,6 @@ MACRO-FUNCTION names a compiled function:
   Derived type: (FUNCTION (FUNCTION SYMBOL &OPTIONAL T)
                  (VALUES FUNCTION &OPTIONAL))
   Source file: SYS:SRC;CODE;DEFMACRO.LISP
-
-```
-
-### `(SETF MACRO-FUNCTION)`
-
-```lisp
-COMMON-LISP-USER::|(SETF MACRO-FUNCTION)|
-  [symbol]
 
 ```
 
@@ -10467,14 +9733,6 @@ NINTH names a compiled function:
 
 ```
 
-### `(SETF NINTH)`
-
-```lisp
-COMMON-LISP-USER::|(SETF NINTH)|
-  [symbol]
-
-```
-
 ### `NOT`
 
 ```lisp
@@ -10893,14 +10151,6 @@ NTH names a compiled function:
   Lambda-list: (N LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF NTH)`
-
-```lisp
-COMMON-LISP-USER::|(SETF NTH)|
-  [symbol]
 
 ```
 
@@ -12278,14 +11528,6 @@ READTABLE-CASE names a compiled function:
 
 ```
 
-### `(SETF READTABLE-CASE)`
-
-```lisp
-COMMON-LISP-USER::|(SETF READTABLE-CASE)|
-  [symbol]
-
-```
-
 ### `READTABLEP`
 
 ```lisp
@@ -12675,14 +11917,6 @@ REST names a compiled function:
 
 ```
 
-### `(SETF REST)`
-
-```lisp
-COMMON-LISP-USER::|(SETF REST)|
-  [symbol]
-
-```
-
 ### `RESTART-NAME`
 
 ```lisp
@@ -12805,14 +12039,6 @@ ROW-MAJOR-AREF names a compiled function:
 
 ```
 
-### `(SETF ROW-MAJOR-AREF)`
-
-```lisp
-COMMON-LISP-USER::|(SETF ROW-MAJOR-AREF)|
-  [symbol]
-
-```
-
 ### `RPLACA`
 
 ```lisp
@@ -12872,14 +12098,6 @@ SBIT names a compiled function:
 
 ```
 
-### `(SETF SBIT)`
-
-```lisp
-COMMON-LISP-USER::|(SETF SBIT)|
-  [symbol]
-
-```
-
 ### `SCALE-FLOAT`
 
 ```lisp
@@ -12922,14 +12140,6 @@ SCHAR names a compiled function:
   Source file: SYS:SRC;CODE;SETF-FUNS.LISP
 
 (SETF SCHAR) has setf-expansion: SB-KERNEL:%SCHARSET
-
-```
-
-### `(SETF SCHAR)`
-
-```lisp
-COMMON-LISP-USER::|(SETF SCHAR)|
-  [symbol]
 
 ```
 
@@ -12990,14 +12200,6 @@ SECOND names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF SECOND)`
-
-```lisp
-COMMON-LISP-USER::|(SETF SECOND)|
-  [symbol]
 
 ```
 
@@ -13184,14 +12386,6 @@ SEVENTH names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF SEVENTH)`
-
-```lisp
-COMMON-LISP-USER::|(SETF SEVENTH)|
-  [symbol]
 
 ```
 
@@ -13454,14 +12648,6 @@ SIXTH names a compiled function:
 
 ```
 
-### `(SETF SIXTH)`
-
-```lisp
-COMMON-LISP-USER::|(SETF SIXTH)|
-  [symbol]
-
-```
-
 ### `SLEEP`
 
 ```lisp
@@ -13540,14 +12726,6 @@ SLOT-VALUE names a compiled function:
   Source file: SYS:SRC;CODE;SETF-FUNS.LISP
 
 (SETF SLOT-VALUE) has setf-expansion: SB-PCL::SET-SLOT-VALUE
-
-```
-
-### `(SETF SLOT-VALUE)`
-
-```lisp
-COMMON-LISP-USER::|(SETF SLOT-VALUE)|
-  [symbol]
 
 ```
 
@@ -14526,14 +13704,6 @@ SVREF names a compiled function:
 
 ```
 
-### `(SETF SVREF)`
-
-```lisp
-COMMON-LISP-USER::|(SETF SVREF)|
-  [symbol]
-
-```
-
 ### `SXHASH`
 
 ```lisp
@@ -14567,14 +13737,6 @@ SYMBOL-FUNCTION names a compiled function:
   Declared type: (FUNCTION (FUNCTION SYMBOL)
                   (VALUES FUNCTION &OPTIONAL))
   Source file: SYS:SRC;CODE;SYMBOL.LISP
-
-```
-
-### `(SETF SYMBOL-FUNCTION)`
-
-```lisp
-COMMON-LISP-USER::|(SETF SYMBOL-FUNCTION)|
-  [symbol]
 
 ```
 
@@ -14633,14 +13795,6 @@ SYMBOL-PLIST names a compiled function:
 
 ```
 
-### `(SETF SYMBOL-PLIST)`
-
-```lisp
-COMMON-LISP-USER::|(SETF SYMBOL-PLIST)|
-  [symbol]
-
-```
-
 ### `SYMBOL-VALUE`
 
 ```lisp
@@ -14661,14 +13815,6 @@ SYMBOL-VALUE names a compiled function:
   Source file: SYS:SRC;CODE;SETF-FUNS.LISP
 
 (SETF SYMBOL-VALUE) has setf-expansion: SET
-
-```
-
-### `(SETF SYMBOL-VALUE)`
-
-```lisp
-COMMON-LISP-USER::|(SETF SYMBOL-VALUE)|
-  [symbol]
 
 ```
 
@@ -14788,14 +13934,6 @@ TENTH names a compiled function:
 
 ```
 
-### `(SETF TENTH)`
-
-```lisp
-COMMON-LISP-USER::|(SETF TENTH)|
-  [symbol]
-
-```
-
 ### `TERPRI`
 
 ```lisp
@@ -14835,14 +13973,6 @@ THIRD names a compiled function:
   Lambda-list: (LIST)
   (undocumented)
   Source file: SYS:SRC;CODE;DEFSETFS.LISP
-
-```
-
-### `(SETF THIRD)`
-
-```lisp
-COMMON-LISP-USER::|(SETF THIRD)|
-  [symbol]
 
 ```
 
@@ -15766,34 +14896,32 @@ ZEROP names a compiled function:
 2. [ALLOCATE-INSTANCE](#allocate-instance)
 3. [CHANGE-CLASS](#change-class)
 4. [CLASS-NAME](#class-name)
-5. [(SETF CLASS-NAME)](#(setf class-name))
-6. [CLOSE](#close)
-7. [COMPUTE-APPLICABLE-METHODS](#compute-applicable-methods)
-8. [DESCRIBE-OBJECT](#describe-object)
-9. [DOCUMENTATION](#documentation)
-10. [(SETF DOCUMENTATION)](#(setf documentation))
-11. [FIND-METHOD](#find-method)
-12. [FUNCTION-KEYWORDS](#function-keywords)
-13. [INITIALIZE-INSTANCE](#initialize-instance)
-14. [INPUT-STREAM-P](#input-stream-p)
-15. [INTERACTIVE-STREAM-P](#interactive-stream-p)
-16. [MAKE-INSTANCE](#make-instance)
-17. [MAKE-INSTANCES-OBSOLETE](#make-instances-obsolete)
-18. [MAKE-LOAD-FORM](#make-load-form)
-19. [METHOD-QUALIFIERS](#method-qualifiers)
-20. [NO-APPLICABLE-METHOD](#no-applicable-method)
-21. [NO-NEXT-METHOD](#no-next-method)
-22. [OPEN-STREAM-P](#open-stream-p)
-23. [OUTPUT-STREAM-P](#output-stream-p)
-24. [PRINT-OBJECT](#print-object)
-25. [REINITIALIZE-INSTANCE](#reinitialize-instance)
-26. [REMOVE-METHOD](#remove-method)
-27. [SHARED-INITIALIZE](#shared-initialize)
-28. [SLOT-MISSING](#slot-missing)
-29. [SLOT-UNBOUND](#slot-unbound)
-30. [STREAM-ELEMENT-TYPE](#stream-element-type)
-31. [UPDATE-INSTANCE-FOR-DIFFERENT-CLASS](#update-instance-for-different-class)
-32. [UPDATE-INSTANCE-FOR-REDEFINED-CLASS](#update-instance-for-redefined-class)
+5. [CLOSE](#close)
+6. [COMPUTE-APPLICABLE-METHODS](#compute-applicable-methods)
+7. [DESCRIBE-OBJECT](#describe-object)
+8. [DOCUMENTATION](#documentation)
+9. [FIND-METHOD](#find-method)
+10. [FUNCTION-KEYWORDS](#function-keywords)
+11. [INITIALIZE-INSTANCE](#initialize-instance)
+12. [INPUT-STREAM-P](#input-stream-p)
+13. [INTERACTIVE-STREAM-P](#interactive-stream-p)
+14. [MAKE-INSTANCE](#make-instance)
+15. [MAKE-INSTANCES-OBSOLETE](#make-instances-obsolete)
+16. [MAKE-LOAD-FORM](#make-load-form)
+17. [METHOD-QUALIFIERS](#method-qualifiers)
+18. [NO-APPLICABLE-METHOD](#no-applicable-method)
+19. [NO-NEXT-METHOD](#no-next-method)
+20. [OPEN-STREAM-P](#open-stream-p)
+21. [OUTPUT-STREAM-P](#output-stream-p)
+22. [PRINT-OBJECT](#print-object)
+23. [REINITIALIZE-INSTANCE](#reinitialize-instance)
+24. [REMOVE-METHOD](#remove-method)
+25. [SHARED-INITIALIZE](#shared-initialize)
+26. [SLOT-MISSING](#slot-missing)
+27. [SLOT-UNBOUND](#slot-unbound)
+28. [STREAM-ELEMENT-TYPE](#stream-element-type)
+29. [UPDATE-INSTANCE-FOR-DIFFERENT-CLASS](#update-instance-for-different-class)
+30. [UPDATE-INSTANCE-FOR-REDEFINED-CLASS](#update-instance-for-redefined-class)
 
 
 ### `ADD-METHOD`
@@ -15883,14 +15011,6 @@ CLASS-NAME names a generic function:
   Methods:
     ((SETF CLASS-NAME) (T T))
   Source file: SYS:SRC;PCL;GENERIC-FUNCTIONS.LISP
-
-```
-
-### `(SETF CLASS-NAME)`
-
-```lisp
-COMMON-LISP-USER::|(SETF CLASS-NAME)|
-  [symbol]
 
 ```
 
@@ -16056,14 +15176,6 @@ DOCUMENTATION names a generic function:
     ((SETF DOCUMENTATION) (T T T))
     ((SETF DOCUMENTATION) :AROUND (T (EQL NIL) T))
   Source file: SYS:SRC;PCL;DOCUMENTATION.LISP
-
-```
-
-### `(SETF DOCUMENTATION)`
-
-```lisp
-COMMON-LISP-USER::|(SETF DOCUMENTATION)|
-  [symbol]
 
 ```
 
