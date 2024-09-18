@@ -222,13 +222,14 @@ compiled function:ZEROP
 
   (loop for key being the hash-keys of *symbol-types*
         do (let* ((symbols-string (gethash key *symbol-types*))
-                  (symbols (mapcar #'intern symbols-string)))
+                  (symbols (nreverse (mapcar #'intern symbols-string))))
              ;; print documents for each symbol
              (format fn "~%## ~a~%~%" key)
              (format fn "#~a" (el:format-descriptions symbols 2)))))
 ```
 
-这样, 再打开一个文件, 按照每个类型一个二级标题, 把每个类型的符号按照`el:format-descriptions`的格式打印出来.
+这样, 再打开一个文件, 按照每个类型一个二级标题, 把每个类型的符号按照`el:format-descriptions`的格式打印出来. 这里注意， 先把记录在`hash-table`里面的符号名字转换成符号对象. 并且用`nreverse`来翻转一下, 因为`cons`是从前面加的, 所以要翻转一下.
+
 
 结果也相当可爱:[Appendix 001: Common Lisp Symbols分类参考](/posts/010-appendix-cl-symbols/). 有一个完整的Common Lisp的符号分类参考.
 
