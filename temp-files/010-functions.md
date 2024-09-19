@@ -127,6 +127,25 @@ NIL
 ;; 2
 ```
 
+总的来说，这个很平凡，我们记得在访问函数的时候明确使用`#'`就可以了.
+
+### 函数`coerce`
+
+这个函数是强制类型转换的意思，可以将一个对象转换为另外一个对象。 当我们使用`coerce`来转换一个函数对象时，会返回一个函数对象。
+
+> If the result-type is function, and object is any function name that is fbound but that is globally defined neither as a macro name nor as a special operator, then the result is the functional value of object.
+> If the result-type is function, and object is a lambda expression, then the result is a closure of object in the null lexical environment.
+
+```lisp
+; 第一种情况，把一个函数名转换为函数对象，结果返回的是一个函数对象。
+(coerce 'car 'function)
+
+; 第二种情况，把一个lambda表达式转换为函数对象，结果返回的是一个**闭包**，这个闭包是在一个空的词法环境中的。
+(coerce #'(lambda (x) (+ x 1)) 'function)
+```
+
+
+
 
 
 ## 函数调用
