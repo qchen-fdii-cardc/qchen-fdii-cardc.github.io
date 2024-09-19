@@ -88,3 +88,10 @@
              ;; print documents for each symbol
              (format fn "~%## ~a~%~%" key)
              (format fn "#~a" (el:format-descriptions symbols 2)))))
+
+
+;;; functions
+
+;; function special form
+(setf func (function (lambda (x) (+ x 1))))
+(func 1)

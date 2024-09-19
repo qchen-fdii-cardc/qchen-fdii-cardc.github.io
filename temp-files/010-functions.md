@@ -61,6 +61,15 @@ FLOOR names a compiled function:
 NIL
 ```
 
+最后，我们还可以直接使用`nth-value`来获取返回值的第n个值.
+
+```lisp
+(nth-value 1 (values 1 2 3))
+;; 2
+```
+
+这个函数就很好地配合函数式编程的思想，可以很容易进行值和表达式的替换，而不需要引入额外的变量。
+
 
 ### 函数的参数
 
@@ -84,19 +93,40 @@ NIL
 这里的`optional`和`key`可以同时使用，SBCL可能会报警，但是不影响使用。
 
 
-## 函数定义
+## 产生函数
 
-根据CLHS的定义,Lisp中的`object`有以下几种情况:
-
-1. 任何Lisp数据,特别的包括通过`cons`构造的两个数据的链接;
-2. 函数对象,这里的主要**对象**（！）;
-3. 类的对象（几百年以后再说到这个）.
-
-又根据CLHS的定义,函数是一种表示当提供恰当个数的参数即可以执行的代码的对象.产生函数的方式有几种:
+根据CLHS的定义,函数是一种表示当提供恰当个数的参数即可以执行的代码的对象.函数有几种来源:
 
 1. 函数表达式:`function special form`;
 2. 函数转换:`function coerce`
 3. 函数编译:`function compile`
+
+### 函数`special form`
+
+`special form`是一种特殊的语法形式, 这玩意看起来像是函数， 但却是解释器特殊处理的语法结构. 例如`if`和`cond`就是`special form`. 得益于聪明先生的聪明举动，可以在[special operator](https://www.windtunnel.cn/posts/010-appendix-cl-symbols/#special-operator)中查看所有的`special form`, 一共有`25`个.
+
+这里面的有一个`function`，是一个`special form`, 用来产生函数对象的.
+
+```lisp
+(function name)
+```
+
+或者使用`#'`来简写:
+
+```lisp
+#'name
+```
+
+因为Lisp的函数和变量可以用一样的符号，所以这个`#'`就是为了区分函数和变量的. 
+
+此外，`function`还可以接受一个`lambda`来产生一个函数对象.
+
+```lisp
+(setf func (function (lambda (x) (+ x 1))))
+(func 1)
+;; 2
+```
+
 
 
 ## 函数调用
