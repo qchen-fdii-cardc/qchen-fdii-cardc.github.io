@@ -74,9 +74,17 @@ NIL
 5. `&allow-other-keys`允许其他关键字参数;
    
 
+具体语法和使用方法可以参考[CLCB](https://lispcookbook.github.io/cl-cookbook/functions.html)中，这本书还有[中文版](https://oneforalone.github.io/cl-cookbook-cn/#/zh-cn/01.functions).
+
+```lisp
+(defun test-func (a &optional b c &key d e &allow-other-keys)
+  (list a b c d e))
+```
+
+这里的`optional`和`key`可以同时使用，SBCL可能会报警，但是不影响使用。
 
 
-## 从对象开始的概念
+## 函数定义
 
 根据CLHS的定义,Lisp中的`object`有以下几种情况:
 
@@ -90,6 +98,9 @@ NIL
 2. 函数转换:`function coerce`
 3. 函数编译:`function compile`
 
+
+## 函数调用
+
 调用函数的三种方式:
 
 1. `funcall`;
@@ -97,16 +108,3 @@ NIL
 3. `multiple-value-call`.
 
 
-
-## 概念参考
-
-### `form`表达式
-
-这个
-
-
-### `special form`特殊
-
-`special form`是是一个列表, 它不是`macro form`,这个列表有特定的语法和特殊的求值规则,可能会改变求值环境和/或控制流.特殊form的第一个元素称为特殊操作符（`special operator`）.
-
-### `special operator`特殊操作符
