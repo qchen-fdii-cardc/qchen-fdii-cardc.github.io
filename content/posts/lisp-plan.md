@@ -32,6 +32,53 @@ Lisp实际上已经是我的老朋友。
 7. [007 挑剔先生给出终止迭代的条件](/posts/007-recursive-eq/)
 8. [008 挠痒痒先生建网站记](/posts/008-real-app/)
 9. [009 小小先生学习Lisp表达式](/posts/009-expression/)
+10. [010 聪明先生拒(ji)绝(xu)造轮子](/posts/010-smart-cl-classification/)
+11. [011 没人先生学习Lisp函数](/posts/011-functions/)
+
+## 计划
+
+可能是时候做一个计划。
+
+目前已经完成的部分：
+
+```mermaid
+graph LR
+
+A[001 粗鲁先生Lisp再出发]
+B[002 懒惰先生的Lisp开发流程]
+C[003 颠倒先生的数学表达式]
+D[004 完美先生的完美Lisp]
+E[005 好奇先生用Lisp来探索Lisp]
+F[006 好奇先生在Lisp的花园里挖呀挖呀挖]
+G[007 挑剔先生给出终止迭代的条件]
+H[008 挠痒痒先生建网站记]
+I[009 小小先生学习Lisp表达式]
+J[010 聪明先生继续造轮子]
+K[011 没人先生学习Lisp函数]
 
 
+To(开发工具) --> A
+To --> B
+To --> C
 
+Basic(基础) --> D
+Basic --> G
+Basic --> I
+Basic --> K
+
+CL(常用库) --> E
+CL --> F
+CL --> H
+CL --> J
+
+CommonLispTutorial(教程) --> To
+CommonLispTutorial --> Basic
+CommonLispTutorial --> CL
+
+```
+
+还应该再写什么呢？写的内容是聚焦到实际应用？还是聚焦到理念、理论和PL？
+
+还需要再想一想。
+
+是不是照着一本书来Copy结构？还是围绕一个想要做出来的应用展开？
