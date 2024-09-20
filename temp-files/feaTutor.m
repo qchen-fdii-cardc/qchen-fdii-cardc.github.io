@@ -9,7 +9,7 @@ g = decsg(gdm, "R1 + R2", ns');
 fig = figure;
 pdegplot(g, EdgeLabels = 'on', FaceLabels = 'on');
 
-exportgraphics(fig, 'feaTutor.png', Resolution = 600);
+% exportgraphics(fig, 'feaTutor.png', Resolution = 600);
 
 % create model
 model = femodel(AnalysisType = 'thermalTransient', Geometry = g);
@@ -50,7 +50,7 @@ iTRd = interpolateTemperature(Rt, [0.1135; 0], 1:numel(Rt.SolutionTimes));
 iTrp = interpolateTemperature(Rt, [0.0765; 0], 1:numel(Rt.SolutionTimes));
 iTrd = interpolateTemperature(Rt, [0.066; 0], 1:numel(Rt.SolutionTimes));
 
-figure
+fig2 = figure;
 plot(tlist, iTRd)
 hold on
 plot(tlist, iTrp)
@@ -60,83 +60,33 @@ legend("R_d", "r_p", "r_d")
 xlabel("t, s")
 ylabel("T,^{\circ}C")
 
-function q = qFcn(x, s)
-    alpha = 1.44e-5;
-    Kd = 51;
-    rhod = 7100;
-    cpd = Kd / rhod / alpha;
+exportgraphics(fig2, 'thermalResponse.png', Resolution = 600)
 
-    alphp = 1.46e-5;
-    Kp = 34.3;
-    rhop = 4700;
-    cpp = Kp / rhop / alphp;
+%% Stress Analysis
 
-    f = 0.5; % 摩擦系数
-    omega0 = 88.464; %初始角速度
-    ts = 3.96; % 终止时间
-    p0 = 1.47e6 * (64.5/360); % 接触面只占了整个圆圈的64.5°
+% 改变分析类型
 
-    omegat = omega0 * (1 - s.time / ts);
+model.AnalysisType = 'structuralStatic';
 
-    eta = sqrt(Kd * rhod * cpd) / (sqrt(Kd * rhod * cpd) + sqrt(Kp * rhop * cpp));
-    q = (eta) * f * omegat * x.x * p0;
-end
+% 设定材料
 
-function plotResults(R, Rt, tID)
-    figure
-    subplot(2, 2, 1)
-    pdeplot(Rt.Mesh, XYData = Rt.Temperature(:, tID), ...
-        ColorMap = "jet", Contour = "on")
-    xt = xticks;
-    yt = yticks;
-    xticklabels(100 * xt);
-    yticklabels(100 * yt);
-    xlabel("x,cm")
-    ylabel("y,cm")
-    title({'Temperature'; ...
-               ['max = ' num2str(max(Rt.Temperature(:, tID))) '^{\circ}C']}, ...
-        FontSize = 10)
+model.MaterialProperties = ...
+    materialProperties(YoungsModulus = 99.97E9, ...
+    PoissonsRatio = 0.29, ...
+    CTE = 1.08E-5);
 
-    subplot(2, 2, 2)
-    pdeplot(R.Mesh, XYData = R.Stress.srr, ...
-        ColorMap = "jet", Contour = "on")
-    xt = xticks;
-    yt = yticks;
-    xticklabels(100 * xt);
-    yticklabels(100 * yt);
-    xlabel("x,cm")
-    ylabel("y,cm")
-    title({'Radial Stress'; ...
-               ['min = ' num2str(min(R.Stress.srr) / 1E6, '%3.2f') ' MPa'];
-           ['max = ' num2str(max(R.Stress.srr) / 1E6, '%3.2f') ' MPa']}, ...
-        FontSize = 10)
+% 固定模型，避免刚体运动
 
-    subplot(2, 2, 3)
-    pdeplot(R.Mesh, XYData = R.Stress.sh, ...
-        ColorMap = "jet", Contour = "on")
-    xt = xticks;
-    yt = yticks;
-    xticklabels(100 * xt);
-    yticklabels(100 * yt);
-    xlabel("x,cm")
-    ylabel("y,cm")
-    title({'Hoop Stress'; ...
-               ['min = ' num2str(min(R.Stress.sh) / 1E6, '%3.2f') ' MPa'];
-           ['max = ' num2str(max(R.Stress.sh) / 1E6, '%3.2f') ' MPa']}, ...
-        FontSize = 10)
+model.EdgeBC([3, 4]) = edgeBC(YDisplacement = 0); % 固定刹车片中心对称面
 
-    subplot(2, 2, 4)
-    pdeplot(R.Mesh, XYData = R.VonMisesStress, ...
-        ColorMap = "jet", Contour = "on")
-    xt = xticks;
-    yt = yticks;
-    xticklabels(100 * xt);
-    yticklabels(100 * yt);
-    xlabel("x,cm")
-    ylabel("y,cm")
-    title({'Von Mises Stress'; ...
-               ['max = ' num2str(max(R.VonMisesStress) / 1E6, '%3.2f') ' MPa']}, ...
-        FontSize = 10)
+% 设定参考温度，对应于0热应力的温度
+model.ReferenceTemperature = 20;
 
-    sgtitle(['Time = ' num2str(Rt.SolutionTimes(tID)) ' s'], FontWeight = "bold")
+% 根据热分析结果 $Rt$ 来设定热载荷。求解时间与热分析相同。 对于每一个时间点， 求解对应的结构静分析问题，并绘制温度分布、周向应力， hoop应力， von Mises应力。
+
+for n = 2:numel(Rt.SolutionTimes)
+    Rt_step = filterByIndex(Rt, n);
+    model.FaceLoad = faceLoad(Temperature = Rt_step);
+    R = solve(model);
+    plotResults(R, Rt, n);
 end
