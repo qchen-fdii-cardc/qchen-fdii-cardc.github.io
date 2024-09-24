@@ -2,15 +2,13 @@
 title = 'CSG in Matlab新的统一有限元分析工作流之2D几何'
 date = 2024-09-24T23:59:37+08:00
 draft = false
-mathjax = false
+mathjax = true
 categories = ['matlab']
 tags = ['Matlab', 'FEA', 'Geometry', 'CSG', '2D']
 toc = true
 tocBorder = true
 +++
 
-
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/5c5cdcb900ec453d9020e4bfa7544887.jpeg#pic_center)
 
 ## Matlab新的统一有限元分析工作流
 
@@ -233,7 +231,7 @@ axis equal
 
 ```
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/e7592b665b4248649546300aa4c38723.png#pic_center)
+![原始的计算域](/matlab-img/origin-csg.png)
 
 
 
@@ -250,7 +248,7 @@ pdegplot(g2,"EdgeLabels","on","FaceLabels","on")
 axis equal
 ```
 
-![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/db53e06fb09c46158d835c4bd78f90fb.png#pic_center)
+![合并后的计算域](/matlab-img/csgdel-csg.png)
 
 这个时候，几何区域被合并成一个整体，不再有内部边界。
 
