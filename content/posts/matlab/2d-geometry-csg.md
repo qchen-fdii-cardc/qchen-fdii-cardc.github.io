@@ -1,5 +1,5 @@
 +++
-title = '2d Geometry Csg'
+title = 'CSG in Matlab新的统一有限元分析工作流之2D几何'
 date = 2024-09-24T23:59:37+08:00
 draft = false
 mathjax = false
