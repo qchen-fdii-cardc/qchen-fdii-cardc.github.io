@@ -3,8 +3,10 @@ title = '000 中年人与Lisp'
 date = 2024-07-23T09:47:44+08:00
 draft = false
 categories = ['lisp', 'plan']
-tags = ['lisp', 'plan', 'life']
+tags = ['lisp', 'plan', 'life', '计划']
 mathjax = false
+toc = true
+tocBorder = true
 +++
 
 
@@ -111,5 +113,34 @@ CommonLispTutorial --> CL
 
 > Make Lisp Great Again, for Engineers.
 
-### 目标读者
+都扯淡呢……
 
+### 目标读者 vs 写作目标
+
+目标读者其实是一个很难刻画的群体。因为写作目标本身也没有刻画清楚。到底，想用Lisp来干嘛？到底为什么学习Lisp？其实很难现象一个废渣工程师要跑去学习Lisp，除非是一个从事CAD设计的年轻人，倒是有可能需要学习AutoLisp。
+
+那么其他人为什么要学习Common Lisp呢？
+
+到底哪些人在学习Common Lisp呢？
+
+其实看[Alexandria](https://alexandria.common-lisp.dev/)的下载量，就知道，这个库的使用者是非常多的。那么，这些人为什么要学习Common Lisp呢？2024年下载量：
+
+![Alexandria](/lisp-img/alexandria.png)
+
+虽然，下载量跟pypi的包没办法比……
+
+![Pypi most downloaded](/lisp-img/pypi-stats.png)
+
+Java Maven的下载量我没找到，估计也很夸张。
+
+哪些人在用Lisp？这些人在用Lisp干什么？Lisp还需要吸引什么人来学习？
+
+也许，根本不需要吸引人来学习Common Lisp。工程师学习和使用Lisp有没有什么优势？有没有什么必要？有没有什么好处？
+
+这个问题想不清楚，就不要想了。因为我实在是自己想学习学习Lisp，并且用在工作中。
+
+### 是否继续写下去？写什么？
+
+暂时，还是保持想到什么写什么的状态吧。
+
+如果有什么新的想法，随时调整。
