@@ -33,7 +33,9 @@ Lisp实际上已经是我的老朋友。
 8. [008 挠痒痒先生建网站记](/posts/008-real-app/)
 9. [009 小小先生学习Lisp表达式](/posts/009-expression/)
 10. [010 聪明先生拒(ji)绝(xu)造轮子](/posts/010-smart-cl-classification/)
-11. [011 没人先生学习Lisp函数](/posts/011-functions/)
+11. [010 Common Lisp Symbols分类参考](/posts/010-appendix-cl-symbols/)
+12. [011 没人先生学习Lisp函数](/posts/011-functions.md)
+13. [012 白日梦先生的白日梦](/posts/012-1am-tutor.md)
 
 ## 计划
 
@@ -82,3 +84,32 @@ CommonLispTutorial --> CL
 还需要再想一想。
 
 是不是照着一本书来Copy结构？还是围绕一个想要做出来的应用展开？
+
+### 目标是什么？
+
+要不要再一次来思考，我的目标是什么？
+
+最近刚看了[Lisp Curse](https://www.winestockwebdesign.com/Essays/Lisp_Curse.html)，感觉很符合这两个月对Lisp的学习。
+
+- 工具零碎，全部都不完整，能够用但是又刚好不够用；
+- 如果很不舒服，就自己写一个，也不是太难的样子；
+- 用别人的，也要挑挑拣拣，而且，文档是几乎没有的，就比如Common Lisp自己的工具，都没有一个非常好用、完备的文档，跟[Racket](https://docs.racket-lang.org/)比起来，差距太大了；
+
+
+就比如说画图，[vgplot](https://github.com/volkers/vgplot)，[文档](https://volkers.github.io/vgplot/vgplot.html)， 其实说起来还算是不错，精心制作了`(vgplot:demo)`，照葫芦画瓢也简单。当然，如果有GNUPlot的基础就更是毫无压力。如果仔细考虑，这个包的功能也符合上面的特点，勉强够用。
+
+
+就比比如说[quicklisp](https://www.quicklisp.org/beta/releases.html)，下载量排名第一的[Alexandria](https://alexandria.common-lisp.dev/)，有文档，但是不多，没有中文，实际上，他的文档就是跟[explore-lisp](https://github.com/qchen-fdii-cardc/explore-lisp.git)差不多，用脚本生成的，但是这已经算是很好的了。
+
+至于中文的，那就更可怜。
+
+所以，我的目标是什么呢？
+
+向工程需要，或者实际解决问题需要的`Common Lisp`入门指南。我本人没有能力，也不准备探讨那些非常复杂、难以理解的PL理论，也不准备仔细辨别`Common Lisp`中微妙的语法构造。我只想给一个快速上手、能够使用的梯子，通过这个梯子，Lisp可以成为工具箱的一把扳手，而不是叶公好龙、充作谈资的花瓶。
+
+所以，我要以我自己的需要为出发点，**Make Lisp Great Again**。
+
+> Make Lisp Great Again, for Engineers.
+
+### 目标读者
+
