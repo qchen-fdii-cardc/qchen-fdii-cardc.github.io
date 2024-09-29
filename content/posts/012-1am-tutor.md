@@ -434,4 +434,4 @@ TEST names a macro:
 
 好奇先生看了一眼在做白日梦的白日梦先生和觉得什么都不可能的不可能先生，心里想，其实Common Lisp还真有些库是大家都在引用的，比如`alexandria`，不行再把`alexandria`好好探索一下？
 
-好奇先生的时间快速飞逝，deadline也不听tik-tok-tik-tok。
+好奇先生的时间快速飞逝，deadline也不停tik-tok-tik-tok。
