@@ -1,17 +1,6 @@
-+++
-title = 'Fem Static in Matlab静力学有限元的例子'
-date = 2024-10-12T17:13:42+08:00
-draft = false
-mathjax = false
-categories = ['matlab']
-tags = ['matlab', 'fem', '有限元', '静力学']
-toc = true
-tocBorder = true
-+++
+﻿![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/5c5cdcb900ec453d9020e4bfa7544887.jpeg#pic_center)
 
-
-## 刹车变形的求解步骤
-
+## 刹车变形分析
 本示例展示了如何使用 MATLAB® 软件进行刹车变形分析。
 这个例子是Matlab官方PDE工具箱的第一个例子，所需要的数据文件都由Matlab提供，包括CAD模型文件。
 ### 步骤 1: 导入 CAD 模型
@@ -33,7 +22,8 @@ title("Bracket with Face Labels")
 exportgraphics(gcf, "BracketWithHole.png", Resolution=600)
 ```
 
-![](/matlab-img/BracketWithHole.png)
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/5ae164b9936743a3bb404ca7d3d02735.png#pic_center)
+
 
 不知道怎么回事，切换到后面的视图，整个图形都变黑了……不知道是什么魔法要素。
 
@@ -43,7 +33,8 @@ title("Bracket with Face Labels, Rear View")
 exportgraphics(gcf, "BracketWithHoleRear.png", Resolution=600)
 ```
 
-![](/matlab-img/BracketWithHoleRear.png)
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/ed8c49fd1ba04819b59014fe5a37d443.png#pic_center)
+
 
 ### 步骤 2: 材料属性
 设置材料属性。
@@ -75,14 +66,12 @@ title("Mesh of the Bracket")
 exportgraphics(gcf, "BracketWithHoleRearMesh.png", Resolution=600)
 ```
 
-![](/matlab-img/BracketWithHoleRearMesh.png)
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/bdf9380ea2434033a237ca7592df43aa.png#pic_center)
+
 
 ### 步骤 4: 边界条件和加载条件
 
-```matlab
 model.FaceBC(4) = faceBC(Constraint="fixed");
-```
-
 这里设置了支架的底部固定，不允许移动。这种设置参数的方式其实也兼容原先的参数对的方式，比如
 `faceBC('Constraint', 'fixed')`。
 这里的`4`是支架的底部的面的编号，这个编号是在`pdegplot`函数中显示的`F4`。
@@ -139,7 +128,8 @@ title("Displacement in z-direction")
 exportgraphics(gcf, "BracketWithHoleDisplacement-z.png", Resolution=600)
 ```
 
-![](/matlab-img/BracketWithHoleDisplacement-z.png)
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/55de58821dff470889c3468bfe365c59.png#pic_center)
+
 
 以此类推，可以绘制应力、应变、范氏等效应力等的结果。
 
@@ -150,7 +140,8 @@ title("Von Mises Stress")
 exportgraphics(gcf, "BracketWithHoleVMS.png", Resolution=600)
 ```
 
-![](/matlab-img/BracketWithHoleVMS.png)
+![在这里插入图片描述](https://i-blog.csdnimg.cn/direct/16506eeaf47c4645a1a9402577aec4c7.png#pic_center)
+
 
 ## 其他可以自己查看的细节
 
@@ -176,3 +167,4 @@ exportgraphics(gcf, "BracketWithHoleVMS.png", Resolution=600)
 3. 如果要变更边界条件、载荷，来研究灵敏度，也是非常方便的，只需要修改`model`结构体的属性，然后重新求解就可以了。相应的，如果要做一些优化，也是非常方便的。例如，要进行最大变形的控制，上面的例子中就给出了如何从结果中提取最大位移的方法。
 4. 从2016b开始STL文件的导入就慢慢变好，2022b开始STEP文件也开始支持，基本上这个工具的可用性就相应变得比较强了。
 5. 上面这个例子要运行，大概至少需要2023a版本，最好是2023b版本。
+
