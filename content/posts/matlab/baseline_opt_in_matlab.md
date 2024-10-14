@@ -1,3 +1,15 @@
++++
+title = 'Baseline_opt_in_Matlab可视化基线优化算法'
+date = 2024-10-14T09:27:50+08:00
+draft = false
+mathjax = true
+categories = ['matlab']
+tags = ['matlab', 'optimization', 'baseline', '优化', '基线算法']
+toc = true
+tocBorder = true
++++
+
+
 ## 优化
 
 优化，是一个很高大上的词语，但是在实际工作中，优化通常是一个很无趣而平凡的事情。
@@ -61,7 +73,7 @@ $$
 
 下面是曲线 $y = sin(x) - cos(2x), x\in[0,10]$ ，我们要找到这条曲线的最大值。
 
-![一维优化](./oneDimExample.png)
+![一维优化](/matlab-img/oneDimExample.png)
 
 这个一维的山峰，有三个山尖，最高的有两个。
 
@@ -86,8 +98,8 @@ exportgraphics(gcf, 'peaks.png', Resolution=100);
 ```
 
 
-![peaks-contour](./peaks-contour.png)
-![peaks](./peaks.png)
+![peaks-contour](/matlab-img/peaks-contour.png)
+![peaks](/matlab-img/peaks.png)
 
 这两个概念都是非常容易理解和接受的，所以我们讨论优化算法的时候通常会用这样的例子的解释搜索的过程，思考搜索的效果。
 
@@ -132,7 +144,7 @@ exportgraphics(gcf, 'peaks.png', Resolution=100);
 
 最后，给出一个 `peaks` 函数的优化过程的可视化。这个可视化是一个动态的过程，每次迭代都会更新图像。
 
-![](gridVrand.gif)
+![](/matlab-img/gridVrand.gif)
 
 下面的代码可以产生上面的动态图像。
 
@@ -219,6 +231,8 @@ function ballOnPeaks(n, visible, fn)
     close(h);
 ```
 
+[代码](/matlab-code/ballOnPeaks.m)
+
 这段代码中还是有好几个挺好玩的Matlab细节的。
 
 1. `arguments` 语法，这个是Matlab 2019b之后的新特性，用来替代旧的 `nargin` 和 `nargout` 语法。这个方法可以很方便的对输入参数进行类型检查和默认值设置。
@@ -233,7 +247,7 @@ function ballOnPeaks(n, visible, fn)
 稍微更改，就能产生用等高线可视化的同样过程。
 
 
-![](gridVrandContour.gif)
+![](/matlab-img/gridVrandContour.gif)
 
 ```matlab
 function ballOnPeaksContour(n, visible, fn)
@@ -315,6 +329,8 @@ function ballOnPeaksContour(n, visible, fn)
 
     close(h);
 ```
+
+[代码](/matlab-code/ballOnPeaksContour.m)
 
 
 ## 总结
