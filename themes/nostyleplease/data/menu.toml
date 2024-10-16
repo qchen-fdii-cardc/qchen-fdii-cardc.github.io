@@ -19,7 +19,9 @@ url = "categories"
   [[entries.entries]]
   title = "Matlab相关"
   url = "categories/matlab"
-
+  [[entries.entries]]
+  title = "FEA相关"
+  url = "categories/fem"
 
 
 [[entries]]

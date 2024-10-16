@@ -10,7 +10,7 @@ tocBorder = true
 +++
 
 
-- [Matlab FEM系列](/categories/FEM/)
+- [Matlab FEM系列](/categories/fem/)
 
 
 ## PDE工具箱的网格数据
