@@ -10,7 +10,7 @@ tocBorder = true
 +++
 
 
-- [Matlab FEM系列](https:/www.windtunnel.cn/categories/FEM/)
+- [Matlab FEM系列](/categories/FEM/)
 
 
 ## PDE工具箱的网格数据
@@ -47,7 +47,7 @@ PDE工具箱通过`generateMesh`函数来产生网格，在产生过程中，可
 
 ### 几何体
 
-依然用[结构静力学分析示例](https:/www.windtunnel.cn/posts/matlab/fem-static/)中的几何体作为例子。
+依然用[结构静力学分析示例](/posts/matlab/fem-static/)中的几何体作为例子。
 
 
 ```matlab
