@@ -22,7 +22,7 @@ tocBorder = true
 一般而言，我们利用进行计算大概就是以下的步骤：
 
 ```mermaid
-stateDiagram
+stateDiagram-v2
     [*] --> 构造矩阵
     构造矩阵 --> 操作矩阵
     操作矩阵 --> 访问矩阵
