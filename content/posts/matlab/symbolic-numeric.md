@@ -1,3 +1,15 @@
++++
+title = 'Symbolic ❌ Numeric in Matlab中符号计算助力数值计算'
+date = 2024-10-19T23:54:32+08:00
+draft = false
+mathjax = false
+categories = ['matlab']
+tags = ['matlab', 'symbolic', 'numeric']
+toc = true
+tocBorder = true
++++
+
+
 ## 符号运算与数值计算
 
 ### 缘，妙不可言
@@ -383,7 +395,7 @@ p(x)  = piecewise(x<0, x^2-8, x>=0, -x)
 fplot(p, [-10, 10])
 ```
 
-![piecewise](p.png)
+![piecewise](/matlab-img/p.png)
 
 那么我们牢记前面的步骤，先推导，输出函数文件。
 
@@ -445,7 +457,7 @@ plot(x, dp)
 
 这样就可以得到这个函数的图像和导数的图像。
 
-![piecewise](p-dp.png)
+![piecewise](/matlab-img/p-dp.png)
 
 ## 总结
 
