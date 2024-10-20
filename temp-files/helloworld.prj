@@ -1,0 +1,16 @@
+;;; VLisp project file [V2.0] helloworld saved to:[e:\lisp-writing\qchen-fdii-cardc.github.io\temp-files] at:[10/18/2024]
+(VLISP-PROJECT-LIST 
+  :NAME
+  helloworld
+  :OWN-LIST
+  ("autolisp-tutor")
+  :FAS-DIRECTORY
+  nil
+  :TMP-DIRECTORY
+  nil
+  :PROJECT-KEYS
+  (:BUILD (:standard))
+  :CONTEXT-ID
+  :AUTOLISP
+)
+;;; EOF
