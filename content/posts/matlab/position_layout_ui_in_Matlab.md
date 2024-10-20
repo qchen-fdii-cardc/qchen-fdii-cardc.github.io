@@ -1,5 +1,5 @@
 +++
-title = 'Position_Layout_uifigure_in_Matlab界面布局之设定位置'
+title = 'Position_Layout_in_Matlab界面布局之设定位置'
 date = 2024-10-20T23:33:45+08:00
 draft = false
 mathjax = false
