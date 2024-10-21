@@ -267,6 +267,9 @@ exportapp(f, 'vbox.png');
 
 当然，增加`hbox`可以作为一个小练习。
 
+## 参考
+- [GUI系列](/tags/ui/)
+
 ## 总结
 
 1. `uifigure`是根容器，其他容器都是它的子容器，通过设置句柄不可见，可以防止`gcf`、`gca`、`close`等函数对App的影响。

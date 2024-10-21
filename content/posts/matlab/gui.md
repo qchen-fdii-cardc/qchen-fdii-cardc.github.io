@@ -9,7 +9,7 @@ toc = true
 tocBorder = true
 +++
 
-
+- [GUI系列](/tags/ui/)
 
 
 ## Matlab的GUI设计
@@ -358,6 +358,10 @@ uiwait(fig);
 
 ### 测试
 应该还可以增加一些测试，比如输入非法字符，输入非法向量等。但是这么个简单东西，真没必要。
+
+
+## 参考
+- [GUI系列](/tags/ui/)
 
 ## 总结
 

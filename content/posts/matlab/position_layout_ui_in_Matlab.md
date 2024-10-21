@@ -10,6 +10,7 @@ tocBorder = true
 +++
 
 
+  
 ## 抽象整活
 
 前面我们对利用`uigridlayout`和一些容器组件来布局`uifigure`界面进行了一番讨论，参考[UI_Layout_in_MATLAB中APP界面布局容器](/posts/matlab/ui-layout/). 通过每个容器放一个网格布局组件的方式，所有的界面布局都由网格布局器来完成，其宽度、高度通过网格布局器来设置为：
@@ -28,12 +29,12 @@ tocBorder = true
 
 首先，在`uifigure`技术路线中，用一个属性`Position`来设置组件的位置。`Position`属性是一个四元素的向量，分别表示组件的左下角的x坐标、y坐标、宽度和高度，`[left, bottom, width, height]`。这里的坐标是相对于父容器的坐标。
 
-| 属性 | 描述 |
-| --- | --- |
-| left | 组件左下角的x坐标 |
+| 属性   | 描述              |
+| ------ | ----------------- |
+| left   | 组件左下角的x坐标 |
 | bottom | 组件左下角的y坐标 |
-| width | 组件的宽度 |
-| height | 组件的高度 |
+| width  | 组件的宽度        |
+| height | 组件的高度        |
 
 对于`uifigure`界面中的`Children`，`Position`属性的值是相对于`uifigure`左下角，例如左下角的坐标放置于`uifigure`左下角，则从`Position(1:2)=[0, 0]`。
 
@@ -210,6 +211,9 @@ end
 
 当然，我们也可以直接捕获整个`uifigure`对象，然后在回调函数中访问`uifigure`对象的`UserData`属性，来实现功能。这在有些情况下能够获得一些收益。
 
+
+## 参考
+- [GUI系列](/tags/ui/)
 
 ## 总结
 
