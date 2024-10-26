@@ -114,6 +114,50 @@ img = readmatrix('../matlab-img/rand-img.txt');
 
 实在在无聊的话，那就再搞点压缩算法，把这个数组好好压缩一下吧……
 
+
+## ASCII编码图形
+
+还有个用Base64编码的方法，这个方法在网络传输中很常见，因为Base64编码的数据是ASCII编码的，所以可以直接存储在文本文件中。
+
+```matlab
+% Create the data stream as ASCII:
+img = randi([0, 255], 20, 30, 'uint8');  % Example image
+B64 = org.apache.commons.codec.binary.Base64;
+str = char(B64.encode(img(:))).';
+```
+这个字符串可以直接存储在文本文件中，然后再读取。或者从网络上下载，然后再解码。
+
+字符内容大概就是这样：
+```
+% Store in the file:
+img64 = ['0Ocg6aEYR4z19yj49XzMJGvqyvWnCdnvrcG+ZKcrtAhGCxjSsVHzCH', ...
+    'Bhw8svfXKltcFGrqcpHn/1V5U5wEGBsuT1jCMmQddB0D7tWTJAnXla1JWM6', ...
+    'knBwGGREw2Hx+8hkXgDVinLT4cqmkOnsL9zFTrpJ9OJ/xRxG/YBxtHeFWZC', ...
+    'zG7pLkMlIt6UjCXan1mDZhM9Hy89agzn8X19VuZeHMdjPWcYIfH0kw88WtI', ...
+    'DCyumu6VzjEu+MK8uXqDHFO3GfG9yToKC0cukYM+IWfDgjJ+WNU14O9gxOS', ...
+    's6b0/sbi/n+nAcQmiYQ5q2OB5LUWyCFUPNB+26fZQ8dfaLhTt9n61lXvwJ4', ...
+    'unLGUNVriK4G6d+x7fn5FWyMge+gHrnnJ7czpMuPeIHfSr6toB4D64KEoUY', ...
+    '0dG4JqiE+abMdG7TFSIsZNTND2aGaqigSm4D+yobXzJ9VvPrDbxEbIzxavt', ...
+    'Ns6qKsqotIP8rCI/hqzBedfso26VgMG17HpY5YpVASp1D0/u6WJUb6OHRQp', ...
+    'gFbFApLWwYmXiys6MIEVGHp2jRt/eIUxucx2wXRCdHcIZ14ITxo/U9rUqrs', ...
+    'RFBOarYWMesAZpj6gB2bHXFUsh4CS24eSdXmzG9PupEwzBJF5Oui2ykpa2i', ...
+    '8TW1PB6bc3WpxVmpatfVQZ2Vit5DUR7wpXqji6WLuIX+NxscEGdyXcOgxe7', ...
+    '5MSOyGIaH3Hxkq72FWSaWQwvBPnGwW7xlrrRxBVRsRTLSbuNkxGXOwWA3yv', ...
+    'NTq3DVxCrc/YPiliczaL/TylGIFxwirX4wfiUO'];
+```
+
+拿到这个字符串之后，我们可以解码。
+
+```matlab
+B64 = org.apache.commons.codec.binary.Base64;
+img = uint8(B64.decode(uint8(img64));
+imshow(reshape(img, 20, 30));
+```
+
+![](/matlab-img/randimg-base64.png)
+
+这个方法好像真的用得挺多的。
+
 ## 总结
 
 1. 图形在Matlab中是一个矩阵
