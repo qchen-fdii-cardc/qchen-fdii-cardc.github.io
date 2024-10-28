@@ -1,10 +1,10 @@
 +++
 title = 'Subplot_In_Matlab中多图绘制之subplot函数'
 date = 2024-10-28T17:36:50+08:00
-draft = true
+draft = false
 mathjax = false
 categories = ['matlab']
-tags = ['matlab', 'tutorial', 'language', 'figure', 'subplot']
+tags = ['matlab', 'tutorial', 'figure', 'subplot']
 toc = true
 tocBorder = true
 +++
