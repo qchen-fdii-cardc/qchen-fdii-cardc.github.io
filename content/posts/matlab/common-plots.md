@@ -29,6 +29,8 @@ tocBorder = true
 
 这有一个小例子，可以展示出了极坐标之外的所有几种常规图形的绘制。可以通过按钮和菜单选择相应的函数，查看相应的图形。
 
+![plotExample](/matlab-img/common_plots.gif)
+
 [代码文件下载：plotExample](/matlab-code/common2DPlots.m)
 
 这里把源文件内容也列在这里：
