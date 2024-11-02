@@ -1,10 +1,10 @@
 +++
-title = 'Structure_Static_PDEtoolbox求解结构静力学问题'
+title = 'Structure_Static_In_Matlab求解结构静力学问题两套方法'
 date = 2024-11-02T08:32:48+08:00
 draft = false
 mathjax = true
 categories = ['matlab']
-tags = ['matlab', 'tutorial', 'pde', 'structure', 'static']
+tags = ['matlab', 'tutorial', 'pde', 'structure', 'static', 'fem']
 toc = true
 tocBorder = true
 +++
