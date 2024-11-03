@@ -1,4 +1,4 @@
-+++
+ser+++
 title = 'Fem Static in Matlab静力学有限元的例子'
 date = 2024-10-12T17:13:42+08:00
 draft = false
