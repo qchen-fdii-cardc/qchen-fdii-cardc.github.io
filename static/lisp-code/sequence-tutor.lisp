@@ -1,7 +1,7 @@
 (require 'explore-lisp)
 
 
-(sort (el:search-symbols "sequence" :cl :doc-string t) #'string<)
+; (sort (el:search-symbols "sequence" :cl :doc-string t) #'string<)
 
 
 ; (BASE-STRING BIT-VECTOR CONCATENATE CONS COPY-SEQ COUNT COUNT-IF
@@ -17,15 +17,15 @@
 ;  WRITE-SEQUENCE)
 
 
-(search "built-in-class" (el:describe-symbol 'base-string))
+; (search "built-in-class" (el:describe-symbol 'base-string))
 
-(let* ((seq (sort (el:search-symbols "sequence" :cl :doc-string t) #'string<))
+; (let* ((seq (sort (el:search-symbols "sequence" :cl :doc-string t) #'string<))
 
-       (types '("built-in-class" "function" "macro" "special-operator")))
-  (loop for type in types
-        do (loop for sym in seq
-                 do (when (search type (el:describe-symbol sym))
-                          (format t "~A: ~A~%" type sym)))))
+;        (types '("built-in-class" "function" "macro" "special-operator")))
+;   (loop for type in types
+;         do (loop for sym in seq
+;                  do (when (search type (el:describe-symbol sym))
+;                           (format t "~A: ~A~%" type sym)))))
 ; (mapcar (lambda (type)
 ;           (mapcar (lambda (sym)
 ;                     (when (search type (el:describe-symbol sym))
