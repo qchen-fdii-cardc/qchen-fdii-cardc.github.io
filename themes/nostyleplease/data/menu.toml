@@ -22,7 +22,9 @@ url = "categories"
   [[entries.entries]]
   title = "FEA相关"
   url = "categories/fem"
-
+  [[entries.entries]]
+  title = "Jetpack Compose Desktop"
+  url = "categories/jetpack"
 
 [[entries]]
 title = "rss"
