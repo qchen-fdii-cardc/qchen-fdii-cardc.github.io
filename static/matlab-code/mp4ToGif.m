@@ -9,14 +9,14 @@ Framerate=video.FrameRate; % 获取视频帧率
 bar = waitbar(0,'Please wait...'); % 设置进度条
 
 start_time = 0; % 开始时间
-end_time = 5; % 结束时间
+end_time = 100; % 结束时间
 
 if end_time>video.Duration
     end_time=video.Duration;
 end
 
 start_frame=round(Framerate*start_time)+1; % 开始帧数
-end_frame=round(Framerate*end_time); % 结束帧数
+end_frame=round(Framerate*end_time)-1; % 结束帧数
 
 for i=start_frame:2:end_frame
     frame=read(video,i); %读取第k帧画面
