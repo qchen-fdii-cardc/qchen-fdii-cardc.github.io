@@ -3,8 +3,8 @@ title = 'Structural_Transient_In_Matlab结构动力学问题求解'
 date = 2024-11-02T15:23:56+08:00
 draft = false
 mathjax = false
-categories = ['matlab', 'fem']
-tags = ['matlab', 'fem', 'transient', 'structure']
+categories = ['matlab', 'FEM']
+tags = ['matlab', 'FEM', 'transient', 'structure']
 toc = true
 tocBorder = true
 +++
