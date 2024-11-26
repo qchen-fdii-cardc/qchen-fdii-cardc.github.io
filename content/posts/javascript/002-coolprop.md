@@ -1,5 +1,5 @@
 +++
-title = '002 Coolprop小试牛刀'
+title = '002 Coolprop小试牛刀：流体属性查询示例'
 date = 2024-11-23T16:06:55+08:00
 draft = false
 mathjax = false
@@ -18,7 +18,7 @@ tocBorder = true
 这是一个物质属性的热力学工具箱。
 本身提供了很多种高级语言的绑定，当然，JavaScript也是提供的。
 
-这里实现了一个简单的单纯流体的一般参数查询。还没有准备更加复杂的东西。
+这里实现了一个简单的单纯流体的一般参数查询。还没有准备更加复杂的东西。总的来说，这只是一个用官方的JavaScript绑定代码改造的Smoke Test。
 
 - [Coolprop.js](/javascript/coolprop.js)
 - [Coolprop.wasm](/javascript/coolprop.wasm)
