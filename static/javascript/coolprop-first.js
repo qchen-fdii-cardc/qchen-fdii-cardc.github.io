@@ -21,6 +21,8 @@ function flush_fluid_list() {
 
         return true;
     }
+    console.log("Setup to try again 1000 ms later.")
+    setTimeout(flush_fluid_list, 1000);
     return false;
 }
 
@@ -57,7 +59,10 @@ $(function () {
 
 
     setTimeout(function () {
-        flush_fluid_list();
+        let ret = flush_fluid_list();
+        if (!ret) {
+            console.log("Fail to load fluid list.");
+        }
         // default values
         $('#FluidName').get(0).selectedIndex = 0;
         $('#Name1').get(0).selectedIndex = 1;
