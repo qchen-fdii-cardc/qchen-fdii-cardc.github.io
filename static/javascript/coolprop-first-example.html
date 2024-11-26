@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script src="/javascript/coolprop.js"></script>
+<script src="/javascript/coolprop-first.js"></script>
+
+<div class="ui-widget">
+    <label>FluidName: </label>
+    <select id="FluidName">
+
+    </select>
+</div>
+<div class="ui-widget">
+    <label>Input #1: </label>
+    <select id="Name1">
+        <option value="">Select one...</option>
+        <option value="Pressure">Pressure [Pa]</option>
+        <option value="Temperature">Temperature [K]</option>
+        <option value="Density">Density [kg/m&#179;]</option>
+    </select>
+    <input id='Value1' />
+</div>
+<div class="ui-widget">
+    <label>Input #2: </label>
+    <select id="Name2">
+        <option value="">Select one...</option>
+        <option value="Pressure">Pressure [Pa]</option>
+        <option value="Temperature">Temperature [K]</option>
+        <option value="Density">Density [kg/m&#179;]</option>
+    </select>
+    <input id='Value2' />
+</div>
+
+<button id="calc" type="button">Calculate</button>
+
+<div class="ui-widget">
+    <label>Output: </label>
+</div>
+<div class="ui-widget">
+    <p id="output">
+</div>
