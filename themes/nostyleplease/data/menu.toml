@@ -25,6 +25,9 @@ url = "categories"
   [[entries.entries]]
   title = "Jetpack Compose Desktop"
   url = "categories/jetpack"
+  [[entries.entries]]
+  title = "JavaScript相关"
+  url = "categories/javascript"
 
 [[entries]]
 title = "文章rss订阅地址"

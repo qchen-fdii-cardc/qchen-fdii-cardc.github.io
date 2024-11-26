@@ -1,3 +1,10 @@
+function factorial(n) {
+    if (n === 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
 
 function updateFactorialText() {
     var n = $("#num").val();
@@ -18,16 +25,6 @@ function updateFactorialText() {
 
     $("#line").before("<div class='equation' id='" + n + "'>" + n + "!=" + value + "</div>");
 }
-
-function factorial(n) {
-    if (n === 0) {
-        return 1;
-    } else {
-        return n * factorial(n - 1);
-    }
-}
-
-
 
 // setup enter key response to input element
 $("#num").keypress(function (e) {
