@@ -20,3 +20,6 @@ staticDir = ["static"]
     endLevel = 2
     startLevel = 2
     ordered = true
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

@@ -27,7 +27,7 @@ url = "categories"
   url = "categories/jetpack"
 
 [[entries]]
-title = "rss"
+title = "文章rss订阅地址"
 url = "index.xml"
 
 
@@ -43,3 +43,12 @@ title = "Hugo模版no-style-please信息"
 
   [[entries.entries]]
   title = "used by <a href='https://riggraz.dev'>riggraz.dev</a> and <a href='https://github.com/riggraz/no-style-please/network/dependents'>many others</a>"
+
+[[entries]]
+title = "支持工具"
+
+  [[entries.entries]]
+  title = "<a href='https://gohugo.io/'>Hugo: The world’s fastest framework for building websites</a>"
+  
+  [[entries.entries]]
+  title = "<a href='https://busuanzi.ibruce.info'>不蒜子： 两行代码 搞定计数</a> "

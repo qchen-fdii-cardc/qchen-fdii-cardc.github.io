@@ -1,0 +1,34 @@
+<style>
+    #result {
+        color: cyan;
+        background: black;
+        font-size: 24px;
+    }
+
+    .scriptWindow {
+        font-size: 12px;
+    }
+</style>
+
+<textarea rows="10" cols="80" type="scriptWindow" id="javascript_sentence" placeholder="Enter an expression"></textarea>
+
+<textarea id="result" rows="1" cols="47" readonly></textarea>
+
+
+<script>
+    function eval_expression() {
+        // get value from javascript_sentence
+        var expr = $("#javascript_sentence").val();
+        $("#result").text(eval?.(expr));
+
+    }
+    // setup out of focus response to input element
+    $("#javascript_sentence").focusout(function () {
+        eval_expression();
+    });
+    $("#javascript_sentence").keypress(function (e) {
+        if (e.which == 13) {
+            eval_expression();
+        }
+    });
+</script>
