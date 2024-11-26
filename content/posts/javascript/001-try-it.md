@@ -4,7 +4,7 @@ date = 2024-11-23T14:20:15+08:00
 draft = false
 mathjax = false
 categories = ['javascript']
-tags = ['javascript', 'html', 'css', 'tutorial']
+tags = ['javascript', 'html', 'css', 'tutorial', 'hugo', 'include-file']
 toc = true
 tocBorder = true
 +++
@@ -44,11 +44,14 @@ tocBorder = true
 好吧，技术总是发展得如此之快，麻瓜们只能瞠目结舌不知所措。
 
 
-对应的HTML代码为：
+对应的[HTML代码](/javascript/fact.html)为：
 
 ```html    
 {{% codesnap "/static/javascript/fact.html" %}}
 ```
+
+这里我引用了jQuery，我唯一知道的JavaScript基础设施……不知道是不是有替代的更好的，在我找到之前，就用这个来操纵我的HTML吧。
+
 
 对应的JavaScript代码放在[单独的文件](/javascript.fact.js)中，下面是JavaScript的代码。
 
@@ -56,7 +59,12 @@ tocBorder = true
 {{% codesnap "/static/javascript/fact.js" %}}
 ```
 
-不要忘了还有一个[CSS文件](/javascript/fact-style.css)，内容如下：
+首先是定义阶乘函数，最无聊的一种定义方式，递归调用，终止条件`0!=1`。然后是更新文字，利用jQuery来操纵，设置文本，并添加历史记录。
+
+通过在历史记录中按照`id`设置为对应数字来保持单一性。最后是给输入框的回车和失去焦点添加回调函数。jQuery是那么性感。
+
+
+不要忘了还有一个[CSS文件](/javascript/fact-style.css)，内容如下，不要嘲笑领域专家的CSS技能……我们基本上刷成灰的就会说好看，刷成绿的就说难看。
 
 ```css
 {{% codesnap "/static/javascript/fact-style.css" %}}
@@ -77,6 +85,40 @@ tocBorder = true
 ```
 
 看起来这个也没有问题。
+
+## Hugo中导入HTML、JS和CSS的美好之处
+
+实际上，这里面最好的就是，所有的代码，可以直接写成HTML文件、JS文件和CSS文件，在这个帖子里中，我可以直接引用文件内容。
+
+如果是插入HTML文件内容本身，我定义了一个Hugo宏，`htmlfile.html`，放在`/laytouts/shortcodes`目录下，
+
+```hugo
+{{ .Get 0 | readFile | safeHTML }}
+```
+
+只要在Github Repository的`hugo.toml`中增加一个选项：
+
+```
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+```
+
+在Markdown文件中增加HTML文件的原始内容，就是记得这里要写文件相对于Hugo站点根目录的全路径：
+
+![](/javascript/include-raw-html.png)
+
+这个部分就直接成为博客的一部分，这也太完美了吧。
+
+然后，要展示源代码，就只需要：
+
+![](/javascript/include-code-snap.png)
+
+这两个宏命令，其实都是一样的，我专门做成两个，就是为了区别功能，当然，`codesnap`还可以引用别的语言的代码。
+
+
+还是有点完美的……我简直是个天才。
 
 ## 下一步
 
