@@ -1,7 +1,7 @@
 +++
-title = '001 Try It with JavaScript初见情'
+title = '001 Try It with JavaScript in Hugo中增加一点JavaScript'
 date = 2024-11-23T14:20:15+08:00
-draft = true
+draft = false
 mathjax = false
 categories = ['javascript']
 tags = ['javascript', 'html', 'css', 'tutorial']
@@ -40,7 +40,8 @@ tocBorder = true
 
 上面的“应用”是用JavaScript写的，可以计算阶乘。你可以输入一个数字，然后点击“计算”按钮，就可以看到这个数字的阶乘。
 
-其实，别的不说，就JavaScript这个运行速度，简直是盖了……这还不是尾递归，速度快的一塌糊涂，也
+其实，别的不说，就JavaScript这个运行速度，简直是盖了……这还不是尾递归，速度快的一塌糊涂。
+好吧，技术总是发展得如此之快，麻瓜们只能瞠目结舌不知所措。
 
 
 对应的HTML代码为：
@@ -49,16 +50,19 @@ tocBorder = true
 {{% codesnap "/static/javascript/fact.html" %}}
 ```
 
-下面是JavaScript的代码。
+对应的JavaScript代码放在[单独的文件](/javascript.fact.js)中，下面是JavaScript的代码。
 
 ```javascript
 {{% codesnap "/static/javascript/fact.js" %}}
 ```
 
+不要忘了还有一个[CSS文件](/javascript/fact-style.css)，内容如下：
 
 ```css
 {{% codesnap "/static/javascript/fact-style.css" %}}
 ```
+
+真看起来真的还行，在Hugo里面也能做一个JavaScript的App……下面再测试一下另外一个东西。
 
 ## JavaScript中危险的`eval`
 
@@ -68,7 +72,12 @@ tocBorder = true
 
 对应的代码为：
 
-
 ```html    
 {{% codesnap "/static/javascript/eval.html" %}}
 ```
+
+看起来这个也没有问题。
+
+## 下一步
+
+这样的话，可以玩的就太多了……
