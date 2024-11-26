@@ -28,6 +28,19 @@ function flush_fluid_list() {
 
 
 $(function () {
+    $('#search').click(function () {
+        var name = $('#FluidName :selected').text();
+        let url = `https://cn.bing.com/search?q=${name}%2Bfluid%20properties`;
+        // open a new window
+        open(url);
+    })
+
+    $('#cp').click(function () {
+        var name = $('#FluidName :selected').text();
+        let url = `http://www.coolprop.org/fluid_properties/fluids/${name}.html`;
+        // open a new window
+        open(url);
+    })
     // click calculation
     //using jQuery
     $('#calc').click(function () {
