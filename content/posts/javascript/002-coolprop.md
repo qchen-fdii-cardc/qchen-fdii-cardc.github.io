@@ -20,6 +20,10 @@ tocBorder = true
 
 这里实现了一个简单的单纯流体的一般参数查询。还没有准备更加复杂的东西。
 
+- [Coolprop.js](/javascript/coolprop.js)
+- [Coolprop.wasm](/javascript/coolprop.wasm)
+- [Coolprop JavaScipt wrapper](http://www.coolprop.org/coolprop/wrappers/Javascript/index.html)
+
 ## HTML源程序
 
 - [HTML源文件](/javascript/coolprop-first-example.html)
@@ -41,3 +45,4 @@ tocBorder = true
 ```javascript
 {{% codesnap "/static/javascript/coolprop-first.js" %}}
 ```
+
