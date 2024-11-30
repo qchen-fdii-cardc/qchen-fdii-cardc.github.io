@@ -16,6 +16,7 @@ const parameters = {
     "Humid ratio": "W"
 };
 
+<<<<<<< HEAD
 const pp = new Map();
 
 for (const [key, value] of parameters){
@@ -30,3 +31,21 @@ $(function () {
         $("#result").text(`${d}-${h}`);
     })
 });
+=======
+const parameterUnits = {
+    "Wet-Bulb Temperature": 'K',
+    "Dew-Point Temperature": 'K',
+    "Mixture enthalpy per dry air": 'J/kg',
+    "Mixture enthalpy per humid air": "J/kg",
+    "Water mole fraction": "mol/mol",
+    "Pressure": "Pa",
+    "Partial pressure of water vapor": "Pa",
+    "Relative humidity in [0, 1]": '',
+    "Mixture entropy per unit dry air": "J/kg-K",
+    "Mixture entropy per unit humid air": "J/kg-K",
+    "Dry-Bulb Temperature": "K",
+    "Mixture volume per unit dry air": "m^3/kg",
+    "Mixture volume per unit humid air": "m^3/kg",
+    "Humid ratio": "kg/kg"
+}
+>>>>>>> 937c02557525bb4f22f998c2436160f33cb6e6da

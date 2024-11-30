@@ -9,5 +9,106 @@
 <script src="/javascript/HumidAirCalculation.js" defer></script>
 
 <h2>湿空气的分析与计算</h2>
+<<<<<<< HEAD
 <button>计算</button>
 <div id="result"></div>
+=======
+
+<br>
+<label for="param1"><select id="param1"></select><input type="text" id="param1val"/></label><label id="param1Unit"></label>
+<br>
+<label for="param2"><select id="param2"></select><input type="text" id="param2val"/></label><label id="param2Unit"></label>
+<br>
+<label for="param3"><select id="param3"></select><input type="text" id="param3val"/></label><label id="param3Unit"></label>
+
+<br>
+<button>计算</button>
+<div id="result"></div>
+
+<script>
+
+    function setOptionById(selector, id) {
+        $(selector).val($(selector + ` option[id='${id}']`).val());
+        // fire change event
+        $(selector).change();
+    }
+
+    function getIdBySelectedValue(selector) {
+        return $(selector + ' option:selected').attr('id');
+    }
+
+
+    $(function () {
+        $('button').button().click(function () {
+            // change to float
+            let parameters = {
+                'param1': parseFloat($('#param1val').val()),
+                'param2': parseFloat($('#param2val').val()),
+                'param3': parseFloat($('#param3val').val())
+            };
+
+
+            let id1 = getIdBySelectedValue('#param1');
+            let id2 = getIdBySelectedValue('#param2');
+            let id3 = getIdBySelectedValue('#param3');
+
+            // check id1 / id2 / id3 are unique
+            if (id1 === id2 || id1 === id3 || id2 === id3) {
+                alert('请确保三个参数不相同');
+                return;
+            }
+
+            let result = Module.HAPropsSI("B", id1, parameters['param1'], id2, parameters['param2'], id3, parameters['param3']);
+
+            // console.log(`id1: ${id1}, p1: ${p1}, id2: ${id2}, p2: ${p2}, id3: ${id3}, p3: ${p3}`);
+
+            // let result = Module.HAPropsSI("B", id1, p1, id2, p2, id3, p3);
+
+            let output = "Wet-Bulb Temperature";
+            let outputUnit = parameterUnits[output];
+
+            $("#result").text(`Wet-Bulb Temperature = ${result}${outputUnit}`);
+        });
+
+        for (let desc in parameters) {
+            let name = parameters[desc];
+            ['#param1', '#param2', '#param3'].forEach(selector => {
+                $(selector).append(`<option value="${desc}" id="${name}">${desc}</option>`);
+
+                $(selector).change(function () {
+                    // make sure the tree params unique
+                    let id = $(selector).val();
+                    let unitSelector = selector + 'Unit';
+                    // console.log(`${id}: ${unitSelector}`);
+                    let txt = parameterUnits[id];
+                    if (txt) {
+                        $(unitSelector).text(txt);
+                    } else {
+                        $(unitSelector).text('1');
+                    }
+                });
+
+                // setup onchange event for input
+                $(selector + 'val').change(function () {
+                    $('button').click();
+                });
+
+            });
+            // param1 set to pressure, param2 set to temperature
+            setOptionById('#param1', 'P');
+            setOptionById('#param2', 'T');
+            setOptionById('#param3', 'R');
+
+            // set default value
+            $('#param1val').val(101325);
+            $('#param2val').val(300);
+            $('#param3val').val(0.5);
+
+        }
+
+
+    });
+
+
+</script>
+>>>>>>> 937c02557525bb4f22f998c2436160f33cb6e6da
