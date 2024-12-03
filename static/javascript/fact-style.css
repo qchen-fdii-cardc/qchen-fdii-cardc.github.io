@@ -1,0 +1,17 @@
+    input {
+        display: inline-block;
+        background-color: aqua;
+    }
+
+    #fact {
+        display: inline-block;
+    }
+
+    #line {
+        display: inline-block;
+    }
+
+    .equation {
+        background-color: lightgray;
+        width: 400px;
+    }
