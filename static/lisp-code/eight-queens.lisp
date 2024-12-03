@@ -7,33 +7,22 @@
   (:export :solve-eight-queens
            :print-board
            :get-solution
-           :set-solution))
+           :set-solution
+           :run-all-tests))
 
 
 (in-package :eight-queens)
 
+;; test framework
+(defun run-all-tests ()
+  (run *tests*))
 
+; clear the test list
 (setf *tests* nil)
 
 (defvar *board-size* 8)
 (defvar *board* (make-array (list *board-size* *board-size*) :initial-element nil))
 (defvar *solutions* nil)
-
-(defun at (row col)
-  (if (and (>= row 0) (>= col 0) (< row *board-size*) (< col *board-size*))
-      (aref *board* row col)
-      nil))
-
-;; define a setf function for the board
-(defun (setf at) (value row col)
-  (when (and (>= row 0) (>= col 0) (< row *board-size*) (< col *board-size*))
-        (setf (aref *board* row col) value)))
-(defun place-queen (row col)
-  (setf (at row col) t))
-
-(defun remove-queen (row col)
-  (setf (at row col) nil))
-
 
 (defun reset-board ()
   (setf *board* (make-array (list *board-size* *board-size*) :initial-element nil)))
@@ -45,7 +34,7 @@
 
 (defun get-solution ()
   "represent the solution as a list of column numbers"
-  (loop for i from 0 to (1- *board-size*) collect (loop for j from 0 to (1- *board-size*) thereis (if (aref *board* i j) j nil))))
+  (loop for i from 0 to (1- *board-size*) collect (loop for j from 0 to (1- *board-size*) thereis (if (at i j) j nil))))
 
 (defun set-solution (solution)
   (setf *board-size* (length solution))
@@ -56,7 +45,40 @@
   "print out results"
   (format stream "~%")
   (loop for i from 0 to (1- (array-dimension *board* 0)) do
-          (format stream "~{~a~^~}~%" (loop for j from 0 to (1- (array-dimension *board* 1)) collect (if (aref *board* i j) "⚫" "⚪")))))
+          (format stream "~{~a~^~}~%" (loop for j from 0 to (1- (array-dimension *board* 1)) collect (if (at i j) "⚫" "⚪")))))
+
+;; basic board access, at and setf at
+;; constraint 'aref' to be call only here to hide the implementation
+(defun at (row col)
+  (if (and (>= row 0) (>= col 0) (< row *board-size*) (< col *board-size*))
+      (aref *board* row col)
+      nil))
+; define a setf function for the board
+(defun (setf at) (value row col)
+  (when (and (>= row 0) (>= col 0) (< row *board-size*) (< col *board-size*))
+        (setf (aref *board* row col) value)))
+
+; test the at function
+(test test-at ()
+  (reset-board)
+  ;; iterate over the board
+  (loop for i from 0 to (1- *board-size*) do
+          (loop for j from 0 to (1- *board-size*) do
+                  (is (not (at i j)))))
+
+  ; set the top left corner to t
+  (setf (at 0 0) t)
+  (is (at 0 0))
+  ; out of bounds
+  (is (not (at 1 9))))
+
+;; actual queen placement and removal
+(defun place-queen (row col)
+  (setf (at row col) t))
+
+(defun remove-queen (row col)
+  (setf (at row col) nil))
+
 
 ;; test queen placement for safty
 (defun queen-in-row-p (row)
@@ -78,7 +100,7 @@
   (min (- *board-size* row) col))
 
 (defun plus-line-1 (row col)
-  " +1, +1"
+  "+1, +1"
   (loop for i from 1 to (closest-distance-to-bottom-right row col) thereis (at (+ row i) (+ col i))))
 
 (defun minus-line-1 (row col)
