@@ -25,43 +25,65 @@ $$
 
 ### Matlab的若干实现
 
-#### 循环实现
 
 ```matlab
-function sumRet = matrix_square_sum(A)
-    [m, n] = size(A);
-    sumRet = 0;
-    for i = 1:m
-        for j = 1:n
-            sumRet = sum + A(i,j)^2;
-        end
-    end
-end
+{{% codesnap "/static/matlab-code/+benchobjs/bench_loop_row_column.m" %}}
 ```
-
-
-#### 矩阵乘法实现
 
 ```matlab
-function sumRet = matrix_square_sum(A)
-    sumRet = sum(sum(A.^2));
-end
+{{% codesnap "/static/matlab-code/+benchobjs/bench_loop_column_row.m" %}}
 ```
-
-#### 矩阵元素平方和实现
 
 ```matlab
-function sumRet = matrix_square_sum(A)
-    sumRet = sum(A(:).^2);
-end
+{{% codesnap "/static/matlab-code/+benchobjs/bench_loop_column_sum.m" %}}
 ```
 
+```matlab
+{{% codesnap "/static/matlab-code/+benchobjs/bench_loop_sum_column.m" %}}
+```
 
+```matlab
+{{% codesnap "/static/matlab-code/+benchobjs/bench_loop_row_sum.m" %}}
+```
 
+```matlab
+{{% codesnap "/static/matlab-code/+benchobjs/bench_loop_sum_row.m" %}}
+```
+
+```matlab
+{{% codesnap "/static/matlab-code/+benchobjs/bench_loop_vec.m" %}}
+```
+
+```matlab
+{{% codesnap "/static/matlab-code/+benchobjs/bench_sum_sum.m" %}}
+```
+
+```matlab
+{{% codesnap "/static/matlab-code/+benchobjs/bench_sum_all.m" %}}
+```
+
+```matlab
+{{% codesnap "/static/matlab-code/+benchobjs/bench_sum_vec.m" %}}
+```
+
+```matlab
+{{% codesnap "/static/matlab-code/+benchobjs/bench_vec_dot.m" %}}
+```
+
+```matlab
+{{% codesnap "/static/matlab-code/+benchobjs/bench_matrix_mul.m" %}}
+```
 
 
 
 ## 性能比较
+### 性能比较方法
+
+```matlab
+{{% codesnap "/static/matlab-code/+benchobjs/bench_f_n.m" %}}
+```
+
+
 ### 性能比较结果
 
 ![](/matlab-img/compareMatrixSquareSum-time.png)
@@ -73,6 +95,7 @@ end
 
 ### 性能比较代码
 
+- [Matlab code](/matlab-code/compareMatrixSquareSum.m)
 
 ```matlab
 {{% codesnap "static/matlab-code/compareMatrixSquareSum.m" %}}
