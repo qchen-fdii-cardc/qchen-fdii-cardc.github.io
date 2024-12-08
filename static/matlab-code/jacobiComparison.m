@@ -57,7 +57,7 @@ grid on
 exportgraphics(gca, "yellow_for_t1_le_t2.png")
 
 %% calculate t1 and t2 for default maxNumCompThreads, 1000 times, iter_max = 100000
-
+maxNumCompThreads('automatic')
 iter_times = 1000;
 t1 = arrayfun(@(~)timeit(@()iter_jacobi(A, b, x_init, 1.0e-7, iter_times, 0), 2), 1:100);
 t2 = arrayfun(@(~)timeit(@()iter_jacobi(A, b, x_init, 1.0e-7, iter_times, 1), 2), 1:100);
