@@ -13,7 +13,7 @@ for n = 1:20
     iter_times = round(logspace(3, 5, 10));
     t1 = arrayfun(@(n)timeit(@()iter_jacobi(A, b, x_init, 1.0e-7, n, 0), 2), iter_times);
     t2 = arrayfun(@(n)timeit(@()iter_jacobi(A, b, x_init, 1.0e-7, n, 1), 2), iter_times);
-    save(sprintf("comaprison-%d", maxNumCompThreads), "t1", "t2");
+    save(sprintf("comparison-%d", maxNumCompThreads), "t1", "t2");
     fprintf("i=1:n\t");
     fprintf("%.8f\t", t1);
     fprintf("\n");
@@ -39,7 +39,7 @@ iter_times = round(logspace(3, 5, 10));
 comparison = zeros(numel(numCompThreads), numel(iter_times));
 
 for i = 1:numel(numCompThreads)
-    load(sprintf("comaprison-%d", i), "t1", "t2");
+    load(sprintf("comparison-%d", i), "t1", "t2");
     comparison(i, :) = t1 < t2;
 end
 

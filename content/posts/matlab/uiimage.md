@@ -4,7 +4,7 @@ date = 2024-10-26T09:21:18+08:00
 draft = false
 mathjax = true
 categories = ['matlab']
-tags = ['matlab', 'uiimage', 'ui']
+tags = ['matlab', 'uiimage', 'gui']
 toc = true
 tocBorder = true
 +++

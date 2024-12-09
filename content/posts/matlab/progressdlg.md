@@ -4,7 +4,7 @@ date = 2024-11-14T08:48:46+08:00
 draft = false
 mathjax = true
 categories = ['matlab']
-tags = ['matlab', 'ui', 'ux']
+tags = ['matlab', 'gui', 'ux']
 toc = true
 tocBorder = true
 +++
