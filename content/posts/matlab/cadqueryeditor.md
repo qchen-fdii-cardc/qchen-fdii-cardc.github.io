@@ -4,7 +4,7 @@ date = 2024-12-09T08:07:14+08:00
 draft = false
 mathjax = false
 categories = ['matlab', 'FEM']
-tags = ['matlab', 'CAD', 'CADQuery', 'FEM', 'Geometry']
+tags = ['matlab', 'CAD', 'CADQuery', 'FEM', 'Geometry', 'gui']
 toc = true
 tocBorder = true
 +++
