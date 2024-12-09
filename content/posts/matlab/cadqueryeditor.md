@@ -1,7 +1,7 @@
 +++
 title = 'CAD Editor in Matlab中实现一个CADQuery编辑器'
 date = 2024-12-09T08:07:14+08:00
-draft = true
+draft = false
 mathjax = false
 categories = ['matlab', 'FEM']
 tags = ['matlab', 'CAD', 'CADQuery', 'FEM', 'Geometry']
@@ -162,11 +162,148 @@ ax.ZLabel.String = 'Z';
 这里注意的是，不是用`xlabel`、`ylabel`、`zlabel`函数，而是用`XLabel`、`YLabel`、`ZLabel`属性的`String`参数来设置坐标标签。
 
 
-### 工作空间的概念
+### 工作空间和变量类型
+
+在设计实现上面的这个CADQuery编辑器的时候，考虑到如何把脚本运行的结果（在cadquery中描述为Workplane）保存下来，以便于后续的操作。
+
+最简单的就是把这个变量输出为一个stl文件，然后再导入到Matlab中进行显示。
+
+这里就有一个问题，如何获得脚本中产生的Workplane变量？
+
+最简单的考虑，就是下面这个算法：
+
+1. 找到所有的变量（在哪找？）
+2. 看看这个变量是不是Workplane类型（怎么看？）
+3. 如果是Workplane类型，就把名字记下来
+4. 当需要显示某个Workplane的时候，就把这个Workplane变量导出为stl文件，然后导入到Matlab中显示。
+
+这里就有一个问题，如何找到所有的变量？变量的信息保存在哪里？Matlab如何管理变量？
+
+这里先歪个楼，看看Matlab中函数闭包的问题。
+
+#### 匿名函数闭包
+
+例如，我们定义一个匿名函数，如下所示：
+
+```matlab
+f = @(x) x^2+y;
+```
+
+如果我们调用这个函数，如下所示：
+
+```matlab
+>> f(10)
+函数或变量 'y' 无法识别。
+出错 @(x)x^2+y 
+```
+
+这里就会报错，因为`y`这个变量没有定义。比如，我们再定义这个变量：
+
+```matlab
+>> y = 12
+y =
+    12
+>> f(10)
+函数或变量 'y' 无法识别。
+出错 @(x)x^2+y 
+```
+
+依然不行。这里的`y`是一个自由变量，这个变量的值是在函数定义的时候确定的，而不是在函数调用的时候确定的。必须这样：
+
+```matlab
+>> y = 12; f = @(x)x^2 + y;
+>> f(2)
+ans =
+    16
+```
+
+我们可以通过`functions`函数来查看这个函数的信息，如下所示：
+
+```matlab
+>> functions(f)
+ans = 
+  包含以下字段的 struct:
+
+            function: '@(x)x^2+y'
+                type: 'anonymous'
+                file: ''
+           workspace: {[1×1 struct]}
+    within_file_path: ''
+```
+
+这里面有一个`workspace`字段，这个字段是一个结构体，这个结构体中保存了这个函数的自由变量的值，如下所示：
+
+```matlab
+>> functions(f).workspace{1}
+ans = 
+  struct with fields:
+
+    y: 12
+```
+
+大概说起来，工作空间（workspace）就相当于是一个描述代码运行环境的结构体，这个结构体中保存了所有的变量的值，这些变量的值是在代码运行的时候确定的。
+
+这在其它程序设计语言中，大概就相当于是闭包（closure）。
 
 
+#### `base`和`caller`工作空间
+
+在Matlab脚本和函数中，就定义了两个特殊的工作空间，`base`和`caller`工作空间。
+
+`base`工作空间是Matlab的基础工作空间，这个工作空间中保存了所有的全局变量的值；`caller`工作空间是调用函数的工作空间，这个工作空间中保存了所有的局部变量的值。
+
+我们可以通过`evalin`函数来查看这两个工作空间的变量，如下所示：
+
+```matlab
+>> variables = evalin('base', 'whos')
+variables = 
+  包含以下字段的 24×1 struct 数组:
+    name
+    size
+    bytes
+    class
+    global
+    sparse
+    complex
+    nesting
+    persistent
+```
+
+这会得到一个结构数组，当用`who`代替`whos`时，会得到一个字符串数组，这个字符串数组中保存了所有的变量的名字。这就实际上的提供了一个方法，可以在不同的地方直接操作一个共享的工作空间。
+
+
+#### 变量类型
+
+Matlab中变量类型可以用`class`函数来查看，如下所示：
+
+```matlab
+>> class(1)
+ans =
+    'double'
+>> class('hello')
+ans =
+    'char'
+>> class([1,2,3])
+ans =
+    'double'
+```
+
+通过这个函数与`strcmp`函数，可以判断一个变量是不是某种类型，如下所示：
+
+```matlab
+>> strcmp(class(1), 'double')
+ans =
+  logical
+   1
+>> strcmp(class(1), 'char')
+ans =
+  logical
+   0
+```
 
 ## 代码
+
+下面给出实现这个CADQuery编辑器的代码。
 
 ### GUI
 - [cadqueryEditor.m](/matlab-code/cadqueryEditor.m)
@@ -185,7 +322,7 @@ ax.ZLabel.String = 'Z';
 ```matlab
 {{% codesnap "static/matlab-code/mycadquery.cds" %}}
 ```
-
+这里面有一个常用的转换函数，就是把矩阵的行转换为Python的列表。
 
 ```matlab
 {{% codesnap "static/matlab-code/matrixRow2List.m" %}}
