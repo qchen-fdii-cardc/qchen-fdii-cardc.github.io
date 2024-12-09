@@ -13,6 +13,14 @@
         <time datetime="{{ .Date }}">
             {{ .Date | time.Format site.Params.theme_config.date_format }}
         </time>
+        {{- range $c := .Params.categories -}}
+        {{ $c := lower $c }}
+        {{ $url := printf "/categories/%s/" $c | absURL }}
+        <a href="{{ $url }}">-->{{ $c }}</a>
+        {{- end -}}
+        <span id="busuanzi_container_page_pv">
+            |欢迎您，第<span id="busuanzi_value_page_pv"></span>位读者！|
+        </span>
     </p>
 
     <h1>{{ .Title }}</h1>
