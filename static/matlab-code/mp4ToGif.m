@@ -20,7 +20,7 @@ end_frame=round(Framerate*end_time)-1; % 结束帧数
 
 for i=start_frame:2:end_frame
     frame=read(video,i); %读取第k帧画面
-    frame=imresize(frame,0.2); % 将图像缩小0.5倍
+    frame=imresize(frame,0.5); % 将图像缩小0.5倍
     % im=frame2im(frame); % 从单个影片帧frame返回真彩色 (RGB) 图像
     % 制作gif文件，图像必须是index索引图像,只能用256色
     [I,map]=rgb2ind(frame,256); % 将RGB图像frame转换为索引图像I，map为关联颜色图

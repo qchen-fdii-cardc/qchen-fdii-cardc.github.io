@@ -25,6 +25,8 @@ tocBorder = true
 画蛇著足无处用，两鬓雪白趋埃尘。唐·韩愈《感春》
 ```
 
+![](/matlab-img/cadqueryEditor.gif)
+
 ## CAD编辑器的构想
 
 反正没有头发，也不怕两鬓雪白趋埃尘，那就画蛇著足吧。
