@@ -133,12 +133,33 @@ class(py.list([1,2,3]))
 总的来说，在Matlab中调用Python的函数还是有点憋屈的，不过也能用。
 
 ### GUI程序开发
+关于这个议题，已经写了很多了，可以参考[GUI标签的所有文章](/tags/gui/)系列的文章。
 
 - [界面开发](/posts/matlab/gui/)
 - [界面布局容器](/posts/matlab/ui-layout/)
 - [界面设定位置](/posts/matlab/position_layout_ui_in_matlab/)
 - [回调函数](/posts/matlab/callbacks/)
 - [使用图片](/posts/matlab/uiimage/)
+
+这里唯一需要增加的就是，需要构造一个坐标系来调用`pdegplot`函数，来显示stl模型。
+
+这里，如下代码导入stl模型，并显示：
+
+```matlab
+gm = importGeometry('model.stl');
+pdegplot(ax, gm, 'FaceAlpha', 0.5, 'FaceLabels', 'on');
+```
+
+这里的`ax`是一个坐标系，可以用`uiaxes`函数构造，如下所示：
+
+```matlab
+ax = uiaxes(gridLayout);
+ax.XLabel.String = 'X';
+ax.YLabel.String = 'Y';
+ax.ZLabel.String = 'Z';
+```
+
+这里注意的是，不是用`xlabel`、`ylabel`、`zlabel`函数，而是用`XLabel`、`YLabel`、`ZLabel`属性的`String`参数来设置坐标标签。
 
 
 ### 工作空间的概念
@@ -169,3 +190,8 @@ class(py.list([1,2,3]))
 ```matlab
 {{% codesnap "static/matlab-code/matrixRow2List.m" %}}
 ```
+
+
+## 总结
+
+一个问题：画蛇最好增加几只脚？
