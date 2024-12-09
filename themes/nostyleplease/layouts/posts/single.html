@@ -2,8 +2,8 @@
 {{ partial "back_link.html" .}}
 
 {{- range $c := .Params.categories -}}
-{{ $c := lower $c }}
-{{ $url := printf "/categories/%s/" $c | absURL }}
+{{ $cl := lower $c }}
+{{ $url := printf "/categories/%s/" $cl | absURL }}
 <a href="{{ $url }}">|--{{ $c }}</a>
 {{- end -}}
 
@@ -37,6 +37,16 @@
 
     {{ .Content }}
 </article>
+<hr>
+<p style="text-align:left;font-weight:bold;font-size:x-large;">文章标签</p>
+<P>
+    {{- range $t := .Params.tags -}}
+    {{- $tl := lower $t -}}
+    {{- $url := printf "/tags/%s/" $tl | absURL -}}
+    <a href="{{ $url }}">|-->{{ $t }} </a>
+    {{- end -}}
+</P>
+
 <hr>
 
 <ul>
