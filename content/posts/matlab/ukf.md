@@ -91,3 +91,6 @@ y_1 = x_1 * (1 +  \mathcal{N}(0, R)) \\\\
 ## 进一步分析
 
 当然，我们还可以对新息、协方差等进行分析。这里仅仅展示对一个连续的状态进行UKF估计的过程。
+
+
+参考：[Van der Pol Equation: Overview, Derivation, and Examination of Solutions](https://nickmcmullen.github.io/m312_project_handout.pdf)
