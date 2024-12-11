@@ -3,6 +3,7 @@
 
 {{- range $c := .Params.categories -}}
 {{ $cl := lower $c }}
+{{ $cl := replace $cl " " "-" }}
 {{ $url := printf "/categories/%s/" $cl | absURL }}
 <a href="{{ $url }}">|--{{ $c }}</a>
 {{- end -}}
@@ -42,6 +43,7 @@
 <P>
     {{- range $t := .Params.tags -}}
     {{- $tl := lower $t -}}
+    {{- $tl := replace $tl " " "-" -}}
     {{- $url := printf "/tags/%s/" $tl | absURL -}}
     <a href="{{ $url }}">|-->{{ $t }} </a>
     {{- end -}}
