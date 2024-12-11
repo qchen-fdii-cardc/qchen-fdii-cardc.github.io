@@ -1,0 +1,2 @@
+1. The language is good enough that I don't have any difficulties to understand the content.
+2. The topic itself is very interesting and significant. Travel Route Planning Problem is a complicated traveling salesperson problem, and it is a very important problem in the field of computer science. The author's introduction and comments don't resemble a formal academic paper, though they are relatively informative and interesting. 
