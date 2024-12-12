@@ -1,6 +1,9 @@
 ret = cq.Workplane("front").box(1,1,1);
 
+
+
 result0 = cq.Workplane("front").circle(2.0).rect(0.5, 0.75).extrude(0.5);
+
 
 arcExtrude = ...
    cq.Workplane("front")...
@@ -9,6 +12,7 @@ arcExtrude = ...
    .threePointArc([1.0, 1.5], [0.0, 1.0])...
    .close()...
    .extrude(0.25);
+
 
 %%%%%%%%%%%%%%%%%%%%%%%
 result1 = cq.Workplane("front").circle(...
@@ -21,6 +25,7 @@ result1 = result1.center(-1.5, 1.5).circle(0.25)  % new work center is (0.0, 1.5
 
 result1 = result1.extrude(0.25);
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 r = cq.Workplane("front").circle(2.0)  % make base
 r = r.pushPoints(...
@@ -28,6 +33,7 @@ r = r.pushPoints(...
 )  % now four points are on the stack
 r = r.circle(0.25)  % circle will operate on all four points
 result3 = r.extrude(0.125)  % make prism
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 result4 = ...
