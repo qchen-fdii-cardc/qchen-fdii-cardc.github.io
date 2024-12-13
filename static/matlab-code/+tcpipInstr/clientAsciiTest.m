@@ -7,19 +7,3 @@ for i = 1:length(props)
 end
 
 delete(t);
-
-function s = toStr(val)
-
-    if ischar(val)
-        s = val;
-    elseif isnumeric(val)
-        s = num2str(val);
-    elseif islogical(val)
-        s = string(val);
-    elseif class(val) == "function_handle"
-        s = strjoin(arrayfun(@func2str, val, 'UniformOutput', false), ', ');
-    else
-        s = "unknown";
-    end
-
-end

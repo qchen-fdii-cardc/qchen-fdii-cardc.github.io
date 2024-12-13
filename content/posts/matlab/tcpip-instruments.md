@@ -65,14 +65,93 @@ ping 192.168.0.102
 
 ## Matlab中的Tcpip对象
 
-Matlab中的Tcpipclient对象是用来连接和调试采用TCP/IP协议的仪器的。
+Matlab中的Tcpclient对象是用来连接和调试采用TCP/IP协议的仪器的。这里的理解就是，仪器相当于是一个服务器，我们的电脑相当于是一个客户端。我们通过Tcpclient对象来连接仪器，发送命令，接收数据。
 
 ### 创建Tcpipclient对象
 
 ```matlab
-t = tcpipclient('xx.xx.xx.xx', 5025);
+t = tcpclient('xx.xx.xx.xx', 5025);
 ```
 
 这里最主要的就是IP地址和端口号，这两个信息请查看说明书或者给供货商致电询问。
 
 有了这个对象，我们就能发送命令、接收数据。
+
+我们可以执行`properties(t)`来查看这个对象的属性，执行`methods(t)`来查看这个对象的方法。这个仅仅作为练习。
+
+记得这里，客户端对象的属性可以在创建的时候设置，也可以在创建之后设置。
+
+- `t.Address`：IP地址，只能在创建的时候设置。
+- `t.Port`：端口号，只能在创建的时候设置。
+- `t.Timeout`：设置超时时间，单位是秒。可以在创建的时候设置，也可以在创建之后设置。
+- `t.ConnectTimeout`：设置连接超时时间，单位是秒。可以在创建的时候设置，也可以在创建之后设置。
+
+客户端对象还有些跟数据发送和读取有关系的属性，可以参考文档。
+
+### 测试服务器
+
+当然，我们对仪器进行测试还是挺麻烦的，Matlab提供了一个回声服务器可以用于测试我们实现的客户端功能。
+
+```matlab
+{{% codesnap "/static/matlab-code/+tcpipInstr/startEchoServer.m" %}}
+```
+
+这个端口，开在了`localhost`的`8808`端口上。当我们不需要时，可以再次调用这个函数关闭服务器。
+
+
+```matlab
+{{% codesnap "/static/matlab-code/+tcpipInstr/stopEchoServer.m" %}}
+```
+
+### 模式一：字符串模式
+
+对于字符串模式，我们可以使用`writeline`和`readline`方法。这里的读取和发送都涉及到一个终止符，这个终止符可以通过`configureTerminator`方法设置。
+
+```matlab
+t = tcpclient('localhost', 8808);
+configureTerminator(t, "CR/LF");
+writeline(t, "Hello, world!");
+data = readline(t);
+disp(data);
+% Hello, world!
+delete(t);
+```
+这里`writeline`会自动添加终止符，`readline`会读取到终止符为止的数据并返回不包含终止符的数据。
+
+
+### 模式二：二进制模式
+
+对于二进制模式，我们可以使用`write`和`read`方法。这里的读取和发送都是字节流，没有终止符。
+
+```matlab
+t = tcpclient('localhost', 8808);
+write(t, uint8([1, 2, 3, 4, 5]));
+data = read(t, 5);
+disp(data);
+
+write(t, [4, 3, 2, 1 , 0], "double")
+data = read(t, 5, "double");
+disp(data);
+% 4 3 2 1 0
+
+delete(t);
+```
+
+### 回调函数
+
+我们可以通过`configureCallback`方法设置回调函数，当有数据到达时，会调用这个回调函数。此外，回调函数有3种类型：
+
+- `byte`：当有字节到达时调用。
+- `terminator`：当有终止符到达时调用。
+- `off`：停止。
+- 
+
+```matlab
+
+
+## 总结
+
+1. 设置多路路由，可以同时访问不同网段的仪器。
+2. Tcpclient对象是用来连接和调试采用TCP/IP协议的仪器的。
+3. 回声服务器可以用于测试我们实现的客户端功能。
+4. 我们也可以构造`tcpserver`对象，用于接收客户端的请求，留到下回。
