@@ -1,7 +1,7 @@
 +++
 title = 'Tcpip Instruments in Matlab中连接和调试采用TCP/IP协议的仪器'
 date = 2024-12-12T23:38:52+08:00
-draft = true
+draft = false
 mathjax = false
 categories = ['matlab', 'instrument']
 tags = ['matlab', 'methods', 'properties', 'tcpipclient', 'echotcpip', 'writeline', 'readline', 'configureTerminator', 'configureCallback']
@@ -182,7 +182,7 @@ clear t;
 
 ### 回调函数
 
-我们可以通过`configureCallback`方法设置回调函数，当有数据到达时，会调用这个回调函数。此外，回调函数有3种类型：
+我们可以通过`configureCallback`方法设置回调函数，当有数据到达时，会调用这个回调函数。此外，回调函数有3种状态：
 
 - `byte`：当有字节到达时调用。
 - `terminator`：当有终止符到达时调用。
@@ -196,12 +196,15 @@ myCallback = @(src, ~)disp(readline(src));
 
 configureCallback(t, "terminator", myCallback);
 
-pause(1);
 writeline(t, "Hello, world!");
+pause(1);
 
 clear t;
 ```
 
+当然要记得先打开8880端口的回声服务器。
+
+通过回调函数，就能设置当有数据到达时，自动调用这个函数。这在某些场景下是非常有用的。
 
 ## 总结
 
