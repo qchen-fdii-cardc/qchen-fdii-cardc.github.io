@@ -88,6 +88,49 @@ t = tcpclient('xx.xx.xx.xx', 5025);
 
 客户端对象还有些跟数据发送和读取有关系的属性，可以参考文档。
 
+还有一对函数也是Matlab中很常用的，`set/get`。
+
+```matlab
+set(t, 'Timeout', 10);
+get(t, 'Timeout');
+```
+
+还可以只带一个参数，`get`列出所有的属性和它们的值，`set`列出所有能够用`set`设置的属性。
+
+```matlab
+get(t)
+                   Address: 'localhost'
+                      Port: 8808
+         NumBytesAvailable: 0
+           NumBytesWritten: 0
+            ConnectTimeout: Inf
+       EnableTransferDelay: 1
+                   Timeout: 10
+                  UserData: []
+                 ByteOrder: "little-endian"
+                Terminator: "LF"
+         BytesAvailableFcn: []
+    BytesAvailableFcnCount: 64
+     BytesAvailableFcnMode: "off"
+          ErrorOccurredFcn: []
+```
+
+```matlab
+set(t)
+                   Timeout: {}
+                  UserData: {}
+                 ByteOrder: {}
+                Terminator: {}
+         BytesAvailableFcn: {}
+    BytesAvailableFcnCount: {}
+     BytesAvailableFcnMode: {}
+          ErrorOccurredFcn: {}
+```
+
+下面就简单介绍一下Tcpclient对象的用法。
+
+## `Tcpclient`对象的用法
+
 ### 测试服务器
 
 当然，我们对仪器进行测试还是挺麻烦的，Matlab提供了一个回声服务器可以用于测试我们实现的客户端功能。
@@ -114,7 +157,7 @@ writeline(t, "Hello, world!");
 data = readline(t);
 disp(data);
 % Hello, world!
-delete(t);
+clear t;
 ```
 这里`writeline`会自动添加终止符，`readline`会读取到终止符为止的数据并返回不包含终止符的数据。
 
@@ -134,7 +177,7 @@ data = read(t, 5, "double");
 disp(data);
 % 4 3 2 1 0
 
-delete(t);
+clear t;
 ```
 
 ### 回调函数
@@ -144,9 +187,20 @@ delete(t);
 - `byte`：当有字节到达时调用。
 - `terminator`：当有终止符到达时调用。
 - `off`：停止。
-- 
+
 
 ```matlab
+t = tcpclient('localhost', 8808);
+
+myCallback = @(src, ~)disp(readline(src));
+
+configureCallback(t, "terminator", myCallback);
+
+pause(1);
+writeline(t, "Hello, world!");
+
+clear t;
+```
 
 
 ## 总结

@@ -1,9 +1,11 @@
-t = tcpclient('localhost', 8808);
+t = tcpclient("localhost", port);
 
-props = properties(t);
+myCallback = @(src, ~)fprintf("[Recieved] %s\n", readline(src));
 
-for i = 1:length(props)
-    fprintf("%30s\t: %40s\n", props{i}, toStr(get(t, props{i})));
-end
+configureCallback(t, "terminator", myCallback);
+writeline(t, "Hello, world!");
 
-delete(t);
+pause(1);
+
+
+% clear t
