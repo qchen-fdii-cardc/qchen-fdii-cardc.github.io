@@ -32,7 +32,7 @@ f(x, y, z, w) = x * y + y * x + z * x + x + z
 
 
 
-$f(x, y, z, w) =x+z+2\,x\,y+x\,z$
+$f(x, y, z, w) =x+z+2xy+xz$
 
 
 
@@ -46,7 +46,7 @@ fxyz = int(f, w, x-2, z+2)
 
 
 
-$fxyz(x, y, z) ={\left(z-x+4\right)}\,{\left(x+z+2\,x\,y+x\,z\right)}$
+$fxyz(x, y, z) ={\left(z-x+4\right)}{\left(x+z+2xy+xz\right)}$
 
 
 
@@ -58,7 +58,7 @@ fxy = int(fxyz, z, x-2, y)
 
 
 
-$fxy(x, y) =\frac{{\left(y-x+2\right)}\,{\left(-x^3 -7\,x^2 \,y+6\,x^2 +8\,x\,y^2 +46\,x\,y+12\,x+2\,y^2 +8\,y-16\right)}}{6}$
+$fxy(x, y) =\frac{{\left(y-x+2\right)}{\left(-x^3 -7x^2 y+6x^2 +8xy^2 +46xy+12x+2y^2 +8y-16\right)}}{6}$
 
 
 
@@ -70,7 +70,7 @@ fx = int(fxy, y, x-2, x)
 
 
 
-$fx(x) =16\,x^2 -\frac{8\,x}{3}-\frac{20}{3}$
+$fx(x) =16x^2 -\frac{8x}{3}-\frac{20}{3}$
 
 
 
@@ -82,7 +82,7 @@ fi = int(fx, x)
 
 
 
-$fi(x) =-\frac{4\,x\,{\left(-4\,x^2 +x+5\right)}}{3}$
+$fi(x) =-\frac{4x{\left(-4x^2 +x+5\right)}}{3}$
 
 
 
