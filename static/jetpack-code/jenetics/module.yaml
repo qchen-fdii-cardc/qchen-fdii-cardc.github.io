@@ -1,0 +1,27 @@
+product: jvm/app
+
+
+# add dependencies on compose for desktop
+
+
+repositories:
+  -
+    id: aliyun
+    url: https://maven.aliyun.com/repository/public/
+  -
+    id: tencent
+    url: https://mirrors.cloud.tencent.com/nexus/repository/maven-public/
+  -
+    id: huawei
+    url: https://repo.huaweicloud.com/repository/maven/
+
+  -
+    id: aliyun-central
+    url: https://maven.aliyun.com/repository/central/
+
+dependencies:
+  - io.jenetics:jenetics.prog:7.2.0
+  - io.jenetics:jenetics:7.2.0
+  - io.jenetics:jenetics.ext:7.2.0
+  - org.jfree:jfreechart:1.5.5
+

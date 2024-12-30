@@ -17,3 +17,6 @@
 *.asv
 *.Identifier
 *副本*
+**/.gradle/*
+**/.kotlin/*
+**/build/*
