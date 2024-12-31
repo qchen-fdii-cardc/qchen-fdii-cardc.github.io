@@ -6,14 +6,10 @@ import io.jenetics.engine.EvolutionStatistics
 import io.jenetics.engine.Limits.bySteadyFitness
 import io.jenetics.util.DoubleRange
 
-
-
-
-
-fun jeneticsExample(fn: (Double) -> Double, lb: Double, ub:Double): Phenotype<DoubleGene, Double>? {
+fun jeneticsExample(fn: (Double) -> Double, lb: Double, ub: Double): Phenotype<DoubleGene, Double>? {
     val engine: Engine<DoubleGene, Double> =
-        Engine.builder(fn, Codecs.ofScalar(DoubleRange.of(lb, ub))).populationSize(20)
-            .optimize(Optimize.MINIMUM).alterers(
+        Engine.builder(fn, Codecs.ofScalar(DoubleRange.of(lb, ub))).populationSize(20).optimize(Optimize.MINIMUM)
+            .alterers(
                 UniformCrossover(0.5), Mutator(0.03), MeanAlterer(0.6)
             ).build()
 
