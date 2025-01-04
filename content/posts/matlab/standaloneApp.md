@@ -110,7 +110,7 @@ help compiler.package.installer
 
 这里我们展示了两种调用方式，`web`的方式会产生一个很小的安装文件：
 
-- [helloInstaller.exe](/matlab-code/standaloneAppTutor/helloInstaller/HelloInstall.exe)
+- [helloInstaller.exe](/matlab-code/standaloneAppTutor/helloinstaller/HelloInstall.exe)
 
 另外一种方式会产生一个接近500M的玩意，包含了所需要的MCR安装内容，直接安装即可使用。
 
