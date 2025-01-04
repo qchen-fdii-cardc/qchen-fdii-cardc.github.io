@@ -20,3 +20,8 @@
 **/.gradle/*
 **/.kotlin/*
 **/build/*
+**/target/*
+**/.cache/*
+**/.gradle/*
+**/.kotlin/*
+**/.vscode/*
