@@ -1,7 +1,7 @@
 +++
 title = 'C语言真的是又浅又低级'
 date = 2025-01-11T20:36:04+08:00
-draft = true
+draft = false
 mathjax = false
 categories = ['cpp']
 tags = ['talks', 'low-value', 'cpp', 'c']
