@@ -1,5 +1,5 @@
 +++
-title = 'C语言真的是又浅又低级'
+title = 'C语言三分钟：C真的是又浅又低级'
 date = 2025-01-11T20:36:04+08:00
 draft = false
 mathjax = false

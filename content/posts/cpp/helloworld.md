@@ -1,5 +1,5 @@
 +++
-title = 'C语言三分钟：Helloworld'
+title = 'C语言三分钟：Hello, world!'
 date = 2025-01-15T15:03:03+08:00
 draft = false
 mathjax = false

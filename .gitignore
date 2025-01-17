@@ -25,3 +25,5 @@
 **/.gradle/*
 **/.kotlin/*
 **/.vscode/*
+**/*cache/*
+**/zig-out/*
