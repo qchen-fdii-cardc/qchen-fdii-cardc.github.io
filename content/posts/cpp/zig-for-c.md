@@ -1,7 +1,7 @@
 +++
 title = 'C语言三分钟：用Zig工具链管理C程序main函数'
 date = 2025-01-16T15:27:28+08:00
-draft = true
+draft = false
 mathjax = false
 categories = ['cpp']
 tags = ['cpp', 'zig', 'c', 'addExecutable', 'build.zig']
