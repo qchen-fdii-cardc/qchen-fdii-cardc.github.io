@@ -91,18 +91,35 @@ sudo apt-get install libcunit1 libcunit1-dev libcunit1-doc
 
 ### 单元测试的例子
 
-这里给一个非常简单的例子，我们要测试一个函数`add`，这个函数的功能是两个数相加。但是，代码里我故意写成了`a * b`，这样就会出错。
+这里给一个非常简单的例子，我们要测试一个函数`add`，这个函数的功能是两个数相加。
+
+- [add_test.c](/cpp/cunit/add_test.c)
+
+
+```C
+{{% codesnap "static/cpp/cunit/add_test.c" %}}
+```
+
+这个文件里面，我们首先引入CUnit的头文件。
 
 ```C
 #include <CUnit/Basic.h>
 #include <CUnit/CUnit.h>
+```
 
+但是，代码里我故意写成了`a * b`，这样就会出错。
+
+```C
 int add(int a, int b)
 {
     return a * b;
 }
+```
+按照道理，我应该分开`add`函数的声明和定义（.h文件和.c文件）。这里在单独弄一个add_test.c文件，然后在Makefile里面编译链接。但是这里我只想很快地展示一下CUnit的使用方法。
 
 
+接下来就是测试函数`test_add`。
+```C
 void test_add(void)
 {
     CU_ASSERT(add(2, 2) == 4);
@@ -112,6 +129,11 @@ void test_add(void)
     CU_ASSERT(add(-1, 1) == 0);
 }
 
+```
+这个函数里面，我们用`CU_ASSERT`来断言函数的返回值。如果函数返回值和我们预期的不一样，那么这个测试就会失败。
+
+最后，我们在`main`函数里面，初始化CUnit的注册表，添加一个测试套件，添加一个测试用例，运行测试，清理注册表。
+```C
 int main()
 {
     CU_initialize_registry();
@@ -122,13 +144,6 @@ int main()
     return 0;
 }
 ```
-按照道理，我应该分开`add`函数的声明和定义（.h文件和.c文件）。这里在单独弄一个add_test.c文件，然后在Makefile里面编译链接。但是这里我只想很快地展示一下CUnit的使用方法。
-
-接下来就是测试函数`test_add`。
-
-这个函数里面，我们用`CU_ASSERT`来断言函数的返回值。如果函数返回值和我们预期的不一样，那么这个测试就会失败。
-
-最后，我们在`main`函数里面，初始化CUnit的注册表，添加一个测试套件，添加一个测试用例，运行测试，清理注册表。
 
 这里的几个套路函数：
 
