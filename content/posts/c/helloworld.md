@@ -3,8 +3,8 @@ title = 'C语言三分钟：Hello, world!'
 date = 2025-01-15T15:03:03+08:00
 draft = false
 mathjax = false
-categories = ['cpp']
-tags = ['cpp', 'helloworld', 'tutorial']
+categories = ['c']
+tags = ['c', 'helloworld', 'tutorial']
 toc = true
 tocBorder = true
 +++

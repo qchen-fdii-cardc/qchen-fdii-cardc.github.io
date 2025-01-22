@@ -26,7 +26,7 @@ pub fn build(b: *std.Build) void {
         .link_libc = true,
     });
 
-    lib.addIncludePath(b.path("src"
+    lib.addIncludePath(b.path("src"));
 
     lib.addCSourceFile(.{
         .file = b.path("src/addtwo.c"),
