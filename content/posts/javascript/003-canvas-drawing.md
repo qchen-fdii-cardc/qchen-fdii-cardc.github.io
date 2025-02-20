@@ -1,7 +1,7 @@
 +++
 title = '003 Canvas Drawing一个小小的白板'
 date = 2025-02-20T16:30:52+08:00
-draft = true
+draft = false
 mathjax = false
 categories = ['javascript']
 tags = ['javascript', 'canvas', 'drawing', 'whiteboard']
