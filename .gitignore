@@ -24,6 +24,24 @@
 **/.cache/*
 **/.gradle/*
 **/.kotlin/*
+**/.venv/*
 **/.vscode/*
 **/*cache/*
 **/zig-out/*
+*.out
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+*.lib
+
+# Python virtual environment
+.venv/
+.python-version
+pyproject.toml
+uv.lock
+
+# Build outputs
+*.exe
+*.o

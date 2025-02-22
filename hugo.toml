@@ -10,6 +10,7 @@ theme = "nostyleplease"
 staticDir = ["static"]
 
 
+
 [taxonomies]
   category = "categories"
   tag = "tags"
