@@ -1,5 +1,5 @@
 +++
-title = 'Kalman Filter by Gsl用C语言测试做一个速度跟踪的卡尔曼滤波器'
+title = 'Kalman Filter by Gsl用C语言做一个速度跟踪的卡尔曼滤波器'
 date = 2025-02-20T17:31:52+08:00
 draft = false
 mathjax = true
@@ -123,7 +123,7 @@ $$
 状态预测：
 
 $$
-\hat{x}_{k|k-1} = A\hat{x}_{k-1|k-1}
+   \hat{x}\_{k|k-1} = A\hat{x}\_{k-1|k-1}
 $$
 
 协方差预测：
@@ -145,7 +145,7 @@ $$
 
 3. 状态更新：
 $$
-\hat{x}_{k|k} = \hat{x}_{k|k-1} + K(z_k - H\hat{x}_{k|k-1})
+\hat{x}\_{k|k} = \hat{x}\_{k|k-1} + K(z_k - H\hat{x}\_{k|k-1})
 $$
 
 4. 协方差更新：

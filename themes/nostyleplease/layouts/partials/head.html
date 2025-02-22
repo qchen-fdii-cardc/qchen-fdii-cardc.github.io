@@ -13,19 +13,15 @@
     {{ end }}
   </title>
 
+  {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
+
   <link rel="shortcut icon" type="image/x-icon" href="{{ $.Site.Params.favicon | relURL }}" />
   {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}
   {{ $sass := resources.Get "css/main.scss" }}
   {{/* resources.ToCSS ==> css.Sass qchen 2024-10-21 */}}
   {{ $style := $sass | css.Sass $options | resources.Fingerprint "sha512" }}
   <link rel="stylesheet" href="{{ $style.Permalink | relURL }}" integrity="{{ $style.Data.Integrity }}" />
-  {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
 
 
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
 </head>
