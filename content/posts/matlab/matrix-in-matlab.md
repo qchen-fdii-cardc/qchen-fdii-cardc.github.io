@@ -26,6 +26,7 @@ Matlab仲可以表示N维数组，这里用数组，主要是表示一般编程�
 N为数组，假设每个维度的长度分别为`n1, n2, ..., nN`，那么这个数组就是一个`n1 x n2 x ... x nN`的矩阵。数组的元素一共是`n1 * n2 * ... * nN`个。Matlab专门有个函数`size`来获取数组的维度信息，还有个函数`numel`来获取数组元素总长度信息。
 
 前者返回一个行向量，后者返回一个标量。
+
 $$
 m \equiv m_{n1\times n2 \times \cdots \times nN} \in \mathbb{R}^{n1 \times n2 \times ... \times nN}
 $$
