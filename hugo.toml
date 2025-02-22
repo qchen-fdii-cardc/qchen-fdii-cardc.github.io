@@ -1,8 +1,8 @@
-baseURL = 'https://www.windtunnel.cn/'
+baseURL = 'https://example.com/'
 languageCode = 'en-us'
 defaultContentLanguage = 'zh'
 hasCJKLanguage = true
-title = '技术写作练习：写得越多，写得越开心'
+title = '我的网站'
 email = 'qchen2015@hotmail.com'
 github_username =  'qchen-fdii-cardc'
 author = 'Qin Chen, Ph.D. qchen2015@hotmail.com'
