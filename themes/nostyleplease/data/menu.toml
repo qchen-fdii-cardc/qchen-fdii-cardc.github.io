@@ -10,6 +10,11 @@ title = "近期写作练习"
 [[entries]]
 title = "Eigen3教程-单独页面"
 url = "eigen3tutorial"
+[[entries]]
+title = "POD/DMD-数据降阶与模态分析"
+url = "fluiddecomposition"
+
+
 
 [[entries]]
 title = "分类写作练习"
