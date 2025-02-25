@@ -8,7 +8,7 @@ title = "近期写作练习"
   show_more_url = "posts"
 
 [[entries]]
-title = "Eigen3教程-单独页面"
+title = "Eigen3教程-线性代数Cpp库"
 url = "eigen3tutorial"
 [[entries]]
 title = "POD/DMD-数据降阶与模态分析"
