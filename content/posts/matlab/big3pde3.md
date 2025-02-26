@@ -2,11 +2,11 @@
 title = 'PDE三巨头：热传导方程、波动方程和拉普拉斯方程'
 date = 2025-02-25T13:59:08+08:00
 draft = false
-mathjax = true
 categories = ['matlab']
 tags = ['fea', 'fem', 'matlab', 'math', 'pde', 'heat', 'wave', 'laplace']
 toc = true
 tocBorder = true
+mathjax = true
 +++
 
 ## 偏微分方程 Partial Differential Equation

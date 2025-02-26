@@ -13,7 +13,12 @@
     {{ end }}
   </title>
 
-  {{ if .Params.mathjax }} {{ partial "mathjax.html" . }} {{ end }}
+  {{ if .Params.mathjax }}
+  {{ partial "mathjax.html" . }}
+  {{ else if or .Params.mathkatex .Site.Params.mathkatex }}
+  {{ partial "mathkatex.html" . }}
+  {{ end }}
+
 
   <link rel="shortcut icon" type="image/x-icon" href="{{ $.Site.Params.favicon | relURL }}" />
   {{ $options := (dict "outputStyle" "compressed" "enableSourceMap" (not hugo.IsProduction)) }}

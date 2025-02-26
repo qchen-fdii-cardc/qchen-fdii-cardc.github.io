@@ -9,7 +9,8 @@ author = 'Qin Chen, Ph.D. qchen2015@hotmail.com'
 theme = "nostyleplease"
 staticDir = ["static"]
 
-
+[params]
+  mathkatex = true
 
 [taxonomies]
   category = "categories"
