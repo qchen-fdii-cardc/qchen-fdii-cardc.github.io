@@ -18,6 +18,9 @@ staticDir = ["static"]
 
 
 [markup]
+  [markup.highlight]
+  codeFences = true
+  lineNos = true
   [markup.tableOfContents]
     endLevel = 2
     startLevel = 2
