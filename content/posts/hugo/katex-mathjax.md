@@ -46,7 +46,7 @@ Katex的速度比Mathjax快，但是Mathjax的公式显示效果比Katex好。
 
 然后在Hugo页面的`head`标签中增加：
 
-```hugo
+```html
   {{ if .Params.mathjax }}
   {{ partial "mathjax.html" . }}
   {{ else if or .Params.mathkatex .Site.Params.mathkatex }}

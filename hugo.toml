@@ -19,8 +19,20 @@ staticDir = ["static"]
 
 [markup]
   [markup.highlight]
-  codeFences = true
-  lineNos = true
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ''
+    hl_inline = false
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = true
+    style = 'monokai'
+    tabWidth = 4
+    wrapperClass = 'highlight'
+
   [markup.tableOfContents]
     endLevel = 2
     startLevel = 2
