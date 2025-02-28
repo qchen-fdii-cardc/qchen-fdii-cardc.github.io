@@ -2,7 +2,7 @@
 title = 'Thermal_Transient_in_Matlab统一偏微分框架之热传导问题'
 date = 2024-10-17T17:32:25+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab', 'FEM']
 tags = ['matlab', 'fem', '有限元', '热传导', 'thermal']
 toc = true

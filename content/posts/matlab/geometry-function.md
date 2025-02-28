@@ -2,7 +2,7 @@
 title = 'Geometry_Function_In_Matlab中描述PDE积分区域的函数法'
 date = 2024-11-14T14:54:48+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab', 'FEM']
 tags = ['matlab', 'FEM', 'pde', 'fea']
 toc = true

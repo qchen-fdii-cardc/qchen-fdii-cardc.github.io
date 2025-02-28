@@ -2,7 +2,7 @@
 title = 'Wave_PDE_In_Matlab求解时变波动方程'
 date = 2024-11-30T10:48:17+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab', 'FEM']
 tags = ['matlab', 'FEM', 'Symbolic Math Toolbox', 'PDE Toolbox']
 toc = true

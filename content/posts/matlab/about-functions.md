@@ -2,7 +2,7 @@
 title = 'Functions in Matlab中的函数约定'
 date = 2024-09-04T14:31:59+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab']
 tags = ['Matlab','函数','编程', '编程','输入参数', '输出参数', '变参数', '匿名函数', '闭包', '马特拉波']
 toc = true

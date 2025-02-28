@@ -6,7 +6,7 @@ categories = ['matlab']
 tags = ['fea', 'fem', 'matlab', 'math', 'pde', 'heat', 'wave', 'laplace']
 toc = true
 tocBorder = true
-mathjax = true
+mathkatex = true
 +++
 
 ## 偏微分方程 Partial Differential Equation

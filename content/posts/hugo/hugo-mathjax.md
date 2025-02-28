@@ -2,7 +2,7 @@
 title = 'Hugo+Mathjax的正确姿势'
 date = 2025-02-22T12:48:39+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['hugo']
 tags = ['hugo', 'mathjax', 'markdown', 'hugo数学公式']
 toc = true

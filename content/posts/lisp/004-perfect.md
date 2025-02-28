@@ -2,7 +2,7 @@
 title = '004 完美先生的完美Lisp'
 date = 2024-08-16T08:53:00+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['lisp', 'programming-language']
 tags = ['lisp', '编程','实用主义', '入门', '教程','repl', '24 points', 'file', 'postfix']
 toc = true

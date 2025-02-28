@@ -2,7 +2,7 @@
 title = 'Matrix_dancing_in_Matlab中的矩阵体操'
 date = 2024-10-17T12:01:07+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab']
 tags = ['matlab', 'matrix']
 toc = true

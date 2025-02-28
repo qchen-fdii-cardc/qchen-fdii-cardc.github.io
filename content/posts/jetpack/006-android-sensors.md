@@ -2,7 +2,7 @@
 title = 'Jetpack Compose for Android-006 传感器数据'
 date = 2024-12-17T12:39:47+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['jetpack', 'android']
 tags = ['jetpack', 'compose', 'android', 'sensor']
 toc = true

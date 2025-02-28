@@ -2,7 +2,7 @@
 title = 'FEM_Meshing_in_Matlab工具箱PDE之网格划分'
 date = 2024-10-16T12:04:31+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab', 'FEM']
 tags = ['matlab', 'fem', '有限元', '网格']
 toc = true
