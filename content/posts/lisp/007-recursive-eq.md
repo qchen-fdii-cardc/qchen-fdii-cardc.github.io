@@ -2,7 +2,7 @@
 title = '007 挑剔先生给出终止迭代的条件'
 date = 2024-08-27T12:32:52+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['lisp', 'programming-language', 'tutorial', 'common-lisp']
 tags = ['lisp','编程','实用主义', '入门', '教程']
 toc = true

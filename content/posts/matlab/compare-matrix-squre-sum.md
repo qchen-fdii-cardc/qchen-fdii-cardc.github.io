@@ -2,7 +2,7 @@
 title = 'Compare_Matrix_Squre_Sum_in_MATLAB中矩阵平方和的比较'
 date = 2024-12-04T00:19:52+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab']
 tags = ['matlab', 'performance', 'matrix', 'tutorial', 'benchmark', 'algorithm']
 toc = true

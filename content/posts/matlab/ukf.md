@@ -2,7 +2,7 @@
 title = 'Unscented Kalman Filter in Matlab无迹卡尔曼滤波'
 date = 2024-12-10T20:02:54+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab']
 tags = ['matlab', 'state estimation', 'ukf', 'system identification']
 toc = true

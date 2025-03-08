@@ -2,7 +2,7 @@
 title = 'Structure_Static_In_Matlab求解结构静力学问题两套方法'
 date = 2024-11-02T08:32:48+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab', 'FEM']
 tags = ['matlab', 'tutorial', 'pde', 'structure', 'static', 'FEM']
 toc = true

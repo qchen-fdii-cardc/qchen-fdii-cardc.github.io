@@ -2,7 +2,7 @@
 title = 'UIImage_in_Matlab图形界面开发中的图片'
 date = 2024-10-26T09:21:18+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab']
 tags = ['matlab', 'uiimage', 'gui']
 toc = true

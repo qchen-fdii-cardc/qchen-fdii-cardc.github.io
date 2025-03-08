@@ -2,7 +2,7 @@
 title = '008 Kotlin 中干点正经活：搜索一维函数最小值'
 date = 2024-12-31T15:32:48+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['jetpack']
 tags = ['jetpack', 'jenetics', 'kotlin', 'optimization']
 toc = true

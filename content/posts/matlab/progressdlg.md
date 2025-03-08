@@ -2,7 +2,7 @@
 title = 'Progress Dialog in Matlab中的进度条对话框'
 date = 2024-11-14T08:48:46+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab']
 tags = ['matlab', 'gui', 'ux']
 toc = true

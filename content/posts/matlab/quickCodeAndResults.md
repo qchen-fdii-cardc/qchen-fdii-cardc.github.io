@@ -2,7 +2,7 @@
 title = 'QuickCodeAndResults(1)'
 date = 2024-12-08T19:19:49+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab', 'quickanswer']
 tags = ['matlab']
 toc = false

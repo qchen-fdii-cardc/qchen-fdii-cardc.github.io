@@ -2,7 +2,7 @@
 title = 'Start to learn Matlab启动!'
 date = 2024-09-04T11:31:59+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab']
 tags = ['Matlab','编程', '编程','学习路径', '加速学习', '马特拉波']
 toc = true

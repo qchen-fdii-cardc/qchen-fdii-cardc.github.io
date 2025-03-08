@@ -2,7 +2,7 @@
 title = 'Baseline_opt_in_Matlab可视化基线优化算法'
 date = 2024-10-14T09:27:50+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab']
 tags = ['matlab', 'optimization', 'baseline', '优化', '基线算法']
 toc = true

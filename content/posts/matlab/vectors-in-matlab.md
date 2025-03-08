@@ -2,7 +2,7 @@
 title = 'Vectors in Matlab中的向量约定'
 date = 2024-09-07T10:13:33+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab']
 tags = ['Matlab','编程', '教程','向量', '入门教程', '马特拉波']
 toc = true

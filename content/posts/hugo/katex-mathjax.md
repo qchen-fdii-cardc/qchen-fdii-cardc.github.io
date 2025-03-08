@@ -2,7 +2,7 @@
 title = 'Katex vs. Mathjax in Hugo中数学公式的显示'
 date = 2025-02-26T10:20:38+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['hugo']
 tags = ['hugo', 'katex', 'mathjax']
 toc = false
@@ -53,7 +53,7 @@ Katex的速度比Mathjax快，但是Mathjax的公式显示效果比Katex好。
   {{ partial "mathkatex.html" . }}
   {{ end }}
 ```
-这段话的逻辑是：如果在当前页面中设置`mathjax = true`，则使用Mathjax，否则如果当前页面中设置`mathkatex = true`，或者Hugo的配置中设置`mathkatex = true`，则使用Katex。
+这段话的逻辑是：如果在当前页面中设置`mathkatex = true`，则使用Mathjax，否则如果当前页面中设置`mathkatex = true`，或者Hugo的配置中设置`mathkatex = true`，则使用Katex。
 
 当然，我们可以提前在`hugo.toml`中增加如下参数，对应`.Site.Params.mathkatex`。
 
@@ -62,7 +62,7 @@ Katex的速度比Mathjax快，但是Mathjax的公式显示效果比Katex好。
   mathkatex = true
 ```
 
-然后，除非页面中明确指定`mathjax = true`，否则默认使用Katex。
+然后，除非页面中明确指定`mathkatex = true`，否则默认使用Katex。
 
 
 

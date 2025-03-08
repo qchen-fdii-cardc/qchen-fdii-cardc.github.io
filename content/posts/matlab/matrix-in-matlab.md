@@ -2,7 +2,7 @@
 title = 'Matrix in Matlab中的矩阵约定'
 date = 2024-09-07T10:21:50+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab']
 tags = ['Matlab','编程', '教程','矩阵', '入门教程', '马特拉波']
 toc = true

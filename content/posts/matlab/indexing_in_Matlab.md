@@ -2,7 +2,7 @@
 title = 'Indexing_in_Matlab中的数组索引'
 date = 2024-10-14T20:07:46+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['matlab']
 tags = ['matlab', 'index', '索引', '入门']
 toc = true

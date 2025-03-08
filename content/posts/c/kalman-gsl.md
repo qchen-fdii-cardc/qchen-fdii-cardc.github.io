@@ -2,7 +2,7 @@
 title = 'Kalman Filter by Gsl用C语言做一个速度跟踪的卡尔曼滤波器'
 date = 2025-02-20T17:31:52+08:00
 draft = false
-mathjax = true
+mathkatex = true
 categories = ['c']
 tags = ['c', 'kalman filter', 'gsl']
 toc = true
