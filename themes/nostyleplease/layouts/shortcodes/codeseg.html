@@ -1,0 +1,32 @@
+{{/* {{ .Get 0 | readFile | safeHTML}} */}}
+
+{{- $file := .Get 0 -}}
+{{- $content := $file | readFile -}}
+{{- $lines := split $content "\n" -}}
+{{- $totalLines := len $lines -}}
+
+{{- $startLine := .Get 1 | default 1 -}}
+{{- $endLine := .Get 2 | default $totalLines -}}
+
+{{- if lt $startLine 1 -}}
+{{- $startLine = 1 -}}
+{{- end -}}
+
+{{- if gt $endLine $totalLines -}}
+{{- $endLine = $totalLines -}}
+{{- end -}}
+
+{{- if gt $startLine $endLine -}}
+{{- $startLine = $endLine -}}
+{{- end -}}
+
+{{- $startIndex := sub $startLine 1 -}}
+{{- $count := sub $endLine $startLine | add 1 -}}
+
+{{/* 使用循环提取指定范围的行 */}}
+{{- $result := slice -}}
+{{- range $i := seq $startIndex (sub $endLine 1) -}}
+{{- $result = $result | append (index $lines $i) -}}
+{{- end -}}
+
+{{- delimit $result "\n" | safeHTML -}}
