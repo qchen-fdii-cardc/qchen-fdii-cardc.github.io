@@ -32,7 +32,7 @@ Matlab的类支持函数、操作符的重载，支持属性和方法的访问�
 
 从2008a开始，Matlab支持用关键词`classdef`定义类。类定义的语法如下：
 
-```
+```matlab
 classdef (Attributes) ClassName < SuperclassNames
     properties (Attributes) ... end
     methods (Attributes) ... end
@@ -84,7 +84,7 @@ SuperclassNames ::= SuperclassName1 & SuperclassName2& ...
 
 属性还支持完整的尺寸和类型检查以及默认值，其设定语法与`arguments`的语法类似。
 
-```
+```matlab
 properties (attributes)
    propName1 (dimensions) class {validators} = defaultValue
    ...
@@ -93,7 +93,7 @@ end
 
 例如：
 
-```
+```matlab
 properties
     PropertyName1 (1,1) double {MustBePositive} = 1.0
     PropertyName2 (1,1) double = [1, 2, 3]
@@ -108,7 +108,7 @@ end
 
 方法定义了类中可以执行的函数。方法的定义语法如下：
 
-```
+```matlab
 methods (attributes)
    function method1(obj,arg1,...)
       ...
@@ -141,7 +141,7 @@ ClassName
 
 这个时候，在类定义文件中，方法的定义语法如下：
 
-```
+```matlab
 methods (attributes)
     output = method1(obj,arg1,...)
    ...
@@ -150,7 +150,7 @@ end
 
 而对应的方法定义文件则是一个普通的函数定义文件，其语法如下：
 
-```
+```matlab
 function output = method1(obj,arg1,...)
     ...
 end
@@ -160,7 +160,7 @@ end
 
 类的构造函数是用于创建类对象的函数。构造函数的定义语法如下：
 
-```
+```matlab
 function obj = ClassName(arg1,arg2,...)
     ...
 end
@@ -180,7 +180,7 @@ end
 
 命名事件的定义语法如下：
 
-```
+```matlab
 events (attributes)
     EventName1
 end
@@ -190,7 +190,7 @@ end
 
 触发事件的函数语法如下：
 
-```
+```matlab
 notify(obj,EventName1)
 ```
 
@@ -198,7 +198,7 @@ notify(obj,EventName1)
 
 监听事件的函数语法如下：
 
-```
+```matlab
 listener = addlistener(obj,EventName1, callback)
 ```
 
