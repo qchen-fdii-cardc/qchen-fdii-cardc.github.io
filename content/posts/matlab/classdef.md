@@ -191,7 +191,7 @@ end
 触发事件的函数语法如下：
 
 ```matlab
-notify(obj,EventName1)
+notify(obj,'EventName1')
 ```
 
 #### 监听事件
@@ -199,7 +199,7 @@ notify(obj,EventName1)
 监听事件的函数语法如下：
 
 ```matlab
-listener = addlistener(obj,EventName1, callback)
+listener = addlistener(obj,'EventName1', callback)
 ```
 
 这里，`callback`是一个函数句柄，用于处理事件，例如可以用`@`符号来指定一个函数句柄。
@@ -228,7 +228,7 @@ end
 这样在触发事件时，可以传递事件数据：
 
 ```matlab
-notify(obj,EventName1,MyEventData(d1, d2))
+notify(obj,'EventName1',MyEventData(d1, d2))
 ```
 
 ### 枚举
