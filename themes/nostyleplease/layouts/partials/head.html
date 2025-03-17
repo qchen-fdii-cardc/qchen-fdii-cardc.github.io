@@ -164,7 +164,26 @@
         // 添加复制功能
         copyButton.addEventListener('click', async function (e) {
           e.stopPropagation(); // 阻止事件冒泡，防止触发折叠
-          const code = pre.textContent;
+
+          // 获取实际的代码内容，不包含行号
+          let code = '';
+
+          // 获取代码元素
+          const codeElement = pre.querySelector('code');
+          if (codeElement) {
+            // 获取每行的根级span
+            const rootSpans = Array.from(codeElement.children);
+            // 从每个根级span中获取第二个子span（实际代码内容）
+            code = rootSpans
+              .map(span => {
+                const codeSpan = span.children[1];
+                return codeSpan ? codeSpan.textContent : '';
+              })
+              .join('');
+          } else {
+            // 如果没有找到预期的结构，回退到使用完整内容
+            code = pre.textContent;
+          }
 
           try {
             await navigator.clipboard.writeText(code);
