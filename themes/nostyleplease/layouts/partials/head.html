@@ -13,6 +13,165 @@
     {{ end }}
   </title>
 
+
+  <style>
+    .code-container {
+      margin: 1em 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .code-header {
+      padding: 10px;
+      background-color: #f5f5f5;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .code-header:hover {
+      background-color: #e5e5e5;
+    }
+
+    .code-title {
+      font-family: monospace;
+      font-size: 0.9em;
+      flex-grow: 1;
+    }
+
+    .code-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .code-toggle,
+    .code-copy {
+      font-size: 0.8em;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 3px;
+    }
+
+    .code-copy {
+      background-color: #e0e0e0;
+      border: 1px solid #ccc;
+      transition: background-color 0.2s;
+    }
+
+    .code-copy:hover {
+      background-color: #d0d0d0;
+    }
+
+    .code-copy.copied {
+      background-color: #90EE90;
+    }
+
+    .code-toggle {
+      transition: transform 0.3s;
+    }
+
+    .code-content {
+      padding: 10px;
+      overflow-x: auto;
+      display: none;
+    }
+
+    .code-container.expanded .code-content {
+      display: block;
+    }
+
+    .code-container.expanded .code-toggle {
+      transform: rotate(180deg);
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // 查找所有代码块
+      const codeBlocks = document.querySelectorAll('pre');
+
+      codeBlocks.forEach((pre, index) => {
+        // 创建新的容器
+        const container = document.createElement('div');
+        container.className = 'code-container';
+
+        // 创建标题栏
+        const header = document.createElement('div');
+        header.className = 'code-header';
+
+        // 创建标题和控制按钮区域
+        const title = document.createElement('span');
+        title.className = 'code-title';
+        title.textContent = `Code Block ${index + 1}`;
+
+        const controls = document.createElement('div');
+        controls.className = 'code-controls';
+
+        const copyButton = document.createElement('span');
+        copyButton.className = 'code-copy';
+        copyButton.textContent = '复制';
+
+        const toggleButton = document.createElement('span');
+        toggleButton.className = 'code-toggle';
+        toggleButton.textContent = '▼';
+
+        controls.appendChild(copyButton);
+        controls.appendChild(toggleButton);
+
+        header.appendChild(title);
+        header.appendChild(controls);
+
+        // 创建内容区
+        const content = document.createElement('div');
+        content.className = 'code-content';
+
+        // 将原始代码块移动到内容区
+        pre.parentNode.insertBefore(container, pre);
+        content.appendChild(pre);
+
+        // 将标题栏和内容区添加到容器中
+        container.appendChild(header);
+        container.appendChild(content);
+
+        // 添加展开/折叠点击事件
+        header.addEventListener('click', function (e) {
+          // 如果点击的是复制按钮，不触发折叠
+          if (!e.target.classList.contains('code-copy')) {
+            container.classList.toggle('expanded');
+          }
+        });
+
+        // 添加复制功能
+        copyButton.addEventListener('click', async function (e) {
+          e.stopPropagation(); // 阻止事件冒泡，防止触发折叠
+          const code = pre.textContent;
+
+          try {
+            await navigator.clipboard.writeText(code);
+            copyButton.textContent = '已复制';
+            copyButton.classList.add('copied');
+
+            // 2秒后恢复原状
+            setTimeout(() => {
+              copyButton.textContent = '复制';
+              copyButton.classList.remove('copied');
+            }, 2000);
+          } catch (err) {
+            copyButton.textContent = '复制失败';
+            setTimeout(() => {
+              copyButton.textContent = '复制';
+            }, 2000);
+          }
+        });
+      });
+    });
+  </script>
+
+
   {{ if .Params.mathjax }}
   {{ partial "mathjax.html" . }}
   {{ else if or .Params.mathkatex .Site.Params.mathkatex }}

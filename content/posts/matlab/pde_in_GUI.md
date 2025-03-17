@@ -113,8 +113,9 @@ pdeplot3D(model,'ColorMap','default','Parent',ax);
 
 ```matlab
 {{% codeseg "static/matlab/pdeGUI/simplePDE.m" 374 386 %}}
+```
 
-这个回调函数生成网格，调用`generateMesh`函数生成网格，并把右边的显示切换成网格显示。
+这个回调函数生成网格，调用`generateMesh`函数生成网格，并把右边的显示切换成网格显示。控制网格尺寸的参数从UI中获取。
 
 ```matlab
 {{% codeseg "static/matlab/pdeGUI/simplePDE.m" 388 412 %}}
@@ -137,8 +138,3 @@ pdeplot3D(model,'ColorMap','default','Parent',ax);
 ```matlab
 {{% codeseg "static/matlab/pdeGUI/simplePDE.m" %}}
 ```
-
-
-
-
-
