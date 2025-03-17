@@ -1,8 +1,8 @@
-ser+++
-title = 'Fem Static in Matlab静力学有限元的例子'
++++
+title = 'FEM Static in Matlab静力学有限元的例子'
 date = 2024-10-12T17:13:42+08:00
 draft = false
-mathjax = false
+mathkatex = true
 categories = ['matlab', 'FEM']
 tags = ['matlab', 'fem', '有限元', '静力学']
 toc = true
