@@ -106,8 +106,66 @@ li {
 }
 
 .toc {
-  border: thin solid black;
   padding: 1rem;
+  position: fixed;
+  width: 250px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 80vh;
+  overflow-y: auto;
+  left: calc(50% - 500px - 250px);
+  top: 100px;
+
+  &.with-border {
+    border: thin solid black;
+  }
+
+  @media screen and (max-width: 1199px) {
+    display: none;
+  }
+
+  .toc-title {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #ddd;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 1em;
+    margin: 0;
+  }
+
+  li {
+    margin: 0.5em 0;
+    font-size: 0.9em;
+    line-height: 1.4;
+  }
+
+  a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+    
+    &:hover {
+      color: #007bff;
+      text-decoration: none;
+    }
+  }
+}
+
+// 调整主内容区域的布局
+.page-content .w {
+  @media screen and (min-width: 1200px) {
+    margin: 0 auto;
+    max-width: 650px;
+    padding: 4rem 0;
+    position: relative;
+    left: 0;
+  }
 }
 
 hr {
@@ -234,4 +292,55 @@ h6:before {
     counter(h4counter) "."
     counter(h5counter) "."
     counter(h6counter) "\0000a0";
+}
+
+// 添加标签样式
+.tags-container {
+  position: fixed;
+  width: 250px;
+  background-color: #ffffff;
+  padding: 1rem;
+  border: thin solid black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-height: 80vh;
+  overflow-y: auto;
+  right: calc(50% - 500px - 250px);
+  top: 100px;
+
+  @media screen and (max-width: 1199px) {
+    display: none;
+  }
+
+  .tags-title {
+    font-weight: bold;
+    margin-bottom: 1em;
+    font-size: 1.1em;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5em;
+  }
+
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    justify-content: center;
+
+    a {
+      display: inline-block;
+      padding: 0.3em 0.8em;
+      background-color: #f0f0f0;
+      border-radius: 15px;
+      font-size: 0.9em;
+      transition: all 0.2s ease;
+      border: 1px solid #ddd;
+
+      &:hover {
+        background-color: #e0e0e0;
+        text-decoration: none;
+        transform: translateY(-2px);
+      }
+    }
+  }
 }

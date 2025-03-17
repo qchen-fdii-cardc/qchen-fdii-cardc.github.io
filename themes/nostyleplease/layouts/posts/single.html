@@ -15,6 +15,27 @@
 </script>
 {{ end }}
 
+{{ if and .TableOfContents (ne .Params.toc false) }}
+<aside class="toc{{ if .Params.tocBorder }} with-border{{ end }}">
+    <div class="toc-title">目录</div>
+    {{ .TableOfContents }}
+</aside>
+{{ end }}
+
+{{ if .Params.tags }}
+<aside class="tags-container">
+    <div class="tags-title">文章标签</div>
+    <div class="tags-list">
+        {{- range $t := .Params.tags -}}
+        {{- $tl := lower $t -}}
+        {{- $tl := replace $tl " " "-" -}}
+        {{- $url := printf "/tags/%s/" $tl | absURL -}}
+        <a href="{{ $url }}">{{ $t }}</a>
+        {{- end -}}
+    </div>
+</aside>
+{{ end }}
+
 <article>
     <p class="post-meta">
         <time datetime="{{ .Date }}">
@@ -27,14 +48,6 @@
     </p>
 
     <h1>{{ .Title }}</h1>
-
-
-    {{ if .Params.toc }}
-    <aside {{ if .Params.tocBorder }} class="toc" {{ end }}>
-        {{ .TableOfContents }}
-    </aside>
-    {{ end }}
-
 
     {{ .Content }}
 </article>

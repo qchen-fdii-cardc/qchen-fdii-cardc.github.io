@@ -14,7 +14,9 @@ tocBorder = true
 
 本示例展示了如何使用 MATLAB® 软件进行刹车变形分析。
 这个例子是Matlab官方PDE工具箱的第一个例子，所需要的数据文件都由Matlab提供，包括CAD模型文件。
+
 ### 步骤 1: 导入 CAD 模型
+
 导入 CAD 模型，这里使用的是一个带有孔的支架模型。
 
 ```matlab
@@ -46,6 +48,7 @@ exportgraphics(gcf, "BracketWithHoleRear.png", Resolution=600)
 ![](/matlab-img/BracketWithHoleRear.png)
 
 ### 步骤 2: 材料属性
+
 设置材料属性。
 
 ```matlab
@@ -64,6 +67,7 @@ model.MaterialProperties = ...
 ```
 
 ### 步骤 3: 产生网格
+
 产生网格，这里使用的是默认的网格参数。Matlab教程里面喜欢把产生网格放在设置边界条件之后，我喜欢放在之前，因为我通常要做边界条件的变化，而网格是基本不变的。
 
 ```matlab
@@ -94,6 +98,7 @@ model.FaceLoad(8) = faceLoad(SurfaceTraction=[0;0;-1e4]);
 ```
 
 ### 步骤 5: 求解模型
+
 求解模型。
 
 ```matlab
@@ -119,8 +124,6 @@ result =
 ```
 
 `result`是一个结构体，里面包含了位移、应变、应力、等效应力、网格等信息。
-
-
 
 z方向的最大位移直接用`max`函数就可以得到。
 
@@ -167,7 +170,6 @@ exportgraphics(gcf, "BracketWithHoleVMS.png", Resolution=600)
 在函数里面就能看到`location`和`state`的结构，然后就可以写出这个函数了。
 
 基本上，location对应就是几何，三个坐标，或者面的方向，state对应就是状态，统一用`u`表示求解变量，对于静力学问题，就是位移，对于热传递问题，就是温度。
-
 
 ## 总结
 
