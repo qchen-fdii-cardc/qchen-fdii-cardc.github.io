@@ -40,6 +40,8 @@
       font-family: monospace;
       font-size: 0.9em;
       flex-grow: 1;
+      color: #00796b;
+      font-weight: 500;
     }
 
     .code-controls {
@@ -91,10 +93,24 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      // 查找所有代码块
-      const codeBlocks = document.querySelectorAll('pre');
+      let blockCount = 0;  // 添加计数器
 
-      codeBlocks.forEach((pre, index) => {
+      // 查找所有代码块，但只选择包含 code 标签的 pre 元素
+      const codeBlocks = document.querySelectorAll('pre code[class*="language-"]').forEach(code => {
+        const pre = code.parentElement;
+        if (!pre) return;  // 如果没有父元素，跳过
+
+        blockCount++;  // 增加计数器
+
+        // 获取语言类型
+        const languageClass = Array.from(code.classList).find(cls => cls.startsWith('language-'));
+        const language = languageClass ? languageClass.replace('language-', '') : 'text';
+
+        // 计算代码行数（修复末尾空行问题）
+        const lines = pre.textContent.trim().split('\n');
+        const lineCount = lines.length;
+        const lineText = lineCount === 1 ? 'line' : 'lines';
+
         // 创建新的容器
         const container = document.createElement('div');
         container.className = 'code-container';
@@ -106,7 +122,7 @@
         // 创建标题和控制按钮区域
         const title = document.createElement('span');
         title.className = 'code-title';
-        title.textContent = `Code Block ${index + 1}`;
+        title.textContent = `Code Block ${blockCount} (${language}) [${lineCount} ${lineText}]`;  // 新的标题格式，包含行数
 
         const controls = document.createElement('div');
         controls.className = 'code-controls';

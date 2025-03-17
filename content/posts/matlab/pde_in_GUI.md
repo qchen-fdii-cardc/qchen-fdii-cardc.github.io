@@ -68,9 +68,31 @@ pdeplot3D(model,'ColorMap','default','Parent',ax);
 
 我们来实现一个简单的悬臂梁分析GUI，这个GUI的界面如下：
 
-![APP界面](/matlab/pdeGUI/app.png)
+![APP界面](/matlab/pdeGUI/init.png)
 
 用户可以设置几何参数（长度、宽度、高度），材料参数（杨氏模量、泊松比），载荷参数（力），网格参数（网格尺寸），变形显示参数（变形比例）等参数；并通过按钮开产生几何体、生成网格和求解。结果则在右侧的图窗中显示，包括几何、网格和结果。
+
+按照默认参数，点击产生几何体按钮，几何体显示在右侧的图窗中。
+
+![几何体](/matlab/pdeGUI/geom.png)
+
+再点击生成网格按钮，网格显示在右侧的图窗中。
+
+![网格](/matlab/pdeGUI/mesh.png)
+
+然后点击求解按钮，结果显示在右侧的图窗中。
+
+![结果](/matlab/pdeGUI/app.png)
+
+调节变形比例到2085后，悬臂梁的变形以更加夸张的方式显示在右侧的图窗中。
+
+![变形](/matlab/pdeGUI/factor.png)
+
+这里所有的图片都是通过`exportapp`函数导出的。
+
+```matlab
+exportapp(app.UIFigure, "app.png");
+```
 
 ### GUI代码 
 

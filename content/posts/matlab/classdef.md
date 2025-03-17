@@ -16,11 +16,9 @@ tocBorder = true
 
 在Matlab的官方文档中是这么解释的：
 
-```
-采用创建类的方式，可以简化某些类型的编程任务，
-这类任务包括涉及到特定的数据结构、
-或者跟特定数据联系在一起的大量函数。
-```
+> 采用创建类的方式，可以简化某些类型的编程任务，
+> 这类任务包括涉及到特定的数据结构、
+> 或者跟特定数据联系在一起的大量函数。
 
 这里我们可以看到，实际上还是数据与操作数据的函数的封装。把非常靠近的数据机构与操作绑定在一起，便于管理。
 
@@ -48,7 +46,6 @@ end
 ```
 Attributes ::= PropertyName1=PropertyValue1, PropertyName2=PropertyValue2, ...
 ```
-
 而Matlab的类继承的语法如下：
 
 ```
@@ -78,7 +75,6 @@ SuperclassNames ::= SuperclassName1 & SuperclassName2& ...
 | `SetAccess`            | 设置权限             |
 | `SetObservable`        | 是否可设置           |
 | `Transient`            | 是否为瞬态属性       |
-
 
 详细的设置只有参考文档中的`Property Attributes`章节。
 
@@ -165,6 +161,7 @@ function obj = ClassName(arg1,arg2,...)
     ...
 end
 ```
+
 这个函数同样是一个普通函数，只是其返回值是类对象，参数中不需要传递类对象。
 
 ### 事件
@@ -243,8 +240,7 @@ enumeration (attributes)
 end
 ```
 
-举个例子，我们要定义一个表示星期的枚举：        
-
+举个例子，我们要定义一个表示星期的枚举：
 
 ```matlab
 classdef Weekday
@@ -253,6 +249,7 @@ classdef Weekday
     end
 end
 ```
+
 当然，枚举类也不过是一个普通的类，所以可以继承自其他类，也可以重载其他类的方法。
 
 如果用枚举来配合`properties`，则可以实现枚举类型的属性。
@@ -288,4 +285,3 @@ Matlab的类支持方式，相对来说比较直观，也比较容易理解。
 - handle类和value类
 
 一般而言，面向对象的诸多特性，在Matlab中都有对应的实现。
-
