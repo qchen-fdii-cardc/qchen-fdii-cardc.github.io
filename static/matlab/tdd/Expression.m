@@ -30,6 +30,7 @@ classdef Expression < handle
                             obj.operands = {};
                         case 1
                             obj.noperands = varargin{1};
+                            obj.operands = {};
                         otherwise
                             obj.noperands = varargin{1};
                             [obj.operands{1:n-1}] = varargin{2:end};
@@ -51,5 +52,58 @@ classdef Expression < handle
             isFunction = strcmp(obj.type, "Function");
         end
         
+    end
+    
+    methods % find elements
+        function vars = findvars(obj)
+            vars = [];
+            if obj.isVariable()
+                vars = obj;
+            elseif obj.isFunction() && ~isempty(obj.operands)
+                for i = 1:numel(obj.operands)
+                    op_vars = obj.operands{i}.findvars();
+                    if ~isempty(op_vars)
+                        if isempty(vars)
+                            vars = op_vars;
+                        else
+                            vars = [vars, op_vars];
+                        end
+                    end
+                end
+            end
+        end
+        
+        function consts = findconstants(obj)
+            consts = [];
+            if obj.isConstant()
+                consts = obj;
+            elseif obj.isFunction() && ~isempty(obj.operands)
+                for i = 1:numel(obj.operands)
+                    op_consts = obj.operands{i}.findconstants();
+                    if ~isempty(op_consts)
+                        if isempty(consts)
+                            consts = op_consts;
+                        else
+                            consts = [consts, op_consts];
+                        end
+                    end
+                end
+            end
+        end
+        
+        function funcs = findfunctions(obj)
+            funcs = [];
+            if obj.isFunction()
+                funcs = obj;
+                if ~isempty(obj.operands)
+                    for i = 1:numel(obj.operands)
+                        op_funcs = obj.operands{i}.findfunctions();
+                        if ~isempty(op_funcs)
+                            funcs = [funcs, op_funcs];
+                        end
+                    end
+                end
+            end
+        end
     end
 end

@@ -43,14 +43,23 @@ assert(f2.operands{2} == c1);
 
 
 %% Test 4: find all variables
+c1 = Expression("Constant", "c1", 1);
+x1 = Expression("Variable", "x1");
+f1 = Expression("Function", "plus", 2, x1, c1);
 vars = f1.findvars();
 assert(isequal(vars, x1));
 
 %% Test 5: find all constants
+c1 = Expression("Constant", "c1", 1);
+x1 = Expression("Variable", "x1");
+f1 = Expression("Function", "plus", 2, x1, c1);
 consts = f1.findconstants();
 assert(isequal(consts, c1));
 
 %% Test 6: find all functions
+c1 = Expression("Constant", "c1", 1);
+x1 = Expression("Variable", "x1");
+f1 = Expression("Function", "plus", 2, x1, c1);
 funcs = f1.findfunctions();
 assert(isequal(funcs, f1));
 

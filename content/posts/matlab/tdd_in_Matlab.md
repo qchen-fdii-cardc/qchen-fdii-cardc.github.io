@@ -201,7 +201,7 @@ Error occurred in testExpr/Test3_Function and it did not run to completion.
 改来改去，终于通过了前几个测试。此时类定义如下：
 
 ```matlab
-{{% codeseg "static/matlab/tdd/Expression.m" %}}
+{{% codeseg "static/matlab/tdd/Expression.m" 1 55 %}}
 ```
 
 测试结果：
@@ -218,7 +218,25 @@ Error occurred in testExpr/Test3_Function and it did not run to completion.
     {'testExpr/Test6_FindAllFunctions'    }    false     true        true        0.0033208    {1x1 struct}
 ```
 
-后面的几个测试也不写了……
+后面的几个测试随手写上，就可以通过了。
+
+```matlab
+{{% codeseg "static/matlab/tdd/Expression.m" %}}
+```
+
+测试`table(runtests("testExpr"))`，结果如下：
+
+```
+                     Name                      Passed    Failed    Incomplete    Duration       Details   
+    _______________________________________    ______    ______    __________    _________    ____________
+    {'testExpr/Test1_Constant'            }    true      false       false       0.0056642    {1x1 struct}
+    {'testExpr/Test2_Variable'            }    true      false       false        0.002396    {1x1 struct}
+    {'testExpr/test3_Function'            }    true      false       false       0.0025321    {1x1 struct}
+    {'testExpr/Test4_FunctionWithOperands'}    true      false       false       0.0025485    {1x1 struct}
+    {'testExpr/Test4_FindAllVariables'    }    true      false       false       0.0043304    {1x1 struct}
+    {'testExpr/Test5_FindAllConstants'    }    true      false       false       0.0036644    {1x1 struct}
+    {'testExpr/Test6_FindAllFunctions'    }    true      false       false       0.0034711    {1x1 struct}
+```
 
 ## 总结
 
