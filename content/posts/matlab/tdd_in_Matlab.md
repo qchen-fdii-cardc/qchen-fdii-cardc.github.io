@@ -93,6 +93,9 @@ Matlab有一套完整的单元测试框架，可以方便地进行TDD。一般�
 table(runtests("testExpr"))
 ```
 
+结果如下：
+
+```
                    Name                    Passed    Failed    Incomplete    Duration       Details   
     ___________________________________    ______    ______    __________    _________    ____________
     {'testExpr/Test1_Constant'        }    false     true        true         0.012455    {1x1 struct}
@@ -101,6 +104,7 @@ table(runtests("testExpr"))
     {'testExpr/Test4_FindAllVariables'}    false     true        true        0.0073568    {1x1 struct}
     {'testExpr/Test5_FindAllConstants'}    false     true        true        0.0041104    {1x1 struct}
     {'testExpr/Test6_FindAllFunctions'}    false     true        true        0.0039236    {1x1 struct}
+```
 
 ### 实现表达式类
 
