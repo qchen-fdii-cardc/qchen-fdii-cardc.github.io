@@ -12,6 +12,17 @@
 <script type="module">
     import mermaid from 'https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.5.0/mermaid.esm.mjs';
     mermaid.initialize({ startOnLoad: true });
+
+    // 添加后处理来修复转义的内容
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.mermaid').forEach(elem => {
+            // 修复常见的转义问题
+            elem.innerHTML = elem.innerHTML
+                .replace(/&lt;&lt;/g, '<<')
+                .replace(/&gt;&gt;/g, '>>')
+                .replace(/&amp;/g, '&');
+        });
+    });
 </script>
 {{ end }}
 

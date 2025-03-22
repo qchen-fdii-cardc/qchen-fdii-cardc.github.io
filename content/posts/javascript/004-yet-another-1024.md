@@ -88,6 +88,7 @@ classDiagram
     }
 
     class GameStrategy {
+        &laquo;abstract&raquo;
         #name: string
         +constructor()
         +getNextMoveFromGrid(grid: number[][])
