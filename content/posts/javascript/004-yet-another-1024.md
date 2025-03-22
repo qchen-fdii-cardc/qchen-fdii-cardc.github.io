@@ -71,6 +71,7 @@ slide(row) {
 
 在深入了解游戏的核心逻辑之前，让我们先通过一个类图来了解整个系统的结构：
 
+
 ```mermaid
 classDiagram
     class GameCore {
@@ -87,7 +88,6 @@ classDiagram
     }
 
     class GameStrategy {
-        <<abstract>>
         #name: string
         +constructor()
         +getNextMoveFromGrid(grid: number[][])
