@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1024 Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="tournament-panel">
+        <h3>Strategy Tournament</h3>
+        <div class="tournament-controls">
+            <div class="control-group">
+                <select id="games-per-strategy">
+                    <option value="20" selected>20 games</option>
+                    <option value="100">100 games</option>
+                    <option value="1000">1000 games</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <select id="tournament-grid-size">
+                    <option value="3">3x3</option>
+                    <option value="4" selected>4x4</option>
+                    <option value="5">5x5</option>
+                    <option value="6">6x6</option>
+                </select>
+            </div>
+            <button id="start-tournament" title="Start Tournament">▶</button>
+        </div>
+        <div id="tournament-results" class="tournament-results">
+            <div class="strategy-stats">Run tournament to see results...</div>
+        </div>
+    </div>
+    <div class="game-container">
+        <h1>1024</h1>
+        <div class="controls">
+            <div class="control-row">
+                <div class="control-group size-score">
+                    <select id="size-selector">
+                        <option value="3">3x3</option>
+                        <option value="4" selected>4x4</option>
+                        <option value="5">5x5</option>
+                        <option value="6">6x6</option>
+                    </select>
+                </div>
+                <div class="control-group size-score">
+                    <button id="reset-game" title="Reset Game">↺</button>
+                </div>
+                <div class="control-group size-score">
+                    <div class="score">Score: <span id="score">0</span></div>
+                </div>
+            </div>
+            <div class="control-row">
+                <div class="control-group strategy-speed">
+                    <select id="strategy-selector">
+                        <option value="corner" selected>Corner</option>
+                        <option value="clockwise">Clockwise</option>
+                        <option value="counter-clockwise">Counter-Clockwise</option>
+                        <option value="snake">Snake</option>
+                    </select>
+                </div>
+                <div class="control-group strategy-speed">
+                    <select id="speed-selector">
+                        <option value="500">Slow</option>
+                        <option value="200">Normal</option>
+                        <option value="100">Fast</option>
+                        <option value="50" selected>Very Fast</option>
+                    </select>
+                </div>
+                <div class="control-group auto-play">
+                    <button id="auto-play" title="Start/Pause"></button>
+                    <button id="stop-auto-play" title="Stop"></button>
+                </div>
+            </div>
+        </div>
+        <div class="grid" id="game-grid"></div>
+        <div class="instructions">
+            Use W/S/A/D or Arrow keys to move tiles<br>
+            Or select a strategy for auto-play
+        </div>
+    </div>
+    <div class="game-over" id="game-over">
+        <h2>Game Over!</h2>
+        <div class="final-score">Final Score: <span id="final-score">0</span></div>
+        <button class="restart-btn" onclick="location.reload()">Try Again</button>
+    </div>
+    <div class="tournament-overlay" id="tournament-overlay">
+        <h2>Tournament in Progress</h2>
+        <div class="tournament-progress">
+            <div class="current-game">
+                Strategy: <span id="current-strategy">-</span><br>
+                Game: <span id="current-game">0</span>/<span id="total-games">0</span>
+            </div>
+            <div class="last-game-result">
+                Last Game Score: <span id="last-game-score">-</span>
+            </div>
+            <div class="progress-bar">
+                <div id="tournament-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+    <div class="debug-panel" id="debug-panel">
+        <h3 id="debug-info-title">Strategy Info</h3>
+        <div id="move-scores"></div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>
