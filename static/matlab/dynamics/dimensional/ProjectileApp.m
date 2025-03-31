@@ -5,7 +5,7 @@ classdef ProjectileApp < matlab.apps.AppBase
         MainGrid      % 主网格布局
         LeftGrid      % 左侧网格布局
         RightGrid     % 右侧网格布局
-        DimAxes       % 无量纲坐标轴
+        NonDimAxes       % 无量纲坐标轴
         DimensionalAxes % 有量纲坐标轴
         
         % Tab Group
@@ -117,13 +117,13 @@ classdef ProjectileApp < matlab.apps.AppBase
             createInputFields(app);
             
             % 创建轨迹图
-            app.DimAxes = uiaxes(trajectoryGrid);
-            app.DimAxes.Layout.Row = 1;
-            app.DimAxes.Layout.Column = 1;
-            title(app.DimAxes, 'Non-dimensional Trajectories');
-            xlabel(app.DimAxes, 'X (Non-dimensional)');
-            ylabel(app.DimAxes, 'Y (Non-dimensional)');
-            grid(app.DimAxes, 'on');
+            app.NonDimAxes = uiaxes(trajectoryGrid);
+            app.NonDimAxes.Layout.Row = 1;
+            app.NonDimAxes.Layout.Column = 1;
+            title(app.NonDimAxes, 'Non-dimensional Trajectories');
+            xlabel(app.NonDimAxes, 'X (Non-dimensional)');
+            ylabel(app.NonDimAxes, 'Y (Non-dimensional)');
+            grid(app.NonDimAxes, 'on');
             
             % 创建有量纲轨迹图
             app.DimensionalAxes = uiaxes(dimensionalGrid);
@@ -332,9 +332,9 @@ classdef ProjectileApp < matlab.apps.AppBase
             app.MaxHeightNondimLabel.Text = sprintf('%.2f', maxHeight);
             
             % 创建新的轨迹线 - 使用无量纲坐标
-            hold(app.DimAxes, 'on');
-            newLine = plot(app.DimAxes, app.XData, app.YData, 'LineWidth', 2);
-            hold(app.DimAxes, 'off');
+            hold(app.NonDimAxes, 'on');
+            newLine = plot(app.NonDimAxes, app.XData, app.YData, 'LineWidth', 2);
+            hold(app.NonDimAxes, 'off');
             
             % 创建新的轨迹线 - 使用有量纲坐标
             hold(app.DimensionalAxes, 'on');
@@ -354,7 +354,7 @@ classdef ProjectileApp < matlab.apps.AppBase
             
             % 在最高点添加文本标注
             [maxY, maxIdx] = max(app.YData);
-            text(app.DimAxes, app.XData(maxIdx), maxY, legendText, ...
+            text(app.NonDimAxes, app.XData(maxIdx), maxY, legendText, ...
                 'VerticalAlignment', 'bottom', ...
                 'HorizontalAlignment', 'center');
             
@@ -364,15 +364,15 @@ classdef ProjectileApp < matlab.apps.AppBase
                 'HorizontalAlignment', 'center');
             
             % 将图例移到坐标轴外部
-            legend(app.DimAxes, app.LegendEntries, 'Location', 'eastoutside');
+            legend(app.NonDimAxes, app.LegendEntries, 'Location', 'eastoutside');
             legend(app.DimensionalAxes, app.LegendEntries, 'Location', 'eastoutside');
             
             % 设置坐标轴范围为自动
-            axis(app.DimAxes, 'auto');
+            axis(app.NonDimAxes, 'auto');
             axis(app.DimensionalAxes, 'auto');
             
             % 更新标题
-            title(app.DimAxes, sprintf('Non-dimensional Trajectories (λ=%.2f, θ=%.1f°)', app.Lambda, theta_deg));
+            title(app.NonDimAxes, sprintf('Non-dimensional Trajectories (λ=%.2f, θ=%.1f°)', app.Lambda, theta_deg));
             title(app.DimensionalAxes, sprintf('Dimensional Trajectories (λ=%.2f, θ=%.1f°)', app.Lambda, theta_deg));
             
             % 更新三维图
@@ -472,11 +472,11 @@ classdef ProjectileApp < matlab.apps.AppBase
             
             % 清除图例
             app.LegendEntries = {};
-            legend(app.DimAxes, 'off');
+            legend(app.NonDimAxes, 'off');
             legend(app.DimensionalAxes, 'off');
             
             % 清除坐标轴上的文本标注
-            for ax = [app.DimAxes, app.DimensionalAxes]
+            for ax = [app.NonDimAxes, app.DimensionalAxes]
                 children = get(ax, 'Children');
                 for i = 1:length(children)
                     if isa(children(i), 'matlab.graphics.primitive.Text')
@@ -486,13 +486,13 @@ classdef ProjectileApp < matlab.apps.AppBase
             end
             
             % 重置坐标轴
-            axis(app.DimAxes, 'auto');
+            axis(app.NonDimAxes, 'auto');
             axis(app.DimensionalAxes, 'auto');
             
             % 更新标题
-            title(app.DimAxes, 'Non-dimensional Trajectories');
-            xlabel(app.DimAxes, 'X (Non-dimensional)');
-            ylabel(app.DimAxes, 'Y (Non-dimensional)');
+            title(app.NonDimAxes, 'Non-dimensional Trajectories');
+            xlabel(app.NonDimAxes, 'X (Non-dimensional)');
+            ylabel(app.NonDimAxes, 'Y (Non-dimensional)');
             
             title(app.DimensionalAxes, 'Dimensional Trajectories');
             xlabel(app.DimensionalAxes, 'x (m)');

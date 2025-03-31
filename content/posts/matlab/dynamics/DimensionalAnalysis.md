@@ -474,7 +474,7 @@ exportapp(app.Figure, "mainui.png")
 我们就演示一个东西，就是不同的质量下的投射距离。我们一通调节质量，得到如下的结果：
 
 ```matlab
-exportgraphics(app.DimensionalAxes, "ndt.png")
+exportgraphics(app.NonDimAxes, "ndt.png")
 ```
 
 ![界面](/matlab/dynamics/dimensional/ndt.png)
