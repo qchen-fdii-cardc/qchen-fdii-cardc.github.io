@@ -72,7 +72,7 @@ $$
 那我们非要用Matlab做怎么整呢？符号运算工具箱还是很好用的（现在）。
 
 ```matlab
-{{% codeseg  "static\matlab\optimization\symbolic_opt.m" 1 24  %}}
+{{% codeseg  "static/matlab/optimization/symbolic_opt.m" 1 24  %}}
 ```
 
 首先，我们在第2行到第4行把问题输进去；第7~8行我们做了一个约束，两个几何量都大于零，这是为了去掉那些复数的解。下面这个例子，可以看到约束函数`assume`的作用。
@@ -120,7 +120,7 @@ $$
 $$
 
 ```matlab
-{{% codeseg  "static\matlab\optimization\symbolic_opt.m" 26  %}}
+{{% codeseg  "static/matlab/optimization/symbolic_opt.m" 26  %}}
 ```
 
 我们非常暴力地把约束条件和优化目标写在一起构成一个新的函数：
@@ -184,7 +184,7 @@ exportapp(app.UIFigure, "flat.png")
 
 
 ```matlab
-{{% codeseg  "static\matlab\optimization\BucketOptApp.m" %}}
+{{% codeseg  "static/matlab/optimization/BucketOptApp.m" %}}
 ```
 
 ## 模型的碎碎念
