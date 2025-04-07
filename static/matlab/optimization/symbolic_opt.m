@@ -2,6 +2,8 @@
 syms r h V(r,h) A(r, h)
 V(r, h) = pi * r * r * h;
 A(r, h) = 2 * pi * r * h + 2 * pi * r * r;
+
+% 这两个很节省计算，也算是灵巧的小手，一定要学会约束条件提前给进去
 assume(r > 0);
 assume(h > 0);
 
@@ -13,7 +15,7 @@ Ar = subs(A, h, hr);
 
 r_min = solve(diff(Ar, r) == 0);
 
-assert(subs(diff(Ar, r, r), r, rm) > 0);
+assert(subs(diff(Ar, r, r), r, r_min) > 0);
 
 %% report result
 h_min = subs(hr, r_min);

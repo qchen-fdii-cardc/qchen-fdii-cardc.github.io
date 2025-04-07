@@ -189,18 +189,18 @@ classdef BucketOptApp < matlab.apps.AppBase
             
             % 创建左侧网格布局
             app.LeftGrid = uigridlayout(app.LeftPanel, [2 1]);
-            app.LeftGrid.RowHeight = {'3x', 'fit'};
+            app.LeftGrid.RowHeight = {'fit', 'fit'};
             app.LeftGrid.Padding = [10 10 10 10];
             app.LeftGrid.RowSpacing = 10;
             
             % 创建3D显示区域
             app.ContainerAxes = uiaxes(app.LeftGrid);
-            app.ContainerAxes.Layout.Row = 1;
+            app.ContainerAxes.Layout.Row = 2;
             app.ContainerAxes.Layout.Column = 1;
             
             % 创建控制面板
             app.ControlPanel = uipanel(app.LeftGrid);
-            app.ControlPanel.Layout.Row = 2;
+            app.ControlPanel.Layout.Row = 1;
             app.ControlPanel.Layout.Column = 1;
             app.ControlPanel.Title = '参数控制';
             
