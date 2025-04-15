@@ -8,6 +8,9 @@ title = "近期写作练习"
   show_more_url = "posts"
 
 [[entries]]
+title = "OpenGL探索"
+url = "OpenGL-Learning"
+[[entries]]
 title = "Eigen3教程-线性代数Cpp库"
 url = "eigen3tutorial"
 [[entries]]
