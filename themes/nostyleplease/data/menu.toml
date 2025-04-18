@@ -8,6 +8,9 @@ title = "近期写作练习"
   show_more_url = "posts"
 
 [[entries]]
+title = "Kotlin开发"
+url = "kotlin-projects"
+[[entries]]
 title = "OpenGL探索"
 url = "OpenGL-Learning"
 [[entries]]
