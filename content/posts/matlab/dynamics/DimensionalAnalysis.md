@@ -129,13 +129,13 @@ $$
 这样可以得到一组方程：
 
 $$\begin{split}
-&\alpha_y = \alpha_a^\alpha + \alpha_b^\beta + \alpha_c^\gamma + \cdots \\
-&\beta_y = \beta_a^\alpha + \beta_b^\beta + \beta_c^\gamma + \cdots \\
-&\gamma_y = \gamma_a^\alpha + \gamma_b^\beta + \gamma_c^\gamma + \cdots \\
-&\delta_y = \delta_a^\alpha + \delta_b^\beta + \delta_c^\gamma + \cdots \\
-&\epsilon_y = \epsilon_a^\alpha + \epsilon_b^\beta + \epsilon_c^\gamma + \cdots \\
-&\zeta_y = \zeta_a^\alpha + \zeta_b^\beta + \zeta_c^\gamma + \cdots \\
-&\eta_y = \eta_a^\alpha + \eta_b^\beta + \eta_c^\gamma + \cdots \\
+&\alpha_y = \alpha_a \cdot \alpha + \alpha_b \cdot \beta + \alpha_c \cdot \gamma + \cdots \\
+&\beta_y = \beta_a \cdot \alpha + \beta_b \cdot \beta + \beta_c \cdot \gamma + \cdots \\
+&\gamma_y = \gamma_a \cdot \alpha + \gamma_b \cdot \beta + \gamma_c \cdot \gamma + \cdots \\
+&\delta_y = \delta_a \cdot \alpha + \delta_b \cdot \beta + \delta_c \cdot \gamma + \cdots \\
+&\epsilon_y = \epsilon_a \cdot \alpha + \epsilon_b \cdot \beta + \epsilon_c \cdot \gamma + \cdots \\
+&\zeta_y = \zeta_a \cdot \alpha + \zeta_b \cdot \beta + \zeta_c \cdot \gamma + \cdots \\
+&\eta_y = \eta_a \cdot \alpha + \eta_b \cdot \beta + \eta_c \cdot \gamma + \cdots \\
 \end{split}
 $$
 
