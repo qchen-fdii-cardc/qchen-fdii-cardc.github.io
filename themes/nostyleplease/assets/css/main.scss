@@ -114,7 +114,7 @@ li {
   z-index: 1000;
   max-height: 80vh;
   overflow-y: auto;
-  left: calc(50% - 500px - 250px);
+  left: calc(50% - 320px - 250px - 4rem);
   top: 100px;
 
   &.with-border {
@@ -305,7 +305,7 @@ h6:before {
   z-index: 1000;
   max-height: 80vh;
   overflow-y: auto;
-  right: calc(50% - 500px - 250px);
+  right: calc(50% - 320px - 250px - 4rem);
   top: 100px;
 
   @media screen and (max-width: 1199px) {

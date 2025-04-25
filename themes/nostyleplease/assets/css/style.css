@@ -1,0 +1,23 @@
+.toc-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+.toc ul {
+    list-style: none;
+    padding: 0 0.5rem;
+}
+
+.tags-title {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+.tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0 0.5rem;
+}
