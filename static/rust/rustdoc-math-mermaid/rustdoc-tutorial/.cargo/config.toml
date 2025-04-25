@@ -1,3 +1,6 @@
+[alias]
+d = "rustdoc --open"
+
 [build]
 rustdoc = "rustdoc"
 rustdocflags = ["--html-in-header", "../rustdoc-header.html"]

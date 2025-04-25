@@ -1,10 +1,10 @@
 +++
-title = 'Math and Mermaid in Rustdoc中使用公式和Mermaid绘图'
+title = 'Math and Mermaid in Rustdoc中使用数学公式和Mermaid绘图'
 date = 2025-04-25T14:27:56+08:00
 draft = false
 mathkatex = true
 categories = ['rust']
-tags = ['rust', 'cargo', 'rustdoc', 'math', 'mermaid', 'katex', 'markdown']
+tags = ['rust', 'cargo', 'rustdoc', 'math', 'mermaid', 'katex', 'markdown', '数学公式', 'Mermaid绘图']
 toc = true
 tocBorder = true
 +++
@@ -13,9 +13,9 @@ tocBorder = true
 
 又是Rust神启动的一天，今天我们要在Rustdoc中使用公式和Mermaid绘图。
 
-本来我是准备蹭[Cangjie](<https://cangjie-lang.cn/>)的热度，搞一个领域程序的自主可控、国产化替代、数智赋能、降本增效的项目。就因为在[知乎](<https://www.zhihu.com/question/8452441330/answer/1898461142709417202>)搞抽象，整了一个[Rust更新那啥hosts文件](/posts/rust/update-hosts)，结果被带偏了，现在咋办呢？我要搞一个内存安全、开源可控、国产化替代、降本增效、数智赋能、自主可控的领域数字化项目。
+本来我是准备蹭[Cangjie](<https://cangjie-lang.cn/>)的热度，搞一个领域数字化的自主可控、国产化替代、数智赋能、降本增效项目。就因为在[知乎](<https://www.zhihu.com/question/8452441330/answer/1898461142709417202>)搞抽象，整了一个[Rust更新那啥hosts文件](/posts/rust/update-hosts)，结果被带偏了。现在咋办呢？那不行，我要搞一个内存安全、开源可控、国产化替代、降本增效、数智赋能、自主可控的领域数字化项目。
 
-反正总是要蹭，蹭上水就是谁！
+反正就是要蹭，蹭上谁就是谁！
 
 ## 学Rust从哪里开始？
 
@@ -23,7 +23,7 @@ tocBorder = true
 
 必然就是：[doc.rust-lang.org](<https://doc.rust-lang.org/>)
 
-点开一看，不说别的，审美和一致性就让人不由得眼前一亮。虽然锈粉也干过很多抽象的事情，但是Rust这个审美真是强迫症福音，没毛病。
+点开一看，不说别的，审美和一致性就让人不由得眼前一亮。虽然锈粉也干过很多抽象的事情，跟C/Cpp的Man page/Info比起来，Rust这个审美真是强迫症福音，没毛病。
 
 特别是那个[Rust API documentation](<https://doc.rust-lang.org/stable/std/index.html>)，是我这几天学习的很重要的对象，导航比较清晰，还能直接看源代码。
 
@@ -63,11 +63,11 @@ A：Rust的API文档是根据源代码（注释）自动生成的。
 
 而生成API文档的工具，就是`rustdoc`。有一本书：[The rustdoc book](<https://doc.rust-lang.org/rustdoc/what-is-rustdoc.html>)，就是专门介绍`rustdoc`的。好好看去吧。
 
-我是很快就发现，在`lib.rs`中，可以增加`#[doc = include_str!("doc/doc.md")]`，来包含一个markdown文件。
+很快就发现，在`lib.rs`中，可以增加`#[doc = include_str!("doc/doc.md")]`，来包含一个markdown文件。
 
 并且，每个`mod`，也可以增加`#[doc = include_str!("doc/mod.md")]`，来包含一个markdown文件。
 
-这我就不困了……很快，我的蹭热度项目的代码的文档就开始起飞了……
+这我就不困了……很快，蹭热度项目的代码的文档就开始起飞了……
 
 每次编了一些文档，就可以运行：
 
@@ -88,7 +88,7 @@ cargo doc --open         # 或者这样
 
 ### 解决方案
 
-已知：可以在`rustdoc`中采用`--html-in-header`选项，来在`head`中增加内容到生成的网页中。
+已知：可以在`rustdoc`中采用`--html-in-header`选项，来在`head`中增加内容到生成的网页中。一定要注意，这里的参数要放在`--`后面，这样的参数就是`rustdoc`的参数，而不是`cargo`的参数。
 
 ```bash
 cargo rustdoc --open -- --html-in-header my-header.html
@@ -129,6 +129,8 @@ cargo rustdoc --open -- --html-in-header my-header.html
 ```
 
 这样，我们每次运行`cargo rustdoc`，就会自动增加`--html-in-header rustdoc-header.html`参数。
+
+另外，我们还整了一个别名`d`，这样就可以直接运行`cargo d`，来打开浏览器查看文档了。注意这里如果把`-- --html-in-header ../rustdoc-header.html`写在别名定义的后面，那么后面的`[build]`的配置就可以不要了。一次提供两个解决方案！
 
 完美！
 
