@@ -3,10 +3,10 @@
 ## 数学公式
 
 $$
-\arg\min_{x \in \mathcal{R}^3} f(x)
+\arg\min_{x \in \mathbb{R}^3} f(x)
 $$
 
-其中，$\mathcal{R}^3$ 表示三维实数空间。
+其中，$\mathbb{R}^3$ 表示三维实数空间，$f(x)$ 表示一个函数。
 
 ## Mermaid绘图
 
