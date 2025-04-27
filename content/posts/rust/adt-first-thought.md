@@ -35,6 +35,20 @@ ADT中最重要的概念就是这个，基数。了解了一个类型的基数�
 
 当然，有了这个基础的类型，不失一般性，我们可以定义出这个`u8`宇宙所有可能的ADT。
 
+```mermaid
+graph LR
+    A[ADT] --> B[GenericDomainType]
+    A --> C[SumType]
+    C -.-o|left| C1[ADT]
+    C -.-o|right| C2[ADT]
+    A --> D[ProductType]
+    D -.-o|left| D1[ADT]
+    D -.-o|right| D2[ADT]
+    A --> E[EmptyType]
+```
+
+我们甚至可以假装用`enum`来描述：
+
 ```rust
 enum ADT<T> {
     GenericDomainType(T)
