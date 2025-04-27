@@ -1,7 +1,7 @@
 +++
 title = 'ADT with Rust中考虑领域建模ADT'
 date = 2025-04-27T07:54:17+08:00
-draft = true
+draft = false
 mathkatex = true
 categories = ['rust']
 tags = ['rust', '领域建模', 'ADT', '领域驱动设计', 'DDD', 'enum', 'struct', 'type']
