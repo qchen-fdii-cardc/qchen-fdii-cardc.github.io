@@ -1,7 +1,7 @@
 +++
 title = 'Egui First Try 使用Rust开发一个简单的UI'
 date = 2025-04-27T14:15:26+08:00
-draft = true
+draft = false
 mathkatex = true
 categories = ['rust']
 tags = ['rust', 'egui', 'checklist', 'github pages', 'rust-lang', '清单革命', 'git branch', 'python', 'icon', 'font', 'font-cutter', '字体裁剪']
@@ -107,13 +107,70 @@ tocBorder = true
 
 ### 主程序
 
-整个程序简直是乏善可陈，
+整个程序简直是乏善可陈。
+
+首先是我们的清单，用一个结构体来表示，是一个动态的列表，这里也不涉及到增加，就是在启动的过程中从`text.rs`中读取。然后就是当前的步骤，用当前的步骤来更新另外一个字段，就是记录当前工作的。这里有一个逻辑：checklist中只能选取勾选当前工作以及之前的选项。如果是当前可选的，那就是完成一项工作，如果是以前已经完成的，就会把所有剩下的工作都标记为未完成。
 
 ```rust
-{{% codeseg "/static/rust/egui-first-try/main.rs" %}}
+struct PostChecklist {
+    steps: Vec<(String, bool)>,
+    current_step: usize, // 当前可操作的步骤
+}
+
+impl Default for PostChecklist {
+    fn default() -> Self {
+        Self {
+            steps: text::CHECKLIST_ITEMS
+                .iter()
+                .map(|&item| (item.to_string(), false))
+                .collect(),
+            current_step: 0,
+        }
+    }
+}
+
+impl PostChecklist {
+    fn update_current_step(&mut self) {
+        // 找到第一个未完成的步骤
+        self.current_step = self
+            .steps
+            .iter()
+            .position(|(_, checked)| !checked)
+            .unwrap_or(self.steps.len());
+    }
+}
+```
+
+主程序的逻辑也很简单，就是为清单结构体实现一个`eframe::App`，提供一个`update`函数。
+
+```rust
+{{% codeseg "/static/rust/egui-first-try/main.rs" 52 98 %}}
+```
+
+在这个函数中，就是设置ui的布局和行为，关键的代码在：
+
+```rust
+egui::CentralPanel::default().show(ctx, |ui| {
+    ui.heading("GitHub Pages Checklist");
+    ui.separator();
+    ui.checkbox(&mut checklist.steps[checklist.current_step].1, "完成");
+    // ……
+});
+```
+
+这个函数的帮助在：[struct CentralPanel.show](<https://docs.rs/egui/latest/egui/containers/panel/struct.CentralPanel.html#method.show>)，最后一个参数用的是一个匿名方法来实现，是要给`&mut Ui`对象，形参名字为`ui`。调用`Ui`所实现的函数，就能完成对UI的更行。这个函数中，我们首先设置了一个标题，然后设置了一个分隔符，然后设置了一个复选框，复选框的值是清单结构体中的当前步骤的完成状态。
+
+相当于是，`egui`的主线程定时在一定的上下文下调用这个`update`函数，绘制和更新UI。
+
+主函数中，则主要是设置我们想要的窗口属性，什么一直在最前、窗口尺寸、是否能调整大小……最终调用`eframe::run_native`来启动程序。
+
+```rust
+{{% codeseg "/static/rust/egui-first-try/main.rs"%}}
 ```
 
 ### Windows打包
+
+这个程序还有一点点复杂的就是windows下打包成Windows subsystem的exe。这里就不涉及技术细节了，我可以不是自己不懂……哈哈哈哈哈
 
 ```rust
 {{% codeseg "/static/rust/egui-first-try/build.rs" %}}
@@ -121,4 +178,13 @@ tocBorder = true
 
 ## 总结
 
-很好很强大！
+全部工程需要的文件：
+
+- [Cargo.toml](/rust/egui-first-try/Cargo.toml)
+- [build.rs](/rust/egui-first-try/build.rs)
+- [src/main.rs](/rust/egui-first-try/main.rs)
+- [src/text.rs](/rust/egui-first-try/text.rs)
+- [scripts/generate_font.py](/rust/egui-first-try/generate_font.py)
+- [scripts/generate_icon.py](/rust/egui-first-try/generate_icon.py)
+
+这些文件都可以在[Github仓库](<https://github.com/qchen-fdii-cardc/hugo-post-checklist>)中找到。
