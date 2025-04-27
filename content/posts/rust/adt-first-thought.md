@@ -535,7 +535,7 @@ fn test_expression() {
 
 总之，这样就可以大胆的操作表达式了。
 
-当然，我们看到这样写，其实还是有点啰嗦，我们可以把`Clone`的部分稍微优化一下，自动调用`Clone`。最终的代码会稍微好看一点。
+当然，我们看到这样写，其实还是有点啰嗦，我们可以把`Clone`的部分稍微优化一下，自动调用`Clone`。最终的代码会稍微好看一点。终于不用自己写`Clone`，并且采用引用很好地维持了所有中间表达式的所有权全部时间都有效。如果我们不采用引用，那么所有的中间表达式都会被移动，就不能反复利用表达式来构成更加复杂的表达式。这是Rust经常被认为很难的一个重要的地方。
 
 ```rust
 #[derive(Debug, Clone)]
@@ -633,19 +633,12 @@ fn test_expression() {
     let expr1 = Expression::new_number(5);
     let expr2 = Expression::new_number(3);
     
-    let add_expr = Expression::new_add(&expr1, &expr2);
-    
-    let sub_expr = Expression::new_subtract(&expr1, &add_expr);
-    
-    let mul_expr = Expression::new_multiply(&sub_expr, &add_expr);
-    
-    let div_expr = Expression::new_divide(&mul_expr, &expr2);
-    
-    let power_expr = Expression::new_power(&div_expr, &mul_expr);
-    
-    let neg_expr = Expression::Negate {
-        value: Box::new(power_expr.clone()),
-    };
+    let add_expr = Expression::new_add(&expr1, &expr2);    
+    let sub_expr = Expression::new_subtract(&expr1, &add_expr);    
+    let mul_expr = Expression::new_multiply(&sub_expr, &add_expr);    
+    let div_expr = Expression::new_divide(&mul_expr, &expr2);    
+    let power_expr = Expression::new_power(&div_expr, &mul_expr);    
+    let neg_expr = Expression::new_negate(&power_expr);
     
     assert_eq!(format!("{}", add_expr), "(5 + 3)");
     assert_eq!(format!("{}", sub_expr), "(5 - (5 + 3))");
@@ -656,7 +649,7 @@ fn test_expression() {
 }
 ```
 
-当然，更加终极的样子，还是定义一些运算符，然后就可以直接操作了。
+当然，更加终极的样子，还是定义一些运算符，然后就可以直接操作了。值得注意的是，我们这里的`Add`和`Mul`，都是`&Expression<T>`的运算符重载，而不是`Expression<T>`的运算符重载。如果定义为`Expression<T>`的运算符重载，那么在写一个表达式时，其各个节点都会被移动，那么就无法复用表达式了。这一点也需要注意。如果`Box`能够采用`Copy`的语义，那么我们就可以直接采用`Expression<T>`的运算符重载，那么就可以直接操作了。我可能需要好好再看看`Box`的源代码……
 
 ```rust
 impl<T: num::Num+Clone+Copy> std::ops::Add for &Expression<T> {
@@ -701,5 +694,7 @@ fn test_expression_add() {
 ## 总结
 
 有一点感受，Rust提供的工具，总感觉有点憋憋屈屈的。
+
+如果没有C语言的基础，什么分析生命周期可真是要了命了。
 
 看在Cargo的份上，忍了。
