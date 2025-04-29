@@ -1,7 +1,7 @@
 +++
 title = 'Rust for Stupid Engineers愚蠢工程师用Rust'
 date = 2025-04-29T08:52:55+08:00
-draft = true
+draft = false
 mathkatex = true
 categories = ['rust']
 tags = ['rust', 'array', 'vector', 'numeric']
@@ -174,7 +174,7 @@ cargo run
 
 可以看到，栈的大小是还不到1MB。我看有本书上说有8MB，也还是很容易爆的。
 
-## 这就进入了那一堆借用、引用和Box的领域
+## 愚蠢的尝试和解药
 
 ### 愚蠢的尝试
 
@@ -203,7 +203,7 @@ cargo test test_big_array_usage -- --nocapture
 
 结果就是：`thread 'tests::test_big_array_usage' has overflowed its stack`。原来，Rust会先在堆栈上创建一个array，然后Copy这个array到堆上，谁让array是值类型呢……
 
-### `unsafe`的领域
+### 更加愚蠢的`unsafe`领域
 
 那怎么办？我们怎么在堆上面创建一个数组？
 
@@ -276,7 +276,9 @@ fn test_very_big_vec() {
 
 只要从不转移所有权，那么所有权就跟我没有任何关系！
 
-## 例子
+## 求解简谐振动的ODE
+
+![简谐振动](/rust/rust-for-stupid-engineers/harmonic_oscillator.gif)
 
 ### 二阶常系数线性微分方程
 
@@ -438,6 +440,12 @@ fn main() {
 ```
 
 ![](/rust/rust-for-stupid-engineers/results_plot.png)
+
+还有那个动画脚本：
+
+```python
+{{% codeseg "/static/rust/rust-for-stupid-engineers/scripts/animate_results.py" %}}
+```
 
 ## 总结
 
