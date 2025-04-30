@@ -7,9 +7,6 @@ enum Cereal {
     Wheat,
 }
 
-
-
-
 fn main() {
     let mut grains: Vec<Cereal> = vec![];
     grains.push(Cereal::Barley);
@@ -21,5 +18,4 @@ fn main() {
     drop(grains);
 
     println!("{:?}", grains);
-    
 }
