@@ -1,6 +1,12 @@
+use std::ops::Add;
+
 pub trait OdeFunc {
     fn func(&self, t: f64, x: &Vec<f64>, dx: &mut Vec<f64>);
     fn dimension(&self) -> usize;
+}
+
+pub trait Trajectory {
+    fn trajectory(&self) -> Vec<(f64, Vec<f64>)>;
 }
 
 pub fn rk6<F: OdeFunc>(
@@ -40,20 +46,25 @@ pub fn rk6<F: OdeFunc>(
         }
         ode_func.func(t + 12.0 * h_actual / 13.0, &dx, &mut k4);
         for i in 0..n {
-            dx[i] = x[i] + h_actual * (439.0 * k1[i] / 216.0 - 8.0 * k2[i] + 3680.0 * k3[i] / 513.0 - 845.0 * k4[i] / 4104.0);
+            dx[i] = x[i]
+                + h_actual
+                    * (439.0 * k1[i] / 216.0 - 8.0 * k2[i] + 3680.0 * k3[i] / 513.0
+                        - 845.0 * k4[i] / 4104.0);
         }
         ode_func.func(t + h_actual, &dx, &mut k5);
         for i in 0..n {
-            dx[i] = x[i] + h_actual * (-8.0 * k1[i] / 27.0 + 2.0 * k2[i] - 3544.0 * k3[i] / 2565.0 + 1859.0 * k4[i] / 4104.0 - 11.0 * k5[i] / 40.0);
+            dx[i] = x[i]
+                + h_actual
+                    * (-8.0 * k1[i] / 27.0 + 2.0 * k2[i] - 3544.0 * k3[i] / 2565.0
+                        + 1859.0 * k4[i] / 4104.0
+                        - 11.0 * k5[i] / 40.0);
         }
         ode_func.func(t + h_actual / 2.0, &dx, &mut k6);
 
         // 更新状态
         for i in 0..n {
             x[i] += h_actual
-                * (16.0 * k1[i] / 135.0
-                    + 6656.0 * k3[i] / 12825.0
-                    + 28561.0 * k4[i] / 56430.0
+                * (16.0 * k1[i] / 135.0 + 6656.0 * k3[i] / 12825.0 + 28561.0 * k4[i] / 56430.0
                     - 9.0 * k5[i] / 50.0
                     + 2.0 * k6[i] / 55.0);
         }

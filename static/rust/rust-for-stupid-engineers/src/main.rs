@@ -1,4 +1,4 @@
-use rust_for_stupid_engineers::ode::{rk6, OdeFunc};
+use rust_for_stupid_engineers::ode::{OdeFunc, rk6};
 
 struct SimpleOde {
     dim: usize,
