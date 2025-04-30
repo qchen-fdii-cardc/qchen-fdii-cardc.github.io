@@ -40,6 +40,8 @@ __pycache__/
 *.dylib
 *.dll
 *.lib
+*.obj
+*.pdb
 
 # Python virtual environment
 .venv/
