@@ -1,10 +1,10 @@
 +++
 title = 'Learn Rust by Code Bugs in C语言实现Rust无法做到的bug'
 date = 2025-04-30T14:40:03+08:00
-draft = true
+draft = false
 mathkatex = true
-categories = ['rust', 'C']
-tags = ['rust', 'C', 'memory safety', 'concurrency', 'safety', 'bugs']
+categories = ['rust', 'c']
+tags = ['rust', 'c', 'memory safety', 'concurrency', 'safety', 'bugs','悬垂指针','数据竞争','缓冲区溢出','迭代器失效']
 toc = true
 tocBorder = true
 +++
@@ -12,6 +12,8 @@ tocBorder = true
 ## Rust的Niche在哪里？
 
 Rust吹得那么凶，大家那么喜欢她，人人都爱她，她的生态位到底在哪里呢？不可能说一个丑女大家都能喜欢。所以，人家还是有点东西的。
+
+![](/rust/learn-rust-by-code-bugs-in-C/niche.png)
 
 《Rust in Action》里面就分析了Rust可以解决四类编程问题：
 
@@ -24,7 +26,9 @@ Rust吹得那么凶，大家那么喜欢她，人人都爱她，她的生态位�
 
 ## Bug大师：C语言
 
-大家都说C语言是bug大师，这个说法还是很客气的。C语言简直是bug圣斗士、bug之神。其实主要的原因就是C语言自由度非常高，电脑（计算机）能干什么，C语言就让你干，你可以随便干。语言层面上，C非常接近汇编语言乃至机器语言。
+大家都说C语言是bug大师，这个说法还是很客气的。C语言简直是bug圣斗士、bug之神。其实主要的原因就是C语言自由度非常高，电脑（计算机）能干什么，C语言就让你干，你可以随便干。语言层面上，C非常接近汇编语言乃至机器语言。在C语言中，所有的代码和内存都是平等的……
+
+![](/rust/learn-rust-by-code-bugs-in-C/equal.jfif)
 
 下面我们演示一下Rust写不来的bug。
 
@@ -143,10 +147,14 @@ cargo fix --allow-dirty
 
 结果，它打印出来的信息跟`cargo check`是一样的。
 
+![](/rust/learn-rust-by-code-bugs-in-C/haha.jpg)
+
 我就当无事发生，今天的天气真好。
 
 ## 总结
 
-C坏，Rust好……那是不可能的。
+C坏，Rust好……那是不可能的。Rust编程序真的费劲，需要跟编译器使劲解释，搞清楚谁能摸、谁能看，摸的摸多久，看的看到什么时候……
+
+![](/rust/learn-rust-by-code-bugs-in-C/legs.jfif)
 
 Rust主要是后发优势，工具链完善，报错信息（这是因为我们需要给编译器提供大量的信息）完善。
