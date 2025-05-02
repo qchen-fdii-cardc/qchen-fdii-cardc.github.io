@@ -1,7 +1,7 @@
 +++
 title = 'For Else Loop in Rust如何实现for-else语法'
 date = 2025-05-02T15:51:22+08:00
-draft = true
+draft = false
 mathkatex = true
 categories = ['rust']
 tags = ['rust', 'for-else', 'loop', 'macro']
@@ -11,7 +11,7 @@ tocBorder = true
 
 ## 形而下之，下不为例
 
->> Rust中有没有for-else语法？
+> Rust中有没有for-else语法？
 
 答案是，没有。
 
@@ -118,6 +118,13 @@ if let None = (0..10).find(|&i| i == 15) {
 ```
 
 不知道这样行不行，当然，还是难看……
+
+工程文件什么的：
+
+- [Cargo.toml](/rust/for-else-loop-in-rust/Cargo.toml)
+- [src/lib.rs](/rust/for-else-loop-in-rust/src/lib.rs)
+- [tests/test.rs](/rust/for-else-loop-in-rust/tests/test.rs)
+- [Cargo.lock](/rust/for-else-loop-in-rust/Cargo.lock)
 
 ## 结论
 
