@@ -1,1 +1,0 @@
-unsigned long add(unsigned long left, unsigned long right);
