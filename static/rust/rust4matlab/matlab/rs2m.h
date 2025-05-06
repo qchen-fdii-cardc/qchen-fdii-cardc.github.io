@@ -14,9 +14,6 @@ extern "C"
     // Generate evenly spaced array
     int32_t linspace(double start, double end, int32_t n, double *out_ptr);
 
-    // Free array memory
-    void free_linspace_result(double *ptr);
-
     // Square function
     double square(double x);
 

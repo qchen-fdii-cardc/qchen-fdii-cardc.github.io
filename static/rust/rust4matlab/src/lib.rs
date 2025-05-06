@@ -29,15 +29,6 @@ pub extern "C" fn linspace(start: f64, end: f64, n: usize, out_ptr: *mut f64) ->
     n as i32
 }
 
-#[no_mangle]
-pub extern "C" fn free_linspace_result(ptr: *mut f64) {
-    if !ptr.is_null() {
-        unsafe {
-            let _ = Box::from_raw(ptr);
-        }
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
