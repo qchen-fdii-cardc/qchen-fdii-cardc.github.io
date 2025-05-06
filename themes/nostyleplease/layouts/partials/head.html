@@ -114,6 +114,10 @@
         // 创建新的容器
         const container = document.createElement('div');
         container.className = 'code-container';
+        // 如果行数小于10，默认展开
+        if (lineCount < 10) {
+          container.classList.add('expanded');
+        }
 
         // 创建标题栏
         const header = document.createElement('div');

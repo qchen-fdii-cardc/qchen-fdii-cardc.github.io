@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <title>迷宫生成器</title>
+    <link rel="stylesheet" href="maze.css">
+</head>
+
+<body>
+    <div class="controls">
+        <div class="control-group">
+            <label>迷宫尺寸: <input type="number" id="mazeSize" value="41" min="5" max="99" step="2"></label>
+            <button id="generateMaze">生成迷宫</button>
+            <button id="downloadMaze">下载迷宫</button>
+        </div>
+        <div class="control-group">
+            <div class="color-picker">
+                <label for="wallColor">墙颜色</label>
+                <input type="color" id="wallColor" value="#008000">
+            </div>
+            <div class="color-picker">
+                <label for="pathColor">通道颜色</label>
+                <input type="color" id="pathColor" value="#FFFF00">
+            </div>
+            <div class="color-picker">
+                <label for="startColor">起点颜色</label>
+                <input type="color" id="startColor" value="#FF0000">
+            </div>
+            <div class="color-picker">
+                <label for="endColor">终点颜色</label>
+                <input type="color" id="endColor" value="#0000FF">
+            </div>
+        </div>
+    </div>
+    <div class="maze-container">
+        <div class="progress">生成中...</div>
+        <canvas id="canvas"></canvas>
+    </div>
+    <script type="module">
+        import { Maze, Cell } from './maze-js.js';
+
+        // 获取DOM元素
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const mazeSizeInput = document.getElementById('mazeSize');
+        const generateButton = document.getElementById('generateMaze');
+        const downloadButton = document.getElementById('downloadMaze');
+        const progress = document.querySelector('.progress');
+        const wallColorInput = document.getElementById('wallColor');
+        const pathColorInput = document.getElementById('pathColor');
+        const startColorInput = document.getElementById('startColor');
+        const endColorInput = document.getElementById('endColor');
+
+        // 设置画布大小
+        const CELL_SIZE = 10;
+        canvas.width = 41 * CELL_SIZE;
+        canvas.height = 41 * CELL_SIZE;
+
+        // 获取颜色
+        function getColors() {
+            return {
+                [Cell.Wall]: wallColorInput.value,
+                [Cell.Path]: pathColorInput.value,
+                [Cell.Start]: startColorInput.value,
+                [Cell.End]: endColorInput.value
+            };
+        }
+
+        // 生成迷宫
+        function generateMaze() {
+            const size = parseInt(mazeSizeInput.value);
+            progress.style.display = 'block';
+
+            // 使用setTimeout让UI有机会更新
+            setTimeout(() => {
+                const maze = new Maze(size, size);
+                drawMaze(maze);
+                progress.style.display = 'none';
+            }, 0);
+        }
+
+        // 绘制迷宫
+        function drawMaze(maze) {
+            const [width, height] = maze.getDimensions();
+            canvas.width = width * CELL_SIZE;
+            canvas.height = height * CELL_SIZE;
+
+            const colors = getColors();
+            for (let y = 0; y < height; y++) {
+                for (let x = 0; x < width; x++) {
+                    const cell = maze.getCell(x, y);
+                    ctx.fillStyle = colors[cell];
+                    ctx.fillRect(x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+                }
+            }
+        }
+
+        // 下载迷宫图片
+        function downloadMaze() {
+            const size = parseInt(mazeSizeInput.value);
+            const link = document.createElement('a');
+            link.download = `maze-${size}x${size}.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+
+        // 事件监听
+        generateButton.addEventListener('click', generateMaze);
+        downloadButton.addEventListener('click', downloadMaze);
+
+        // 颜色改变时重新绘制
+        [wallColorInput, pathColorInput, startColorInput, endColorInput].forEach(input => {
+            input.addEventListener('change', () => {
+                const size = parseInt(mazeSizeInput.value);
+                const maze = new Maze(size, size);
+                drawMaze(maze);
+            });
+        });
+
+        // 初始生成一个迷宫
+        generateMaze();
+    </script>
+</body>
+
+</html>
