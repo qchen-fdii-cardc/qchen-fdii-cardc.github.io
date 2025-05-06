@@ -3,8 +3,8 @@ title = 'Uncertainty Chart自定义绘图之误差图'
 date = 2025-04-18T14:38:13+08:00
 draft = true
 mathkatex = true
-categories = ['charting']
-tags = ['charting']
+categories = ['matlab', 'charting']
+tags = ['matlab', 'charting', 'errorbar', 'confidence chart', 'gaussian process regression']
 toc = true
 tocBorder = true
 +++
