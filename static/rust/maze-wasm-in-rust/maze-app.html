@@ -1,0 +1,34 @@
+<div class="maze-app">
+    <link rel="stylesheet" href="maze.css">
+    <script type="module" src="maze.js"></script>
+
+    <div class="controls">
+        <div class="control-group">
+            <label>迷宫尺寸: <input type="number" id="mazeSize" value="41" min="5" max="99" step="2"></label>
+            <button id="generateMaze">生成迷宫</button>
+            <button id="downloadMaze">下载迷宫</button>
+        </div>
+        <div class="control-group">
+            <div class="color-picker">
+                <label for="wallColor">墙颜色</label>
+                <input type="color" id="wallColor" value="#008000">
+            </div>
+            <div class="color-picker">
+                <label for="pathColor">通道颜色</label>
+                <input type="color" id="pathColor" value="#FFFF00">
+            </div>
+            <div class="color-picker">
+                <label for="startColor">起点颜色</label>
+                <input type="color" id="startColor" value="#FF0000">
+            </div>
+            <div class="color-picker">
+                <label for="endColor">终点颜色</label>
+                <input type="color" id="endColor" value="#0000FF">
+            </div>
+        </div>
+    </div>
+    <div class="maze-container">
+        <div class="progress"></div>
+        <canvas id="canvas"></canvas>
+    </div>
+</div>

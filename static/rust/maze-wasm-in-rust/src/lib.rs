@@ -44,10 +44,28 @@ use rand::seq::SliceRandom;
 use rand::thread_rng;
 use web_sys::console;
 
+// 在非测试环境中，使用WebAssembly的log,
+// `wasm-pack build --target web --dev`
+#[cfg(not(test))]
+#[cfg(debug_assertions)]
 #[wasm_bindgen]
 extern "C" {
     #[wasm_bindgen(js_namespace = console)]
     fn log(s: &str);
+}
+
+// 在非测试环境中，使用WebAssembly的log, 
+//`wasm-pack build --target web`或者`wasm-pack build --target web --release`
+#[cfg(not(test))]
+#[cfg(not(debug_assertions))]
+#[wasm_bindgen]
+pub fn log(_s: &str) {}
+
+// 在测试环境中，使用println! 输出日志
+// `cargo test -- --show-output`
+#[cfg(test)]
+pub fn log(s: &str) {
+    println!("{}", s);
 }
 
 /// 表示迷宫中的单元格类型
@@ -271,5 +289,19 @@ mod tests {
         assert_eq!(maze.get_dimensions(), vec![41, 41]);
         assert_eq!(maze.get_start().len(), 2);
         assert_eq!(maze.get_end().len(), 2);
+
+        // 打印迷宫，注意坐标顺序：y是行，x是列
+        for y in 0..maze.height {
+            for x in 0..maze.width {
+                match maze.get_cell(y, x) {  // 注意这里交换了x和y的顺序
+                    Some(Cell::Wall) => print!("██"),
+                    Some(Cell::Path) => print!("  "),
+                    Some(Cell::Start) => print!("S "),
+                    Some(Cell::End) => print!("E "),
+                    None => print!("? "),
+                };
+            }
+            println!();
+        }
     }
 }
