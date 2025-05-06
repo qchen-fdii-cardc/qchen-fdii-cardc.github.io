@@ -10,21 +10,23 @@ pub extern "C" fn square(x: f64) -> f64 {
 
 #[no_mangle]
 pub extern "C" fn linspace(start: f64, end: f64, n: usize, out_ptr: *mut f64) -> i32 {
-    let mut result = Vec::new();
-    let mut x = start;
-    let step = (end - start) / (n - 1) as f64;
-    for _i in 0..n {
-        result.push(x);
-        x += step;
+    if out_ptr.is_null() {
+        return 0;
     }
     
-    let len = result.len();
-    if !out_ptr.is_null() {
-        unsafe {
-            std::ptr::copy_nonoverlapping(result.as_ptr(), out_ptr, len);
+    let step = if n > 1 {
+        (end - start) / (n - 1) as f64
+    } else {
+        0.0
+    };
+    
+    unsafe {
+        for i in 0..n {
+            *out_ptr.add(i) = start + step * i as f64;
         }
     }
-    len as i32
+    
+    n as i32
 }
 
 #[no_mangle]
