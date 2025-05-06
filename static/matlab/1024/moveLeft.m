@@ -1,0 +1,23 @@
+function board = moveLeft(board)
+    [rows, ~] = size(board);
+    % 对每一行进行处理
+    for i = 1:rows
+        % 获取当前行
+        row = board(i,:);
+        % 移除零元素
+        row = row(row ~= 0);
+        % 合并相同的数字
+        for j = 1:length(row)-1
+            if row(j) == row(j+1)
+                row(j) = row(j) * 2;
+                row(j+1) = 0;
+            end
+        end
+        % 再次移除零元素
+        row = row(row ~= 0);
+        % 补充零到原始长度
+        row = [row, zeros(1, size(board,2)-length(row))];
+        % 更新board
+        board(i,:) = row;
+    end
+end 
