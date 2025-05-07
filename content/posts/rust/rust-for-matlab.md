@@ -1,7 +1,7 @@
 +++
-title = 'Rust for Matlab里面调用Rust函数之为什么要这么做'
+title = 'Rust for Matlab里面调用Rust函数'
 date = 2025-05-06T17:24:25+08:00
-draft = true
+draft = false
 mathkatex = true
 categories = ['rust', 'matlab']
 tags = ['rust', 'matlab', 'c', 'abi', 'pointer']
