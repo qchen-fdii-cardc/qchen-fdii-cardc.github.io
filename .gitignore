@@ -42,6 +42,7 @@ __pycache__/
 *.lib
 *.obj
 *.pdb
+*.exp
 
 # Python virtual environment
 .venv/
