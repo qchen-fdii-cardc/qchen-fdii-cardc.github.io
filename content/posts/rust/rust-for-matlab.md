@@ -80,4 +80,118 @@ cargo test
 
 ## Matlab与C语言的接口
 
-基本上C语言的接口，ABI，是计算机中非常非常通用的。Matlab也不例外，提供了一系列函数来调用
+基本上C语言的接口，ABI，是计算机中非常非常通用的。Matlab也不例外，提供了一系列函数来调用。
+
+比较重要的函数有：
+
+- `loadlibrary`：加载动态链接库
+- `calllib`：调用动态链接库中的函数
+- `libfunctions`：查看动态链接库中的函数
+- `libisloaded`：查看动态链接库是否加载
+- `unloadlibrary`：卸载动态链接库
+- `libstruct`：创建一个结构体
+- `libgetptr`：获取一个结构体的指针
+
+大概，也就是这么多，可以用Matlab的帮助去查看如何使用。
+
+我们上面的库，定义的函数非常简单，所以头文件也可以非常简单。
+
+```C
+{{% codeseg "static/rust/rust4matlab/matlab/rs2m.h" 12 18 %}}
+```
+
+整个文件：
+
+- [rs2m.h](/rust/rust4matlab/matlab/rs2m.h)
+
+主要是引用`stdint.h`，来访问`uint64_t`、`int32_t`这些更加具有一致性的类型定义。
+
+然后，我们就可以在Matlab中调用这个库了。
+
+```matlab
+[~, ~] = loadlibrary('rs2m.dll', 'rs2m.h'); 
+calllib('rs2m', 'add', uint64(2), uint64(3));
+arr = libpointer('doublePtr', zeros(1, 11));
+calllib('rs2m', 'linspace', 0, 1, 11, arr);
+calllib('rs2m', 'square', 2);
+% 卸载库
+unloadlibrary('rs2m');
+```
+
+我们通常会包装一层，来方便使用。
+
+```matlab
+{{% codeseg "static/rust/rust4matlab/matlab/rs2m.m" %}}
+```
+
+代码块11中的13行，我们在调用`loadlibrary`函数时，还提供了一组参数让matlab输出一个m文件，这个m文件可以获得所有方法的接口信息。
+
+测试代码：
+
+```matlab
+{{% codeseg "static/rust/rust4matlab/matlab/test.m"  %}}
+```
+
+正常运行。C语言的使用方式简单可靠，唯一就是那个`libpointer`，有点烦人，我一直没找到如何设置数组尺寸，只能通过构造一个初始值的方式，如果这个数组很大，那就太坑了。
+
+接着往下看，Matlab还提供了一套跟C++的接口，叫做`clib`。稍微看了一下就感觉，这个更有搞头。
+
+## Matlab与C++的接口
+
+这个方式来调用编译好的库，貌似需要三个文件：
+
+- `rs2m.h`：头文件
+- `rs2m.dll`：库文件
+- `rs2m.lib`：库文件的桩
+
+如果是cpp源文件，那就直接使用头文件和源文件即可。当然，可能需要安装个什么c++的编译器。在windows上，安装一个Visual C++社区版，然后就可以使用。我们这里的库文件，`cargo build --release`，就会生成。头文件跟刚才相同。
+
+```matlab
+clibgen.generateLibraryDefinition("rs2m.h", Libraries="rs2m.dll", OutputFolder="rs2mlib-cpp");
+```
+
+这个命令会生成一个`rs2mlib-cpp`的文件夹，里面包含一个`definers2m.m`文件和另外一个`xml`文件，这个文件就是我们要的包装文件。
+
+这里唯一一个坑，就是`definers2m.m`文件中，有些函数的定义需要补充。对于我们这几个函数，就是`linspace`函数，需要我们自己补充参数的维度。
+
+```matlab
+{{% codeseg "static/rust/rust4matlab/matlab/rs2mlib-cpp/definers2m.m" 31 43 %}}
+```
+
+我么需要把这个注释去掉，然后把`<SHAPE>`补充完整。
+
+```matlab
+{{% codeseg "static/rust/rust4matlab/matlab/rs2mlib/definers2m.m" 41 41 %}}
+```
+
+注意这里，用的`"n"`，也就是原来方法的第三个参数，实际上，定义了这个尺寸之后，`clib.rs2m.linspace`的第三个参数`n`就被省略了，直接包含在第四个参数中。
+
+然后就可以使用`build`命令来生成dll文件了。
+
+```matlab
+build(definers2m);      
+```
+
+这个命令会生成一个`dll`文件：`rs2mInterface.dll`，有了这两个dll文件，就可以在Matlab中调用这个库了。当然调用之前，建议先做一个设置：
+
+```matlab
+clibConfiguration('rs2m', 'ExecutionMode', 'outofprocess');
+```
+
+如果运行模式为`inprocess`，则需要重新启动Matlab才能卸载该库，当然我们使用了`outofprocess`，所以不需要重新启动Matlab就可以卸载该库。
+
+```matlab
+clibConfiguration('rs2m').unload();
+```
+
+然后就可以在Matlab中调用这个库了。
+
+```matlab
+{{% codeseg "static/rust/rust4matlab/matlab/test_cpp.m" %}}
+```
+
+正常运行。
+
+## 总结
+
+忙活挺长时间才搞定这个，Matlab真是无所不能的。
