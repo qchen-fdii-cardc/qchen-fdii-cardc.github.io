@@ -1,7 +1,7 @@
 +++
 title = 'Process in Rust中的进程编程'
 date = 2025-05-07T09:24:50+08:00
-draft = true
+draft = false
 mathkatex = true
 categories = ['rust', 'c']
 tags = ['rust', 'process', 'system', 'system programming', 'fork', 'exec', 'signal', 'getpid', 'getppid']
