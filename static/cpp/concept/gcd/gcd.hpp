@@ -7,9 +7,9 @@
 // define a concept for GCD type
 template <typename T>
 concept GCDType = requires(T a, T b) {
-    // require type supports comparison operation (only < and ==)
+    // require type supports comparison operation (only < and !=)
     { a < b } -> std::convertible_to<bool>;
-    { a == b } -> std::convertible_to<bool>;
+    { a != b } -> std::convertible_to<bool>;
 
     // require type supports modulo operation
     { a % b } -> std::same_as<T>;
@@ -19,6 +19,12 @@ concept GCDType = requires(T a, T b) {
 
     // require type supports zero value
     { T(0) } -> std::same_as<T>;
+
+    // require type supports abs for signed types
+    requires(!std::is_signed_v<T> || requires { { std::abs(a) } -> std::same_as<T>; });
+
+    // require type supports swap
+    { std::swap(a, b) } -> std::same_as<void>;
 };
 
 /**
@@ -46,7 +52,7 @@ constexpr T gcd(T a, T b)
     }
 
     // Euclidean algorithm
-    while (b != 0)
+    while (b != T(0))
     {
         T temp = b;
         b = a % b;

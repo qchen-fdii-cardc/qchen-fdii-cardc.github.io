@@ -2,9 +2,30 @@
 #include "rational.hpp"
 #include <iostream>
 #include <sstream>
+#include <boost/multiprecision/cpp_int.hpp>
+
+template <typename T>
+T gcd_no_concept(T a, T b)
+{
+    if (a < b)
+    {
+        std::swap(a, b);
+    }
+    while (b != 0)
+    {
+        T temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
 
 int main()
 {
+    char result = gcd_no_concept('a', 'b');
+    std::cout << "GCD of 'a' and 'b': " << int(result) << std::endl;
+    char *p = gcd_no_concept("a", "b");
+    std::cout << "GCD of 'a' and 'b': " << int(*p) << std::endl;
     // signed integer
     std::cout << "GCD of -48 and 18: " << gcd(-48, 18) << std::endl;
 
@@ -79,6 +100,19 @@ int main()
             std::cout << "Non-numeric input 'abc': Input failed as expected" << std::endl;
         }
     }
+
+    using namespace boost::multiprecision;
+    cpp_int a("1234567890123456789012345678901234567890");
+    cpp_int b("9876543210987654321098765432109876543210");
+
+    std::cout << "a = " << a << "\n";
+    std::cout << "b = " << b << "\n";
+    std::cout << "a % b = " << a % b << "\n";
+    std::cout << "b % a = " << b % a << "\n";
+    std::cout << "a / b = " << a / b << "\n";
+    std::cout << "b / a = " << b / a << "\n";
+    std::cout << "GCD of " << a << " and " << b << ": " << gcd(a, b) << std::endl;
+    std::cout << "GCD of " << a << " and " << b << ": " << gcd_no_concept(a, b) << std::endl;
 
     return 0;
 }

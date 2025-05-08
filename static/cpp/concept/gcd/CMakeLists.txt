@@ -5,6 +5,10 @@ project(gcd_example)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Find Boost package
+find_package(Boost REQUIRED COMPONENTS system)
+include_directories(${Boost_INCLUDE_DIRS})
+
 # Add executable
 add_executable(gcd_example
     main.cpp
