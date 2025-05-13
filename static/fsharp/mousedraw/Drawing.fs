@@ -324,9 +324,9 @@ module MainWindow =
                 lines <- data.Lines
                 settings <- data.Settings
                 this.Size <- data.FormSize
-                this.Invalidate()
-                true
+                this.Invalidate()                
             )
+            true
 
         member private this.SaveDrawing() =
             let saveDialog = new SaveFileDialog()

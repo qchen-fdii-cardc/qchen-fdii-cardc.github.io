@@ -33,6 +33,8 @@ __pycache__/
 **/.vscode/*
 **/*cache/*
 **/zig-out/*
+**/bin/*
+**/obj/*
 *.out
 *.o
 *.a
