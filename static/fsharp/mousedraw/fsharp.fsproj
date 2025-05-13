@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net9.0-windows</TargetFramework>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <PublishSingleFile>true</PublishSingleFile>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <SelfContained>false</SelfContained>
+        <PublishTrimmed>false</PublishTrimmed>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Text.Json" Version="8.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Include="Types.fs"/>
+        <Compile Include="Converters.fs"/>
+        <Compile Include="Drawing.fs"/>
+        <Compile Include="Program.fs"/>
+    </ItemGroup>
+
+</Project>
