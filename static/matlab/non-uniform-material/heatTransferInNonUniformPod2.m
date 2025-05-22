@@ -5,12 +5,12 @@ model = femodel("AnalysisType","thermalTransient");
 
 % 几何建模
 length = 10;
-gm = multicuboid([1, 1],[1, 1], [length * 0.5, length * 0.5], 'Zoffset', [0, 0.5*length]);
+gm = multicuboid(1, 1, length);
 
 pdegplot(gm, 'CellLabels', 'on', 'FaceLabels', 'on');
 
 view(57, 56);
-exportgraphics(gcf, 'heatTransferInNonUniformPod.png', 'Resolution', 60);
+exportgraphics(gcf, 'singleCell.png', 'Resolution', 100);
 
 model.Geometry = gm;
 
@@ -19,16 +19,17 @@ model = generateMesh(model);
 pdemesh(model);
 
 % 材料建模
-material1 = materialProperties("ThermalConductivity", 1, "MassDensity", 1, "SpecificHeat", 1);
-material2 = materialProperties("ThermalConductivity", 100, "MassDensity", 1, "SpecificHeat", 1);
+% k = @(location, state) 9.9 * location.z + 1;
 
-model.MaterialProperties(1) = material1;
-model.MaterialProperties(2) = material2;
+model.MaterialProperties = materialProperties(...
+    "ThermalConductivity", @k_func,...
+    "MassDensity", 1,...
+    "SpecificHeat", 1);
 
 model.CellIC = cellIC("Temperature", 20);
 
 model.FaceBC(1) = faceBC("Temperature", 20);
-model.FaceBC(7) = faceBC("Temperature", 0);
+model.FaceBC(2) = faceBC("Temperature", 0);
 
 tspan = linspace(0, 200, 1000);
 result = solve(model, tspan);
@@ -44,5 +45,9 @@ for ti = 1:numel(tspan)
     pause(0.001);
 end
 
-exportgraphics(gcf, 'result3.png', 'Resolution', 60);
+exportgraphics(gcf, 'result2.png', 'Resolution', 60);
+
+function k = k_func(location, ~)
+k = 9.9 * location.z + 1;
+end
 
