@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration file="E:\qchen-fdii-cardc.github.io\static\matlab\easy_dll\easy.prj" location="E:\qchen-fdii-cardc.github.io\static\matlab\easy_dll" name="easy" target="target.ezdeploy.library" target-name="Library Compiler">
+  <configuration file="D:\writing\qchen-fdii-cardc.github.io\static\matlab\easy_dll\easy.prj" location="D:\writing\qchen-fdii-cardc.github.io\static\matlab\easy_dll" name="easy" target="target.ezdeploy.library" target-name="Library Compiler">
     <param.appname>easy</param.appname>
     <param.icon />
     <param.icons />
@@ -46,7 +46,7 @@
     <param.net.tsa.namespace />
     <param.net.tsa.superclass>Class1</param.net.tsa.superclass>
     <param.net.tsa.metadata />
-    <param.net.tsa.metadata.assembly>E:\qchen-fdii-cardc.github.io\static\matlab\easy_dll</param.net.tsa.metadata.assembly>
+    <param.net.tsa.metadata.assembly>D:\writing\qchen-fdii-cardc.github.io\static\matlab\easy_dll</param.net.tsa.metadata.assembly>
     <param.net.saved.interface />
     <param.cpp.api>option.cpp.all</param.cpp.api>
     <unset>
@@ -115,13 +115,13 @@
     <fileset.examples />
     <fileset.documentation />
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\easy\for_testing" name="easy.lib" optional="false">E:\qchen-fdii-cardc.github.io\static\matlab\easy_dll\easy\for_testing\easy.lib</file>
-      <file location="${PROJECT_ROOT}\easy\for_testing" name="easy.dll" optional="false">E:\qchen-fdii-cardc.github.io\static\matlab\easy_dll\easy\for_testing\easy.dll</file>
-      <file location="${PROJECT_ROOT}\easy\for_testing" name="easy.h" optional="false">E:\qchen-fdii-cardc.github.io\static\matlab\easy_dll\easy\for_testing\easy.h</file>
+      <file location="${PROJECT_ROOT}\easy\for_testing" name="easy.h" optional="false">D:\writing\qchen-fdii-cardc.github.io\static\matlab\easy_dll\easy\for_testing\easy.h</file>
+      <file location="${PROJECT_ROOT}\easy\for_testing" name="easy.lib" optional="false">D:\writing\qchen-fdii-cardc.github.io\static\matlab\easy_dll\easy\for_testing\easy.lib</file>
+      <file location="${PROJECT_ROOT}\easy\for_testing" name="easy.dll" optional="false">D:\writing\qchen-fdii-cardc.github.io\static\matlab\easy_dll\easy\for_testing\easy.dll</file>
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>D:\Program Files\MATLAB\R2023b</root>
+      <root>C:\Program Files\MATLAB\R2023b</root>
       <toolboxes>
         <toolbox name="matlabcoder" />
         <toolbox name="embeddedcoder" />

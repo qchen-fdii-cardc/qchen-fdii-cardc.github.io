@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 # 设置MATLAB安装路径
-set(MATLAB_ROOT "D:/Program Files/MATLAB/R2023b")
+set(MATLAB_ROOT "C:/Program Files/MATLAB/R2023b")
 set(MATLAB_INCLUDE_DIRS 
     "${MATLAB_ROOT}/extern/include"
     "${MATLAB_ROOT}/sys/opengl/include"
@@ -22,7 +22,7 @@ else()
 endif()
 
 # 添加可执行文件
-add_executable(${PROJECT_NAME} main.c)
+add_executable(${PROJECT_NAME} main.c easy.lib)
 
 # 添加头文件目录
 target_include_directories(${PROJECT_NAME} PRIVATE 
