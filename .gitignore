@@ -55,3 +55,6 @@ uv.lock
 # Build outputs
 *.exe
 *.o
+
+**/bin/** 
+**/obj/**
