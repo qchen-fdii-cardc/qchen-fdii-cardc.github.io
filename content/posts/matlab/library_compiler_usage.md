@@ -1,7 +1,7 @@
 +++
 title = '正确使用Matlab的Library Compiler'
 date = 2025-05-24T10:10:11+08:00
-draft = true
+draft = false
 mathkatex = true
 categories = ['matlab', 'cpp']
 tags = ['matlab', 'cpp', 'library_compiler', 'mcr']
@@ -39,20 +39,16 @@ MATLAB Library Compiler 是 MATLAB 的一个强大工具，它可以将 MATLAB �
 在 MATLAB 命令窗口中执行以下命令：
 
 ```matlab
-% 方法1：使用 mcc 命令行
-mcc -W lib:easy,version=1.0 -T link:lib -d ./output easy.m
-
-% 方法2：使用图形界面
 libraryCompiler
 ```
 
-编译成功后会生成以下文件：
+至于这玩意怎么用，请不要来问我，我也不知道。编译成功后会生成以下文件：
 
 - `easy.dll` - 动态链接库
 - `easy.lib` - 链接库
 - `easy.h` - C语言头文件
 
-编译器会自动生成 C 语言接口的头文件：
+编译器会自动生成 C 语言接口的头文件，按照这个接口文件，就可以使用函数`easy`，只不过名字变成了`mlfEasy`。这里的`mlf`大概是`Matlab Live Forver`的缩写，当然也可能是`Matlab Love Fucking`的缩写。
 
 ```c
 {{% codeseg "static/matlab/easy_dll/easy/for_redistribution_files_only/easy.h" %}}
@@ -66,40 +62,33 @@ libraryCompiler
 {{% codeseg "static/matlab/easy_dll/easy/for_redistribution_files_only/main.c" %}}
 ```
 
-### 关键步骤解析
-
-```c
-{{% codeseg "static/matlab/easy_dll/easy/for_redistribution_files_only/main.c" 25 40 %}}
-```
-
-- `mclInitializeApplication`: 初始化 MATLAB 应用程序
-- `easyInitializeWithHandlers`: 初始化特定库并设置错误和打印处理器
-
-```c
-{{% codeseg "static/matlab/easy_dll/easy/for_redistribution_files_only/main.c" 45 65 %}}
-```
+关键的步骤和代码：
 
 - 使用 `mxCreateDoubleScalar` 创建输入参数
 - 调用 `mlfEasy` 执行 MATLAB 函数
 - 使用 `mxGetPr` 获取结果数据
 
-```c
-{{% codeseg "static/matlab/easy_dll/easy/for_redistribution_files_only/main.c" 70 105 %}}
-```
-
 ## 构建配置
 
 ### CMakeLists.txt 配置
 
-```cmake
-{{% codeseg "static/matlab/easy_dll/easy/for_redistribution_files_only/CMakeLists.txt" 1 25 %}}
-```
+![没苦硬吃警告](/matlab/easy_dll/mkyc1.png)
 
 ```cmake
-{{% codeseg "static/matlab/easy_dll/easy/for_redistribution_files_only/CMakeLists.txt" 30 49 %}}
+{{% codeseg "static/matlab/easy_dll/easy/for_redistribution_files_only/CMakeLists.txt"%}}
 ```
 
-### 偷懒办法
+唯一需要注意的就是替换Matlab的安装路径。然后就是一气呵成的
+
+```bash
+cmake -B build
+cmake --build build --config Release
+build\Release\matlab_dll_demo.exe
+```
+
+完美。
+
+### 员工通道
 
 实际上，我是故意要把什么CMake写在前面凑字数。Matlab中提供非常简单的工具产生exe文件。
 
@@ -119,20 +108,16 @@ mbuild main.c -L. -leasy
 
 ## 一个小坑
 
-当然，在使用
+当然，在使用Matlab编译的DLL时，会有两个小坑，说是1个自然就是2个，四大猛男当然是5个人。
 
-**问题**: `mclInitializeApplication` 返回 false
-**解决方案**:
+- 一个问题就是必须配对使用两个函数：
+  - `mclInitializeApplication`
+  - `mclTerminateApplication`
+- 另外一个问题就是如果在Matlab代码中使用了多线程或者类似玩意，可能会有坑。所以在上面那个函数调用是可以加上`-singleCompThread`参数。
 
-- 使用 `-singleCompThread` 参数
-- 检查 MCR 版本兼容性
-- 确保有足够的系统资源
+这个问题在[undocumentedmatlab.com](<https://undocumentedmatlab.com/articles/quirks-with-compiled-matlab-dlls>)有详细说明。
 
-[undocumentedmatlab.com](<https://undocumentedmatlab.com/articles/quirks-with-compiled-matlab-dlls>)
-
-在某些情况下，程序可能在 `easyTerminate()` 后挂起。这是 MCR 的已知问题：
-
-**临时解决方案**:
+实际上，我作为一个狠人，我还准备了Windows下面的狠活。
 
 ```c
 // 使用强制终止
@@ -144,4 +129,8 @@ TerminateProcess(hProcess, 0);
 
 ## 总结
 
-MATLAB Library Compiler 为 MATLAB 算法的跨语言集成提供了强大的解决方案。通过合理的配置和正确的使用方法，可以有效地将 MATLAB 的计算能力集成到其他应用程序中。在实际部署时，需要特别注意 MCR 的安装和版本兼容性问题。
+MATLAB Library Compiler 为 MATLAB 算法的跨语言集成提供了强大的解决方案。
+
+不要干什么把M文件翻译成dll，然后又在Matlab中用loadlibrary加载的事情。
+
+那个功能是pcode，不是这个，下回再说吧。看过我以前帖子的朋友自然会`help pcode`, `doc pcode`一套连招。
