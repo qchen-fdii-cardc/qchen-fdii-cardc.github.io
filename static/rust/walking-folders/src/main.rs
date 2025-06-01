@@ -79,6 +79,46 @@ fn main() {
     println!("方法3: 高级并行处理 - 查找所有Rust文件");
     println!("遍历目录: {}", target_dir);
     advanced_parallel_processing(target_dir);
+
+    // 方法4：更加实用的方式
+    println!("方法4：更加实用的方式");
+    println!("遍历目录: {}", target_dir);
+    seasoned_walk(target_dir);    
+}
+
+fn seasoned_walk(dir: &str){
+    let start = Instant::now();
+    let rust_file_info: Vec<_> = WalkDir::new(dir)
+        .into_iter()
+        .filter_map(|e| e.ok())
+        .filter(|entry| is_rust_file(entry))
+        .collect::<Vec<_>>()
+        .par_iter()
+        .map(|entry| get_rust_file_info_sync(entry))
+        .collect();
+
+    println!("收集到 {} 个文件/目录", rust_file_info.len());
+    
+    // 统计结果
+    let total_lines: usize = rust_file_info.iter().map(|f| f.lines).sum();
+    let total_size: u64 = rust_file_info.iter().map(|f| f.size).sum();
+    
+    println!("处理完成:");
+    println!("  Rust文件数: {}", rust_file_info.len());
+    println!("  总代码行数: {}", total_lines);
+    println!("  总大小: {} bytes", total_size);
+    println!("用时: {:?}", start.elapsed());
+    
+    // 显示最大的10个Rust文件
+    println!("\n最大的10个Rust文件:");
+    let mut large_files: Vec<_> = rust_file_info.iter().collect();
+    large_files.sort_by(|a, b| b.size.cmp(&a.size));
+    
+    large_files.iter().take(10).for_each(|f| {
+        let path_str = f.path.to_string_lossy();
+        println!("  🦀 {} ({} bytes, {} 行)", path_str, f.size, f.lines);
+    });
+
 }
 
 /// 使用 walkdir + rayon 进行同步并行遍历
