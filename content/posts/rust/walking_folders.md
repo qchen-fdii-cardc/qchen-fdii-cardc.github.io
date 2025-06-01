@@ -1,7 +1,7 @@
 +++
 title = 'Walking folders in Rust中文件遍历方法'
 date = 2025-06-01T09:19:00+08:00
-draft = true
+draft = false
 mathkatex = true
 categories = ['rust']
 tags = ['rust','walkdir', 'parallel processing', 'tokio', 'rayon']
