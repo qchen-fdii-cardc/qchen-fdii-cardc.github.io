@@ -133,7 +133,7 @@ use rayon::prelude::*;
 use std::time::Instant;
 use rand::Rng;
 
-fn monte_carlo_pi(samples: u64, threads: usize) -> f64 {
+fn monte_carlo_pi(samples: u64, threads: usize) -> (f64, std::time::Duration) {
     let start = Instant::now();
     
     // 使用局部线程池而不是全局线程池
@@ -159,7 +159,7 @@ fn monte_carlo_pi(samples: u64, threads: usize) -> f64 {
     
     println!("🎯 Threads: {}, Time: {:?}, π ≈ {:.6}", 
              threads, duration, pi_estimate);
-    pi_estimate
+    (pi_estimate, duration)
 }
 
 fn main() {
@@ -174,19 +174,19 @@ fn main() {
     let mut results = Vec::new();
     
     for threads in 1..=cpu_count {
-        let pi_val = monte_carlo_pi(samples, threads);
-        results.push((threads, pi_val));
+        let (pi_val, duration) = monte_carlo_pi(samples, threads);
+        results.push((threads, pi_val, duration));
     }
     
     // 显示加速比分析
     println!("\n📊 性能分析:");
-    if let Some(single_thread_time) = results.first() {
-        println!("单线程基准: π ≈ {:.6}", single_thread_time.1);
+    if let Some((_, single_pi, single_time)) = results.first() {
+        println!("单线程基准: π ≈ {:.6}, 时间: {:?}", single_pi, single_time);
         
-        for (threads, _) in &results[1..] {
-            println!("{}线程相对加速比: 估算 {:.2}x", 
-                     threads, 
-                     *threads as f64 * 0.8); // 简单估算，考虑并行开销
+        for (threads, pi_val, duration) in &results[1..] {
+            let speedup = single_time.as_secs_f64() / duration.as_secs_f64();
+            println!("{}线程: π ≈ {:.6}, 时间: {:?}, 加速比: {:.2}x", 
+                     threads, pi_val, duration, speedup);
         }
     }
     
@@ -226,14 +226,14 @@ cargo build --release
 🎯 Threads: 7, Time: 140.900625ms, π ≈ 3.142074
 🎯 Threads: 8, Time: 141.51375ms, π ≈ 3.142262
 📊 性能分析:
-单线程基准: π ≈ 3.142158
-2线程相对加速比: 估算 1.60x
-3线程相对加速比: 估算 2.40x
-4线程相对加速比: 估算 3.20x
-5线程相对加速比: 估算 4.00x
-6线程相对加速比: 估算 4.80x
-7线程相对加速比: 估算 5.60x
-8线程相对加速比: 估算 6.40x
+单线程基准: π ≈ 3.142158, 时间: 415.965937ms
+2线程: π ≈ 3.141996, 时间: 284.113594ms, 加速比: 1.46x
+3线程: π ≈ 3.141445, 时间: 234.696094ms, 加速比: 1.77x
+4线程: π ≈ 3.141939, 时间: 181.711719ms, 加速比: 2.28x
+5线程: π ≈ 3.141030, 时间: 203.050312ms, 加速比: 2.04x
+6线程: π ≈ 3.141340, 时间: 141.51ms, 加速比: 2.93x
+7线程: π ≈ 3.142074, 时间: 140.900625ms, 加速比: 2.94x
+8线程: π ≈ 3.142262, 时间: 141.51375ms, 加速比: 2.93x
 🎯 理论π值: 3.141592653589793
 📱 手机并行计算测试完成！
 ```
