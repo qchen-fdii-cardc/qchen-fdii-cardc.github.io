@@ -14,15 +14,15 @@ tocBorder = true
 
 聪明先生很聪明, 他仔细观察好兄弟们手忙脚乱慌慌张张急急忙忙学习Lisp的全过程, 默默地把知识点都记在大脑里:
 
-1. [001 粗鲁先生Lisp再出发](/posts/001-rude-start-application/)
-2. [002 懒惰先生的Lisp开发流程](/posts/002-lazy-process/)
-3. [003 颠倒先生的数学表达式](/posts/003-lazy-process/)
-4. [004 完美先生的完美Lisp](/posts/004-perfect/)
-5. [005 好奇先生用Lisp来探索Lisp](/posts/005-explore-lisp/)
-6. [006 好奇先生在Lisp的花园里挖呀挖呀挖](/posts/006-sequence-in-lisp/)
-7. [007 挑剔先生给出终止迭代的条件](/posts/007-recursive-eq/)
-8. [008 挠痒痒先生建网站记](/posts/008-real-app/)
-9. [009 小小先生学习Lisp表达式](/posts/009-expression/)
+1. [001 粗鲁先生Lisp再出发](/posts/lisp/001-rude-start-application/)
+2. [002 懒惰先生的Lisp开发流程](/posts/lisp/002-lazy-process/)
+3. [003 颠倒先生的数学表达式](/posts/lisp/003-lazy-process/)
+4. [004 完美先生的完美Lisp](/posts/lisp/004-perfect/)
+5. [005 好奇先生用Lisp来探索Lisp](/posts/lisp/005-explore-lisp/)
+6. [006 好奇先生在Lisp的花园里挖呀挖呀挖](/posts/lisp/006-sequence-in-lisp/)
+7. [007 挑剔先生给出终止迭代的条件](/posts/lisp/007-recursive-eq/)
+8. [008 挠痒痒先生建网站记](/posts/lisp/008-real-app/)
+9. [009 小小先生学习Lisp表达式](/posts/lisp/009-expression/)
 
 对他来说, 影响最深刻的无疑是好奇先生的探索Lisp工具包. 这个工程的地址在[explore-lisp](https://github.com/qchen-fdii-cardc/explore-lisp)。当把这个源代码下载（clone）到本地之后，可以通过`quicklisp`的`quickload`函数加载这个包。
 
@@ -37,7 +37,6 @@ tocBorder = true
 聪明先生总是清楚地认识自己的不足之处, 并谋定而后动, 学习Lisp也是这样. 对于编程语言的学习, 聪明先生觉得自己最大的问题可能会是重复造轮子! 因为, 你知道, 聪明先生之所以是聪明先生, 就是因为他有一种觉得自己很聪明什么都能做出来, 再搭配上Lisp这样灵活都不足以形容必须称其为毫无底线的语言, 那么, 你知道, 聪明先生就会不停地造出各种轮子...
 
 为了避免如此, 聪明先生觉得自己应该把Common Lisp已经提供的工具好好学习一遍, 当然! 在学习的过程中他可是会免不了造点毫无意义的轮子呢!
-
 
 ### `explore-lisp`工具包
 
@@ -194,7 +193,7 @@ compiled function:ZEROP
         (setf (gethash type *symbol-types*) (cons symbol symbols)))))
 ```
 
-这里唯一要注意的就是, 要把`hash-table`的比较函数设置成`equalp`, 因为聪明先生过目不忘, [007 挑剔先生给出终止迭代的条件](/posts/007-recursive-eq/) 对比较说得可清楚啦!
+这里唯一要注意的就是, 要把`hash-table`的比较函数设置成`equalp`, 因为聪明先生过目不忘, [007 挑剔先生给出终止迭代的条件](/posts/lisp/007-recursive-eq/) 对比较说得可清楚啦!
 
 这样下来, 就可以把所有的符号都放到`hash-table`里面了.
 
@@ -230,12 +229,9 @@ compiled function:ZEROP
 
 这样, 再打开一个文件, 按照每个类型一个二级标题, 把每个类型的符号按照`el:format-descriptions`的格式打印出来. 这里注意， 先把记录在`hash-table`里面的符号名字转换成符号对象. 并且用`nreverse`来翻转一下, 因为`cons`是从前面加的, 所以要翻转一下.
 
-
-结果也相当可爱:[Appendix 001: Common Lisp Symbols分类参考](/posts/010-appendix-cl-symbols/). 有一个完整的Common Lisp的符号分类参考.
-
+结果也相当可爱:[Appendix 001: Common Lisp Symbols分类参考](/posts/lisp/010-appendix-cl-symbols/). 有一个完整的Common Lisp的符号分类参考.
 
 所有代码都在一个文件里面, [产生符号分类文档](/lisp-code/mr-smart-make-references-cl.lisp), 不过使用这个文件必须要有最新的`explore-lisp`工具包. 因为聪明先生偷偷更新过一个函数.
-
 
 ## Common Lisp 符号分类参考
 
@@ -255,7 +251,7 @@ compiled function:ZEROP
   - primitive type-specifier
   - type-specifier
 
-仔细来学习一下各类符号大概有什么, 是很有意义的一件事情. 聪明先生已经默默地开始看类型了, 接下来准备看函数与操作符. 
+仔细来学习一下各类符号大概有什么, 是很有意义的一件事情. 聪明先生已经默默地开始看类型了, 接下来准备看函数与操作符.
 
 聪明先生非常专注, 一开始看起来就什么都不知道, 既听不见周围的声音, 也不知道时间...
 
@@ -265,5 +261,3 @@ compiled function:ZEROP
 2. 聪明先生学习编程序总是把原理和实践结合起来;
 3. 要想不造轮子, 就要知道有些什么轮子;
 4. 聪明先生一忍不住又造了若干个方形的轮子, 每次都是这样, 承认错误, 坚决不改!
-
-

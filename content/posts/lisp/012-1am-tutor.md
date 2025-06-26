@@ -14,17 +14,17 @@ tocBorder = true
 
 白日梦先生已经跟着大家一起学Lisp长达两个月零五天！
 
-1. [001 粗鲁先生Lisp再出发](/posts/001-rude-start-application/)
-2. [002 懒惰先生的Lisp开发流程](/posts/002-lazy-process/)
-3. [003 颠倒先生的数学表达式](/posts/003-lazy-process/)
-4. [004 完美先生的完美Lisp](/posts/004-perfect/)
-5. [005 好奇先生用Lisp来探索Lisp](/posts/005-explore-lisp/)
-6. [006 好奇先生在Lisp的花园里挖呀挖呀挖](/posts/006-sequence-in-lisp/)
-7. [007 挑剔先生给出终止迭代的条件](/posts/007-recursive-eq/)
-8. [008 挠痒痒先生建网站记](/posts/008-real-app/)
-9. [009 小小先生学习Lisp表达式](/posts/009-expression/)
-10. [010 聪明先生拒(ji)绝(xu)造轮子](/posts/010-smart-cl-classification/)
-11. [011 没人先生学习Lisp函数](/posts/011-functions.md)
+1. [001 粗鲁先生Lisp再出发](/posts/lisp/001-rude-start-application/)
+2. [002 懒惰先生的Lisp开发流程](/posts/lisp/002-lazy-process/)
+3. [003 颠倒先生的数学表达式](/posts/lisp/003-lazy-process/)
+4. [004 完美先生的完美Lisp](/posts/lisp/004-perfect/)
+5. [005 好奇先生用Lisp来探索Lisp](/posts/lisp/005-explore-lisp/)
+6. [006 好奇先生在Lisp的花园里挖呀挖呀挖](/posts/lisp/006-sequence-in-lisp/)
+7. [007 挑剔先生给出终止迭代的条件](/posts/lisp/007-recursive-eq/)
+8. [008 挠痒痒先生建网站记](/posts/lisp/008-real-app/)
+9. [009 小小先生学习Lisp表达式](/posts/lisp/009-expression/)
+10. [010 聪明先生拒(ji)绝(xu)造轮子](/posts/lisp/010-smart-cl-classification/)
+11. [011 没人先生学习Lisp函数](/posts/lisp/011-functions.md)
 
 他已经能够：
 
@@ -64,17 +64,13 @@ tocBorder = true
 
 ![Quicklisp收录库](/lisp-img/quicklisp-release.png)
 
-
 那么很简单，只需要编一个库，取名为`0xxxx`，那么就可以排在目前排第一名的`1am`之前了！
-
 
 那么这个`1am`是什么呢？好奇先生已经停不住了。
 
 ## **排名第一**的`1am`
 
 不管三七二十一，好奇先生先在REPL中输入命令，想看看这个库到底是什么。
-
-
 
 ```common-lisp
 (ql:quickload '1am)
@@ -88,9 +84,7 @@ tocBorder = true
     ; Loading "1am"
     
 
-
-可以看到，这个库定义了一个`ASDF`系统，名字叫`1am`。只要能够加载，好奇先生就能够为所欲为。   
-
+可以看到，这个库定义了一个`ASDF`系统，名字叫`1am`。只要能够加载，好奇先生就能够为所欲为。
 
 ```common-lisp
 (require 'explore-lisp)
@@ -102,12 +96,9 @@ tocBorder = true
 
     ((1AM:RUN 1AM:*TESTS* 1AM:SIGNALS 1AM:TEST 1AM:IS) 5)
 
-
-
 只有区区五个符号，而且，看起来似乎是一个测试库。好奇先生猜测。
 
 这完全难不倒好奇先生，只要运行下面的命令，这个库的深浅或者长短就完全暴漏出来了呢！
-
 
 ```common-lisp
 (el:export-all-external-symbols '1am :start-level 2)
@@ -115,9 +106,7 @@ tocBorder = true
 
     NIL
 
-
-
-###  `*TESTS*`
+### `*TESTS*`
 
 ```lisp
 1AM:*TESTS*
@@ -128,7 +117,8 @@ tocBorder = true
   Documentation:
     A list of tests; the default argument to `run'.
 ```
-###  `IS`
+
+### `IS`
 
 ```lisp
 1AM:IS
@@ -140,7 +130,8 @@ IS names a macro:
     Assert that `form' evaluates to non-nil.
   Source file: /home/qchen/quicklisp/dists/quicklisp/software/1am-20141106-git/1am.lisp
 ```
-###  `RUN`
+
+### `RUN`
 
 ```lisp
 1AM:RUN
@@ -153,7 +144,8 @@ RUN names a compiled function:
     Run each test in the sequence `tests'. Default is `*tests*'.
   Source file: /home/qchen/quicklisp/dists/quicklisp/software/1am-20141106-git/1am.lisp
 ```
-###  `SIGNALS`
+
+### `SIGNALS`
 
 ```lisp
 1AM:SIGNALS
@@ -165,7 +157,8 @@ SIGNALS names a macro:
     Assert that `body' signals a condition of type `condition'.
   Source file: /home/qchen/quicklisp/dists/quicklisp/software/1am-20141106-git/1am.lisp
 ```
-###  `TEST`
+
+### `TEST`
 
 ```lisp
 1AM:TEST
@@ -193,6 +186,7 @@ TEST names a macro:
 原来，这个**排名第一**的库，就只有三个文件，总共246行，代码就只有132行！
 
 ### ASDF 定义文件
+
 ```lisp
 ;;; Copyright (c) 2014 James M. Lawrence
 ;;; 
@@ -224,6 +218,7 @@ TEST names a macro:
 ```
 
 ### 代码文件
+
 ```lisp
 ;;; Copyright (c) 2014 James M. Lawrence
 ;;;
@@ -340,13 +335,11 @@ TEST names a macro:
 - `run` 用来运行`*tests*`列表中的所有测试函数
 - `*tests*` 用来存放所有的测试函数，作为`run`的默认参数
 
-
 ## `1am`使用示例
 
 完全照搬自`1am`的`README.md`文件，挠痒痒先生对此负全责。
 
 首先是定义测试的部分，相当透明。
-
 
 ```common-lisp
 (defpackage :example (:use :cl :1am))
@@ -372,8 +365,6 @@ TEST names a macro:
 
     BAR-TEST
 
-
-
 ### 简单测试
 
 接下来是简单的测试，有几种运行测试的办法。
@@ -384,7 +375,6 @@ TEST names a macro:
 - 设置`*tests*`列表，然后运行`run`函数
 
 实际上，这样就可以满足定位bug，快速测试的所有需求了。由于Lisp的动态特性，还能够在调试中动态定义测试函数，加入运行。
-
 
 ```common-lisp
 (in-package :example)
@@ -397,8 +387,6 @@ TEST names a macro:
     BAR-TEST.
     Success: 2 tests, 3 checks.
 
-
-
 ```common-lisp
 (foo-test)
 ```
@@ -406,16 +394,12 @@ TEST names a macro:
     FOO-TEST..
     Success: 1 test, 2 checks.
 
-
-
 ```common-lisp
 (run '(bar-test))
 ```
 
     BAR-TEST.
     Success: 1 test, 1 check.
-
-
 
 ```common-lisp
 (setf *tests* '(foo-test)) 
@@ -426,7 +410,6 @@ TEST names a macro:
 
     FOO-TEST..
     Success: 1 test, 2 checks.
-
 
 ## 探索永不停止
 

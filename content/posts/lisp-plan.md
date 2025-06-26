@@ -11,6 +11,7 @@ tocBorder = true
 
 
 ## 中年人与Lisp
+
 Lisp实际上已经是我的老朋友。
 
 大学的时候就开始看Lisp，很有意思也很有力的7个构成部分形成整个LISP大厦，非常震撼。
@@ -25,19 +26,19 @@ Lisp实际上已经是我的老朋友。
 
 ## 文章列表
 
-1. [001 粗鲁先生Lisp再出发](/posts/001-rude-start-application/)
-2. [002 懒惰先生的Lisp开发流程](/posts/002-lazy-process/)
-3. [003 颠倒先生的数学表达式](/posts/003-lazy-process/)
-4. [004 完美先生的完美Lisp](/posts/004-perfect/)
-5. [005 好奇先生用Lisp来探索Lisp](/posts/005-explore-lisp/)
-6. [006 好奇先生在Lisp的花园里挖呀挖呀挖](/posts/006-sequence-in-lisp/)
-7. [007 挑剔先生给出终止迭代的条件](/posts/007-recursive-eq/)
-8. [008 挠痒痒先生建网站记](/posts/008-real-app/)
-9. [009 小小先生学习Lisp表达式](/posts/009-expression/)
-10. [010 聪明先生拒(ji)绝(xu)造轮子](/posts/010-smart-cl-classification/)
-11. [010 Common Lisp Symbols分类参考](/posts/010-appendix-cl-symbols/)
-12. [011 没人先生学习Lisp函数](/posts/011-functions.md)
-13. [012 白日梦先生的白日梦](/posts/012-1am-tutor.md)
+1. [001 粗鲁先生Lisp再出发](/posts/lisp/001-rude-start-application/)
+2. [002 懒惰先生的Lisp开发流程](/posts/lisp/002-lazy-process/)
+3. [003 颠倒先生的数学表达式](/posts/lisp/003-lazy-process/)
+4. [004 完美先生的完美Lisp](/posts/lisp/004-perfect/)
+5. [005 好奇先生用Lisp来探索Lisp](/posts/lisp/005-explore-lisp/)
+6. [006 好奇先生在Lisp的花园里挖呀挖呀挖](/posts/lisp/006-sequence-in-lisp/)
+7. [007 挑剔先生给出终止迭代的条件](/posts/lisp/007-recursive-eq/)
+8. [008 挠痒痒先生建网站记](/posts/lisp/008-real-app/)
+9. [009 小小先生学习Lisp表达式](/posts/lisp/009-expression/)
+10. [010 聪明先生拒(ji)绝(xu)造轮子](/posts/lisp/010-smart-cl-classification/)
+11. [010 Common Lisp Symbols分类参考](/posts/lisp/010-appendix-cl-symbols/)
+12. [011 没人先生学习Lisp函数](/posts/lisp/011-functions.md)
+13. [012 白日梦先生的白日梦](/posts/lisp/012-1am-tutor.md)
 
 ## 计划
 
@@ -97,9 +98,7 @@ CommonLispTutorial --> CL
 - 如果很不舒服，就自己写一个，也不是太难的样子；
 - 用别人的，也要挑挑拣拣，而且，文档是几乎没有的，就比如Common Lisp自己的工具，都没有一个非常好用、完备的文档，跟[Racket](https://docs.racket-lang.org/)比起来，差距太大了；
 
-
 就比如说画图，[vgplot](https://github.com/volkers/vgplot)，[文档](https://volkers.github.io/vgplot/vgplot.html)， 其实说起来还算是不错，精心制作了`(vgplot:demo)`，照葫芦画瓢也简单。当然，如果有GNUPlot的基础就更是毫无压力。如果仔细考虑，这个包的功能也符合上面的特点，勉强够用。
-
 
 就比比如说[quicklisp](https://www.quicklisp.org/beta/releases.html)，下载量排名第一的[Alexandria](https://alexandria.common-lisp.dev/)，有文档，但是不多，没有中文，实际上，他的文档就是跟[explore-lisp](https://github.com/qchen-fdii-cardc/explore-lisp.git)差不多，用脚本生成的，但是这已经算是很好的了。
 

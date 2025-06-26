@@ -12,7 +12,7 @@ tocBorder = true
 
 ## 好奇先生Lisp探索工具`explore-lisp`
 
-好奇先生学会了懒惰先生交给他的Package开发和管理流程，[quickproject管理package](/posts/002-lazy-process)。好奇先生一步一步定义了一个叫做`explore-lisp`的package，这个包提供了探索Lisp的工具，并且提供了把探索结果输出成`markdown`文档的方法。
+好奇先生学会了懒惰先生交给他的Package开发和管理流程，[quickproject管理package](/posts/lisp/002-lazy-process)。好奇先生一步一步定义了一个叫做`explore-lisp`的package，这个包提供了探索Lisp的工具，并且提供了把探索结果输出成`markdown`文档的方法。
 
 这个工程的地址在[explore-lisp](https://github.com/qchen-fdii-cardc/explore-lisp)。当把这个源代码下载（clone）到本地之后，可以通过`quicklisp`的`quickload`函数加载这个包。
 
@@ -55,6 +55,7 @@ DIR names a compiled function:
   Source file: C:/Users/qchen/quicklisp/local-projects/explore-lisp/explore-lisp.lisp
 "
 ```
+
 可以看到这个符号的文档有几个基本的部分：
 
 - 函数的全名（包括包的名字作为前缀）
@@ -69,7 +70,6 @@ DIR names a compiled function:
 
 下面的文档主体部分，都是通过好奇先生的探索工具集生成的。真的是太好玩，好奇先生可以玩一整天。
 
-
 1. [DESCRIBE-SYMBOL](#describe-symbol)
 2. [DIR](#dir)
 3. [EXPORT-ALL-EXTERNAL-SYMBOLS](#export-all-external-symbols)
@@ -77,9 +77,7 @@ DIR names a compiled function:
 5. [FORMAT-DESCRIPTIONS](#format-descriptions)
 6. [SEARCH-SYMBOLS](#search-symbols)
 
-
-
-###  `DESCRIBE-SYMBOL`
+### `DESCRIBE-SYMBOL`
 
 这个函数可以把一个符号的文档描述输出成一个字符串。可以看到这个函数的签名，以及参数列表，返回值的类型，文档描述，函数的源代码文件位置。
 
@@ -94,7 +92,8 @@ DESCRIBE-SYMBOL names a compiled function:
     Describe a symbol and return the output as a string
   Source file: C:/Users/qchen/quicklisp/local-projects/explore-lisp/explore-lisp.lisp
 ```
-###  `DIR`
+
+### `DIR`
 
 这个函数列出一个包的所有外部符号，返回一个符号名字的列表和列表的长度。
 
@@ -109,7 +108,8 @@ DIR names a compiled function:
     List all external symbols in a package, return a list of symbol names and its length
   Source file: C:/Users/qchen/quicklisp/local-projects/explore-lisp/explore-lisp.lisp
 ```
-###  `EXPORT-ALL-EXTERNAL-SYMBOLS`
+
+### `EXPORT-ALL-EXTERNAL-SYMBOLS`
 
 这个函数把一个包的所有外部文件列出在一个文件中，可以通过关键词来设定文件名称和最开始文档在markdown中的标题级别。
 
@@ -166,7 +166,8 @@ EXPORT-ALL-EXTERNAL-SYMBOLS names a compiled function:
               (DESCRIBE EXPLORE-LISP::NAME EXPLORE-LISP::S)
               (FORMAT EXPLORE-LISP::S "```~%"))))))
 ```
-###  `EXPORT-DESCRIPTIONS`
+
+### `EXPORT-DESCRIPTIONS`
 
 将一个名称列表的描述导出到一个文件中，可以通过关键词来设定文件名称和最开始文档在markdown中的标题级别。
 
@@ -181,7 +182,8 @@ EXPORT-DESCRIPTIONS names a compiled function:
     Save a list of symbol names to a file
   Source file: C:/Users/qchen/quicklisp/local-projects/explore-lisp/explore-lisp.lisp
 ```
-###  `FORMAT-DESCRIPTIONS`
+
+### `FORMAT-DESCRIPTIONS`
 
 将一个名称列表的描述格式化成markdown文档，可以通过关键词来设定文件名称和最开始文档在markdown中的标题级别。
 
@@ -198,8 +200,7 @@ FORMAT-DESCRIPTIONS names a compiled function:
   Source file: C:/Users/qchen/quicklisp/local-projects/explore-lisp/explore-lisp.lisp
 ```
 
-
-###  `SEARCH-SYMBOLS`
+### `SEARCH-SYMBOLS`
 
 这个函数可以搜索一个包中的所有符号，包括符号的名字和文档字符串。文档字符串内的搜索是可选的。所有的搜索和字符串比较都是不区分大小写的。
 
@@ -215,7 +216,6 @@ SEARCH-SYMBOLS names a compiled function:
     Search for string in symbol names and doc strings in a package
   Source file: C:/Users/qchen/quicklisp/local-projects/explore-lisp/explore-lisp.lisp
 ```
-
 
 ## 挖一下`string`
 
@@ -233,6 +233,7 @@ SEARCH-SYMBOLS names a compiled function:
 ```lisp
 (el:search-symbols "string" :common-lisp)
 ```
+
 好奇先生还没来得及按下回车，挠痒痒先生的手从很远的地方伸过来，挠了一下好奇先生的咯吱窝，然后还按了一下键盘，好奇先生的命令就被执行了。
 
 啊，Lisp的REPL关于字符串的函数全部跑出来了~~~一共有46个！
@@ -329,8 +330,6 @@ classDiagram
 ## 附录A: Sequence相关的函数
 
 挠痒痒先生的手很长很长，不停地伸过来挠好奇先生的咯吱窝，然后又不停地按键盘，好奇先生只好带了无穷无尽的好奇心去睡觉了，只留下了下面这些函数的文档。
-
-
 
 ### `CONCATENATE`
 
@@ -1586,4 +1585,3 @@ SUBSTITUTE-IF-NOT names a compiled function:
   Source file: SYS:SRC;CODE;SEQ.LISP
 
 ```
-

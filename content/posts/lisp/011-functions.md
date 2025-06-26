@@ -13,18 +13,18 @@ tocBorder = true
 
 ## 没人先生
 
-没人先生一直都在, 但是没人注意到他. 他从头到尾一直都在跟大家一起学习Lisp. 
+没人先生一直都在, 但是没人注意到他. 他从头到尾一直都在跟大家一起学习Lisp.
 
-1. [001 粗鲁先生Lisp再出发](/posts/001-rude-start-application/)
-2. [002 懒惰先生的Lisp开发流程](/posts/002-lazy-process/)
-3. [003 颠倒先生的数学表达式](/posts/003-lazy-process/)
-4. [004 完美先生的完美Lisp](/posts/004-perfect/)
-5. [005 好奇先生用Lisp来探索Lisp](/posts/005-explore-lisp/)
-6. [006 好奇先生在Lisp的花园里挖呀挖呀挖](/posts/006-sequence-in-lisp/)
-7. [007 挑剔先生给出终止迭代的条件](/posts/007-recursive-eq/)
-8. [008 挠痒痒先生建网站记](/posts/008-real-app/)
-9. [009 小小先生学习Lisp表达式](/posts/009-expression/)
-10. [010 聪明先生拒(ji)绝(xu)造轮子](/posts/010-smart-cl-classification/)
+1. [001 粗鲁先生Lisp再出发](/posts/lisp/001-rude-start-application/)
+2. [002 懒惰先生的Lisp开发流程](/posts/lisp/002-lazy-process/)
+3. [003 颠倒先生的数学表达式](/posts/lisp/003-lazy-process/)
+4. [004 完美先生的完美Lisp](/posts/lisp/004-perfect/)
+5. [005 好奇先生用Lisp来探索Lisp](/posts/lisp/005-explore-lisp/)
+6. [006 好奇先生在Lisp的花园里挖呀挖呀挖](/posts/lisp/006-sequence-in-lisp/)
+7. [007 挑剔先生给出终止迭代的条件](/posts/lisp/007-recursive-eq/)
+8. [008 挠痒痒先生建网站记](/posts/lisp/008-real-app/)
+9. [009 小小先生学习Lisp表达式](/posts/lisp/009-expression/)
+10. [010 聪明先生拒(ji)绝(xu)造轮子](/posts/lisp/010-smart-cl-classification/)
 
 他感觉他跟Lisp中的函数很像, 天天都在, 每次都要用, 却还是有好多东西是不知道的. 他决定要好好学习一下Lisp中的函数.
 
@@ -35,8 +35,8 @@ tocBorder = true
 函数可以返回任何数量以及任何类型的Lisp对象, 包括函数对象. 当函数返回多个值时, 推荐使用`values`来构造返回值, 而不是使用`list`, 当返回值是`values`,
 可以直接使用第一个值, 也可以用`multiple-value-bind`来绑定返回值.
 
-
 绑定多个值的方式如下:
+
 ```lisp
 (multiple-value-bind (a b c) (values 1 2 3)
   (list a b c))
@@ -68,7 +68,6 @@ tocBorder = true
 
 就比如,  `floor`函数的返回值是两个, 第一个是`integer`, 第二个是`real`, 这个是通过`values`来返回的.  请仔细看`Delcared type`和`Derived type`两个字段的描述.
 
-
 ```lisp
 (describe 'floor)
 COMMON-LISP:FLOOR
@@ -96,9 +95,7 @@ NIL
 
 这个函数就很好地配合函数式编程的思想,可以很容易进行值和表达式的替换,而不需要引入额外的变量.
 
-
 ## 函数的参数
-
 
 函数的参数定义方式:
 
@@ -107,7 +104,6 @@ NIL
 3. `&key`关键字参数;
 4. `&rest`剩余参数;
 5. `&allow-other-keys`允许其他关键字参数;
-   
 
 具体语法和使用方法可以参考[CLCB](https://lispcookbook.github.io/cl-cookbook/functions.html)中,这本书还有[中文版](https://oneforalone.github.io/cl-cookbook-cn/#/zh-cn/01.functions).
 
@@ -117,7 +113,6 @@ NIL
 ```
 
 这里的`optional`和`key`可以同时使用,SBCL可能会报警,但是不影响使用.
-
 
 ## 产生函数
 
@@ -143,7 +138,7 @@ NIL
 #'name
 ```
 
-因为Lisp的函数和变量可以用一样的符号,所以这个`#'`就是为了区分函数和变量的. 
+因为Lisp的函数和变量可以用一样的符号,所以这个`#'`就是为了区分函数和变量的.
 
 此外,`function`还可以接受一个`lambda`来产生一个函数对象.
 
@@ -184,7 +179,6 @@ NIL
 ;; T
 ```
 
-
 ## 函数调用
 
 调用函数的三种方式:
@@ -192,7 +186,6 @@ NIL
 1. `funcall`;
 2. `apply`;
 3. `multiple-value-call`.
-
 
 ### `funcall`
 
@@ -223,8 +216,6 @@ NIL
 (multiple-value-call #'+ (values 3 4) 2 1 (values 8 7 3))
 ;; 28
 ```
-
-
 
 ## 总结
 
