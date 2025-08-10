@@ -1,7 +1,7 @@
 +++
 title = '002 Get Data in Pyside6实现一个Graph Digitizer'
 date = 2025-07-27T12:43:44+08:00
-draft = true
+draft = false
 mathkatex = true
 categories = ['python', 'pyqt', 'pyqt6', 'pyside6']
 tags = ['python', 'GetData', 'Graph', 'Digitizer', '数据曲线', '科研工具']
