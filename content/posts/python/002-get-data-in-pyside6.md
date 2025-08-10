@@ -33,7 +33,7 @@ GetData Graph Digitizer是一个图形数据提取软件，主要功能包括：
 
 网上这个软件的破解和帮助都很多，随便搜索就能找到。记得`-csdn`来避免CSDN锁VIP的烂活。
 
-## 我自己做一个怎么样？
+## 自己做一个怎么样？
 
 不愿用盗版，感觉非常不符合自己的理念，又不愿意掏钱的时候我们就只能自己动手编一个。
 
@@ -52,15 +52,15 @@ GetData Graph Digitizer是一个图形数据提取软件，主要功能包括：
 
 例如，对于x轴从图上确定如下两个点的对应关系：
 
-| 像素位置 | 实际坐标 |
+| 像素位置$x_i$ | 实际坐标$x'_i$ |
 |----------|----------|
-| 100      | 0        |
+| 100      | 0.1        |
 | 200      | 10       |
 
 那么就可以确定一个线性关系：
 
 $$
-x_\text{actual} = \frac{(x_\text{pixel} - 100)}{(200 - 100)} \times (10-0)
+x_\text{actual} = \frac{(x_\text{pixel} - 100)}{(200 - 100)} \times (10-0.1) + 0.1
 $$
 
 当然，实际上我们会采用更加复杂的最小二乘法来拟合坐标轴的曲线。
@@ -72,20 +72,30 @@ $$
 \end{split}
 $$
 
-或者用横线表示平均值：
+或者用横线表示平均值，
+
+$$
+\overline{x} = \frac{1}{n} \sum_{i=1}^{n} x_i
+$$
+
+前面的最小二乘法公式可以简写为更加专业的形式，并且为了表示这里的斜率和截距式估计值，我们还会再加上一个帽子：
 
 $$
 \begin{split}
-   & k = \frac{\overline{x_i x'_i} - \overline{x_i} \cdot \overline{x'_i}}{\overline{x_i^2} - \overline{x_i}^2}\\
-   & b = \overline{x'_i} - k \cdot \overline{x_i}
+   & \hat{k} = \frac{\overline{x \cdot x'} - \overline{x} \cdot \overline{x'}}{\overline{x^2} - \overline{x}^2}\\
+   & \hat{b} = \overline{x'} - \hat{k} \cdot \overline{x}
 \end{split}
 $$
 
 其中$n$为数据点个数，$(x_i, x'_i)$为第$i$个标定点的像素坐标和实际坐标对应关系。通过最小二乘法可以得到更加精确的线性变换关系：
 
-$$x' = k \cdot x + b$$
+$$x' = \hat{k} \cdot x + \hat{b}$$
 
-不要小看这个公式，虽然看起来非常简单，但它在科学研究中应用极其广泛。我从大学时期刚开始接触最小二乘法，一直到博士毕业都在使用，现在工作十几年了，几乎没有一天不用到最小二乘法。
+不要小看这个公式，虽然看起来非常简单，但它在科学研究中应用极其广泛。我从大学时期刚开始接触最小二乘法，一直到博士毕业都在使用，现在工作十几年了，几乎没有一天不用到最小二乘法。当然，用专业的话讲，这叫做线性回归（Linear Regression）。
+
+大概就是下面这个图片显示的内容（本图片没有版权，我本来要自己画一个漂亮的但是没有时间了~~~），大概意思就是这样的。
+
+![最小二乘法](/python/get-data/simple_regression.png)
 
 ### 需求分析
 
@@ -117,11 +127,38 @@ $$x' = k \cdot x + b$$
 
 #### 一个`QLabel`处理事件
 
+为什么是`QLabel`？看下面的类图：
+
+```mermaid
+classDiagram
+class QWidget
+class QFrame
+QWidget <|-- QFrame
+class QLabel
+QFrame <|-- QLabel
+class QObject
+class QPaintDevice
+QPaintDevice <|-- QWidget
+QObject <|-- QWidget
+```
+
+如果我们使用`QWidget`，那么就需要自己处理绘图和事件，这样会比较麻烦。而`QLabel`已经封装了图片显示和鼠标事件处理，非常方便。
+
+其它可以选择`QGraphicsView`，但是它的功能过于复杂。
+
 ```python
 {{% codeseg "static/python/get-data/coordinate_extractor.py" 19 130 %}}
 ```
 
 #### 一个`QWidget`处理业务逻辑
+
+这里的业务逻辑包括：
+
+- 处理图片加载
+- 处理图片的局部放大
+- 管理坐标轴标定
+- 管理曲线数据点
+- 处理数据导出
 
 ```python
 {{% codeseg "static/python/get-data/coordinate_extractor.py" 133 530%}}
