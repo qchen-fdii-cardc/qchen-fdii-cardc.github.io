@@ -125,6 +125,8 @@ $$x' = \hat{k} \cdot x + \hat{b}$$
 
 ### 代码实现
 
+- [完整代码](/python/get-data/coordinate_extractor.py)
+
 #### 一个`QLabel`处理事件
 
 为什么是`QLabel`？看下面的类图：
@@ -175,3 +177,22 @@ QObject <|-- QWidget
 ```python
 {{% codeseg "static/python/get-data/coordinate_extractor.py" 1358 1366%}}
 ```
+
+## AI编程
+
+基本上这个程序，我就是写了个需求分析，然后让Claude Sonnet 4编写了大部分代码，然后我进行了测试和调试。
+
+Claude Sonnet 4的表现非常不错，基本上能理解需求，并且能编写出符合需求的代码。虽然有些细节需要我来调整和完善，但整体上节省了大量的时间。
+
+AI最擅长的部分：
+
+- 编写UI布局的代码
+- 调整布局，比如添加菜单栏、工具栏等
+- 编写一些重复性的代码，比如继承函数接口
+- 在Python中轮子非常多，调用各个库的代码在文档和example中都有，所以AI也很擅长，这就包括数据处理、IO库等
+
+AI不擅长的部分：
+
+- 还没发现……
+
+我感觉已经可以做很多东西了……
