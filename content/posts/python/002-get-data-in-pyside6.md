@@ -1,5 +1,5 @@
 +++
-title = '002 Get Data in Pyside6实现一个Graph Digitizer'
+title = 'Get Data in Pyside6实现一个Graph Digitizer'
 date = 2025-07-27T12:43:44+08:00
 draft = false
 mathkatex = true
