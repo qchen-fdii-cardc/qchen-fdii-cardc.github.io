@@ -58,3 +58,6 @@ uv.lock
 
 **/bin/** 
 **/obj/**
+**/*.buid/**
+**/*.dist/**
+**/*.onefile-build/**
