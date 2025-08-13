@@ -104,62 +104,62 @@ Matlab提供了多种ODE求解器，适用于不同类型的ODE问题。根据[O
 
 ```matlab
  ode45  Solve non-stiff differential equations, medium order method.
-    [TOUT,YOUT] = ode45(ODEFUN,TSPAN,Y0) integrates the system of
-    differential equations y' = f(t,y) from time TSPAN(1) to TSPAN(end)
-    with initial conditions Y0. Each row in the solution array YOUT
-    corresponds to a time in the column vector TOUT. 
-      * ODEFUN is a function handle. For a scalar T and a vector Y,
-        ODEFUN(T,Y) must return a column vector corresponding to f(t,y).
-      * TSPAN is a two-element vector [T0 TFINAL] or a vector with
-        several time points [T0 T1 ... TFINAL]. If you specify more than
-        two time points, ode45 returns interpolated solutions at the
-        requested times.
-      * YO is a column vector of initial conditions, one for each equation.
+  [TOUT,YOUT] = ode45(ODEFUN,TSPAN,Y0) integrates the system of
+  differential equations y' = f(t,y) from time TSPAN(1) to TSPAN(end)
+  with initial conditions Y0. Each row in the solution array YOUT
+  corresponds to a time in the column vector TOUT. 
+    * ODEFUN is a function handle. For a scalar T and a vector Y,
+    ODEFUN(T,Y) must return a column vector corresponding to f(t,y).
+    * TSPAN is a two-element vector [T0 TFINAL] or a vector with
+    several time points [T0 T1 ... TFINAL]. If you specify more than
+    two time points, ode45 returns interpolated solutions at the
+    requested times.
+    * YO is a column vector of initial conditions, one for each equation.
  
-    [TOUT,YOUT] = ode45(ODEFUN,TSPAN,Y0,OPTIONS) specifies integration
-    option values in the fields of a structure, OPTIONS. Create the
-    options structure with odeset.
+  [TOUT,YOUT] = ode45(ODEFUN,TSPAN,Y0,OPTIONS) specifies integration
+  option values in the fields of a structure, OPTIONS. Create the
+  options structure with odeset.
  
-    [TOUT,YOUT,TE,YE,IE] = ode45(ODEFUN,TSPAN,Y0,OPTIONS) produces
-    additional outputs for events. An event occurs when a specified function
-    of T and Y is equal to zero. See ODE Event Location for details.
+  [TOUT,YOUT,TE,YE,IE] = ode45(ODEFUN,TSPAN,Y0,OPTIONS) produces
+  additional outputs for events. An event occurs when a specified function
+  of T and Y is equal to zero. See ODE Event Location for details.
  
-    SOL = ode45(...) returns a solution structure instead of numeric
-    vectors. Use SOL as an input to DEVAL to evaluate the solution at
-    specific points. Use it as an input to ODEXTEND to extend the
-    integration interval.
+  SOL = ode45(...) returns a solution structure instead of numeric
+  vectors. Use SOL as an input to DEVAL to evaluate the solution at
+  specific points. Use it as an input to ODEXTEND to extend the
+  integration interval.
  
-    ode45 can solve problems M(t,y)*y' = f(t,y) with mass matrix M that is
-    nonsingular. Use ODESET to set the 'Mass' property to a function handle
-    or the value of the mass matrix. ODE15S and ODE23T can solve problems
-    with singular mass matrices.
+  ode45 can solve problems M(t,y)*y' = f(t,y) with mass matrix M that is
+  nonsingular. Use ODESET to set the 'Mass' property to a function handle
+  or the value of the mass matrix. ODE15S and ODE23T can solve problems
+  with singular mass matrices.
  
-    ODE23, ode45, ODE78, and ODE89 are all single-step solvers that use
-    explicit Runge-Kutta formulas of different orders to estimate the error
-    in each step.
-      * ode45 is for general use.
-      * ODE23 is useful for moderately stiff problems.
-      * ODE78 and ODE89 may be more efficient than ode45 on non-stiff problems
-        that are smooth except possibly for a few isolated discontinuities.
-      * ODE89 may be more efficient than ODE78 on very smooth problems, when 
-        integrating over long time intervals, or when tolerances are tight.
+  ODE23, ode45, ODE78, and ODE89 are all single-step solvers that use
+  explicit Runge-Kutta formulas of different orders to estimate the error
+  in each step.
+    * ode45 is for general use.
+    * ODE23 is useful for moderately stiff problems.
+    * ODE78 and ODE89 may be more efficient than ode45 on non-stiff problems
+    that are smooth except possibly for a few isolated discontinuities.
+    * ODE89 may be more efficient than ODE78 on very smooth problems, when 
+    integrating over long time intervals, or when tolerances are tight.
  
-    Example
-          [t,y]=ode45(@vdp1,[0 20],[2 0]);   
-          plot(t,y(:,1));
-      solves the system y' = vdp1(t,y), using the default relative error
-      tolerance 1e-3 and the default absolute tolerance of 1e-6 for each
-      component, and plots the first component of the solution. 
-    
-    Class support for inputs TSPAN, Y0, and the result of ODEFUN(T,Y):
-      float: double, single
+  Example
+      [t,y]=ode45(@vdp1,[0 20],[2 0]);   
+      plot(t,y(:,1));
+    solves the system y' = vdp1(t,y), using the default relative error
+    tolerance 1e-3 and the default absolute tolerance of 1e-6 for each
+    component, and plots the first component of the solution. 
+  
+  Class support for inputs TSPAN, Y0, and the result of ODEFUN(T,Y):
+    float: double, single
  
-    See also ode23, ode78, ode89, ode113, ode15s, ode23s, ode23t, ode23tb,
-             ode15i, odeset, odeplot, odephas2, odephas3, odeprint, deval,
-             odeexamples, function_handle.
+  See also ode23, ode78, ode89, ode113, ode15s, ode23s, ode23t, ode23tb,
+       ode15i, odeset, odeplot, odephas2, odephas3, odeprint, deval,
+       odeexamples, function_handle.
 
-    Documentation for ode45
-    Other uses of ode45
+  Documentation for ode45
+  Other uses of ode45
 ```
 
 当然我们还可以通过`doc ode45`命令查看更详细的文档。
@@ -224,10 +224,10 @@ options = odeset('RelTol',1e-6,'AbsTol',1e-9);
 
 ```matlab
 function dydt = odefun(t, y, param)
-    % 这里的param可以是一个自定义参数
-    dydt = zeros(2, 1); % 假设有两个变量
-    dydt(1) = y(2); % y1' = y2
-    dydt(2) = -param * y(1); % y2' = -param * y1
+  % 这里的param可以是一个自定义参数
+  dydt = zeros(2, 1); % 假设有两个变量
+  dydt(1) = y(2); % y1' = y2
+  dydt(2) = -param * y(1); % y2' = -param * y1
 end
 ```
 
@@ -238,7 +238,7 @@ end
 首先，我们定义Rayleigh方程的ODE函数，这里把$\mu$作为一个参数传递给ODE函数：
 
 ```matlab
-{{% codeseg "static\matlab\Rayleigh-equations\rayleigh.m" 39 47 %}}
+{{% codeseg "static/matlab/Rayleigh-equations/rayleigh.m" 39 47 %}}
 ```
 
 这里为了清晰，采取了标量形式的Rayleigh方程，对于更容易写成向量形式的微分方程组，可以直接采用恰当的matlab惯用表达方式。比如硬要拗姿势的话，上面的函数可以写成：
@@ -246,7 +246,7 @@ end
 ```matlab
 function dydt = odefun(t, y, mu)
 dydt = [0, 1;...
-    -1, mu * (1 - (1/3) * y(2)^2)] * y(:);
+  -1, mu * (1 - (1/3) * y(2)^2)] * y(:);
 end
 ```
 
@@ -254,7 +254,7 @@ end
 
 ```matlab
 odefun = @(t, y, mu)[0, 1;...
-    -1, mu * (1 - (1/3) * y(2)^2)] * y(:);
+  -1, mu * (1 - (1/3) * y(2)^2)] * y(:);
 
 ode45(odefun, [0 100], [0.1; 0], [], 0.1);
 ```
@@ -270,7 +270,7 @@ ode45(odefun, [0 100], [0.1; 0], [], 0.1);
 我们对函数的参数进行了限制，并设置了默认值：
 
 ```matlab
-{{% codeseg "static\matlab\Rayleigh-equations\rayleigh.m" 2 6 %}}
+{{% codeseg "static/matlab/Rayleigh-equations/rayleigh.m" 2 6 %}}
 ```
 
 `arguments...end`这个语法，功能还是非常强大的。
@@ -278,7 +278,7 @@ ode45(odefun, [0 100], [0.1; 0], [], 0.1);
 当然，我们还是整了点其它代码来得到更加漂亮的图。
 
 ```matlab
-{{% codeseg "static\matlab\Rayleigh-equations\rayleigh.m" 17 23 %}}
+{{% codeseg "static/matlab/Rayleigh-equations/rayleigh.m" 17 23 %}} 
 ```
 
 用`tiledlayout`来进行图形的简单排列。
@@ -294,7 +294,7 @@ ode45(odefun, [0 100], [0.1; 0], [], 0.1);
 完整的代码：
 
 ```matlab
-{{% codesnap "static\matlab\Rayleigh-equations\rayleigh.m" %}}
+{{% codesnap "static/matlab/Rayleigh-equations/rayleigh.m" %}}  
 ```
 
 ## 结论
