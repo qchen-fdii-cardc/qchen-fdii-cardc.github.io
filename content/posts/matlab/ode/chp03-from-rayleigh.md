@@ -1,7 +1,7 @@
 +++
 title = 'Non-stiff ODE在MATLAB中非刚性ODE求解'
 date = 2025-08-12T13:22:04+08:00
-draft = off
+draft = false
 mathkatex = true
 categories = ['ode', 'matlab']
 tags = ['ode', 'Rayleigh', 'van der Pol', 'Rayleigh ODE', 'MATLAB ODE Solvers', 'MATLAB ODE Basics']
