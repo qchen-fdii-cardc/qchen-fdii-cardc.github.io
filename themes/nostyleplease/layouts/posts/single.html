@@ -110,4 +110,43 @@
         <img src="https://img.shields.io/badge/GitHub-qchen--fdii--cardc-181717?style=flat&logo=github" alt="GitHub">
     </a>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // fix all images to half the width of the page
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.style.maxWidth = '40%';
+            img.style.height = 'auto';
+            img.style.display = 'block';
+            img.style.margin = '0 auto';
+            img.style.border = '1px solid #ddd';
+            img.style.borderRadius = '10px';
+            img.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+            // add title of the alt attribute as caption
+            if (img.alt) {
+                const caption = document.createElement('div');
+                caption.style.textAlign = 'center';
+                caption.style.marginBottom = '1em';
+                caption.style.fontWeight = 'bold';
+                caption.style.fontStyle = 'italic';
+                caption.style.fontSize = '0.8em';
+                caption.style.color = '#666';
+                caption.textContent = img.alt;
+                img.parentNode.insertBefore(caption, img.nextSibling);
+            }
+            // Add tooltip for click to enlarge
+            img.title = 'Click to enlarge/shrink';
+            // click image to set 100% width and click again back to 40%
+            img.addEventListener('click', function () {
+                if (this.style.maxWidth === '100%') {
+                    this.style.maxWidth = '40%';
+                } else {
+                    this.style.maxWidth = '100%';
+                }
+            });
+
+        });
+    });
+</script>
 {{ end }}
