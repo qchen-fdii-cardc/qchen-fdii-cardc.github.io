@@ -6,11 +6,11 @@ odefun = @(t, y, m, mu)[
 
 figure
 m = 1;
-legends = {};
 n = 3;
 colors = lines(n);
+legends = cell(1, n);
 mus = logspace(-1, 1, n);
-u0 = 1; v0 = 0.5;
+u0 = 1; v0 = 0;
 for muidx = 1:n
     mu = mus(muidx);
     hold on
@@ -19,9 +19,9 @@ for muidx = 1:n
         odefun(t, y, varargin{:}), ...
         [0,  tau], [u0; v0], ...
         odeset('OutputFcn', @odephas2, ...
-        'Refine', 10), ...
+        'Refine', 6), ...
         m, mu);
-    legends = [legends; {sprintf('$\\mu=%.2f$', mu)}];
+    legends{muidx} = sprintf('$\\mu=%.2f$', mu);
     axis equal
     xlabel('$u$', 'Interpreter', 'latex')
     ylabel('$\dot{u}$', 'Interpreter', 'latex')
@@ -36,4 +36,4 @@ for muidx = 1:n
 end
 grid on;
 legend(legends, 'Location', 'Best', 'Interpreter', 'latex')
-exportgraphics(gca, sprintf('System1D(u0=%.1f, v0=%.1f).png', u0, v0), 'Resolution', 300);
+exportgraphics(gca, sprintf('System1D_u0=%.1f_v0=%.1f.png', u0, v0), 'Resolution', 300);
