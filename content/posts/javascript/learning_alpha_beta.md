@@ -28,6 +28,7 @@ tocBorder = true
 
 三个文件下载：
 
-- [HTML](/javascript/alphabeta/alphabeta.html)
+- [HTML1](/javascript/alphabeta/alphabeta.html)
+- [HTML2](/javascript/alphabeta/widget.html)
 - [CSS](/javascript/alphabeta/style.css)
 - [JavaScript](/javascript/alphabeta/script.js)
