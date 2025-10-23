@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Alphabeta — Letter learner</title>
+    <link rel="stylesheet" href="/javascript/alphabeta/styles.css">
+    <style>
+        /* Minimal reset inside iframe */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background: transparent
+        }
+
+        .page-wrap {
+            padding: 20px
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrap">
+        <div class="alphabeta-embed" role="region" aria-label="A to Z letter learner">
+            <div class="container">
+                <div class="card" aria-live="polite">
+                    <div class="meta">
+                        <div id="position" class="position" aria-hidden="true">1 / 26</div>
+                        <button id="speak" class="speak" aria-label="Speak letter">🔊</button>
+                    </div>
+
+                    <div id="letter" class="letter" tabindex="0" role="img" aria-label="Letter A">A</div>
+                    <div class="controls">
+                        <button id="prev" aria-label="Previous letter">◀</button>
+                        <button id="random" class="primary">Random</button>
+                        <button id="next" aria-label="Next letter">▶</button>
+                    </div>
+                </div>
+
+                <div class="examples">
+                    <h2>Examples</h2>
+                    <ul id="examplesList" aria-live="polite"></ul>
+                </div>
+
+                <footer>
+                    <p>Tip: press Space for a random letter, ← and → for previous/next. Click the letter to toggle case.
+                    </p>
+                </footer>
+            </div>
+
+            <!-- Place the script inside the widget container so the script's root detection finds this embed -->
+            <script src="/javascript/alphabeta/script.js" defer></script>
+        </div>
+    </div>
+</body>
+
+</html>

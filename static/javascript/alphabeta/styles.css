@@ -1,0 +1,186 @@
+/* Scoped styles for the alphabeta embed to avoid affecting the rest of the Hugo site */
+.alphabeta-embed {
+    --bg: #f6f9ff;
+    --card: #ffffff;
+    --accent: #2b8cff;
+    --muted: #6b7280;
+    /* font for the widget only */
+    font-family: 'Microsoft Yahei', 'Microsoft YaHei UI', '微软雅黑', Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    display: block;
+}
+
+/* scope universal box-sizing */
+.alphabeta-embed * {
+    box-sizing: border-box;
+}
+
+.alphabeta-embed .container {
+    max-width: 720px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 0;
+}
+
+.alphabeta-embed h1 {
+    text-align: center;
+    margin: 0 0 18px 0;
+}
+
+.alphabeta-embed .card {
+    background: var(--card);
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(43, 140, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.alphabeta-embed .meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.alphabeta-embed .position {
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.alphabeta-embed .speak {
+    background: transparent;
+    border: 0;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.alphabeta-embed .letter {
+    /* doubled font size */
+    font-size: 280px;
+    font-weight: 700;
+    color: var(--accent);
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* double the box size so large letters have space */
+    width: 480px;
+    height: 320px;
+    border-radius: 8px;
+    border: 3px dashed rgba(43, 140, 255, 0.12);
+    transition: width 160ms ease, height 160ms ease, font-size 160ms ease;
+}
+
+.alphabeta-embed .controls {
+    display: flex;
+    gap: 8px;
+}
+
+.alphabeta-embed button {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #dbeafe;
+    background: #fff;
+    cursor: pointer;
+}
+
+.alphabeta-embed button.primary {
+    background: var(--accent);
+    color: #fff;
+    border-color: transparent;
+}
+
+.alphabeta-embed .examples {
+    margin-top: 18px;
+}
+
+.alphabeta-embed .examples h2 {
+    margin: 0 0 8px 0;
+}
+
+.alphabeta-embed .examples ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+}
+
+.alphabeta-embed .examples li {
+    background: #fff;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #eef2ff;
+    color: var(--muted);
+    font-weight: 600;
+    /* double the word font size (default assumed 16px -> now ~32px) */
+    font-size: 32px;
+}
+
+.alphabeta-embed .wordBtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+.alphabeta-embed .wordBtn:focus {
+    outline: 3px solid rgba(43, 140, 255, 0.18);
+    border-radius: 6px;
+}
+
+.alphabeta-embed .highlight {
+    background: linear-gradient(90deg, #fff9c4, #ffd54f);
+    padding: 0 4px;
+    border-radius: 4px;
+}
+
+.alphabeta-embed footer {
+    margin-top: 12px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* responsive rules (scoped) */
+@media (max-width:920px) {
+    .alphabeta-embed .letter {
+        font-size: 192px;
+        /* 280 -> ~192 */
+        width: 360px;
+        height: 240px;
+    }
+
+    .alphabeta-embed .examples li {
+        font-size: 24px;
+        padding: 12px;
+    }
+}
+
+@media (max-width:520px) {
+    .alphabeta-embed .letter {
+        font-size: 192px;
+        width: 360px;
+        height: 240px;
+    }
+
+    .alphabeta-embed .examples ul {
+        grid-template-columns: 1fr;
+    }
+
+    .alphabeta-embed .examples li {
+        font-size: 20px;
+        padding: 10px;
+    }
+}
