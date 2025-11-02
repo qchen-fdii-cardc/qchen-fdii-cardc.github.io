@@ -1,0 +1,9 @@
+syms u(x, y, t) v(x, y, t) p(x, y, t) Re
+
+eqs = [diff(u, t) + u * diff(u, x) + v * diff(u, y) == - diff(p, x) + 1 / Re * (diff(u, x, x) + diff(u, y, y)), ...
+    diff(v, t) + u * diff(v, x) + v * diff(v, y) == -diff(p, y) + 1 / Re * (diff(v, x,x)+ diff(v, y, y)), ...
+    diff(u, x) + diff(v, y) == 0,...
+    ];
+
+eqs = subs(eqs, {Re}, 1e5);
+ret = pdeCoefficients(eqs, [u, v, p])
