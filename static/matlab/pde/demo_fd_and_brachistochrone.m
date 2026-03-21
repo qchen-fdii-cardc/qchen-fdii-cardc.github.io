@@ -73,7 +73,7 @@ hb = xbGrid(2) - xbGrid(1);
 yp = (A5 * yb) / hb;
 ypp = (A5 * (A5 * yb)) / (hb^2);
 res = ypp + (1 + yp.^2) ./ (2 * yb);
-semilogy(xbGrid, abs(res) + eps, 'm-', 'LineWidth', 1.6);
+semilogy(xbGrid(2:end-1), abs(res(2:end-1)) + eps, 'm-', 'LineWidth', 1.6);
 grid on;
 xlabel('x');
 ylabel('|R|');
@@ -107,7 +107,7 @@ title('最速降线: 五点差分解与摆线解析解对比');
 legend('摆线解析解', '五点差分数值解', 'Location', 'best');
 
 subplot(1, 2, 2);
-semilogy(xcGrid, abs(errAna) + eps, 'b-', 'LineWidth', 1.6);
+semilogy(xcGrid(2:end-1), abs(errAna(2:end-1)) + eps, 'b-', 'LineWidth', 1.6);
 grid on;
 xlabel('x');
 ylabel('|y_{num}-y_{ana}|');

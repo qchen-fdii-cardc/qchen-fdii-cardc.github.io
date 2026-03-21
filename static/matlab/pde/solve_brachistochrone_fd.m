@@ -10,11 +10,19 @@ h = x(2) - x(1);
 
 % Initial guess: smooth monotone profile staying positive.
 t = (x - xmin) / (xmax - xmin);
-y = y0 + (y1 - y0) * t + 0.05 * sin(pi * t);
+y = y0 + (y1 - y0) * t + 0.5 * sin(2 * pi * t);
 y = max(y, 1e-3);
 
-maxIter = 40;
-tol = 1e-10;
+% 绘制一个初始猜测的曲线，帮助调试
+iter_process = figure('Color', 'w', 'Position', [200, 150, 540, 460]);
+xlabel('x'); ylabel('y');
+colormap("hot");
+plot(x, y, '-','LineWidth', 1.4);
+set(gca, 'YDir', 'reverse');
+axis tight; grid on; hold on;
+
+maxIter = 100;
+tol = 1e-12;
 damp = 1.0;
 
 % Build the 5-point first derivative matrix and its square for y''.
@@ -58,10 +66,21 @@ for iter = 1:maxIter
     
     y = yTrial;
     
+    % add a plot to show the iteration process
+    figure(iter_process);
+    plot(x, y, '-',  'LineWidth', 0.9);
+    set(gca, 'YDir', 'reverse');
+
     if norm(F, inf) < tol && norm(delta, inf) < tol
         break;
     end
 end
+
+figure(iter_process);
+set(gca, 'YDir', 'reverse');
+
+title('Brachistochrone FD Iteration Process');
+exportgraphics(iter_process, fullfile(pwd, 'figures', 'brachistochrone_fd_iterations.png'), 'Resolution', 180);
 
 info.iter = iter;
 info.residualInf = norm(F, inf);
