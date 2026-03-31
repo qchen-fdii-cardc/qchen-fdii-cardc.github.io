@@ -1,7 +1,7 @@
 +++
 title = 'Racket FFI调用GSL库'
 date = 2026-03-31T10:15:40+08:00
-draft = true
+draft = false
 mathkatex = true
 categories = ['racket','lisp', 'programming-language',  'ffi']
 tags = ['lisp', '编程', 'racket', 'ffi', 'gsl', '科学计算']
@@ -13,7 +13,9 @@ tocBorder = true
 
 Racket是Lisp编程语言家族的一员，它与SBCL所实现的Common Lisp不同，所有符号都定义在同一个命名空间中，这个方式称为Lisp-1，而SBCL的方式称为Lisp-2。
 
-Racket的设计使得它更适合于教学和快速开发，并且它采用了更有一致性的语法。所有的函数和变量都采用define来定义。
+Racket的设计使得它更适合于教学和快速开发，并且它采用了更有一致性的语法。所有的函数和变量都采用define来定义。可以看看[Racket的Cheat Sheet](https://docs.racket-lang.org/racket-cheat/index.html)，就会发现Racket的语法非常简洁和一致，几乎所有的定义都是通过define来完成的，无论是函数、变量、模块还是类等等。相比之下，SBCL的Common Lisp有更多的定义形式，比如defun、defvar、defmacro、defclass等等，这些定义形式虽然功能强大，但也增加了学习的复杂度。
+
+![Over-Non-Lispify](/racket/over-non-lisp.jpg)
 
 Racket的生态系统可能不见得有SBCL丰富（见仁见智），但是Racket的文档和社区可比Common Lisp好太多了。我整天看Lisp的文档简直像看天书，大佬们都说，看源代码就行了……好吧，你写的你说啥就是啥……
 
