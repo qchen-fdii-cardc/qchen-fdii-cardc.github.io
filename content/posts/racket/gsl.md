@@ -1,9 +1,9 @@
 +++
 title = 'Racket FFI调用GSL库'
-date = 2026-03-31T10:21:34+08:00
-draft = false
-mathjax = false
-categories = ['lisp', 'programming-language', 'racket', 'ffi']
+date = 2026-03-31T10:15:40+08:00
+draft = true
+mathkatex = true
+categories = ['racket','lisp', 'programming-language',  'ffi']
 tags = ['lisp', '编程', 'racket', 'ffi', 'gsl', '科学计算']
 toc = true
 tocBorder = true
@@ -58,9 +58,12 @@ main (void)
 
 ## Racket FFI调用GSL库
 
-```lisp
+```racket
 #lang racket
 
+```
+
+```racket
 (require ffi/unsafe)
 (require ffi/vector)
 
@@ -87,7 +90,7 @@ main (void)
 ```
 
 
-```lisp
+```racket
 ;; Format a complex number as a string with specified precision (12 decimal places by default)
 (define (format-complex re im [precision 12])
   (string-append
@@ -102,7 +105,7 @@ main (void)
     "i"))
 ```
 
-```lisp
+```racket
 ;; Minimal usage: solve P(x) = -1 + x^n
 (define (solve-poly-demo [n 7])
   ;; We want to solve x^n - 1 = 0, which has n roots (the nth roots of unity)
@@ -123,7 +126,7 @@ main (void)
 ```
 
 
-```lisp
+```racket
 ;; Run the demo
 (for ([n (in-list '(3 4 5 6 7 8 9 10))])
   (solve-poly-demo n))
