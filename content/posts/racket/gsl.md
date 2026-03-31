@@ -163,3 +163,9 @@ main (void)
 ```
 
 当然，这个循环跟传统的`map`非常类似，一般而言就是`map`是为了得到一个新的列表，而`for-each`是为了执行副作用（比如打印输出），所以在这里用`for-each`更合适一些。
+
+当然，要运行这个程序，还需要把一个`gsl.dll`文件放在当前目录或者任何系统可以找到的路径下，这个DLL文件就是GSL库的动态链接库，里面包含了我们需要调用的函数的实现。这个DLL文件可以从GSL的官方网站上下载，或者自己编译GSL库来生成这个DLL文件。
+
+推荐下载方式：[nuget gsl-msvc-x64](https://www.nuget.org/packages/gsl-msvc-x64)。这个包提供了预编译的GSL库的DLL文件，适用于Windows系统，并且是针对x64架构编译的。下载这个包之后，可以从其中提取出`gsl.dll`文件。
+
+Linux类似的系统就简单了，直接安装GSL库就行了，安装完成之后，系统会把GSL库的动态链接库放在一个标准的位置，Racket的FFI接口就可以找到并加载这个库了。通常情况下，在Linux系统上安装GSL库之后，Racket的FFI接口就可以直接使用这些库，当然`gsl.dll`是Windows特有的，Linux上是`libgsl.so`之类。
