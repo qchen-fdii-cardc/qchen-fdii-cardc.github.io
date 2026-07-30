@@ -2,9 +2,10 @@ classdef SimpleFaceAverageApp < matlab.apps.AppBase
     % SimpleFaceAverageApp
     % Modern MATLAB app using UIFigure and the App Framework.
     % This is a new implementation and does not modify the original GUIDE version.
-
-    properties (Access = private)
+    properties (Access = public)
         UIFigure matlab.ui.Figure = matlab.ui.Figure.empty
+    end
+    properties (Access = private)
         MainGrid matlab.ui.container.GridLayout = matlab.ui.container.GridLayout.empty
         HeaderPanel matlab.ui.container.Panel = matlab.ui.container.Panel.empty
         HeaderLabel matlab.ui.control.Label = matlab.ui.control.Label.empty
@@ -25,14 +26,15 @@ classdef SimpleFaceAverageApp < matlab.apps.AppBase
         FaceTable matlab.ui.control.Table = matlab.ui.control.Table.empty
         AveragedImage uint8 = uint8([])
         LastResultClickTime double = NaN
-        initialFolder char = '';
+        InitialFolder char = '';
+        Detector vision.CascadeObjectDetector = vision.CascadeObjectDetector
     end
 
     methods (Access = public)
         % Public entry point: create and show the app window.
         function app = SimpleFaceAverageApp()
             app.createUI();
-            app.initialFolder = app.getAppFolder();
+            app.InitialFolder = app.getAppFolder();
         end
     end
 
@@ -155,7 +157,7 @@ classdef SimpleFaceAverageApp < matlab.apps.AppBase
 
         function loadImage(app)
             [fileName, folder] = uigetfile({ '*.jpg;*.jpeg;*.png;*.bmp;*.webp', 'Image files'; '*.*', 'All files' }, ...
-                'Select an image file', app.initialFolder);
+                'Select an image file', app.InitialFolder);
             if isequal(fileName, 0)
                 return;
             end
@@ -188,8 +190,7 @@ classdef SimpleFaceAverageApp < matlab.apps.AppBase
             end
 
             % Detect candidate face regions using MATLAB's cascade detector.
-            detector = vision.CascadeObjectDetector;
-            app.FaceBoxes = step(detector, app.ImageData);
+            app.FaceBoxes = step(app.Detector, app.ImageData);
 
             if isempty(app.FaceBoxes)
                 msgbox('No faces were detected in the selected image.', 'No faces', 'warn');
@@ -362,7 +363,7 @@ classdef SimpleFaceAverageApp < matlab.apps.AppBase
 
             [saveFileName, saveFolder] = uiputfile({'*.png', 'PNG Image (*.png)'}, ...
                 'Export average face as PNG', ...
-                fullfile(app.initialFolder, 'average_face.png'));
+                fullfile(app.InitialFolder, 'average_face.png'));
             if isequal(saveFileName, 0)
                 return;
             end
