@@ -1,6 +1,4 @@
-mod ppm;
-
-use ppm::{Image, Pixel};
+use crate::{scatter_plot, Image, Pixel};
 
 fn main() -> std::io::Result<()> {
     // let width = 256;
@@ -50,5 +48,13 @@ fn main() -> std::io::Result<()> {
         }
     });
 
-    image.to_file("output.ppm")
+    image.to_file("output.ppm")?;
+
+    // scatter plot example
+    let points = vec![(0.0, 0.0), (1.0, 1.0), (2.0, 4.0), (3.0, 9.0), (4.0, 16.0)];
+    let xlim = (0.0, 4.0);
+    let ylim = (0.0, 16.0);
+
+    let scatter_image = scatter_plot(&points, xlim, ylim, 256, 256);
+    scatter_image.to_file("scatter_plot.ppm")
 }
