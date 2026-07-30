@@ -22,7 +22,6 @@ fn main() -> std::io::Result<()> {
             let radius = (dx * dx + dy * dy).sqrt();
             let ring_index = (radius / ring_width) as i32;
             let color = if ring_index % 2 == 0 { 255 } else { 0 };
-
             writer.write_all(&[color, color, color])?;
         }
     }
