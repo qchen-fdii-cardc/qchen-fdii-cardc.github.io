@@ -1,171 +1,77 @@
+//! Binary PPM (`P6`) encoding and decoding.
+
 use std::fs::File;
-use std::io::{BufRead, BufWriter, Read, Write};
+use std::io::{self, BufRead, BufReader, BufWriter, Write};
+use std::path::Path;
 
-#[derive(Clone, Copy)]
-pub struct Pixel {
-    pub r: u8,
-    pub g: u8,
-    pub b: u8,
-}
+pub use crate::{Image, Pixel};
 
-pub struct Image {
-    pub width: usize,
-    pub height: usize,
-    pixels: Vec<Pixel>,
-}
-
-impl Image {
-    pub fn new(width: usize, height: usize) -> Self {
-        let pixels = vec![Pixel { r: 0, g: 0, b: 0 }; width * height];
-        Image {
-            width,
-            height,
-            pixels,
-        }
-    }
-
-    pub fn new_black(width: usize, height: usize) -> Self {
-        let pixels = vec![Pixel { r: 0, g: 0, b: 0 }; width * height];
-        Image {
-            width,
-            height,
-            pixels,
-        }
-    }
-
-    pub fn new_white(width: usize, height: usize) -> Self {
-        let pixels = vec![
-            Pixel {
-                r: 255,
-                g: 255,
-                b: 255
-            };
-            width * height
-        ];
-        Image {
-            width,
-            height,
-            pixels,
-        }
-    }
-
-    pub fn from_color(width: usize, height: usize, color: Pixel) -> Self {
-        let pixels = vec![color; width * height];
-        Image {
-            width,
-            height,
-            pixels,
-        }
-    }
-
-    pub fn from_pixels(width: usize, height: usize, pixels: Vec<Pixel>) -> Self {
-        Image {
-            width,
-            height,
-            pixels,
-        }
-    }
-
-    pub fn from_pixel_fn(width: usize, height: usize, f: impl Fn(usize, usize) -> Pixel) -> Self {
-        let mut pixels = Vec::with_capacity(width * height);
-        for y in 0..height {
-            for x in 0..width {
-                pixels.push(f(x, y));
-            }
-        }
-        Image {
-            width,
-            height,
-            pixels,
-        }
-    }
-
-    pub fn from_file(filename: &str) -> std::io::Result<Self> {
-        read_ppm(filename)
-    }
-
-    pub fn from_image(image: &Image) -> Self {
-        Image {
-            width: image.width,
-            height: image.height,
-            pixels: image.pixels.clone(),
-        }
-    }
-
-    pub fn to_file(&self, filename: &str) -> std::io::Result<()> {
-        write_ppm(self, filename)
-    }
-
-    pub fn get_pixel(&self, x: usize, y: usize) -> Option<&Pixel> {
-        if x < self.width && y < self.height {
-            Some(&self.pixels[y * self.width + x])
-        } else {
-            None
-        }
-    }
-
-    pub fn set_pixel(&mut self, x: usize, y: usize, pixel: Pixel) {
-        if x < self.width && y < self.height {
-            self.pixels[y * self.width + x] = pixel;
-        }
-    }
-}
-
-fn write_ppm(image: &Image, filename: &str) -> std::io::Result<()> {
-    let file = File::create(filename)?;
+/// Writes an image as a binary `P6` PPM file.
+pub fn write(image: &Image, path: impl AsRef<Path>) -> io::Result<()> {
+    let file = File::create(path)?;
     let mut writer = BufWriter::new(file);
 
+    write_to(image, &mut writer)
+}
+
+fn write_to(image: &Image, mut writer: impl Write) -> io::Result<()> {
     writeln!(writer, "P6")?;
     writeln!(writer, "{} {}", image.width, image.height)?;
     writeln!(writer, "255")?;
 
-    for pixel in &image.pixels {
+    for pixel in image.pixels() {
         writer.write_all(&[pixel.r, pixel.g, pixel.b])?;
     }
 
     Ok(())
 }
 
-fn read_ppm(filename: &str) -> std::io::Result<Image> {
-    let file = File::open(filename)?;
-    let mut reader = std::io::BufReader::new(file);
+/// Reads a binary `P6` PPM file with a maximum channel value of `255`.
+pub fn read(path: impl AsRef<Path>) -> io::Result<Image> {
+    let file = File::open(path)?;
+    let mut reader = BufReader::new(file);
+
+    read_from(&mut reader)
+}
+
+fn read_from(mut reader: impl BufRead) -> io::Result<Image> {
     let mut header = String::new();
 
     reader.read_line(&mut header)?;
     if header.trim() != "P6" {
-        return Err(std::io::Error::new(
-            std::io::ErrorKind::InvalidData,
-            "Not a PPM file",
-        ));
+        return Err(io::Error::new(io::ErrorKind::InvalidData, "Not a PPM file"));
     }
 
     let mut dimensions = String::new();
     reader.read_line(&mut dimensions)?;
-    let dims: Vec<&str> = dimensions.trim().split_whitespace().collect();
+    let dims: Vec<&str> = dimensions.split_whitespace().collect();
     if dims.len() != 2 {
-        return Err(std::io::Error::new(
-            std::io::ErrorKind::InvalidData,
+        return Err(io::Error::new(
+            io::ErrorKind::InvalidData,
             "Invalid dimensions",
         ));
     }
     let width: usize = dims[0]
         .parse()
-        .map_err(|_| std::io::Error::new(std::io::ErrorKind::InvalidData, "Invalid width"))?;
+        .map_err(|_| io::Error::new(io::ErrorKind::InvalidData, "Invalid width"))?;
     let height: usize = dims[1]
         .parse()
-        .map_err(|_| std::io::Error::new(std::io::ErrorKind::InvalidData, "Invalid height"))?;
+        .map_err(|_| io::Error::new(io::ErrorKind::InvalidData, "Invalid height"))?;
 
     let mut max_color_value = String::new();
     reader.read_line(&mut max_color_value)?;
     if max_color_value.trim() != "255" {
-        return Err(std::io::Error::new(
-            std::io::ErrorKind::InvalidData,
+        return Err(io::Error::new(
+            io::ErrorKind::InvalidData,
             "Unsupported max color value",
         ));
     }
 
-    let mut pixels = Vec::with_capacity(width * height);
-    for _ in 0..(width * height) {
+    let pixel_count = width
+        .checked_mul(height)
+        .ok_or_else(|| io::Error::new(io::ErrorKind::InvalidData, "Image dimensions overflow"))?;
+    let mut pixels = Vec::with_capacity(pixel_count);
+    for _ in 0..pixel_count {
         let mut rgb = [0u8; 3];
         reader.read_exact(&mut rgb)?;
         pixels.push(Pixel {
@@ -175,9 +81,38 @@ fn read_ppm(filename: &str) -> std::io::Result<Image> {
         });
     }
 
-    Ok(Image {
-        width,
-        height,
-        pixels,
-    })
+    Ok(Image::from_pixels(width, height, pixels))
+}
+
+#[cfg(test)]
+mod tests {
+    use std::io::{BufReader, Cursor};
+
+    use super::*;
+
+    #[test]
+    fn image_round_trips_through_binary_ppm() {
+        let image = Image::from_pixels(2, 1, vec![Pixel::rgb(1, 2, 3), Pixel::rgb(250, 251, 252)]);
+        let mut encoded = Vec::new();
+        write_to(&image, &mut encoded).unwrap();
+
+        let decoded = read_from(BufReader::new(Cursor::new(encoded))).unwrap();
+        assert_eq!(decoded, image);
+    }
+
+    #[test]
+    fn oversized_dimensions_return_invalid_data() {
+        let input = format!("P6\n{} 2\n255\n", usize::MAX);
+        let error = read_from(BufReader::new(Cursor::new(input))).unwrap_err();
+
+        assert_eq!(error.kind(), io::ErrorKind::InvalidData);
+    }
+
+    #[test]
+    fn truncated_pixel_data_returns_unexpected_eof() {
+        let input = b"P6\n1 1\n255\n\x01\x02";
+        let error = read_from(BufReader::new(Cursor::new(input))).unwrap_err();
+
+        assert_eq!(error.kind(), io::ErrorKind::UnexpectedEof);
+    }
 }

@@ -1,60 +1,53 @@
-use crate::{scatter_plot, Image, Pixel};
+use std::io;
 
-fn main() -> std::io::Result<()> {
-    // let width = 256;
-    // let height = 256;
-    // let center_x = width as f64 / 2.0;
-    // let center_y = height as f64 / 2.0;
-    // let ring_width = 8.0;
+use rust_ppm::plot::{Axes, Canvas};
+use rust_ppm::{Image, Pixel};
 
-    // let file = File::create("output.ppm")?;
-    // let mut writer = BufWriter::new(file);
+const IMAGE_SIZE: usize = 512;
+const PLOT_INSET_X: usize = 60;
+const PLOT_INSET_Y: usize = 36;
 
-    // writeln!(writer, "P6")?;
-    // writeln!(writer, "{} {}", width, height)?;
-    // writeln!(writer, "255")?;
+fn main() -> io::Result<()> {
+    rings_image().save("output.ppm")?;
 
-    // for y in 0..height {
-    //     for x in 0..width {
-    //         let dx = x as f64 - center_x;
-    //         let dy = y as f64 - center_y;
-    //         let radius = (dx * dx + dy * dy).sqrt();
-    //         let ring_index = (radius / ring_width) as i32;
-    //         let color = if ring_index % 2 == 0 { 255 } else { 0 };
-    //         writer.write_all(&[color, color, color])?;
-    //     }
-    // }
+    let points = [
+        (-1.0, -1.0),
+        (0.0, 0.0),
+        (2.0, 4.0),
+        (3.0, 9.0),
+        (4.0, 16.0),
+    ];
+    let axes = Axes::from_limits((-2.0, 4.0), (-2.0, 16.0))
+        .with_labels("x", "x squared")
+        .with_title("Quadratic samples");
 
-    // println!("Generated output.ppm");
+    let mut scatter = plot_canvas(axes.clone());
+    scatter.render();
+    scatter.scatter(&points, 4);
+    scatter.into_image().save("scatter_plot.ppm")?;
 
-    let width = 256;
-    let height = 256;
+    let mut line = plot_canvas(axes);
+    line.render();
+    line.plot(&points, 4);
+    line.into_image().save("line_plot.ppm")
+}
 
-    let image = Image::from_pixel_fn(width, height, |x, y| {
-        let center_x = width as f64 / 2.0;
-        let center_y = height as f64 / 2.0;
-        let ring_width = 8.0;
+fn rings_image() -> Image {
+    let center = IMAGE_SIZE as f64 / 2.0;
 
-        let dx = x as f64 - center_x;
-        let dy = y as f64 - center_y;
+    Image::from_pixel_fn(IMAGE_SIZE, IMAGE_SIZE, |x, y| {
+        let dx = x as f64 - center;
+        let dy = y as f64 - center;
         let radius = (dx * dx + dy * dy).sqrt();
-        let ring_index = (radius / ring_width) as i32;
-        let color_value = if ring_index % 2 == 0 { 255 } else { 0 };
+        let value = if ((radius / 8.0) as u32).is_multiple_of(2) {
+            255
+        } else {
+            0
+        };
+        Pixel::rgb(value, value, value)
+    })
+}
 
-        Pixel {
-            r: color_value,
-            g: color_value,
-            b: color_value,
-        }
-    });
-
-    image.to_file("output.ppm")?;
-
-    // scatter plot example
-    let points = vec![(0.0, 0.0), (1.0, 1.0), (2.0, 4.0), (3.0, 9.0), (4.0, 16.0)];
-    let xlim = (0.0, 4.0);
-    let ylim = (0.0, 16.0);
-
-    let scatter_image = scatter_plot(&points, xlim, ylim, 256, 256);
-    scatter_image.to_file("scatter_plot.ppm")
+fn plot_canvas(axes: Axes) -> Canvas {
+    Canvas::with_inset(IMAGE_SIZE, IMAGE_SIZE, axes, PLOT_INSET_X, PLOT_INSET_Y)
 }
