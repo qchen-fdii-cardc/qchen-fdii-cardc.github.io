@@ -1,5 +1,5 @@
 +++
-title = '世界四强平均脸的Matlab实现'
+title = '世界杯四强平均脸的Matlab实现'
 date = 2026-07-30T09:41:31+08:00
 draft = false
 mathkatex = true
